@@ -12,7 +12,7 @@
 				:key="tab.type">
 			</van-tab>
 		</van-tabs>
-		<div class="conment" v-for="(i,index) in 6" v-bind="index" :key="index">
+		<div class="conment" v-for="(i,index) in 6" v-bind="index" :key="i">
 			<div class="left">
 				<img src="../../img/icon-5.png" class="img_top">
 				<p class="yh_name">徐不疾</p>
