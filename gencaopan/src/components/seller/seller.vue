@@ -19,7 +19,7 @@
 			</van-cell-group>
 		</div>
 		<div class="btuton">
-			<van-button size="large" class="btu" :click="scanCode">加盟代理</van-button>
+			<van-button size="large" class="btu" @click="scanCode">加盟代理</van-button>
 		</div>	
 		<div style="height:50px;"></div>
 	</div>
