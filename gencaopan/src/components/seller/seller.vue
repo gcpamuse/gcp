@@ -6,16 +6,36 @@
 		</div>
 		<div class="user_module">
 			<van-cell-group>	
-				<van-cell icon="user_quxian" title="我的曲线" ><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_fensi" title="我的粉丝" :to="{ name: 'myFans'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_shouyi" title="我的收益" :to="{ name: 'myprofit'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_biji" title="我的笔记" :to="{ name: 'mynotes'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>
-				<van-cell icon="user_shuoming" title="使用说明" :to="{ name: 'applyShow'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_guanzhu" title="我的关注" :to="{ name: 'myconcem'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_yaoqing" title="邀请有奖" :to="{ name: 'prizes'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>
-				<van-cell icon="user_dingyue" title="我的订阅" :to="{ name: 'teacherSubscribe'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_shezhi" title="推送设置" :to="{ name: 'pushSetting'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>	
-				<van-cell icon="user_swhezuo" title="商务合作" :to="{ name: 'cooperation'}"><van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;"/></van-cell>
+				<van-cell icon="user_quxian" title="我的曲线" >
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_fensi" title="我的粉丝" :to="{ name: 'myFans'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_shouyi" title="我的收益" :to="{ name: 'myprofit'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_biji" title="我的笔记" :to="{ name: 'mynotes'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>
+				<van-cell icon="user_shuoming" title="使用说明" :to="{ name: 'applyShow'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_guanzhu" title="我的关注" :to="{ name: 'myconcem'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_yaoqing" title="邀请有奖" :to="{ name: 'prizes'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>
+				<van-cell icon="user_dingyue" title="我的订阅" :to="{ name: 'teacherSubscribe'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_shezhi" title="推送设置" :to="{ name: 'pushSetting'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>	
+				<van-cell icon="user_swhezuo" title="商务合作" :to="{ name: 'cooperation'}">
+					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+				</van-cell>
 			</van-cell-group>
 		</div>
 		<div class="btuton">
