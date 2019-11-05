@@ -253,6 +253,7 @@ export default {
     .read-content{
         padding: 10px;
         border-bottom: 1px solid rgb(223, 220, 220,0.2);
+        background-color: #fff;
         .read-title-text{
             font-size: 12px;
             padding-left: 5px;
@@ -263,6 +264,10 @@ export default {
         display: flex;
         padding: 10px 0;
         border-bottom: 1px solid rgb(223, 220, 220,0.2);
+        background-color: #fff;
+        &:last-child{
+            border-bottom: none;
+        }
         .imgs{
             width: 15%;
             text-align: center;
@@ -273,7 +278,7 @@ export default {
             }
         }
         .xushu{
-            width: 32%;
+            width: 49%;
             font-size: 12px;
             .kouyu{
                 margin-top: 10px;
@@ -281,9 +286,29 @@ export default {
             }
         }
         .num-time{
+            width: 35%;
             padding: 0 10px;
             font-size: 10px;
-            text-align: left;
+            text-align: right;
+            .num{
+                color: rgb(160, 4, 4);
+            }
+            .time{
+                color: #ccc;
+                line-height: 22px;
+            }
+        }
+    }
+    .note-qrcode{
+        margin-top: 6px;
+        background-color: #fff;
+        text-align: center;
+        .qrcode-text{
+            padding: 10px 0;
+            color: #ccc;
+        }
+        .qrcode-img{
+            width: 130px;
         }
     }
 </style>
