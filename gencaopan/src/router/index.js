@@ -60,10 +60,6 @@ export default new Router({
       name: 'mediainfo',
       component: mediainfo
     },
-    {
-      path: '/applyShows',
-      name: 'applyShows',
-      component: applyShows
-    }
+    
   ]
 })
