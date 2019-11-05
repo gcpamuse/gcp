@@ -14,8 +14,8 @@
 				<van-cell icon="user-ye" title="我的关注" :to="{ name: 'myconcem'}" isLink />	
 				<van-cell icon="user-jifen" title="邀请有奖" :to="{ name: 'prizes'}" isLink />
 				<van-cell icon="user-dingdan" title="我的订阅" :to="{ name: 'teacherSubscribe'}" isLink />	
-				<van-cell icon="user-ye" title="推送设置" isLink />	
-				<van-cell icon="user-jifen" title="商务合作" isLink />
+				<van-cell icon="user-ye" title="推送设置" :to="{ name: 'pushSetting'}" isLink />	
+				<van-cell icon="user-jifen" title="商务合作" :to="{ name: 'cooperation'}" isLink />
 			</van-cell-group>
 		</div>
 		<div class="btuton">

@@ -12,6 +12,8 @@ import applyShow from '@/components/applyShow'
 import mediainfo from '@/components/mediainfo'
 import prizes from '@/components/prizes'
 import teacherSubscribe from '@/components/teacherSubscribe'
+import pushSetting from '@/components/pushSetting'
+import cooperation from '@/components/cooperation'
 Vue.use(Router)
 
 export default new Router({
@@ -75,6 +77,16 @@ export default new Router({
       path: '/teacherSubscribe',
       name: 'teacherSubscribe',
       component: teacherSubscribe
+    },
+    {
+      path: '/pushSetting',
+      name: 'pushSetting',
+      component: pushSetting
+    },
+    {
+      path: '/cooperation',
+      name: 'cooperation',
+      component: cooperation
     },
     
   ]
