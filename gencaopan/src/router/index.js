@@ -11,6 +11,7 @@ import mynotes from '@/components/mynotes'
 import applyShow from '@/components/applyShow'
 import mediainfo from '@/components/mediainfo'
 import prizes from '@/components/prizes'
+import teacherSubscribe from '@/components/teacherSubscribe'
 Vue.use(Router)
 
 export default new Router({
@@ -69,6 +70,11 @@ export default new Router({
       path: '/prizes',
       name: 'prizes',
       component: prizes
+    },
+    {
+      path: '/teacherSubscribe',
+      name: 'teacherSubscribe',
+      component: teacherSubscribe
     },
     
   ]
