@@ -6,6 +6,7 @@ import ratings from '@/components/ratings/ratings'
 import seller from '@/components/seller/seller'
 import myprofit from '@/components/myprofit'
 import myconcem from '@/components/myconcem'
+import myFans from '@/components/myFans'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/myconcem',
       name: 'myconcem',
       component: myconcem
+    },
+    {
+      path: '/myFans',
+      name: 'myFans',
+      component: myFans
     }
   ]
 })
