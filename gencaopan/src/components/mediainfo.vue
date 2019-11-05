@@ -1,6 +1,6 @@
 <template>
   <div class="page-group">
-        <div id="page-media-info" class="page"> 
+        <div class="page"> 
             <div class="content"> 
                 <div class="per-info"> 
                     <img src="../img/132.jpg" alt="跟操盘" onClick="showPerson();" class="note-avatar"> 
