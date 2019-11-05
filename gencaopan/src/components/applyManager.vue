@@ -1,6 +1,6 @@
 <template>
  <div class="m-invest-form"> 
-    <div class="m-invest-panel"> 
+    <!-- <div class="m-invest-panel"> 
         <div class="u-invest-title">当前机构</div> 
         <div class="u-invest-input"> 
             <input type="text" id="manager_company" placeholder="请输入当前机构名称"> 
@@ -43,16 +43,50 @@
         <p class="u-invest-tipBox-p u-invest-p-red">
             <a href="javascript:;" onClick="showDetail('tel:0571-85384000')">0571-85384000</a>
         </p> 
-    </div> 
+    </div>  -->
+    <van-cell-group>
+        <van-field
+        
+            center
+            clearable
+            label="当前机构"
+            placeholder="请输入当前机构名称"
+          
+            use-button-slot
+        >
+        </van-field>
+        <van-field
+        
+            center
+            clearable
+            label="当前机构"
+            placeholder="请输入当前机构名称"
+        
+            use-button-slot
+        >
+        </van-field>
+        <van-field
+          
+            center
+            clearable
+            label="当前机构"
+            placeholder="请输入当前机构名称"
+           
+            use-button-slot
+        >
+        </van-field>
+    </van-cell-group>
 
 </div>
 	
 </template>
 
 <script>
-
+import { Field, CellGroup, Cell, Button, Toast } from 'vant';
 export default {
-    
+    data(){
+        
+    }
 }
 </script>
 
