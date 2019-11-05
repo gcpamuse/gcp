@@ -7,8 +7,8 @@
 		<div class="user_module">
 			<van-cell-group>	
 				<van-cell icon="user-ye" title="我的曲线" isLink />	
-				<van-cell icon="user-ye" title="我的粉丝" isLink />	
-				<van-cell icon="user-ye" title="我的收益" :to="{ name: 'myprofit'}"  isLink />	
+				<van-cell icon="user-ye" title="我的粉丝" :to="{ name: 'myFans'}" isLink />	
+				<van-cell icon="user-ye" title="我的收益" :to="{ name: 'myprofit'}" isLink />	
 				<van-cell icon="user-jifen" title="我的笔记" isLink />
 				<van-cell icon="user-dingdan" title="使用说明" isLink />	
 				<van-cell icon="user-ye" title="我的关注" :to="{ name: 'myconcem'}" isLink />	
