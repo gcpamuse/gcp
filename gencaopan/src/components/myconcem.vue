@@ -10,11 +10,18 @@
             <div class="m-concern">取消关注</div> 
         </div>
     </div>
+    <div style="height:50px;"></div>
   </div>
 </template>
 
 <script>
 export default {
+    beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#f2f2f2')
+    },
+    beforeDestroy () {
+        document.querySelector('body').removeAttribute('style')
+    },
     data(){
         return{
 
@@ -28,6 +35,7 @@ export default {
         display: flex;
         padding: 12px 0;
         border-bottom: 1px solid rgb(231, 227, 227);
+        background-color: #fff;
         .imgs{
             width: 15%;
             text-align: center;
