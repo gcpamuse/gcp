@@ -78,6 +78,10 @@ import '../../../dist/static/css/swiper.min.css';
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
 				loop: true,
 				// 自动播放时间
 				autoplay:true,
@@ -92,89 +96,85 @@ import '../../../dist/static/css/swiper.min.css';
 </script>
 
 <style lang="less" scoped="scoped">
-.swiper-container{
-	width: 100%;
-	height: 200px;
-}
-.swiper-slide{
-	width: 100%;
-	height: 200px;
-}
-.swiper-slide img{
-	width: 100%;
-	height: 100%;
-}
-.swiper-pos {
-	position: relative;
-	display: block
-}
-.swiper-ps {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	padding-left: 5px;
-	padding-left:.25rem;
-	height: 30px;
-	height: 1.5rem;
-	line-height: 30px;
-	line-height: 1.5rem;
-	width: 100%;
-	color: #fff;
-	font-size: 13px;
-	font-size:.65rem;
-	overflow: hidden;
-	white-space: nowrap;
-	background: rgba(0,0,0,.6)
-}
-.swiper-pag {
-	text-align: right;
-	padding-right: 10px;
-	padding-right:.5rem;
-	bottom: 5px;
-	bottom:.25rem
-}
-.zimeiti{
-	padding: 15px;
-	text-align: center;
-	font-size: 14px;
-	border-bottom: 1px solid rgba(204, 178, 178, 0.2);
-}
-.index-tab{
-	padding:0 8px;
-	margin-bottom: 50px;
-	.tabs{
-		padding: 10px 0;
+	.swiper-container{
+		width: 100%;
+		height: 200px;
+	}
+	.swiper-slide{
+		width: 100%;
+		height: 200px;
+	}
+	.swiper-slide img{
+		width: 100%;
+		height: 100%;
+	}
+	.swiper-pos {
+		position: relative;
+		display: block
+	}
+	.swiper-ps {
+		position: absolute;
+		left: 0;
+		bottom:10px;
+		padding-left: 5px;
+		height: 30px;
+		line-height: 30px;
+		width: 100%;
+		color: #fff;
+		font-size: 13px;
+		overflow: hidden;
+		white-space: nowrap;
+		background: rgba(0,0,0,.6)
+	}
+	.swiper-pag {
+		text-align: right;
+		padding-right: 10px;
+		padding-right:.5rem;
+		bottom: 5px;
+		bottom:.25rem
+	}
+	.zimeiti{
+		padding: 15px;
+		text-align: center;
+		font-size: 14px;
 		border-bottom: 1px solid rgba(204, 178, 178, 0.2);
-		&:last-child{
-			border: 0;
-		}
-		.media-panel{
-			display: flex;
-			.panel-left{
-				font-size: 14px;
-				width: 80%;
-				padding: 10px 0;
-				.left-title{
-					margin-bottom: 10px;
-				}
-				.left-content{
-					font-size: 10px;
-					color: #ccc;
-					position: relative;
-
-					.left-time{
-						display: inline-block;
-						position: absolute;
-						right: 10px;
+	}
+	.index-tab{
+		padding:0 8px;
+		margin-bottom: 50px;
+		.tabs{
+			padding: 10px 0;
+			border-bottom: 1px solid rgba(204, 178, 178, 0.2);
+			&:last-child{
+				border: 0;
+			}
+			.media-panel{
+				display: flex;
+				.panel-left{
+					font-size: 14px;
+					width: 80%;
+					padding: 10px 0;
+					.left-title{
+						margin-bottom: 10px;
+					}
+					.left-content{
+						font-size: 10px;
+						color: #ccc;
+						position: relative;
+	
+						.left-time{
+							display: inline-block;
+							position: absolute;
+							right: 10px;
+						}
 					}
 				}
-			}
-			.panel-img{
-				width:80px;
-				height: 70px; 
-				border: 1px solid red;
+				.panel-img{
+					width:80px;
+					height: 70px; 
+					border: 1px solid red;
+				}
 			}
 		}
 	}
-}
 </style>
