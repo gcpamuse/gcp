@@ -84,6 +84,15 @@ export default {
 	padding: 8.5px 13px 0 13px;
     line-height: 1.8
 }
+#dpage-invite .content .icon-content .qr-block {
+	padding: 15px 0;
+}
+#dpage-invite .content .icon-content .qr-block img {
+	display: block;
+	margin: 0 auto;
+	width: 163px;
+	height: 163px;
+}
 #dpage-invite .cash-content .cash-box {
 	margin: 30px 0 10px 0;
 }
@@ -101,6 +110,43 @@ export default {
 #dpage-invite .cash-content .cash-end {
 	width: 20px;
 }
+#dpage-invite .content .invite-code {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	background: #f3ce97;
+	width: 265px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 13px;
+	color: #b18b52
+}
+#dpage-invite .content .invite-ps {
+	font-size: 10px;
+	color: #9d9d9d;
+	text-align: center;
+	margin: 13px 9px;
+}
+#dpage-invite .content .invite-spread {
+	color: #fff;
+	text-align: center;
+	font-size: 13px;
+	margin: 0 auto;
+	width: 90px;
+	background-color: #f05724;
+	height: 44px;
+	line-height: 44px;
+	border-radius: 9px;
+}
+#dpage-invite .content .invite-mine {
+	margin: 13px 0;
+    background: #140a09;
+    padding: 0 35px;
+    font-size: 15px;
+    overflow: hidden;
+    height: 65px;
+    line-height: 65px;
+}
 #dpage-invite .content .invite-mine .item-inner {
 	padding: 0
 }
@@ -111,14 +157,16 @@ export default {
 	display: none
 }
 #dpage-invite .content .invite-mine .item-inner .mine-left {
-	color: #f3ce97
+    color: #f3ce97;
+    float: left;
 }
 #dpage-invite .content .invite-mine .item-inner .mine-left .mine-money {
 	color: #f24e24
 }
 #dpage-invite .content .invite-mine .item-inner .mine-right {
 	text-decoration: underline;
-	color: #0782ff
+    color: #0782ff;
+    float: right;
 }
 #dpage-invite .content .invite-lists {
 	background: #140a09
