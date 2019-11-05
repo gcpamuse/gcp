@@ -1,11 +1,36 @@
 <template>
 	<div class="ratings" ref="ratings">
 		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="../../img/gencaopan2.png"/></div>
-				<div class="swiper-slide"><img src="../../img/gencaopan2.png"></div>
+			<div class="swiper-pagination swiper-pag">
+
+			</div> 
+			<div class="swiper-wrapper">   
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/9007502.jpg"  > 
+						<div class="swiper-ps">证券类投顾牛散将陆续入驻</div>
+					</a> 
+				</div>
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/900500.jpg"  > 
+						<div class="swiper-ps">【ONE-77】10个月累计收益2009%！交易五年，盈利五</div>
+					</a> 
+				</div>
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/banner00006.jpg"  > 
+						<div class="swiper-ps">为什么跟单不能挣钱！</div>
+					</a> 
+				</div> 
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/900500.jpg"  > 
+						<div class="swiper-ps">从3万到3600万，逻辑+价值投资的实践者</div>
+					</a> 
+				</div>  
 			</div>
-		</div>
+		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
 		<div class="index-tab"> 
@@ -67,60 +92,89 @@ import '../../../dist/static/css/swiper.min.css';
 </script>
 
 <style lang="less" scoped="scoped">
-	.swiper-container{
-		width: 100%;
-		height: 200px;
-	}
-	.swiper-slide{
-		width: 100%;
-		height: 200px;
-	}
-	.swiper-slide img{
-		width: 100%;
-		height: 100%;
-	}
-	.zimeiti{
-		padding: 15px;
-		text-align: center;
-		font-size: 14px;
+.swiper-container{
+	width: 100%;
+	height: 200px;
+}
+.swiper-slide{
+	width: 100%;
+	height: 200px;
+}
+.swiper-slide img{
+	width: 100%;
+	height: 100%;
+}
+.swiper-pos {
+	position: relative;
+	display: block
+}
+.swiper-ps {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding-left: 5px;
+	padding-left:.25rem;
+	height: 30px;
+	height: 1.5rem;
+	line-height: 30px;
+	line-height: 1.5rem;
+	width: 100%;
+	color: #fff;
+	font-size: 13px;
+	font-size:.65rem;
+	overflow: hidden;
+	white-space: nowrap;
+	background: rgba(0,0,0,.6)
+}
+.swiper-pag {
+	text-align: right;
+	padding-right: 10px;
+	padding-right:.5rem;
+	bottom: 5px;
+	bottom:.25rem
+}
+.zimeiti{
+	padding: 15px;
+	text-align: center;
+	font-size: 14px;
+	border-bottom: 1px solid rgba(204, 178, 178, 0.2);
+}
+.index-tab{
+	padding:0 8px;
+	margin-bottom: 50px;
+	.tabs{
+		padding: 10px 0;
 		border-bottom: 1px solid rgba(204, 178, 178, 0.2);
-	}
-	.index-tab{
-		padding:0 8px;
-		margin-bottom: 50px;
-		.tabs{
-			padding: 10px 0;
-			border-bottom: 1px solid rgba(204, 178, 178, 0.2);
-			&:last-child{
-				border: 0;
+		&:last-child{
+			border: 0;
+		}
+		.media-panel{
+			display: flex;
+			.panel-left{
+				font-size: 14px;
+				width: 80%;
+				padding: 10px 0;
+				.left-title{
+					margin-bottom: 10px;
+				}
+				.left-content{
+					font-size: 10px;
+					color: #ccc;
+					position: relative;
+
+					.left-time{
+						display: inline-block;
+						position: absolute;
+						right: 10px;
+					}
+				}
 			}
-			.media-panel{
-				display: flex;
-				.panel-left{
-					font-size: 14px;
-					width: 80%;
-					padding: 10px 0;
-					.left-title{
-						margin-bottom: 10px;
-					}
-					.left-content{
-						font-size: 10px;
-						color: #ccc;
-						position: relative;
-	
-						.left-time{
-							display: inline-block;
-							position: absolute;
-							right: 10px;
-						}
-					}
-				}
-				.panel-img{
-					width:80px;
-					height: 70px; 
-					border: 1px solid red;
-				}
+			.panel-img{
+				width:80px;
+				height: 70px; 
+				border: 1px solid red;
 			}
 		}
 	}
+}
 </style>
