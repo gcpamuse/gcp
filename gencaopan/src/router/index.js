@@ -8,12 +8,8 @@ import myprofit from '@/components/myprofit'
 import myconcem from '@/components/myconcem'
 import myFans from '@/components/myFans'
 import mynotes from '@/components/mynotes'
-<<<<<<< HEAD
 import mediainfo from '@/components/mediainfo'
-
-=======
 import applyShows from '@/components/applyShows'
->>>>>>> 2c2f736c9f9f8d9de5fe258735b373fb4dd108a0
 Vue.use(Router)
 
 export default new Router({
@@ -59,15 +55,14 @@ export default new Router({
       component: mynotes
     },
     {
-<<<<<<< HEAD
       path: '/mediainfo',
       name: 'mediainfo',
       component: mediainfo
-=======
+    },
+    {
       path: '/applyShows',
       name: 'applyShows',
       component: applyShows
->>>>>>> 2c2f736c9f9f8d9de5fe258735b373fb4dd108a0
     }
   ]
 })
