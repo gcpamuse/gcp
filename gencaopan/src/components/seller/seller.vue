@@ -26,33 +26,22 @@
 </template>
 
 <script>
-	
-	export default{
-		name:'seller',
-		data(){
-			return{
-				
-			}
-		},
-		props:{
-			
-		},
-		created(){
-			
-		},
-		components:{
-			
-		},
-		mounted(){
-			
-		},
-		methods:{
-			scanCode(){
-				// this.$router.push('/member-wallet')
-				alert(222)
-			}
-		},
-	}
+export default {
+  data: function () {
+    return {
+      
+      
+    }
+  },
+  methods:{
+    scanCode:function(){
+     alert(222)
+        
+    },
+    
+    
+  }
+}
 </script>
 
 <style lang="less" scoped="scoped">

@@ -24,11 +24,6 @@ export default new Router({
       component: goods
     },
     {
-      path: '/goods',
-      name: 'goods',
-      component: goods
-    },
-     {
       path: '/ratings',
       name: 'ratings',
       component: ratings
