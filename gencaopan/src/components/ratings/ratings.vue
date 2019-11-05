@@ -34,7 +34,7 @@
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
 		<div class="index-tab"> 
-			<div class="tabs" v-for="(image, index) in 6" v-bind="index" :key="image" :to="{ name: 'myFans'}">
+			<div class="tabs" v-for="(image, index) in 6" v-bind="index" :key="image" :to="{ name: 'mediainfo'}">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
