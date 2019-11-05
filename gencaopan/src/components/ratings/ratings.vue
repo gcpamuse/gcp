@@ -70,7 +70,7 @@ import '../../../dist/static/css/swiper.min.css';
 		},
 		methods:{
 			toDetails(){
-				this.$router.push({name: 'Describe'})
+				this.$router.push({name: 'mediainfo'})
 			}
 		},
 		created(){
