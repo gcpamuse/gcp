@@ -8,7 +8,7 @@ import myprofit from '@/components/myprofit'
 import myconcem from '@/components/myconcem'
 import myFans from '@/components/myFans'
 import mynotes from '@/components/mynotes'
-
+import applyShows from '@/components/applyShows'
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +52,11 @@ export default new Router({
       path: '/mynotes',
       name: 'mynotes',
       component: mynotes
+    },
+    {
+      path: '/applyShows',
+      name: 'applyShows',
+      component: applyShows
     }
   ]
 })
