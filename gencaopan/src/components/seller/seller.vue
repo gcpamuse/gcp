@@ -19,37 +19,29 @@
 			</van-cell-group>
 		</div>
 		<div class="btuton">
-			<van-button size="large" class="btu">加盟代理</van-button>
+			<van-button size="large" class="btu" bind:click="scanCode">加盟代理</van-button>
 		</div>	
 		<div style="height:50px;"></div>
 	</div>
 </template>
 
 <script>
-	
-	export default{
-		name:'seller',
-		data(){
-			return{
-				
-			}
-		},
-		props:{
-			
-		},
-		created(){
-			
-		},
-		components:{
-			
-		},
-		mounted(){
-			
-		},
-		methods:{
-			
-		},
-	}
+export default {
+  data: function () {
+    return {
+      
+      
+    }
+  },
+  methods:{
+    scanCode:function(){
+     alert(222)
+        
+    },
+    
+    
+  }
+}
 </script>
 
 <style lang="less" scoped="scoped">
