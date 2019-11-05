@@ -23,8 +23,9 @@ export default {
    data(){
         return{
             bgImg:{
-                backgroundImage:"url("+Require('../img/bg_mine.png')+")",
+                backgroundImage:"url("+require('../img/bg_mine.png')+")",
                 backgroundRepeat: "no-repeat",
+                backgroundSize:'100% 100%'
             }
         }
     }, 
@@ -34,8 +35,9 @@ export default {
 <style lang="less" scoped="scoped">
     .heard{
         text-align: center;
+        color: #fff;
         .top{
-            margin-top: 20px;
+            padding-top: 20px;
         }
         .middle{
             margin-top: 10px;
