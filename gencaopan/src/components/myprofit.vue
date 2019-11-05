@@ -9,7 +9,7 @@
               <div class="ka">时间</div>
           </div>
       </div>
-      <div class="count" v-for="(i,index) in 6" v-bind="index">
+      <div class="count" v-for="(i,index) in 6" v-bind="index" :key="i">
             <div class="shang">打赏</div>
             <div class="shang">¥30.66</div>
             <div class="shang">2019-11-1</div>
