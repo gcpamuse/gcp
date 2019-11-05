@@ -10,8 +10,8 @@
 				<van-cell icon="user-ye" title="我的粉丝" :to="{ name: 'myFans'}" isLink />	
 				<van-cell icon="user-ye" title="我的收益" :to="{ name: 'myprofit'}" isLink />	
 				<van-cell icon="user-jifen" title="我的笔记" :to="{ name: 'mynotes'}" isLink />
-				<van-cell icon="user-dingdan" title="使用说明" :to="{ name: 'mynotes'}" isLink />	
-				<van-cell icon="user-ye" title="我的关注" :to="{ name: 'applyShow'}" isLink />	
+				<van-cell icon="user-dingdan" title="使用说明" :to="{ name: 'applyShow'}" isLink />	
+				<van-cell icon="user-ye" title="我的关注" :to="{ name: 'myconcem'}" isLink />	
 				<van-cell icon="user-jifen" title="邀请有奖" isLink />
 				<van-cell icon="user-dingdan" title="我的订阅" isLink />	
 				<van-cell icon="user-ye" title="推送设置" isLink />	
