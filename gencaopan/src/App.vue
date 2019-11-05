@@ -15,7 +15,7 @@
 	<van-tabbar route>
 		<van-tabbar-item
 			replace
-			to="/goods"
+			to="/"
 			icon="home-o"
 		>
 			期货
