@@ -9,6 +9,8 @@ import myconcem from '@/components/myconcem'
 import myFans from '@/components/myFans'
 import mynotes from '@/components/mynotes'
 
+import mediainfo from '@/components/mediainfo'
+
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +54,11 @@ export default new Router({
       path: '/mynotes',
       name: 'mynotes',
       component: mynotes
+    },
+    {
+      path: '/mediainfo',
+      name: 'mediainfo',
+      component: mediainfo
     },
     {
       path: '/applyShows',
