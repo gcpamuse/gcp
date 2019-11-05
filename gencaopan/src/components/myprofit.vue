@@ -71,7 +71,7 @@ export default {
         padding: 10px 0;
         text-align: center;
         font-size: 14px;
-        border-bottom: 1px solid rgba(105, 105, 105,0.2);
+        border-bottom: 1px solid rgba(167, 165, 165, 0.2);
         background-color: #fff;
         &:last-child{
             border-bottom: 0;
