@@ -20,7 +20,13 @@
 
 <script>
 export default {
-   data(){
+    beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#f2f2f2')
+    },
+    beforeDestroy () {
+        document.querySelector('body').removeAttribute('style')
+    },
+    data(){
         return{
             bgImg:{
                 backgroundImage:"url("+require('../img/bg_mine.png')+")",
@@ -66,6 +72,7 @@ export default {
         text-align: center;
         font-size: 14px;
         border-bottom: 1px solid rgba(105, 105, 105,0.2);
+        background-color: #fff;
         &:last-child{
             border-bottom: 0;
         }
