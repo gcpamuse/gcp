@@ -6,6 +6,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 import './common/css/style.css'
 import './common/css/reset.css'
+import './style.css'
 
 Vue.use(VueResource)
 Vue.config.productionTip = false
