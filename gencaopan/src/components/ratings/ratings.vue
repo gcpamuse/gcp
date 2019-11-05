@@ -1,11 +1,36 @@
 <template>
 	<div class="ratings" ref="ratings">
 		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="../../img/gencaopan2.png"/></div>
-				<div class="swiper-slide"><img src="../../img/gencaopan2.png"></div>
+			<div class="swiper-pagination swiper-pag">
+
+			</div> 
+			<div class="swiper-wrapper">   
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/9007502.jpg"  > 
+						<div class="swiper-ps">证券类投顾牛散将陆续入驻</div>
+					</a> 
+				</div>
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/900500.jpg"  > 
+						<div class="swiper-ps">【ONE-77】10个月累计收益2009%！交易五年，盈利五</div>
+					</a> 
+				</div>
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/banner00006.jpg"  > 
+						<div class="swiper-ps">为什么跟单不能挣钱！</div>
+					</a> 
+				</div> 
+				<div class="swiper-slide"> 
+					<a href="javascript:;" class="swiper-pos" onClick=""> 
+						<img src="../../img/900500.jpg"  > 
+						<div class="swiper-ps">从3万到3600万，逻辑+价值投资的实践者</div>
+					</a> 
+				</div>  
 			</div>
-		</div>
+		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
 		<div class="index-tab"> 
@@ -55,6 +80,10 @@ import '../../../dist/static/css/swiper.min.css';
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				},
 				loop: true,
 				// 自动播放时间
 				autoplay:true,
@@ -80,6 +109,31 @@ import '../../../dist/static/css/swiper.min.css';
 	.swiper-slide img{
 		width: 100%;
 		height: 100%;
+	}
+	.swiper-pos {
+		position: relative;
+		display: block
+	}
+	.swiper-ps {
+		position: absolute;
+		left: 0;
+		bottom:10px;
+		padding-left: 5px;
+		height: 30px;
+		line-height: 30px;
+		width: 100%;
+		color: #fff;
+		font-size: 13px;
+		overflow: hidden;
+		white-space: nowrap;
+		background: rgba(0,0,0,.6)
+	}
+	.swiper-pag {
+		text-align: right;
+		padding-right: 10px;
+		padding-right:.5rem;
+		bottom: 5px;
+		bottom:.25rem
 	}
 	.zimeiti{
 		padding: 15px;
