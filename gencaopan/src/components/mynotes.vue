@@ -55,16 +55,16 @@ export default {
             font-size: 14px;
         }
         .top{
-            margin-top: 10px;
+            margin-top: 12px;
             font-size: 12px;
         }
         .middle{
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 12px;
             .guanzhu{
                 border: 1px solid rgb(240, 16, 16);
                 width: 60px;
-                padding: 5px 10px;
+                padding: 6px 12px;
                 margin: 0 auto;
                 border-radius: 15px;
                 background-color: rgb(240, 16, 16);
