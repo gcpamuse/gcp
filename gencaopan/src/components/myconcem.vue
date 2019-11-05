@@ -50,14 +50,14 @@ export default {
         .guanzhu{
             width: 20%;
             padding-right: 8px;
-            margin-top: 8px;
+            margin-top: 6px;
             .m-concern{
                 font-size: 14px;
                 color: #ccc;
                 border: 1px solid #ccc;
                 text-align: center;
                 padding: 5px;
-                border-radius: 5px;
+                border-radius: 15px;
             }
         }
     }
