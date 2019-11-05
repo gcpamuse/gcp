@@ -8,7 +8,7 @@ import myprofit from '@/components/myprofit'
 import myconcem from '@/components/myconcem'
 import myFans from '@/components/myFans'
 import mynotes from '@/components/mynotes'
-
+import applyShow from '@/components/applyShow'
 import mediainfo from '@/components/mediainfo'
 
 Vue.use(Router)
@@ -59,6 +59,11 @@ export default new Router({
       path: '/mediainfo',
       name: 'mediainfo',
       component: mediainfo
+    },
+    {
+      path: '/applyShow',
+      name: 'applyShow',
+      component: applyShow
     },
     
   ]
