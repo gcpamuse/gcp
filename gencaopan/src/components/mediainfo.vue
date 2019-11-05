@@ -42,8 +42,82 @@
                         <div class="imgs">
                             <img src="../img/1501577959302.jpg" class="img">
                         </div>
-                    </div>  
-                </div> 
+                    </div>
+                    <div class="media-share j-share_click">
+                        <img src="../img/share2.png" alt="分享跟操盘">
+                    </div>
+                    <div class="pay-content"> 
+                        <div class="pay-panel"> 
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
+                                <img src="../img/icon-1.png" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <span class="pay-icon"></span>
+                                    <span class="pay-text">6.66</span> 
+                                </div> 
+                                <div class="pay-title">六六大顺！</div> 
+                            </div> 
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-2.png" money="13.14"> 
+                                <img src="../img/icon-2.png" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <span class="pay-icon"></span>
+                                    <span class="pay-text">13.14</span> 
+                                </div> 
+                                <div class="pay-title">追随一生</div> 
+                            </div> 
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-3.png" money="52.00"> 
+                                <img src="../img/icon-3.png" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <span class="pay-icon"></span>
+                                    <span class="pay-text">52.00</span> 
+                                </div> 
+                                <div class="pay-title">我爱老师</div> 
+                            </div> 
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-4.png" money="100.10"> 
+                                <img src="../img/icon-4.png" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <span class="pay-icon"></span>
+                                    <span class="pay-text">100.10</span> 
+                                </div> 
+                                <div class="pay-title">百里挑一</div>
+                            </div> 
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-5.png" money="188.88"> 
+                                <img src="../img/icon-5.png" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <span class="pay-icon"></span>
+                                    <span class="pay-text">188.88</span> 
+                                </div> 
+                                <div class="pay-title">叶大户打赏</div> 
+                            </div> 
+                        </div> 
+                        <div class="pay-button j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66">立即打赏</div> 
+                        <div class="pay_button">留言评论</div>
+                    </div>   
+                </div>
+                <div style="height:6px;background-color:#f2f2f2;"></div>
+                <div class="read-content"> 
+                    <div class="read-content-title"> 
+                        <!-- <span class="read-title-icon"></span>  -->
+                        <span class="read-title-text">750人已阅</span> 
+                    </div>
+                </div>
+                <div class="box"> 
+                    <div class="imgs"><img src="../img/icon-3.png" alt="" class="img"></div> 
+                    <div class="xushu">
+                        <p>hahaha</p>
+                        <p class="kouyu">口语</p>
+                    </div>
+                    <div class="num-time">
+                        <div class="num"> 
+                            <span class="pay-icon"></span>
+                            <span class="text">52.00</span> 
+                        </div> 
+                        <div class="time">2019-09-24 17:53:50</div>
+                    </div> 
+                </div>    
+                <div class="note-qrcode"> 
+                    <div class="qrcode-text">所有笔记仅供学习</div> 
+                    <img src="../img/gencaopan.jpg" alt="跟操盘" class="qrcode-img">
+                </div>  
             </div>
         </div>
         <div style="height:50px;"></div> 
@@ -130,6 +204,86 @@ export default {
                     width: 100%;
                 }
             }
+        }
+        .media-share{
+            padding: 0 10px;
+            img{
+                height: 18px;
+            }
+        }
+        .pay-content{
+            margin-top: 15px;
+            .pay-panel{
+                display: flex;
+                width: 100%;
+                text-align: center;
+                .pay-box{
+                    width: 20%;
+                    .pay-img{
+                        width: 40px;
+                    }
+                    .pay-num{
+                        font-size: 10px;
+                        color: red;
+                    }
+                    .pay-title{
+                        font-size: 12px;
+                        line-height: 22px;
+                        color: #ccc;
+                    }
+                }
+            }
+            .pay-button,.pay_button{
+                width: 70px;
+                font-size: 14px;
+                margin: 0 auto;
+                margin-top: 10px;
+                border: 1px solid rgba(255, 41, 41,0.7);
+                text-align: center;
+                padding: 6px 15px;
+                border-radius: 15px;
+                color: #fff;
+                background-color: rgb(255, 41, 41,0.7);
+            }
+            .pay_button{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .read-content{
+        padding: 10px;
+        border-bottom: 1px solid rgb(223, 220, 220,0.2);
+        .read-title-text{
+            font-size: 12px;
+            padding-left: 5px;
+            border-left: 3px solid red;
+        }
+    }
+    .box{
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid rgb(223, 220, 220,0.2);
+        .imgs{
+            width: 15%;
+            text-align: center;
+            .img{
+                width: 32px;
+                height: 32px;
+                border: 1px solid red;
+            }
+        }
+        .xushu{
+            width: 32%;
+            font-size: 12px;
+            .kouyu{
+                margin-top: 10px;
+                color: #ccc;
+            }
+        }
+        .num-time{
+            padding: 0 10px;
+            font-size: 10px;
+            text-align: left;
         }
     }
 </style>
