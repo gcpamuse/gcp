@@ -12,6 +12,7 @@
                         <div class="m-concern">已关注</div> 
                     </div>
                 </div>
+                <div style="height:6px;background-color:#f2f2f2;"></div>
                 <div class="note-content"> 
                     <div class="media-info-box"> 
                         <div class="media-info-title">约翰一墨菲的资金管理要领和交易策略举要</div> 
@@ -38,17 +39,30 @@
                     　　尽量减少无谓的交易，你离成功就更加接近了。<br />
                     　　无谓的交易是导致亏损和心态不好的主要原因，也是养成控，专业交易是尽量减少或避免交易的随意性的。<br />
                     　　什么是无谓的交易呢？简单来讲就是没有价值的交易润和相应承担任何时<br>
-                        <img src="../img/1501577959302.jpg">
+                        <div class="imgs">
+                            <img src="../img/1501577959302.jpg" class="img">
+                        </div>
                     </div>  
                 </div> 
             </div>
-        </div> 
+        </div>
+        <div style="height:50px;"></div> 
   </div>
 </template>
 
 <script>
 export default {
+    beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#f2f2f2')
+    },
+    beforeDestroy () {
+        document.querySelector('body').removeAttribute('style')
+    },
+    data(){
+        return{
 
+        }
+    }
 }
 </script>
 
@@ -56,7 +70,7 @@ export default {
     .list{
         display: flex;
         padding: 12px 0;
-        border-bottom: 1px solid rgb(231, 227, 227);
+        background-color: #fff;
         .imgs{
             width: 15%;
             text-align: center;
@@ -84,6 +98,37 @@ export default {
                 text-align: center;
                 padding: 5px;
                 border-radius: 15px;
+            }
+        }
+    }
+    .note-content{
+        background-color: #fff;
+        padding: 5px 0;
+        .media-info-box{
+            padding: 15px 0;
+            .media-info-title{
+                font-size: 18px;
+                font-weight: bold;
+                border-left: 4px solid red;
+                line-height: 24px;
+                padding-left: 5px;
+            }
+            .media-info-mt{
+                padding-left: 8px;
+                .f-r{
+                    font-size: 12px;
+                    color: #ccc;
+                }
+            }
+        }
+        .media-info-content{
+            padding: 10px;
+            border-top: 1px solid rgba(235, 223, 223, 0.3);
+            .imgs{
+                padding: 5px 0;
+                .img{
+                    width: 100%;
+                }
             }
         }
     }
