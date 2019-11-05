@@ -84,9 +84,11 @@
 <script>
 import { Field, CellGroup, Cell, Button, Toast } from 'vant';
 export default {
-    data(){
-        
-    }
+    components: {
+      [Field.name]: Field,
+      [Button.name]: Button,
+      [Cell.name]: Cell,
+    },
 }
 </script>
 
