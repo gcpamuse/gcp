@@ -44,51 +44,38 @@
             <a href="javascript:;" onClick="showDetail('tel:0571-85384000')">0571-85384000</a>
         </p> 
     </div>  -->
-    <van-cell-group>
-        <van-field
-        
-            center
-            clearable
-            label="当前机构"
-            placeholder="请输入当前机构名称"
-          
-            use-button-slot
-        >
-        </van-field>
-        <van-field
-        
-            center
-            clearable
-            label="当前机构"
-            placeholder="请输入当前机构名称"
-        
-            use-button-slot
-        >
-        </van-field>
-        <van-field
-          
-            center
-            clearable
-            label="当前机构"
-            placeholder="请输入当前机构名称"
-           
-            use-button-slot
-        >
-        </van-field>
-    </van-cell-group>
+    <van-tabbar route>
+		<van-tabbar-item
+			replace
+			to="/"
+			icon="home-o"
+		>
+			期货
+		</van-tabbar-item>
+		<van-tabbar-item
+			replace
+			to="/ratings"
+			icon="home-o"
+		>
+			自媒体
+		</van-tabbar-item>
+		<van-tabbar-item
+			replace
+			to="/seller"
+			icon="home-o"
+		>
+			我的
+		</van-tabbar-item>
+	</van-tabbar>
 
 </div>
 	
 </template>
 
 <script>
-import { Field, CellGroup, Cell, Button, Toast } from 'vant';
+import { Tabbar, TabbarItem } from 'vant';
 export default {
-    components: {
-      [Field.name]: Field,
-      [Button.name]: Button,
-      [Cell.name]: Cell,
-    },
+    
 }
 </script>
 
