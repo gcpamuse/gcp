@@ -34,7 +34,7 @@
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
 		<div class="index-tab"> 
-			<div class="tabs" v-for="(image, index) in 6" v-bind="index" :key="image">
+			<div class="tabs" v-for="(image, index) in 6" v-bind="index" :key="image" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
@@ -69,9 +69,9 @@ import '../../../dist/static/css/swiper.min.css';
 			
 		},
 		methods:{
-			// toDetails(){
-				
-			// }
+			toDetails(){
+				this.$router.push({name: 'Describe'})
+			}
 		},
 		created(){
 			
