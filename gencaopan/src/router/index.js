@@ -14,6 +14,7 @@ import prizes from '@/components/prizes'
 import teacherSubscribe from '@/components/teacherSubscribe'
 import pushSetting from '@/components/pushSetting'
 import cooperation from '@/components/cooperation'
+import applyManager from '@/components/applyManager'
 Vue.use(Router)
 
 export default new Router({
@@ -83,6 +84,10 @@ export default new Router({
       name: 'cooperation',
       component: cooperation
     },
-    
+    {
+      path: '/applyManager',
+      name: 'applyManager',
+      component: applyManager
+    },
   ]
 })
