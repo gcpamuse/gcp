@@ -35,7 +35,7 @@ export default {
   },
   methods:{
     scanCode:function(){
-     alert(222)
+     	this.$router.push('/applyManager')
         
     },
     
