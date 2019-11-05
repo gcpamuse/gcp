@@ -7,6 +7,7 @@ import seller from '@/components/seller/seller'
 import myprofit from '@/components/myprofit'
 import myconcem from '@/components/myconcem'
 import myFans from '@/components/myFans'
+import mynotes from '@/components/mynotes'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/myFans',
       name: 'myFans',
       component: myFans
+    },
+    {
+      path: '/mynotes',
+      name: 'mynotes',
+      component: mynotes
     }
   ]
 })
