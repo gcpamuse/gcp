@@ -105,7 +105,7 @@ import { Button } from 'vant';
 		padding: 15px 10px 10px;
 		background-color: #eee;
 		width: 100%;
-		border-top: 1px solid rgba(155, 153, 153,0.5);
+		border-top: 1px solid #ddd;
 		.left{
 			width: 20%;
 			// text-align: right;
