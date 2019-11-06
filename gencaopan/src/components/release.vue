@@ -30,7 +30,7 @@
 <script>
 export default {
     beforeCreate () {
-        document.querySelector('body').setAttribute('style', 'background-color:#f2f2f2')
+        document.querySelector('body').setAttribute('style', 'background-color:#eee')
     },
     beforeDestroy () {
         document.querySelector('body').removeAttribute('style')

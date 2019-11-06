@@ -103,7 +103,7 @@ import { Button } from 'vant';
 		display: flex;
 		font-size: 12px;
 		padding: 15px 10px 10px;
-		background-color: #f2f2f2;
+		background-color: #eee;
 		width: 100%;
 		border-top: 1px solid rgba(155, 153, 153,0.5);
 		.left{
