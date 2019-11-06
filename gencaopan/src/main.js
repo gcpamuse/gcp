@@ -18,13 +18,17 @@ import {
   Tabs,
   Cell,
   CellGroup,
-  Icon
+  Icon,
+  Field,
+  SwitchCell
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
 Vue.use(Tab).use(Tabs);
 Vue.use(Cell).use(CellGroup);
 Vue.use(Icon);
+Vue.use(Field);
+Vue.use(SwitchCell);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
