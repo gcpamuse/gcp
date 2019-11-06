@@ -133,7 +133,7 @@ import { Button } from 'vant';
 			}
 		}
 		.right{
-			width: 36%;
+			width: 32%;
 			text-align: right;
 			.top{
 				margin-bottom: 6px;
