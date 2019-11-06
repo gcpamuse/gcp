@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top: 3px;">
         <van-cell-group>
             <van-field
                 value="请输入观点标题"
@@ -77,14 +77,14 @@ export default {
         .content{
             width: 96%;
             margin: 0 auto;
-            height: 200px;
+            height: 180px;
             border: 0;
             padding:15px 7px;
             font-size: 13px;
             z-index: -1;
         }
         .photo-submit{
-            width: 80px; 
+            width: 60px; 
             margin: 0 10px 10px 0;       
         }
     }
