@@ -27,65 +27,30 @@
                 </div> 
             </div> 
         </div>
-        <!-- <div class="m-alert cash-content j-plate_rule"> 
+        <van-dialog v-model="show" title="" @confirm='determine'>
             <div class="m-plate_sure_layer"> 
-                <div class="close_box j-close j-sure_close"> 
+                <div class="close_box j-close j-sure_close" @click="closeBox"> 
                     <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
                 </div> 
                 <div class="list-block item f-cb cash-box"> 
                     <div class="item-content cash-text"> 
-                        <input type="hidden" id="withdraw_user_id" value="83564" /> 
                         <div class="item-title cash-title">金额：</div> 
-                        <input type="text" id="withdraw_amount" class="cash-input" placeholder="预提金额"> 
+                        <input type="text" v-model="amount" id="withdraw_amount" class="cash-input" placeholder="预提金额"> 
                         <span class="cash-end">元</span> 
                     </div> 
                     <div class="item-content cash-text"> 
                         <div class="item-title cash-title">支付宝：</div> 
-                        <input type="text" id="withdraw_account" class="cash-input" placeholder="支付宝账号"> 
+                        <input type="text" v-model="account" id="withdraw_account" class="cash-input" placeholder="支付宝账号"> 
                         <span class="cash-end"></span> 
                     </div> 
                     <div class="item-content cash-text"> 
                         <div class="item-title cash-title">姓名：</div> 
-                        <input type="text" id="withdraw_name" class="cash-input" placeholder="真实姓名"> 
+                        <input type="text" v-model="name" id="withdraw_name" class="cash-input" placeholder="真实姓名"> 
                         <span class="cash-end"></span> 
                     </div> 
                     <div class="item-content cash-text"> 
                         <div class="item-title cash-title">手机号：</div> 
-                        <input type="text" id="withdraw_mobile" class="cash-input" placeholder="手机号"> 
-                        <span class="cash-end"></span> 
-                    </div> 
-                </div> 
-                <div class="button_box f-cb"> 
-                    <button type="button" class="button-right j-sure" onClick="withdrawApply();">确认</button> 
-                </div> 
-            </div> 
-        </div>  -->
-      
-         <van-dialog v-model="show" title="" bind:confirm='showmode'>
-            <div class="m-plate_sure_layer"> 
-                <div class="close_box j-close j-sure_close"> 
-                    <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
-                </div> 
-                <div class="list-block item f-cb cash-box"> 
-                    <div class="item-content cash-text"> 
-                        <input type="hidden" id="withdraw_user_id" value="83564" /> 
-                        <div class="item-title cash-title">金额：</div> 
-                        <input type="text" id="withdraw_amount" class="cash-input" placeholder="预提金额"> 
-                        <span class="cash-end">元</span> 
-                    </div> 
-                    <div class="item-content cash-text"> 
-                        <div class="item-title cash-title">支付宝：</div> 
-                        <input type="text" id="withdraw_account" class="cash-input" placeholder="支付宝账号"> 
-                        <span class="cash-end"></span> 
-                    </div> 
-                    <div class="item-content cash-text"> 
-                        <div class="item-title cash-title">姓名：</div> 
-                        <input type="text" id="withdraw_name" class="cash-input" placeholder="真实姓名"> 
-                        <span class="cash-end"></span> 
-                    </div> 
-                    <div class="item-content cash-text"> 
-                        <div class="item-title cash-title">手机号：</div> 
-                        <input type="text" id="withdraw_mobile" class="cash-input" placeholder="手机号"> 
+                        <input type="text" v-model="mobile" id="withdraw_mobile" class="cash-input" placeholder="手机号"> 
                         <span class="cash-end"></span> 
                     </div> 
                 </div> 
@@ -107,12 +72,22 @@ export default {
 
     data(){
         return{
-            show:false
+            show:false,
+            amount:'',
+            account:'',
+            name:'',
+            mobile:'',
         }
     },
     methods:{
         onClickAlert(){
             this.show = true
+        },
+        determine(){
+            
+        },
+        closeBox(){
+            this.show = false
         }
     }
 }
