@@ -15,6 +15,7 @@ import teacherSubscribe from '@/components/teacherSubscribe'
 import pushSetting from '@/components/pushSetting'
 import cooperation from '@/components/cooperation'
 import applyManager from '@/components/applyManager'
+import release from '@/components/release'
 Vue.use(Router)
 
 export default new Router({
@@ -88,6 +89,11 @@ export default new Router({
       path: '/applyManager',
       name: 'applyManager',
       component: applyManager
+    },
+    {
+      path: '/release',
+      name: 'release',
+      component: release
     },
   ]
 })
