@@ -26,8 +26,8 @@
                     </div> 
                 </div> 
             </div> 
-        </div> <!----> 
-        <div class="m-alert cash-content j-plate_rule" style="display: none"> 
+        </div>
+        <!-- <div class="m-alert cash-content j-plate_rule"> 
             <div class="m-plate_sure_layer"> 
                 <div class="close_box j-close j-sure_close"> 
                     <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
@@ -59,7 +59,11 @@
                     <button type="button" class="button-right j-sure" onClick="withdrawApply();">确认</button> 
                 </div> 
             </div> 
-        </div> 
+        </div>  -->
+        <van-button type="primary" @click="onClickAlert">ugfd</van-button>
+         <van-dialog v-model="show" title="df" show-cancel-button lazy-render="false">
+            <p>5211</p>
+        </van-dialog>
     </div> 
     <div style="height:50px;"></div>
 </div> 
@@ -68,8 +72,20 @@
 
 <script>
 
+
 export default {
     
+
+    data(){
+        return{
+            show:false
+        }
+    },
+    methods:{
+        onClickAlert(){
+            this.show = true
+        }
+    }
 }
 </script>
 

@@ -21,7 +21,8 @@ import {
   Icon,
   Field,
   SwitchCell,
-  Uploader
+  Uploader,
+  Dialog,
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -31,6 +32,7 @@ Vue.use(Icon);
 Vue.use(Field);
 Vue.use(SwitchCell);
 Vue.use(Uploader);
+Vue.use(Dialog);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
