@@ -48,7 +48,9 @@
 					</div> 
 				</div> 
 			</div> 
-		</div> 
+		</div>
+		<div class="fabu"><span>+</span> 发布</div>
+		<!-- <div style="height:50px;"></div> -->
 	</div>
 </template>
 
@@ -177,6 +179,24 @@ import '../../../dist/static/css/swiper.min.css';
 					border: 1px solid red;
 				}
 			}
+		}
+	}
+	.fabu{			
+		position: fixed;
+		bottom: 70px;
+		left: 50%;
+		margin-left: -70px;
+		width: 140px;
+		border-radius: 35px;
+		background: #fff;
+		text-align: center;
+		box-shadow: 1px 1px 10px #888;
+		color: #f42241;
+		font-size: 15px;
+		padding: 9px 0;
+		span{
+			font-size: 18px;
+			font-weight: bold;
 		}
 	}
 </style>
