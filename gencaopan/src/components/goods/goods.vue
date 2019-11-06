@@ -103,8 +103,8 @@ import { Button } from 'vant';
 	.conment{
 		display: flex;
 		font-size: 12px;
-		padding:15px 0 10px 0px;;
-		background-color: #eee;
+		padding:15px 0 10px 0px;
+		background-color: #f9f9f9;
 		width: 100%;
 		border-top: 1px solid #ddd;
 		.left{
