@@ -18,9 +18,9 @@
 				<p class="yh_name">徐不疾</p>
 			</div>
 			<div class="middle">
-				<div class="middle_count"><span class="col">累计收益率: </span>498.25%</div>
-				<div class="middle_count"><span class="col">7日收益率：</span>5.25%</div>
-				<div class="middle_count"><span class="col">净利润：</span>1789231.75元</div>
+				<div class="middle_count">累计收益率:<span style="color:red">498.25%</span></div>
+				<div class="middle_count">7日收益率：<span style="color:red">5.25%</span></div>
+				<div class="middle_count">净利润：<span class="col">1789231.75元</span></div>
 				<div class="middle_count"><span class="co">(推荐抄底)连续5年盈利</span></div>
 			</div>
 			<div class="right">
@@ -123,12 +123,14 @@ import { Button } from 'vant';
 			width: 43%;
 			.middle_count{
 				line-height: 21px;
-				color: #f24848;
-				.col{
-					color: #38c;
-				}
+				color: #38c;
 				.co{
-					color: #000;
+					color: #333;
+				}
+				span{
+					color: #333;
+					font-size: 13px;
+					font-weight: bold;
 				}
 			}
 		}
