@@ -14,32 +14,40 @@
                     </div> 
                 </div>
                 <div class="quxian">
-                    <a class="book-btn charge" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                    <a class="book-btn charge" @click="toast_control = true" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
                 </div> 
             </div> 
-            <div class="list-btnbox">  
-                    <div class="ui-content" id="curve" data-role="popup" data-overlay-theme="b" style="display:none;"> 
-                        <div style="min-width:256px"> 
-                            <div> 
-                                <lable>账户:</lable> 
-                                <input type="text" value="" placeholder="期货保证金监控中心账户"> 
-                            </div> 
-                            <div> 
-                                <lable>密码:</lable> 
-                                <input type="text" value="" placeholder="期货保证金监控中心密码"> 
-                            </div> 
-                            <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a> 
+            <div class="toast" v-show="toast_control">  
+                <div class="toast-container"> 
+                    <!-- <div style="min-width:256px">  -->
+                        <div> 
+                            <lable class="gao">账户:</lable> 
+                            <input type="text" value="" placeholder="期货保证金监控中心账户"> 
                         </div> 
-                    </div>  
-                </div> 
-            <!-- <ul class="superior-nav fix"> 
-                <li class="active" style="width:49%"><a href="#">交易概况</a></li> 
-                <li style="width:49%"><a href="#">我的净值</a></li> 
-            </ul> -->
-            <van-tabs v-model="active">
+                        <div> 
+                            <lable class="gao">密码:</lable> 
+                            <input type="password" value="" placeholder="期货保证金监控中心密码"> 
+                        </div> 
+                        <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
+                        <!-- <van-cell-group>
+                            <van-field label="用户名" v-model="value" placeholder="请输入用户名" />
+                            <van-field label="用户名" v-model="value" placeholder="请输入用户名" />
+                        </van-cell-group> -->
+                        <!-- <div class="toast-btn"> -->
+                            <div class="toast-cancel" @click="toast_control = false">提交</div>
+                        <!-- </div> -->
+                    <!-- </div>  -->
+                </div>  
+            </div> 
+            <div class="toast-mask" v-show="toast_control"></div>
+            <ul class="superior-nav fix"> 
+                <li class="active" @click="toJiaoYi" style="width:50%;border-right: 1px solid #eee;">交易概况</li> 
+                <li @click="toJIngZhi" style="width:50%">我的净值</li> 
+            </ul>
+            <!-- <van-tabs v-model="active">
                 <van-tab title="交易概况" @click="toJiaoYi"></van-tab>
                 <van-tab title="我的净值" @click="toJIngZhi"></van-tab>
-            </van-tabs>
+            </van-tabs> -->
             <!-- <van-tabs v-model="active">
                 <van-tab 
                     v-for="tab in tabsItem"
@@ -50,7 +58,7 @@
                 </van-tab>
             </van-tabs> -->
             <div class="superior-content"> 
-                <div class="superior-con" v-if="xianshi==0">
+                <div class="superior-con" v-if="xianshi">
                     <h5 class="numone">账户概述</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
@@ -164,22 +172,22 @@
                     </table>
                 
                 </div> 
-                <div class="superior-con" v-if="xianshi==1">
+                <div class="superior-con" v-if="xshi">
                      <!-- style="display:none"  -->
-                    <h5>累计净值</h5> 
-                    <div class="graph chartField" id="total_nav"></div> 
-                    <h5>盈亏曲线图</h5> 
-                    <div class="graph chartField" id="total_profit"></div> 
-                    <h5>周盈亏</h5> 
-                    <div class="graph chartField" id="week_profit"></div> 
-                    <h5>月盈亏</h5> 
-                    <div class="graph chartField" id="month_profit"></div> 
-                    <h5>品种盈亏</h5> 
-                    <div class="graph chartField" id="futures"></div> 
-                    <h5>成交结构</h5> 
-                    <div class="graph chartField" id="struct" style="height:22rem"></div> 
-                    <h5>隔夜习惯</h5> 
-                    <div class="graph chartField" id="risk" style="height:24rem"></div> 
+                    <h5 class="numone">累计净值</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">盈亏曲线图</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">周盈亏</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">月盈亏</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">品种盈亏</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">成交结构</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <h5 class="numone">隔夜习惯</h5> 
+                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
                 </div> 
             </div> 
         </div> 
@@ -207,23 +215,20 @@ export default {
                 status: 1
                 }
             ],
-            xianshi: 0,
-            active:1
+            xianshi: true,
+            xshi: false,
+            active:0, 
+            toast_control: false,
         }
     },
     methods:{
-        // totab(s){
-        //     if(s==0){
-        //        this.xianshi=0; 
-        //     } else {
-        //         this.xianshi=1;
-        //     }
-        // }
         toJiaoYi(){
-            this.xianshi=0;
+            this.xianshi=true;
+            this.xshi=false;
         },
         toJIngZhi(){
-            this.xianshi=1;
+            this.xianshi=false;
+            this.xshi=true;
         }
     }
 }
@@ -269,22 +274,23 @@ export default {
             } 
         }
     }
-    // .superior-nav{
-    //     display: flex;
-    //     text-align: center;
-    //     font-size: 14px;
-    //     li{
-    //         padding: 15px 0;
-    //         background-color: #f6f6f6;
-    //         color: #666! important;
-    //     }
-    // }
+    .superior-nav{
+        display: flex;
+        text-align: center;
+        font-size: 14px;
+        li{
+            padding: 15px 0;
+            background-color: #f6f6f6;
+            color: #666! important;
+        }
+    }
     .superior-content{
        .superior-con{
            .numone{
                padding: 10px;
                color: #3333;
                border-bottom: 2px solid #eee;
+               font-size: 15px;
            }
            .table-m1{
                width: 100%;
@@ -300,5 +306,52 @@ export default {
                }
            }
        } 
+    }
+    .toast-mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(46, 44, 44, 0.6);
+        z-index: 10000;
+        width: 100%;
+        height: 100%;
+    }
+    .toast {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 20000;
+        transform: translate(-50%, -50%);
+        width: 17.4375rem;
+        background: #fff;
+        border-radius: 0.3125rem;
+        padding: 0.3125rem;
+        box-shadow: 5px  5px  0.5  #000;
+        .toast-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 12px;
+            .gao{
+                line-height: 35px;
+            }
+            input{
+                border: 1px solid #ccc;
+                width: 245px;
+                padding:8px 5px;
+                border-radius: 8px;
+                box-shadow: 1px 1px 1px #f3f3f3 inset;
+            }
+            .toast-cancel {
+                background: #f24848;
+                padding: 12px 5px;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                border-radius: 6px;
+                color: #fff;
+                width: 245px;
+                text-align: center;
+            }
+        }
     }
 </style>
