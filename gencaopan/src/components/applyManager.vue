@@ -41,11 +41,12 @@
             <input type="hidden" id="filename" class="filenameInput" value="" /> 
         </div> 
    
-        <div class="u-invest-apply releaseBtn">申请并支付</div> 
+     
+        <van-button size="large" class="release-btn" @click="releaseBtn">申请并支付</van-button>
         <div class="m-invest-tipBox"> 
             <p class="u-invest-tipBox-p">如果您有疑问，请联系客服</p> 
             <p class="u-invest-tipBox-p u-invest-p-red">
-                <a href="javascript:;" onClick="showDetail('tel:0571-85384000')">0571-85384000</a>
+                <a href="javascript:;">0571-85384000</a>
             </p> 
         </div> 
     </div> 
@@ -59,10 +60,16 @@
 export default {
     
     data: function () {
-    return {
-      
+        return {
+        
+        }
+    },
+    methods:{
+        releaseBtn(){
+            alert(111)
+        }
+        
     }
-  },
 
 }
 </script>
@@ -138,16 +145,16 @@ export default {
 	line-height: 16px;
 	font-size: 15px;
 }
-  .u-invest-apply {
-	font-size: 15px;
-	color: #fff;
-	width: 232px;
-	height: 45px;
-	line-height: 45px;
-	background: #e84d48;
-	border-radius: 5px;
-	text-align: center;
+  .release-btn{
+    font-size: 15px;
+    display: block;
 	margin: 20px auto 10px auto;
+    width:232px;
+    height: 45px;
+    line-height: 45px;
+    background-color:#e84d48;
+    border-radius: 5px;
+    color: #fff;
 }
   .m-invest-tipBox {
 	font-size: 11px;
