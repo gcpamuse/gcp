@@ -20,7 +20,8 @@ import {
   CellGroup,
   Icon,
   Field,
-  SwitchCell
+  SwitchCell,
+  Uploader
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -29,6 +30,7 @@ Vue.use(Cell).use(CellGroup);
 Vue.use(Icon);
 Vue.use(Field);
 Vue.use(SwitchCell);
+Vue.use(Uploader);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

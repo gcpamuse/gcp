@@ -6,9 +6,21 @@
                 label="标题"
             />
         </van-cell-group>
-
+        <div class="item-content"> 
+            <textarea class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
+            <!-- <img src="../img/photo.png" alt="" class="photo-submit">  -->
+            <div click="uploader">
+                <van-uploader :after-read="afterRead"/>
+            </div>
+        </div> 
         <van-cell-group class="group">
             <van-switch-cell v-model="checked" title="是否收费" active-color="#f42241" />
+        </van-cell-group>
+        <van-cell-group style="display:none;">
+            <van-field
+                value="请输入阅读费"
+                label="阅读费"
+            />
         </van-cell-group>
         <van-cell-group class="group">
             <van-switch-cell v-model="check" title="封面照片是否显示在正文中" active-color="#f42241" />
@@ -29,6 +41,12 @@ export default {
         return{
             checked: false,
             check: true
+        }
+    },
+    methods: {
+        afterRead(file) {
+            // 此时可以自行将文件上传至服务器
+            console.log(file);
         }
     }
 }
@@ -51,5 +69,21 @@ export default {
         color: #fff;
         text-align: center;
         font-size: 15px;
+    }
+    .item-content{
+        margin-top: 8px;
+        position: relative;
+        .content{
+            width: 100%;
+            margin: 0 auto;
+            height: 200px;
+            border: 0;
+            padding:15px 6px;
+            font-size: 13px;
+        }
+        .uploader{
+            position: absolute;
+            top: -20px;
+        }
     }
 </style>
