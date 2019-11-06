@@ -2,22 +2,23 @@
   <div>
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
-            <div class="superior-top fix"> 
+            <div class="superior-top fix" :style="bgImg"> 
                 <div class="pic"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
                 <div class="superior-main"> 
                     <h2>naihaha</h2> 
-                    <div class=""> 
+                    <div class="mychart_d"> 
                         <p class="mychart_p"> 
                             <span class="mychart_span" style="padding-left:0;float:none;"> 计划你的交易，交易你的计划 </span> 
                             <a class="mychart_a" href="#"></a> 
                         </p> 
                     </div> 
                 </div>
-                <div class="list-btnbox">  
-                    <div>
-                        <a class="book-btn charge" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
-                    </div> 
-                    <div class="ui-content" id="curve" data-role="popup" data-overlay-theme="b"> 
+                <div class="quxian">
+                    <a class="book-btn charge" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                </div> 
+            </div> 
+            <div class="list-btnbox">  
+                    <div class="ui-content" id="curve" data-role="popup" data-overlay-theme="b" style="display:none;"> 
                         <div style="min-width:256px"> 
                             <div> 
                                 <lable>账户:</lable> 
@@ -31,7 +32,6 @@
                         </div> 
                     </div>  
                 </div> 
-            </div> 
             <ul class="superior-nav fix" id="superior-nav"> 
                 <li class="active" style="width:49%"><a href="#">交易概况</a></li> 
                 <li style="width:49%"><a href="#">我的净值</a></li> 
@@ -177,12 +177,54 @@
 export default {
     data(){
         return{
-
+            bgImg:{
+                backgroundImage:"url("+require('../img/s_daoshibg2.jpg')+")",
+                backgroundRepeat: "no-repeat",
+                backgroundSize:'100% 100%'
+            }
         }
     },
 }
 </script>
 
 <style lang="less" scoped="scoped">
-
+    .superior-top {
+        padding: 10px;
+        background-color: #fff;
+        font-size: 0.750rem;
+        border-bottom: solid 1px #f3f3f3;
+        display: flex;
+        .pic{
+            width: 18%;
+            .avatar{
+                border-radius: 10px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+        .superior-main{
+            width: 60%;
+            h2{
+                font-size: 14px;
+                line-height: 22px;
+                color: #fff;
+            }
+            .mychart_d{
+                color: #CFB696;
+                line-height: 18px;
+            }
+        }
+        .quxian{
+            width: 22%;
+            text-align: right;
+            padding-top: 16px;
+            .book-btn{
+                background-color: #f24848;
+                color: #fff;
+                padding:3px 5px;
+                border-radius: 5px;
+                
+            } 
+        }
+    }
 </style>
