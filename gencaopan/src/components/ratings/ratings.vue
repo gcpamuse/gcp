@@ -49,7 +49,7 @@
 				</div> 
 			</div> 
 		</div>
-		<div class="fabu" @click="this.$router.push({name: 'release'})"><span>+</span> 发布</div>
+		<div class="fabu" @click="toFabu"><span>+</span> 发布</div>
 		<!-- <div style="height:50px;"></div> -->
 	</div>
 </template>
@@ -73,6 +73,9 @@ import '../../../dist/static/css/swiper.min.css';
 		methods:{
 			toDetails(){
 				this.$router.push({name: 'mediainfo'})
+			},
+			toFabu(){
+				this.$router.push({name: 'release'})
 			}
 		},
 		created(){
