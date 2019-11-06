@@ -16,7 +16,7 @@
                 <div class="item-content invite-mine"> 
                     <div class="item-inner"> 
                         <div class="item-title mine-left">我的账户:<span class="mine-money">0.00</span>元</div>
-                        <div class="mine-right j-rule_click">提现</div> 
+                        <div class="mine-right j-rule_click" @click="onClickAlert">提现</div> 
                     </div> 
                 </div> 
                 <div class="invite-lists"> 
@@ -60,9 +60,38 @@
                 </div> 
             </div> 
         </div>  -->
-        <van-button type="primary" @click="onClickAlert">ugfd</van-button>
-         <van-dialog v-model="show" title="df" show-cancel-button lazy-render="false">
-            <p>5211</p>
+      
+         <van-dialog v-model="show" title="" bind:confirm='showmode'>
+            <div class="m-plate_sure_layer"> 
+                <div class="close_box j-close j-sure_close"> 
+                    <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
+                </div> 
+                <div class="list-block item f-cb cash-box"> 
+                    <div class="item-content cash-text"> 
+                        <input type="hidden" id="withdraw_user_id" value="83564" /> 
+                        <div class="item-title cash-title">金额：</div> 
+                        <input type="text" id="withdraw_amount" class="cash-input" placeholder="预提金额"> 
+                        <span class="cash-end">元</span> 
+                    </div> 
+                    <div class="item-content cash-text"> 
+                        <div class="item-title cash-title">支付宝：</div> 
+                        <input type="text" id="withdraw_account" class="cash-input" placeholder="支付宝账号"> 
+                        <span class="cash-end"></span> 
+                    </div> 
+                    <div class="item-content cash-text"> 
+                        <div class="item-title cash-title">姓名：</div> 
+                        <input type="text" id="withdraw_name" class="cash-input" placeholder="真实姓名"> 
+                        <span class="cash-end"></span> 
+                    </div> 
+                    <div class="item-content cash-text"> 
+                        <div class="item-title cash-title">手机号：</div> 
+                        <input type="text" id="withdraw_mobile" class="cash-input" placeholder="手机号"> 
+                        <span class="cash-end"></span> 
+                    </div> 
+                </div> 
+                
+            </div>
+            
         </van-dialog>
     </div> 
     <div style="height:50px;"></div>
@@ -109,23 +138,6 @@ export default {
 	margin: 0 auto;
 	width: 163px;
 	height: 163px;
-}
-#dpage-invite .cash-content .cash-box {
-	margin: 30px 0 10px 0;
-}
-#dpage-invite .cash-content .cash-title {
-	width: 60px;
-    text-align: right;
-	font-size: 14px;
-}
-#dpage-invite .cash-content .cash-input {
-	width: 120px;
-    height: 30px;
-	border: 1px solid #999;
-	border-radius: 5px;
-}
-#dpage-invite .cash-content .cash-end {
-	width: 20px;
 }
 #dpage-invite .content .invite-code {
 	display: block;
@@ -206,4 +218,41 @@ export default {
 	font-size: 13px;
 	color: #969696
 }
+.m-plate_sure_layer{
+    padding: 20px 10px 10px;
+}
+.item-content.cash-text{
+    display: flex;
+    min-height:2.2rem;
+    box-sizing: border-box;
+    width: 240px;
+    justify-content: space-between;
+    align-items: center;
+    margin:8px auto;
+}
+.m-plate_sure_layer .close_box {
+	position: absolute;
+    color: #009cff;
+    right: 0;
+    top: 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 40px;
+}
+#dpage-invite  .cash-title {
+	width: 60px;
+	text-align: right;
+	font-size: 14px;
+}
+#dpage-invite  .cash-input {
+	width: 120px;
+	height: 30px;
+	border: 1px solid #999;
+    border-radius: 5px;
+    padding: 0 0 0 .25rem;
+}
+#dpage-invite  .cash-end {
+	width: 20px;
+}
+
 </style>
