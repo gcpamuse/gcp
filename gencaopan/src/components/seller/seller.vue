@@ -6,7 +6,7 @@
 		</div>
 		<div class="user_module">
 			<van-cell-group>	
-				<van-cell icon="user_quxian" title="我的曲线" >
+				<van-cell icon="user_quxian" title="我的曲线" :to="{ name: 'mychart'}" >
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>	
 				<van-cell icon="user_fensi" title="我的粉丝" :to="{ name: 'myFans'}">
