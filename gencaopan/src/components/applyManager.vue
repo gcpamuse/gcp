@@ -5,7 +5,7 @@
         <div class="m-invest-panel"> 
             <div class="u-invest-title">当前机构</div> 
             <div class="u-invest-input"> 
-                <input type="text" id="manager_company" placeholder="请输入当前机构名称"> 
+                <input type="text" v-model="company" placeholder="请输入当前机构名称"> 
             </div> 
         </div> 
         <div class="m-invest-panel">
@@ -19,7 +19,7 @@
         <div class="m-invest-panel"> 
             <div class="u-invest-title">真实姓名</div> 
                 <div class="u-invest-input"> 
-                    <input type="text" id="manager_realname" placeholder="请输入真实姓名"> 
+                    <input type="text"  v-model="realname" placeholder="请输入真实姓名"> 
                 </div>
         </div>
 
@@ -27,7 +27,7 @@
         <div class="m-invest-panel"> 
             <div class="u-invest-title">联系电话</div> 
             <div class="u-invest-input"> 
-                <input type="text" id="manager_mobile" placeholder="请输入联系电话"> 
+                <input type="text" v-model="mobile" id="manager_mobile" placeholder="请输入联系电话"> 
             </div> 
         </div> 
         <div class="m-invest-panel">
@@ -61,12 +61,23 @@ export default {
     
     data: function () {
         return {
-        
+            company:'',
+            realname:'',
+            mobile:''
         }
     },
     methods:{
         releaseBtn(){
-            alert(111)
+            let phoneReg = /^1[34578]\d{9}$/;
+            if(this.company == ""){
+                alert('请填写机构名称')
+            }else if (this.realname == "") {
+                alert('请填写真实姓名')
+            }else if(!phoneReg.test(this.mobile)){
+                alert('请填写正确格式的手机号')
+            }else{
+
+            }
         }
         
     }
@@ -94,7 +105,6 @@ export default {
 }
   .m-invest-panel .u-invest-input input {
 	width: 100%;
-	color: #d0d0d0;
 	border: none;
 	overflow: hidden;
 }
