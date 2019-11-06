@@ -332,6 +332,10 @@ export default {
                 border-radius: 8px;
                 box-shadow: 0 0 3px #b3b1b1 inset;
             }
+            input:focus{
+                box-shadow: 0 0 0 #b3b1b1 inset;
+                box-shadow: 0 0 8px #38c;
+            }
             .toast-cancel {
                 background: #f24848;
                 padding: 12px 5px;
