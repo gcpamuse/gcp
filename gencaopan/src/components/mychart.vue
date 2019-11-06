@@ -21,11 +21,11 @@
                 <div class="toast-container"> 
                     <!-- <div style="min-width:256px">  -->
                         <div> 
-                            <lable class="gao">账户:</lable> 
+                            <div class="gao">账户:</div> 
                             <input name="zhanghu" type="text" value="" placeholder="期货保证金监控中心账户"> 
                         </div> 
                         <div> 
-                            <lable class="gao">密码:</lable> 
+                            <div class="gao">密码:</div> 
                             <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
