@@ -14,22 +14,23 @@
 		</van-tabs>
 		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index"> 
 			<div class="left">
+				<span class="daoshi_shou">收</span>
 				<img src="../../img/icon-5.png" class="img_top">
 				<p class="yh_name">徐不疾</p>
 			</div>
 			<div class="middle">
 				<div class="middle_count">累计收益率:<span style="color:red">498.25%</span></div>
-				<div class="middle_count">7日收益率：<span style="color:red">5.25%</span></div>
+				<div class="middle_count">7日收益率：<span style="color:green">5.25%</span></div>
 				<div class="middle_count">净利润：<span class="col">1789231.75元</span></div>
 				<div class="middle_count"><span class="co">(推荐抄底)连续5年盈利</span></div>
 			</div>
 			<div class="right">
 				<div class="top">
-					<span>1000元/月</span>
+					<span>1000</span>元/月
 					<van-button class="but" size="mini">包月</van-button>
 				</div>
 				<div class="zhong">
-					<span>2800元/季</span>
+					<span>2800</span>元/季
 					<van-button class="but" size="mini">包季</van-button>
 				</div>
 				<div class="xia">
@@ -108,12 +109,26 @@ import { Button } from 'vant';
 		border-top: 1px solid #ddd;
 		.left{
 			width: 20%;
-    		margin-left: 3%;
+			margin-left: 3%;
+			position: relative;
 			.img_top{
 				width: 60px;
 				height: 60px;
 				border: 1px solid #f24848;
 				margin-bottom: 5px;
+			}
+			.daoshi_shou{
+				position: absolute;
+				top:-6px;
+				left:-5px;
+				display: block;
+				width: 18px;
+				height: 18px;
+				background: #f55;
+				text-align: center;
+				line-height: 18px;
+				color: #fff;
+				border-radius: 50%;
 			}
 			// .yh_name{
 			// 	text-align: center;
@@ -125,7 +140,8 @@ import { Button } from 'vant';
 				line-height: 21px;
 				color: #38c;
 				.co{
-					color: #333;
+					font-weight: normal;
+					font-size: 12px;
 				}
 				span{
 					color: #333;
@@ -137,24 +153,26 @@ import { Button } from 'vant';
 		.right{
 			width: 32%;
 			text-align: right;
-			.top{
+			color: #666;
+			.top>span{
 				margin-bottom: 6px;
-				color: #f24848;
+				color:red;
 			}
-			.zhong{
+			.zhong>span{
 				margin-bottom: 4px;
-				color: #f24848;
+				color:red;
 			}
 			.xia{
 				position: relative;
 				.dingyue{
 					display: inline-block;
-					border: 1px solid #f24848;
+					border: 1px solid red;;
 					border-radius: 5px;
 					padding: 4px;
-					color: #f24848;
+					color:red;
 				}
 			}
+			
 		}
 	}
 	.van-button--mini {
