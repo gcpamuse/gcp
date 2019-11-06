@@ -36,18 +36,21 @@
                 <li class="active" style="width:49%"><a href="#">交易概况</a></li> 
                 <li style="width:49%"><a href="#">我的净值</a></li> 
             </ul> -->
-            <van-tabs class="tab">
+            <van-tabs v-model="active">
+                <van-tab title="交易概况" @click="toJiaoYi"></van-tab>
+                <van-tab title="我的净值" @click="toJIngZhi"></van-tab>
+            </van-tabs>
+            <!-- <van-tabs v-model="active">
                 <van-tab 
                     v-for="tab in tabsItem"
                     :title="tab.name" 
                     :key="tab.type"
                     @click="totab(tab.status)"
                     class="tab">
-                    {{tab.status}}
                 </van-tab>
-            </van-tabs>
+            </van-tabs> -->
             <div class="superior-content"> 
-                <div class="superior-con" v-if="this.xianshi==0">
+                <div class="superior-con" v-if="xianshi==0">
                     <h5 class="numone">账户概述</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
@@ -161,7 +164,7 @@
                     </table>
                 
                 </div> 
-                <div class="superior-con" v-if="this.xianshi==1">
+                <div class="superior-con" v-if="xianshi==1">
                      <!-- style="display:none"  -->
                     <h5>累计净值</h5> 
                     <div class="graph chartField" id="total_nav"></div> 
@@ -204,16 +207,23 @@ export default {
                 status: 1
                 }
             ],
-            xianshi:0
+            xianshi: 0,
+            active:1
         }
     },
     methods:{
-        totab(status){
-            if(status==0){
-               this.xianshi=0; 
-            } else {
-                this.xianshi=1;
-            }
+        // totab(s){
+        //     if(s==0){
+        //        this.xianshi=0; 
+        //     } else {
+        //         this.xianshi=1;
+        //     }
+        // }
+        toJiaoYi(){
+            this.xianshi=0;
+        },
+        toJIngZhi(){
+            this.xianshi=1;
         }
     }
 }
