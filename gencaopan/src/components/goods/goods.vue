@@ -102,13 +102,13 @@ import { Button } from 'vant';
 	.conment{
 		display: flex;
 		font-size: 12px;
-		padding: 15px 10px 10px;
+		padding:15px 0 10px 0px;;
 		background-color: #eee;
 		width: 100%;
 		border-top: 1px solid #ddd;
 		.left{
 			width: 20%;
-			// text-align: right;
+    		margin-left: 3%;
 			.img_top{
 				width: 60px;
 				height: 60px;
