@@ -41,11 +41,12 @@
                     v-for="tab in tabsItem"
                     :title="tab.name" 
                     :key="tab.type"
+                    @click="totab(tab.status)"
                     class="tab">
                 </van-tab>
             </van-tabs>
             <div class="superior-content"> 
-                <div class="superior-con">
+                <div class="superior-con" v-if="this.xianshi==0">
                     <h5 class="numone">账户概述</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
@@ -159,7 +160,8 @@
                     </table>
                 
                 </div> 
-                <div class="superior-con" style="display:none"> 
+                <div class="superior-con" v-if="this.xianshi==1">
+                     <!-- style="display:none"  -->
                     <h5>累计净值</h5> 
                     <div class="graph chartField" id="total_nav"></div> 
                     <h5>盈亏曲线图</h5> 
@@ -200,9 +202,19 @@ export default {
                 name: "我的净值",
                 status: 1
                 }
-            ]
+            ],
+            xianshi:0
         }
     },
+    methods:{
+        totab(status){
+            if(status==0){
+               this.xianshi=0; 
+            } else {
+                this.xianshi=1;
+            }
+        }
+    }
 }
 </script>
 
