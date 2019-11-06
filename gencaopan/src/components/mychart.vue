@@ -29,13 +29,7 @@
                             <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
-                        <!-- <van-cell-group>
-                            <van-field label="用户名" v-model="value" placeholder="请输入用户名" />
-                            <van-field label="用户名" v-model="value" placeholder="请输入用户名" />
-                        </van-cell-group> -->
-                        <!-- <div class="toast-btn"> -->
                             <div class="toast-cancel" @click="toast_control = false">提交</div>
-                        <!-- </div> -->
                     <!-- </div>  -->
                 </div>  
             </div> 
@@ -44,10 +38,6 @@
                 <li class="active" @click="toJiaoYi" style="width:50%;border-right: 1px solid #eee;">交易概况</li> 
                 <li @click="toJIngZhi" style="width:50%">我的净值</li> 
             </ul>
-            <!-- <van-tabs v-model="active">
-                <van-tab title="交易概况" @click="toJiaoYi"></van-tab>
-                <van-tab title="我的净值" @click="toJIngZhi"></van-tab>
-            </van-tabs> -->
             <!-- <van-tabs v-model="active">
                 <van-tab 
                     v-for="tab in tabsItem"
