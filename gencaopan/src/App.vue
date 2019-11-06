@@ -16,21 +16,21 @@
 		<van-tabbar-item
 			replace
 			to="/"
-			icon="home-o"
+			icon="qihuo"
 		>
 			期货
 		</van-tabbar-item>
 		<van-tabbar-item
 			replace
 			to="/ratings"
-			icon="home-o"
+			icon="zimeiti"
 		>
 			自媒体
 		</van-tabbar-item>
 		<van-tabbar-item
 			replace
 			to="/seller"
-			icon="home-o"
+			icon="wode"
 		>
 			我的
 		</van-tabbar-item>
