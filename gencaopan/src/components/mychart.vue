@@ -22,11 +22,11 @@
                     <!-- <div style="min-width:256px">  -->
                         <div> 
                             <lable class="gao">账户:</lable> 
-                            <input type="text" value="" placeholder="期货保证金监控中心账户"> 
+                            <input name="zhanghu" type="text" value="" placeholder="期货保证金监控中心账户"> 
                         </div> 
                         <div> 
                             <lable class="gao">密码:</lable> 
-                            <input type="password" value="" placeholder="期货保证金监控中心密码"> 
+                            <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
                         <!-- <van-cell-group>
