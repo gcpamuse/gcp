@@ -22,22 +22,30 @@
                         <div style="min-width:256px"> 
                             <div> 
                                 <lable>账户:</lable> 
-                                <input name="d[t][mod_user]" type="text" value="" placeholder="期货保证金监控中心账户"> 
+                                <input type="text" value="" placeholder="期货保证金监控中心账户"> 
                             </div> 
                             <div> 
                                 <lable>密码:</lable> 
-                                <input name="d[t][mod_passwd]" type="text" value="" placeholder="期货保证金监控中心密码"> 
+                                <input type="text" value="" placeholder="期货保证金监控中心密码"> 
                             </div> 
                             <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a> 
                         </div> 
                     </div>  
                 </div> 
-            <ul class="superior-nav fix" id="superior-nav"> 
+            <!-- <ul class="superior-nav fix"> 
                 <li class="active" style="width:49%"><a href="#">交易概况</a></li> 
                 <li style="width:49%"><a href="#">我的净值</a></li> 
-            </ul> 
-            <div class="superior-content" id="superior-content"> 
-                <div class="superior-con" id="overviewWrap">
+            </ul> -->
+            <van-tabs class="tab">
+                <van-tab 
+                    v-for="tab in tabsItem"
+                    :title="tab.name" 
+                    :key="tab.type"
+                    class="tab">
+                </van-tab>
+            </van-tabs>
+            <div class="superior-content"> 
+                <div class="superior-con">
                     <h5 class="numone">账户概述</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
@@ -47,7 +55,7 @@
                                 <td>起始日期</td>
                                 <td>--</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>最新权益</td>
                                 <td>0元</td>
                                 <td>最新数据</td>
@@ -59,7 +67,7 @@
                                 <td>累计手续费</td>
                                 <td>0元</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>累计净利润</td>
                                 <td>0元
                                     <em style="color:#888">元</em>
@@ -73,7 +81,7 @@
                                 <td>盈利笔数（平仓）</td>
                                 <td>0笔</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>亏损笔数（平仓）</td>
                                 <td>0笔</td>
                                 <td>平均每笔盈利</td>
@@ -85,7 +93,7 @@
                                 <td>平均每笔费用</td>
                                 <td>0元</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>费用占比</td>
                                 <td>0</td>
                                 <td>&nbsp;</td>
@@ -93,7 +101,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5>盈亏曲线图</h5> 
+                    <h5 class="numone">盈亏曲线图</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
@@ -102,7 +110,7 @@
                                 <td>累计收益率</td>
                                 <td>0%</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>当日收益率</td>
                                 <td>0</td>
                                 <td>7日收益率</td>
@@ -114,7 +122,7 @@
                                 <td>胜率</td>
                                 <td>0%</td>
                             </tr>
-                            <tr>
+                            <tr class="xuxian">
                                 <td>盈亏比</td>
                                 <td>--</td>
                                 <td>连续盈利天数</td>
@@ -128,7 +136,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5>周盈亏</h5> 
+                    <h5 class="numone">周盈亏</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
@@ -170,6 +178,7 @@
             </div> 
         </div> 
     </div>
+    <div style="height:50px;"></div>
   </div>
 </template>
 
@@ -181,7 +190,17 @@ export default {
                 backgroundImage:"url("+require('../img/s_daoshibg2.jpg')+")",
                 backgroundRepeat: "no-repeat",
                 backgroundSize:'100% 100%'
-            }
+            },
+            tabsItem: [
+                {
+                name: "交易概况",
+                status: 0
+                },
+                {
+                name: "我的净值",
+                status: 1
+                }
+            ]
         }
     },
 }
@@ -226,5 +245,37 @@ export default {
                 
             } 
         }
+    }
+    // .superior-nav{
+    //     display: flex;
+    //     text-align: center;
+    //     font-size: 14px;
+    //     li{
+    //         padding: 15px 0;
+    //         background-color: #f6f6f6;
+    //         color: #666! important;
+    //     }
+    // }
+    .superior-content{
+       .superior-con{
+           .numone{
+               padding: 10px;
+               color: #3333;
+               border-bottom: 2px solid #eee;
+           }
+           .table-m1{
+               width: 100%;
+               text-align: center;
+               font-size: 12px;
+               border-bottom: 2px solid #eee;
+               color: #666;
+               tr{
+                   line-height: 25px;
+               }
+               .xuxian{
+                   border-bottom: 1px dashed #eee;
+               }
+           }
+       } 
     }
 </style>
