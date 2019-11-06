@@ -301,7 +301,7 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        background: rgba(46, 44, 44, 0.6);
+        background: rgba(46, 44, 44, 0.4);
         z-index: 10000;
         width: 100%;
         height: 100%;
@@ -316,12 +316,12 @@ export default {
         background: #fff;
         border-radius: 0.3125rem;
         padding: 0.3125rem;
-        box-shadow: 5px  5px  0.5  #000;
+        box-shadow: 0 0 15px rgb(68, 67, 67);
         .toast-container {
             position: relative;
             width: 100%;
             height: 100%;
-            padding: 12px;
+            padding: 8px 12px 12px;
             .gao{
                 line-height: 35px;
             }
@@ -330,7 +330,7 @@ export default {
                 width: 245px;
                 padding:8px 5px;
                 border-radius: 8px;
-                box-shadow: 1px 1px 1px #f3f3f3 inset;
+                box-shadow: 0 0 3px #b3b1b1 inset;
             }
             .toast-cancel {
                 background: #f24848;
