@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?y5mflw');
-  src:  url('fonts/iconfont.eot?y5mflw#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?y5mflw') format('truetype'),
-    url('fonts/iconfont.woff?y5mflw') format('woff'),
-    url('fonts/iconfont.svg?y5mflw#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?uajayr');
+  src:  url('fonts/iconfont.eot?uajayr#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?uajayr') format('truetype'),
+    url('fonts/iconfont.woff?uajayr') format('woff'),
+    url('fonts/iconfont.svg?uajayr#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -13,7 +13,7 @@
 [class^="van-icon-"], [class*=" van-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'iconfont' !important;
-  /* speak: none; */
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -35,6 +35,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.van-icon-wode:before {
+  content: "\e90f";
+  color: #0aa8ff;
+}
+.van-icon-zimeiti:before {
+  content: "\e910";
+  color: #13227a;
+}
+.van-icon-qihuo:before {
+  content: "\e911";
+  color: #d81e06;
+}
 .van-icon-user_youjian:before {
   content: "\e900";
   color: #bfbfbf;
