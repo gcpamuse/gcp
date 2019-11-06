@@ -207,8 +207,8 @@ export default {
         }
     },
     methods:{
-        totab(status){
-            if(status==0){
+        totab(s){
+            if(s==0){
                this.xianshi=0; 
             } else {
                 this.xianshi=1;
