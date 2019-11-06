@@ -16,6 +16,7 @@ import pushSetting from '@/components/pushSetting'
 import cooperation from '@/components/cooperation'
 import applyManager from '@/components/applyManager'
 import release from '@/components/release'
+import mychart from '@/components/mychart'
 Vue.use(Router)
 
 export default new Router({
@@ -94,6 +95,11 @@ export default new Router({
       path: '/release',
       name: 'release',
       component: release
+    },
+    {
+      path: '/mychart',
+      name: 'mychart',
+      component: mychart
     },
   ]
 })
