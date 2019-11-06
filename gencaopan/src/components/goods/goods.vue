@@ -112,7 +112,7 @@ import { Button } from 'vant';
 			.img_top{
 				width: 60px;
 				height: 60px;
-				border: 1px solid red;
+				border: 1px solid #f24848;
 				margin-bottom: 5px;
 			}
 			// .yh_name{
@@ -123,9 +123,9 @@ import { Button } from 'vant';
 			width: 43%;
 			.middle_count{
 				line-height: 21px;
-				color: red;
+				color: #f24848;
 				.col{
-					color: blue;
+					color: #38c;
 				}
 				.co{
 					color: #000;
@@ -137,20 +137,20 @@ import { Button } from 'vant';
 			text-align: right;
 			.top{
 				margin-bottom: 6px;
-				color: red;
+				color: #f24848;
 			}
 			.zhong{
 				margin-bottom: 4px;
-				color: red;
+				color: #f24848;
 			}
 			.xia{
 				position: relative;
 				.dingyue{
 					display: inline-block;
-					border: 1px solid red;
+					border: 1px solid #f24848;
 					border-radius: 5px;
 					padding: 4px;
-					color: red;
+					color: #f24848;
 				}
 			}
 		}
@@ -159,7 +159,7 @@ import { Button } from 'vant';
 		min-width: 40px;
 		height: 25px;
 		line-height: 25px;
-		background-color: red;
+		background-color: #f24848;
 		color: #fff;
 		border-radius: 5px;
 	}
