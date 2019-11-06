@@ -43,6 +43,7 @@
                     :key="tab.type"
                     @click="totab(tab.status)"
                     class="tab">
+                    {{tab.status}}
                 </van-tab>
             </van-tabs>
             <div class="superior-content"> 
@@ -207,8 +208,8 @@ export default {
         }
     },
     methods:{
-        totab(s){
-            if(s==0){
+        totab(status){
+            if(status==0){
                this.xianshi=0; 
             } else {
                 this.xianshi=1;
