@@ -8,11 +8,9 @@
         </van-cell-group>
         <div class="item-content"> 
             <textarea class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
-            <!-- <img src="../img/photo.png" alt="" class="photo-submit">  -->
-            <div click="uploader">
-                <van-uploader :after-read="afterRead"/>
-            </div>
-        </div> 
+            <img src="../img/photo.png" alt="" class="photo-submit"> 
+        </div>
+        <!-- <van-uploader :after-read="afterRead" />  -->
         <van-cell-group class="group">
             <van-switch-cell v-model="checked" title="是否收费" active-color="#f42241" />
         </van-cell-group>
@@ -71,19 +69,22 @@ export default {
         font-size: 15px;
     }
     .item-content{
-        margin-top: 8px;
+        margin-top: 6px;
         position: relative;
+        text-align: right;
+        background-color: #fff;
         .content{
-            width: 100%;
+            width: 96%;
             margin: 0 auto;
             height: 200px;
             border: 0;
-            padding:15px 6px;
+            padding:15px 7px;
             font-size: 13px;
+            z-index: -1;
         }
-        .uploader{
-            position: absolute;
-            top: -20px;
+        .photo-submit{
+            width: 80px; 
+            margin: 0 10px 10px 0;       
         }
     }
 </style>
