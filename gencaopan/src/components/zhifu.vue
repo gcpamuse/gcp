@@ -16,17 +16,10 @@
             </van-radio-group>
         </div>   
         <h3>您还应支付：<span><em id="totalPay">6666</em>元</span></h3> 
-        <!-- <div class="other-payway"> 
-            <input type="hidden" name="paytype" value="2"> 
-            <div class="checkbox-set mt10"> 
-                <label for='spxcAgree'>
-                    接受并同意 《
-                    <a>跟操盘平台订阅用户服务协议</a>》
-                </label>
-                <input type="checkbox" name="favcolor" id="spxcAgree" value="spxcAgree"  checked="checked">
-            </div> 
-            <button class="submit mt20 success" onclick="doPay();">微信支付</button> 
-        </div> 
+        <van-radio-group v-model="radio2" class="demo-radio-group">
+            <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square">接受并同意《<em style="color:#38c;font-size: 12px;">跟操盘平台订阅用户服务协议</em>》</van-checkbox></div>
+        </van-radio-group>
+        <van-button size="large" class="wechatbtn" @click="weChatPayment">微信支付</van-button>
         <div class="newtequan"> 
             <div class="newtequan_t"><span>会员特权</span></div> 
             <div class="newtequan_b"> 
@@ -47,7 +40,7 @@
                     <h3>学习导师的方法，成为对冲基金经理</h3> 
                 </div> 
             </div> 
-        </div>  -->
+        </div>
     </div> 
 </div> 
 	
@@ -59,6 +52,7 @@ export default {
     data(){
         return{
             radio1: '1',
+            checkboxShape: true,
         }
     },
     methods:{
@@ -125,81 +119,51 @@ export default {
     font-size: 1rem;
     font-weight: bold;
 }
-.pay-con .submit,
-.pay-con .submit:focus{ 
-    background-color: #f24848; 
-    color: #fff; 
-    text-shadow:none; 
+.wechatbtn{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color:#f24848;;
+    border-radius:5px;
+    color: #fff;
+    margin-top: 20px;
 }
-.pay-con .pay,
-.pay-con .pay:focus{ 
-    background-color: #28A200; 
-    color: #fff; 
-    text-shadow:none; 
-}
-.other-payway{ 
+.newtequan{
     margin-top:10px;
 }
-.other-payway h2.tit{ 
-    color: #333; 
-    text-shadow:none; 
-    font-weight: normal; 
-    font-size: 14px; 
-    line-height: 1.5rem; 
-    border-bottom: solid 1px #ddd; 
+.newtequan_t{    
+    border-bottom: solid 1px #ddd;
+    padding:4px 0;
 }
-.other-payway h2.tit span{ 
-    padding: 4px; 
-    border-bottom: solid 2px #28A200; 
+.newtequan_t span{
+    border-bottom:solid 2px red;
+    padding:4px;color:#000;
 }
-fieldset.radio-img{ 
-    margin: 15px 0; 
-    padding: 0; 
+.newtequan_b{
+    margin-top:10px;
 }
-fieldset.radio-img.ui-controlgroup-vertical .ui-controlgroup-controls .ui-btn{ 
-    border-bottom-width: 1px; 
+.newtequan_b>div{
+    padding-left:50px;
+    margin-top:5px;
 }
-fieldset.radio-img label{ 
-    width: 30%; 
-} 
-fieldset.radio-img img{ 
-    width: 160px; 
-    height: 50px; 
+.newtequan_b>div p{
+    font-weight:bold;
+    color:#000;
 }
-.checkbox-set label{ 
-    position: relative; 
-    padding: .7em 3em; 
-    line-height: 18px; 
-    background: #f6f6f6; 
-    border: solid 1px #ddd; 
-    border-radius: .3125em; 
-    font-size: 12px; 
-    color: #666! important; 
-    font-weight: normal; 
+.newtequan_b>div h3{
+    margin-top:0;
 }
-.checkbox-set label input{ 
-    position: absolute; 
-    top: 17px; left: 7px; 
-    display: block; 
-    margin: -9px 2px 0 2px; 
-    width: 18px; 
-    height: 18px; 
-    border-radius: .1875em; 
+.newtequan_b1{
+    background: url("../img/zaiying-bookPower-icon.png") 3px 7px no-repeat;
 }
-.checkbox-set label input.off{
-    background-color: #666; 
-    background-color: rgb(0,0,0,.3); 
-    filter:Alpha(Opacity=20); 
-    opacity: .2; 
+.newtequan_b2{
+    background: url("../img/zaiying-bookPower-icon.png") 0px -87px no-repeat;
 }
-.checkbox-set label input.on{ 
-    background: url("") center center no-repeat; 
-    background-color: #38c; 
-    color: #fff; 
+.newtequan_b3{
+    background: url("../img/zaiying-bookPower-icon.png") 5px -40px no-repeat;
 }
-
-.checkbox-set label a{ 
-    font-weight: normal; 
+.newtequan_b4{
+    background: url("../img/zaiying-bookPower-icon.png") 0px -138px no-repeat;
 }
 
 </style>

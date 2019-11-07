@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-	<router-view name="default"></router-view>
+	<div class="app-mian">
+		<router-view name="default"></router-view>
+	</div>
+	
   	<!-- <div class="nav">
   		<div class="nav-item border-1px">
   			<router-link to='/goods'>期货</router-link>
@@ -66,6 +69,9 @@ export default {
 @import 'common/less/base.less';
 #app {
 	height: 100%;
+	.app-mian{
+		padding-bottom: 50px;
+	}
   .nav{
 		display: flex;
 		width: 100%;

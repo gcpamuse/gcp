@@ -24,6 +24,7 @@
               </div>
           </div>
       </div>
+<<<<<<< HEAD
       <div class="mine-article">  
         <div class="media-panel"> 
             <div class="panel-left" @click="toDetails"> 
@@ -78,6 +79,9 @@
         </div> 
       </div>  
       <div style="height:50px;"></div>
+=======
+      
+>>>>>>> 90273ea361f32f2c0d1447f37046d9c8486f12bb
   </div>
 </template>
 

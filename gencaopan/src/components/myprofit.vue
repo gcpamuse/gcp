@@ -14,7 +14,7 @@
             <div class="shang">¥30.66</div>
             <div class="shang">2019-11-1</div>
       </div>
-      <div style="height:50px;"></div>
+      
   </div>
 </template>
 

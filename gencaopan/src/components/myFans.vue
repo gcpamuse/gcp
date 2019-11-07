@@ -7,7 +7,7 @@
             <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
         </div>
     </div>
-    <div style="height:50px;"></div> 
+     
   </div>
 </template>
 

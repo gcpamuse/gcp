@@ -10,7 +10,7 @@
             <div class="m-concern">取消关注</div> 
         </div>
     </div>
-    <div style="height:50px;"></div>
+    
   </div>
 </template>
 
