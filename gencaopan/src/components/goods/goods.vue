@@ -95,7 +95,7 @@ import { Button } from 'vant';
 				this.modePop = true
 			},
 			determine(){
-				
+				this.$router.push({name: 'zhifu'})
 			},
 			toDetails(){
 				this.$router.push({name: 'futuresDetails'})
