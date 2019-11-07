@@ -10,13 +10,16 @@
             placeholder="手机号码或用户名"
         />
     </van-cell-group>
-    <!-- <input type="hidden" id="log_source" name="d[t][log_source]" value="index" /> 
-    <input type="hidden" id="recUrl" name="d[t][recUrl]" value="http://daoshi.simutz.com/sign/teacherList/1" /> 
-    <input type="text" name="d[t][login]" placeholder="手机号码或用户名" id="login" /> 
-    <input type="password" name="d[t][passwd]" placeholder="密码" id="password" /> 
-    <button class="submit" id="loginsubmit">登 陆</button> 
-    <a data-ajax="false" class="go-register" href="register"  target="_self">还没有账号，立即注册</a> 
-    <a data-ajax="false" class="right-bom" href="findPasswd"  target="_self">忘记密码</a>  -->
+    <van-cell-group>
+        <van-field
+            v-model="password"
+            placeholder="密码"
+        />
+    </van-cell-group>
+    <van-button size="large" class="btn login" @click="scanCode">登录</van-button>
+    <van-button size="large" class="btn reg" @click="scanCode">还没有账号，立即注册</van-button>
+    <router-link to="" style="color:#999;font-size:15px;float: right;margin: 12px 0;">忘记密码</router-link>
+   
 </div> 
 	
 </template>
@@ -26,7 +29,8 @@
 export default {
     data(){
         return{
-            username:''
+            username:'',
+            password:''
         }
     }
 }
@@ -36,9 +40,34 @@ export default {
 .myjoin{ 
     padding: 0 0.625rem; 
     font-size: 1rem; 
+    background-color: rgb(241, 241, 241);
+    margin-bottom: -50px;
+    min-height: 667px;
 }
 .myjoin img{ 
     margin-top: 1.25rem; 
     height: 3.750rem;
+}
+.myjoin .van-cell{
+    padding: 8px 16px;
+    border: solid 1px #757575;
+    color: #666;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.myjoin .btn{
+    width: 100%;
+    height: 45px;
+    line-height: 41px;
+    background-color:#f24848;
+    border-radius:5px;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 700;
+}
+.myjoin .btn.reg{
+    background: #fff;
+    border:2px solid #f24848;
+    color: #666;
 }
 </style>

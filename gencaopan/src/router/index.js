@@ -81,7 +81,6 @@ export default new Router({
     {
       path: '/prizes',
       name: 'prizes',
-      meta:{tabbar: false},
       component: prizes
     },
     {
