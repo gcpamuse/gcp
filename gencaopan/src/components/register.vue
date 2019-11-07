@@ -71,6 +71,23 @@ export default {
 .myjoin img{ 
     vertical-align: middle;
 }
+.myjoin .van-cell{
+    padding: 8px 16px;
+    border: solid 1px #757575;
+    color: #666;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.myjoin .btn{
+    width: 100%;
+    height: 45px;
+    line-height: 41px;
+    background-color:#f24848;
+    border-radius:5px;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 700;
+}
 .gender-set{
     background-color: #f6f6f6;
     border-color: #ddd;
