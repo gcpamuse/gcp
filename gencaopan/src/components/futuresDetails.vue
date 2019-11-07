@@ -275,6 +275,12 @@ export default {
             .mychart_d{
                 color: #CFB696;
                 line-height: 18px;
+                .mychart_p{
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
+                }
             }
         }
         .quxian{
