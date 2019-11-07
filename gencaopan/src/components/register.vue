@@ -8,8 +8,8 @@
             >
             </van-field>
             <div style="margin-bottom:20px;">
-                <img src="http://daoshi.simutz.com/vildateCode.shtml" alt="点击刷新" >
-                <span>点击刷新图片</span>
+                <img :src="IdentifyingCode" alt="点击刷新" @click="updateIdentifyingCode(true)">
+                <span  @click="updateIdentifyingCode(true)">点击刷新图片</span>
             </div>
             
             <van-field
@@ -38,7 +38,7 @@
     <van-radio-group class="demo-radio-group">
         <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square"> 我已阅读并同意《跟操盘平台订阅用户服务协议》</van-checkbox></div>
     </van-radio-group>
-    <van-button size="large" class="btn login" @click="scanCode">注册</van-button>
+    <van-button size="large" class="btn login">注册</van-button>
     <router-link to="/login" style="color:#38c;font-size:15px;float: right;margin: 12px 0;">已有账号，直接登录</router-link>
    
 </div> 
@@ -55,7 +55,13 @@ export default {
             number:'',
             name:'',
             password:'',
-            checkboxShape:'true'
+            checkboxShape:'true',
+            IdentifyingCode:'http://daoshi.simutz.com/vildateCode.shtml'
+        }
+    },
+    methods:{
+        updateIdentifyingCode(bRefresh){
+            this.IdentifyingCode = "http://daoshi.simutz.com/vildateCode.shtml?" + Math.random() * 5;
         }
     }
 }
