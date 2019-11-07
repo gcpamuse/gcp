@@ -23,6 +23,8 @@ import {
   SwitchCell,
   Uploader,
   Dialog,
+  RadioGroup,
+  Radio,
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -33,6 +35,8 @@ Vue.use(Field);
 Vue.use(SwitchCell);
 Vue.use(Uploader);
 Vue.use(Dialog);
+Vue.use(RadioGroup);
+Vue.use(Radio);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

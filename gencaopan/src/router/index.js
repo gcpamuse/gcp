@@ -17,6 +17,7 @@ import cooperation from '@/components/cooperation'
 import applyManager from '@/components/applyManager'
 import release from '@/components/release'
 import mychart from '@/components/mychart'
+import zhifu from '@/components/zhifu'
 Vue.use(Router)
 
 export default new Router({
@@ -100,6 +101,11 @@ export default new Router({
       path: '/mychart',
       name: 'mychart',
       component: mychart
+    },
+    {
+      path: '/zhifu',
+      name: 'zhifu',
+      component: zhifu
     },
   ]
 })
