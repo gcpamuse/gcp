@@ -47,8 +47,9 @@
                     class="tab">
                 </van-tab>
             </van-tabs> -->
-            <div class="superior-content"> 
-                <div class="superior-con" v-if="xianshi">
+            <div class="superior-content">
+                <summary v-if="xianshi"></summary> 
+                <!-- <div class="superior-con" v-if="xianshi">
                     <h5 class="numone">账户概述</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
@@ -161,7 +162,7 @@
                         </tbody>
                     </table>
                 
-                </div> 
+                </div>  -->
                 <div class="superior-con" v-if="xshi">
                      <!-- style="display:none"  -->
                     <h5 class="numone">累计净值</h5> 
@@ -187,6 +188,7 @@
 </template>
 
 <script>
+import summary from './summary'
 export default {
     data(){
         return{
@@ -211,6 +213,9 @@ export default {
             toast_control: false,
         }
     },
+    components:{
+        summary
+    },
     methods:{
         toJiaoYi(){
             this.xianshi=true;
@@ -221,7 +226,7 @@ export default {
             this.xshi=true;
         },
         submit(){
-            
+
         }
     }
 }
