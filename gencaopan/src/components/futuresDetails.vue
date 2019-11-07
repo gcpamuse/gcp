@@ -311,6 +311,7 @@ export default {
            .tradingRecord-state{
                text-align: center;
                padding-top: 20px;
+               margin-bottom: 50px;
                .dingyue{
                     display: inline-block;
                     border-radius: .5rem;
