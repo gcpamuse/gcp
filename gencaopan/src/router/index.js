@@ -22,6 +22,7 @@ import futuresDetails from '@/components/futuresDetails'
 import login from '@/components/login'
 import register from '@/components/register'
 import findPasswd from '@/components/findPasswd'
+import applyInvestor from '@/components/applyInvestor'
 Vue.use(Router)
 
 export default new Router({
@@ -146,6 +147,12 @@ export default new Router({
       path: '/findPasswd',
       name: 'findPasswd',
       component: findPasswd
+    },
+    {
+      path: '/applyInvestor',
+      name: 'applyInvestor',
+      meta:{tabbar: true},
+      component: applyInvestor
     },
   ]
 })

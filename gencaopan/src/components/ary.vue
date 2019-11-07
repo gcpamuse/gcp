@@ -92,7 +92,7 @@
             </tbody>
         </table>
         <h5 class="numone">稳定性</h5> 
-        <table class="table-m1" cellspacing="0">
+        <table class="table-m1 tm" cellspacing="0">
             <tbody>
                 <tr>
                     <td>最大回撤率</td>
@@ -147,6 +147,9 @@ export default {
             .xuxian{
                 border-bottom: 1px dashed #eee;
             }
+        }
+        .tm{
+            border: 0;
         }
     } 
 </style>

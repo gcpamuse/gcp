@@ -26,117 +26,8 @@
             </ul>
             <div class="superior-content"> 
                 <div class="superior-con" v-if="xianshi">
-                    <h5 class="numone">账户概述</h5> 
-                    <table class="table-m1" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <td>初始权益</td>
-                                <td>0元</td>
-                                <td>起始日期</td>
-                                <td>--</td>
-                            </tr>
-                            <tr class="xuxian">
-                                <td>最新权益</td>
-                                <td>0元</td>
-                                <td>最新数据</td>
-                                <td>--</td>
-                            </tr>
-                            <tr>
-                                <td>累计净值</td>
-                                <td>0元</td>
-                                <td>累计手续费</td>
-                                <td>0元</td>
-                            </tr>
-                            <tr class="xuxian">
-                                <td>累计净利润</td>
-                                <td>0元
-                                    <em style="color:#888">元</em>
-                                </td>
-                                <td>交易周期</td>
-                                <td>0天</td>
-                            </tr>
-                            <tr>
-                                <td>交易笔数（开仓、平仓）</td>
-                                <td>0笔</td>
-                                <td>盈利笔数（平仓）</td>
-                                <td>0笔</td>
-                            </tr>
-                            <tr class="xuxian">
-                                <td>亏损笔数（平仓）</td>
-                                <td>0笔</td>
-                                <td>平均每笔盈利</td>
-                                <td>0元</td>
-                            </tr>
-                            <tr>
-                                <td>平均每笔亏损</td>
-                                <td>0笔</td>
-                                <td>平均每笔费用</td>
-                                <td>0元</td>
-                            </tr>
-                            <tr>
-                                <td>费用占比</td>
-                                <td>0</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h5 class="numone">盈利能力</h5> 
-                    <table class="table-m1" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <td>年化收益率</td>
-                                <td>--</td>
-                                <td>累计收益率</td>
-                                <td>0%</td>
-                            </tr>
-                            <tr class="xuxian">
-                                <td>当日收益率</td>
-                                <td>0</td>
-                                <td>7日收益率</td>
-                                <td>0%</td>
-                            </tr>
-                            <tr>
-                                <td>30日收益率</td>
-                                <td>0%</td>
-                                <td>胜率</td>
-                                <td>0%</td>
-                            </tr>
-                            <tr class="xuxian">
-                                <td>盈亏比</td>
-                                <td>--</td>
-                                <td>连续盈利天数</td>
-                                <td>0天</td>
-                            </tr>
-                            <tr>
-                                <td>连续亏损天数</td>
-                                <td>0天</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h5 class="numone">稳定性</h5> 
-                    <table class="table-m1" cellspacing="0">
-                        <tbody>
-                            <tr>
-                                <td>最大回撤率</td>
-                                <td>0%</td>
-                                <td>日最大赢利额</td>
-                                <td>0
-                                    <em style="color:#888">元</em>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>日最大亏损额</td>
-                                <td>0
-                                    <em style="color:#888">元</em>
-                                </td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <ary></ary>
+                    
                     <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
                     <h5 class="numone">历史交易记录</h5>    
                     <div class="tradingRecord-state"> 
@@ -146,21 +37,7 @@
                 
                 </div> 
                 <div class="superior-con" v-if="xshi">
-                     <!-- style="display:none"  -->
-                    <h5 class="numone">累计净值</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">盈亏曲线图</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">周盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">月盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">品种盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">成交结构</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">隔夜习惯</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
+                    <netWorth></netWorth>
                     <h5 class="numone">出入金</h5> 
                     <div class="jy_crj"> 
                         <div>出入金</div> 
@@ -195,6 +72,8 @@
 </template>
 
 <script>
+import ary from './ary';
+import netWorth from './netWorth'
 export default {
     data(){
         return{
@@ -246,6 +125,10 @@ export default {
             this.sshi=false;
             this.dshi=true;
         }
+    },
+    components:{
+        ary,
+        netWorth
     }
 }
 </script>
@@ -303,7 +186,7 @@ export default {
         li{
             padding: 15px 0;
             background-color: #f6f6f6;
-            color: #666! important;
+            color: #666!important;
         }
     }
     .superior-content{
@@ -467,6 +350,7 @@ export default {
             .fuzhi{
                 width: 50%;
                 line-height: 40px;
+                color: red;
             }
         }
     }
