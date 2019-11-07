@@ -50,24 +50,8 @@
             <div class="superior-content">
                 
                 <ary v-if="xianshi"></ary> 
+                <netWorth v-if="xshi"></netWorth>
                 
-                <div class="superior-con" v-if="xshi">
-                     <!-- style="display:none"  -->
-                    <h5 class="numone">累计净值</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">盈亏曲线图</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">周盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">月盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">品种盈亏</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">成交结构</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5 class="numone">隔夜习惯</h5> 
-                    <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                </div> 
             </div> 
         </div> 
     </div>
@@ -76,7 +60,8 @@
 </template>
 
 <script>
-import ary from './ary'
+import ary from './ary';
+import netWorth from './netWorth'
 export default {
     data(){
         return{
@@ -102,7 +87,8 @@ export default {
         }
     },
     components:{
-        ary
+        ary,
+        netWorth
     },
     methods:{
         toJiaoYi(){
@@ -170,29 +156,7 @@ export default {
             color: #666! important;
         }
     }
-    .superior-content{
-       .superior-con{
-           .numone{
-               padding: 10px;
-               color: #3333;
-               border-bottom: 2px solid #eee;
-               font-size: 15px;
-           }
-           .table-m1{
-               width: 100%;
-               text-align: center;
-               font-size: 12px;
-               border-bottom: 2px solid #eee;
-               color: #666;
-               tr{
-                   line-height: 25px;
-               }
-               .xuxian{
-                   border-bottom: 1px dashed #eee;
-               }
-           }
-       } 
-    }
+    
     .toast-mask {
         position: fixed;
         top: 0;
