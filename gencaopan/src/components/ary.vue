@@ -1,5 +1,6 @@
 <template>
-    <div class="superior-con" v-if="xianshi">
+<div class="ary">
+    <div class="superior-con">
         <h5 class="numone">账户概述</h5> 
         <table class="table-m1" cellspacing="0">
             <tbody>
@@ -111,15 +112,16 @@
                 </tr>
             </tbody>
         </table>
-    </div> 
+    </div>
+</div> 
 </template>
 
 <script>
 export default {
-    name:"summery",
+    name:"ary",
     data(){
         return{
-            
+
         }
     }
 }
