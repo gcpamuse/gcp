@@ -104,7 +104,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5 class="numone">盈亏曲线图</h5> 
+                    <h5 class="numone">盈利能力</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
@@ -139,7 +139,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5 class="numone">周盈亏</h5> 
+                    <h5 class="numone">稳定性</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
