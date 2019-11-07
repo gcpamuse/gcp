@@ -1,5 +1,5 @@
 <template>
-<div class="myjoin"> 
+<div class="myjoin loginwarp"> 
     <div style="text-align:center;color:#ccc;"> 
         <img src="../img/heidi_logo.png" > 
         <p style="padding:10px 0 0 0 ;">汇聚操盘牛人&nbsp;带你账户翻红</p> 
@@ -9,13 +9,12 @@
             v-model="username"
             placeholder="手机号码或用户名"
         />
-    </van-cell-group>
-    <van-cell-group>
         <van-field
             v-model="password"
             placeholder="密码"
         />
     </van-cell-group>
+    
     <van-button size="large" class="btn login" @click="scanCode">登录</van-button>
     <van-button size="large" class="btn reg" @click="scanCode">还没有账号，立即注册</van-button>
     <router-link to="" style="color:#999;font-size:15px;float: right;margin: 12px 0;">忘记密码</router-link>
@@ -31,6 +30,11 @@ export default {
         return{
             username:'',
             password:''
+        }
+    },
+    methods:{
+        scanCode(){
+            this.$router.push('/register')
         }
     }
 }
