@@ -239,12 +239,12 @@ export default {
                 font-size: 14px;
                 margin: 0 auto;
                 margin-top: 10px;
-                border: 1px solid rgba(255, 41, 41,0.7);
+                border: 1px solid #f42241;
                 text-align: center;
                 padding: 6px 15px;
                 border-radius: 15px;
                 color: #fff;
-                background-color: rgb(255, 41, 41,0.7);
+                background-color: #f42241;
             }
             .pay_button{
                 margin-bottom: 10px;
