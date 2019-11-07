@@ -69,11 +69,14 @@ export default {
         releaseBtn(){
             let phoneReg = /^1[34578]\d{9}$/;
             if(this.company == ""){
-                alert('请填写机构名称')
+                // alert('请填写机构名称')
+                this.$toast('请填写机构名称');
             }else if (this.realname == "") {
-                alert('请填写真实姓名')
+                
+                this.$toast('请填写真实姓名');
             }else if(!phoneReg.test(this.mobile)){
-                alert('请填写正确格式的手机号')
+               
+                this.$toast('请填写正确格式的手机号');
             }else{
 
             }
