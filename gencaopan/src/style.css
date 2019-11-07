@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?uajayr');
-  src:  url('fonts/iconfont.eot?uajayr#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?uajayr') format('truetype'),
-    url('fonts/iconfont.woff?uajayr') format('woff'),
-    url('fonts/iconfont.svg?uajayr#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?mhy0ch');
+  src:  url('fonts/iconfont.eot?mhy0ch#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?mhy0ch') format('truetype'),
+    url('fonts/iconfont.woff?mhy0ch') format('woff'),
+    url('fonts/iconfont.svg?mhy0ch#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -13,7 +13,7 @@
 [class^="van-icon-"], [class*=" van-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'iconfont' !important;
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -111,4 +111,12 @@
 }
 .van-icon-bubbles4:before {
   content: "\e970";
+}
+.van-icon-xuanzhong:before {
+  content: "\e912";
+  color: #d81e06;
+}
+.van-icon-danxuan:before {
+  content: "\e913";
+  color: #fff;
 }
