@@ -1,6 +1,5 @@
 <template>
  <div class="push-set"> 
-  
     <div class="m-invest-form"> 
         <div class="m-invest-panel"> 
             <div class="u-invest-title">当前机构</div> 
