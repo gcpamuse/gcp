@@ -161,17 +161,16 @@
                     <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
                     <h5 class="numone">隔夜习惯</h5> 
                     <div class="graph chartField" style="height:20rem;border-bottom: 2px solid #eee;"></div> 
-                    <h5>出入金</h5> 
-                    <div> 
-                        <table class="table-m2" cellspacing="0"> 
-                            <thead> 
-                                <tr> 
-                                    <th>出入金</th> 
-                                    <th>金额</th> 
-                                    <th>日期<font color="red">(*半年内)</font></th> 
-                                </tr> 
-                            </thead> 
-                        </table> 
+                    <h5 class="numone">出入金</h5> 
+                    <div class="jy_crj"> 
+                        <div>出入金</div> 
+                        <div>金额</div> 
+                        <div>日期<font color="red">(*半年内)</font></div> 
+                    </div> 
+                    <div class="jy_count"> 
+                        <div>入金</div> 
+                        <div><font color="red">+30000</font></div> 
+                        <div>2019-10-30</div> 
                     </div> 
                 </div> 
             </div>
@@ -328,6 +327,20 @@ export default {
                    color: #333;
                }
            }
+           .jy_crj,.jy_count{
+               display: flex;
+               font-size: 13px;
+               text-align: center;
+               border-bottom: 1px dashed #eee;
+               div{
+                   width: 33.33%;
+                   padding: 10px 0;
+               }
+           }
+           .jy_crj{
+                font-weight: bold;
+                border-bottom: 1px solid #eee;
+           }
        } 
     }
     .toast-mask {
@@ -390,13 +403,13 @@ export default {
             display: flex;
             text-align: center;
             width: 100%;
-            background-color: f6f6f6;
-            border-top: 1px solid #f3f3f3;
+            background-color: #f6f6f6;
+            border-top: 1px solid #dbd8d8;
             font-size: 14px;
             .caopan{
                 width: 49.5%;
                 line-height: 40px;
-                border-right: 1px solid #f3f3f3;
+                border-right: 1px solid #dbd8d8;
             }
             .fuzhi{
                 width: 50%;
