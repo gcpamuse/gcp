@@ -154,9 +154,15 @@ import { Button } from 'vant';
 			width: 32%;
 			text-align: right;
 			color: #666;
+			.top{
+				margin-bottom: 5px;
+			}
 			.top>span{
 				margin-bottom: 6px;
 				color:red;
+			}
+			.zhong{
+				margin-bottom: 3px;
 			}
 			.zhong>span{
 				margin-bottom: 4px;
@@ -176,9 +182,9 @@ import { Button } from 'vant';
 		}
 	}
 	.van-button--mini {
-		min-width: 40px;
-		height: 25px;
-		line-height: 25px;
+		min-width: 38px;
+		height: 24px;
+		line-height: 20px;
 		background-color: #f24848;
 		color: #fff;
 		border-radius: 5px;
