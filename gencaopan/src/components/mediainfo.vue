@@ -83,7 +83,8 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-5.png" money="188.88"> 
                                 <img src="../img/icon-5.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <span class="pay-icon"></span>
+                                    <!-- <span class="pay-icon"></span> -->
+                                    <van-icon name="m_dashang" />
                                     <span class="pay-text">188.88</span> 
                                 </div> 
                                 <div class="pay-title">叶大户打赏</div> 
@@ -108,7 +109,7 @@
                     </div>
                     <div class="num-time">
                         <div class="num"> 
-                            <span class="pay-icon"></span>
+                            <van-icon name="m_dashang" />
                             <span class="text">52.00</span> 
                         </div> 
                         <div class="time">2019-09-24 17:53:50</div>
