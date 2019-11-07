@@ -25,6 +25,7 @@ import {
   Dialog,
   RadioGroup,
   Radio,
+  Checkbox
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -37,6 +38,7 @@ Vue.use(Uploader);
 Vue.use(Dialog);
 Vue.use(RadioGroup);
 Vue.use(Radio);
+Vue.use(Checkbox);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -38,7 +38,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="height:50px;"></div>
+		
 		<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine' confirm-button-color='#0BB20C'>
             <div class="content"> 
                 <p>1、仅作为自己学习之用，不违法违规使用和传播本软件的任何信息。</p>

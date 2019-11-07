@@ -50,7 +50,7 @@
 			</div> 
 		</div>
 		<div class="fabu" @click="toFabu"><span>+</span> 发布</div>
-		<!-- <div style="height:50px;"></div> -->
+		<!--  -->
 	</div>
 </template>
 
@@ -148,7 +148,6 @@ import '../../../dist/static/css/swiper.min.css';
 	}
 	.index-tab{
 		padding:0 8px;
-		margin-bottom: 50px;
 		.tabs{
 			padding: 10px 0;
 			border-bottom: 1px solid rgba(204, 178, 178, 0.2);
