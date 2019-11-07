@@ -25,86 +25,103 @@ export default new Router({
     {
       path: '/',
       name: 'goods',
+      meta:{tabbar: true},
       component: goods
     },
     {
       path: '/ratings',
       name: 'ratings',
+      meta:{tabbar: true},
       component: ratings
     },
     {
       path: '/seller',
       name: 'seller',
+      meta:{tabbar: true},
       component: seller
     },
     {
       path: '/myprofit',
       name: 'myprofit',
+      meta:{tabbar: true},
       component: myprofit
     },
     {
       path: '/myconcem',
       name: 'myconcem',
+      meta:{tabbar: true},
       component: myconcem
     },
     {
       path: '/myFans',
       name: 'myFans',
+      meta:{tabbar: true},
       component: myFans
     },
     {
       path: '/mynotes',
       name: 'mynotes',
+      meta:{tabbar: true},
       component: mynotes
     },
     {
       path: '/mediainfo',
       name: 'mediainfo',
+      meta:{tabbar: true},
       component: mediainfo
     },
     {
       path: '/apply',
       name: 'applyShow',
+      meta:{tabbar: true},
       component: applyShow
     },
     {
       path: '/prizes',
       name: 'prizes',
+      meta:{tabbar: true},
       component: prizes
     },
     {
       path: '/teacherSubscribe',
       name: 'teacherSubscribe',
+      meta:{tabbar: true},
       component: teacherSubscribe
     },
     {
       path: '/pushSetting',
       name: 'pushSetting',
+      meta:{tabbar: true},
       component: pushSetting
     },
     {
       path: '/cooperation',
       name: 'cooperation',
+      meta:{tabbar: true},
       component: cooperation
     },
     {
       path: '/applyManager',
       name: 'applyManager',
+      meta:{tabbar: true},
       component: applyManager
     },
     {
       path: '/release',
       name: 'release',
+      meta:{tabbar: true},
       component: release
     },
     {
       path: '/mychart',
       name: 'mychart',
+      meta:{tabbar: true},
       component: mychart
     },
     {
       path: '/zhifu',
       name: 'zhifu',
+      meta:{tabbar: true},
       component: zhifu
     },
   ]

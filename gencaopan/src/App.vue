@@ -12,7 +12,7 @@
   			<router-link to='/seller'>我的</router-link>
   		</div>
   	</div> -->
-	<van-tabbar route>
+	<van-tabbar v-show="isTabbar" route>
 		<van-tabbar-item
 			replace
 			to="/"
@@ -52,6 +52,11 @@ export default {
   },
   created(){
   	
+  },
+  computed:{
+	isTabbar() {
+      return this.$route.meta.tabbar ? true : false
+    }
   }
 }
 </script>
