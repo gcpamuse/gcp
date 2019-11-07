@@ -62,7 +62,7 @@
             <div class="tabbar"> 
                 <div class="tab">
                     <div class="caopan">操盘学习</div>
-                    <div class="fuzhi">立即复制</div>
+                    <div class="fuzhi" @click="toRenZheng">立即复制</div>
                 </div> 
             </div>  
         </div> 
@@ -124,6 +124,9 @@ export default {
             this.xshi=false;
             this.sshi=false;
             this.dshi=true;
+        },
+        toRenZheng(){
+            this.$router.push({name: 'applyInvestor'})
         }
     },
     components:{
