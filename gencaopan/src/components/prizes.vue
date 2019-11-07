@@ -1,5 +1,5 @@
 <template>
- <div class="nopageGroup" style="display:block;"> 
+ <div class="nopageGroup" style="display:block;margin-bottom: -50px;"> 
     <div id="dpage-invite" class="dpage" style="display:block;"> 
         <div class="content"> 
             <div class="banner"> 

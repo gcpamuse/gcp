@@ -19,6 +19,7 @@ import release from '@/components/release'
 import mychart from '@/components/mychart'
 import zhifu from '@/components/zhifu'
 import futuresDetails from '@/components/futuresDetails'
+import login from '@/components/login'
 Vue.use(Router)
 
 export default new Router({
@@ -80,7 +81,7 @@ export default new Router({
     {
       path: '/prizes',
       name: 'prizes',
-      meta:{tabbar: true},
+      meta:{tabbar: false},
       component: prizes
     },
     {
@@ -129,6 +130,11 @@ export default new Router({
       path: '/futuresDetails',
       name: 'futuresDetails',
       component: futuresDetails
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
   ]
 })
