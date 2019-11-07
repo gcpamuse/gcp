@@ -21,6 +21,7 @@ import zhifu from '@/components/zhifu'
 import futuresDetails from '@/components/futuresDetails'
 import login from '@/components/login'
 import register from '@/components/register'
+import findPasswd from '@/components/findPasswd'
 Vue.use(Router)
 
 export default new Router({
@@ -140,6 +141,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
+    },
+    {
+      path: '/findPasswd',
+      name: 'findPasswd',
+      component: findPasswd
     },
   ]
 })
