@@ -35,8 +35,8 @@
             </div> 
             <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
             <ul class="superior-nav fix"> 
-                <li class="active" @click="toJiaoYi" style="width:50%;border-right: 1px solid #eee;">交易概况</li> 
-                <li @click="toJIngZhi" style="width:50%">我的净值</li> 
+                <li class="active" @click="toJiaoYi" style="width:49%;border-right: 1px solid #eee;">交易概况</li> 
+                <li @click="toJIngZhi" style="width:49%">我的净值</li> 
             </ul>
             <!-- <van-tabs v-model="active">
                 <van-tab 
