@@ -29,14 +29,14 @@
                             <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
-                            <div class="toast-cancel" @click="toast_control = false">提交</div>
+                            <div class="toast-cancel" @click="submit">提交</div>
                     <!-- </div>  -->
                 </div>  
             </div> 
             <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
             <ul class="superior-nav fix"> 
-                <li class="active" @click="toJiaoYi" style="width:50%;border-right: 1px solid #eee;">交易概况</li> 
-                <li @click="toJIngZhi" style="width:50%">我的净值</li> 
+                <li class="active" @click="toJiaoYi" style="width:49%;border-right: 1px solid #eee;">交易概况</li> 
+                <li @click="toJIngZhi" style="width:49%">我的净值</li> 
             </ul>
             <!-- <van-tabs v-model="active">
                 <van-tab 
@@ -104,7 +104,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5 class="numone">盈亏曲线图</h5> 
+                    <h5 class="numone">盈利能力</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
@@ -139,7 +139,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5 class="numone">周盈亏</h5> 
+                    <h5 class="numone">稳定性</h5> 
                     <table class="table-m1" cellspacing="0">
                         <tbody>
                             <tr>
@@ -219,6 +219,9 @@ export default {
         toJIngZhi(){
             this.xianshi=false;
             this.xshi=true;
+        },
+        submit(){
+            
         }
     }
 }
