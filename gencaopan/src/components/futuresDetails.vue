@@ -186,7 +186,7 @@ export default {
         li{
             padding: 15px 0;
             background-color: #f6f6f6;
-            color: #666! important;
+            color: #666!important;
         }
     }
     .superior-content{
