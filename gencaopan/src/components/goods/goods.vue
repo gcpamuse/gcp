@@ -12,7 +12,7 @@
 				:key="tab.type">
 			</van-tab>
 		</van-tabs>
-		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index"> 
+		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index" @click="toDetails"> 
 			<div class="left">
 				<span class="daoshi_shou">收</span>
 				<img src="../../img/icon-5.png" class="img_top">
@@ -96,7 +96,10 @@ import { Button } from 'vant';
 			},
 			determine(){
 				
-			}
+			},
+			toDetails(){
+				this.$router.push({name: 'futuresDetails'})
+			},
 		},
 		computed:{
 			

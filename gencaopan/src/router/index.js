@@ -18,6 +18,7 @@ import applyManager from '@/components/applyManager'
 import release from '@/components/release'
 import mychart from '@/components/mychart'
 import zhifu from '@/components/zhifu'
+import futuresDetails from '@/components/futuresDetails'
 Vue.use(Router)
 
 export default new Router({
@@ -123,6 +124,11 @@ export default new Router({
       name: 'zhifu',
       meta:{tabbar: true},
       component: zhifu
+    },
+    {
+      path: '/futuresDetails',
+      name: 'futuresDetails',
+      component: futuresDetails
     },
   ]
 })
