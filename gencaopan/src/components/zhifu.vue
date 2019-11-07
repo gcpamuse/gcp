@@ -4,19 +4,14 @@
     <div class="pay-con"> 
         <h3 id="subTime">订阅期： 2019年09月27日-2020年09月26日</h3> 
         <h3>您可以通过订阅导师，看到导师实时持仓和实时交易，从而学习导师策略</h3> 
-        
-        <div> 
-            
-            <!-- <input type="radio" name="gender" id="week" value="week"> -->
-            <van-radio-group v-model="radio1" class="demo-radio-group">
-                <div class="gender-set"><van-radio name="1"><em>400</em>元/周</van-radio></div>
-                <div class="gender-set"><van-radio name="2"><em>1000</em>元/月</van-radio></div>
-                <div class="gender-set"><van-radio name="3"><em>2800</em>元/季</van-radio></div>
-                <div class="gender-set"><van-radio name="4"><em>6666</em>元/年</van-radio></div>
-            </van-radio-group>
-        </div>   
-        <h3>您还应支付：<span><em id="totalPay">6666</em>元</span></h3> 
-        <van-radio-group v-model="radio2" class="demo-radio-group">
+        <van-radio-group v-model="radio1" class="demo-radio-group">
+            <div class="gender-set"><van-radio name="400" value='400'><em>400</em>元/周</van-radio></div>
+            <div class="gender-set"><van-radio name="600" value='600'><em>1000</em>元/月</van-radio></div>
+            <div class="gender-set"><van-radio name="2800" value='2800'><em>2800</em>元/季</van-radio></div>
+            <div class="gender-set"><van-radio name="6666" value='6666'><em>6666</em>元/年</van-radio></div>
+        </van-radio-group>
+        <h3>您还应支付：<span><em id="totalPay">{{radio1}}</em>元</span></h3> 
+        <van-radio-group class="demo-radio-group">
             <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square">接受并同意《<em style="color:#38c;font-size: 12px;">跟操盘平台订阅用户服务协议</em>》</van-checkbox></div>
         </van-radio-group>
         <van-button size="large" class="wechatbtn" @click="weChatPayment">微信支付</van-button>
@@ -51,22 +46,18 @@
 export default {
     data(){
         return{
-            radio1: '1',
+            radio1: '400',
             checkboxShape: true,
+            gender: '',
         }
     },
     methods:{
-         onChange(event) {
-            this.setData({
-            radio: event.detail
-            });
-        },
-
-        onClick(event) {
-            const { name } = event.currentTarget.dataset;
-            this.setData({
-            radio: name
-            });
+        weChatPayment(){
+            if(!this.checkboxShape){
+                alert('您未阅读并同意私募投资网协议')
+            }else{
+                
+            }
         }
     }
 }
@@ -137,7 +128,8 @@ export default {
 }
 .newtequan_t span{
     border-bottom:solid 2px red;
-    padding:4px;color:#000;
+    padding:2px;
+    color:#000;
 }
 .newtequan_b{
     margin-top:10px;
