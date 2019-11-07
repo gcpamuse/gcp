@@ -29,7 +29,7 @@
                             <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
-                            <div class="toast-cancel" @click="toast_control = false">提交</div>
+                            <div class="toast-cancel" @click="submit">提交</div>
                     <!-- </div>  -->
                 </div>  
             </div> 
@@ -219,6 +219,9 @@ export default {
         toJIngZhi(){
             this.xianshi=false;
             this.xshi=true;
+        },
+        submit(){
+            
         }
     }
 }
