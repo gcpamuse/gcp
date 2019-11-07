@@ -51,7 +51,7 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
                                 <img src="../img/icon-1.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <span class="pay-icon"></span>
+                                    <van-icon name="m_dashang" />
                                     <span class="pay-text">6.66</span> 
                                 </div> 
                                 <div class="pay-title">六六大顺！</div> 
@@ -59,7 +59,7 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-2.png" money="13.14"> 
                                 <img src="../img/icon-2.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <span class="pay-icon"></span>
+                                    <van-icon name="m_dashang" />
                                     <span class="pay-text">13.14</span> 
                                 </div> 
                                 <div class="pay-title">追随一生</div> 
@@ -67,7 +67,7 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-3.png" money="52.00"> 
                                 <img src="../img/icon-3.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <span class="pay-icon"></span>
+                                    <van-icon name="m_dashang" />
                                     <span class="pay-text">52.00</span> 
                                 </div> 
                                 <div class="pay-title">我爱老师</div> 
@@ -75,7 +75,7 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-4.png" money="100.10"> 
                                 <img src="../img/icon-4.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <span class="pay-icon"></span>
+                                    <van-icon name="m_dashang" />
                                     <span class="pay-text">100.10</span> 
                                 </div> 
                                 <div class="pay-title">百里挑一</div>
