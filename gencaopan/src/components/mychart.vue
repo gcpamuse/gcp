@@ -48,7 +48,7 @@
                 </van-tab>
             </van-tabs> -->
             <div class="superior-content">
-
+                
                 <ary v-if="xianshi"></ary> 
                 
                 <div class="superior-con" v-if="xshi">
@@ -170,8 +170,29 @@ export default {
             color: #666! important;
         }
     }
-    
-    
+    .superior-content{
+       .superior-con{
+           .numone{
+               padding: 10px;
+               color: #3333;
+               border-bottom: 2px solid #eee;
+               font-size: 15px;
+           }
+           .table-m1{
+               width: 100%;
+               text-align: center;
+               font-size: 12px;
+               border-bottom: 2px solid #eee;
+               color: #666;
+               tr{
+                   line-height: 25px;
+               }
+               .xuxian{
+                   border-bottom: 1px dashed #eee;
+               }
+           }
+       } 
+    }
     .toast-mask {
         position: fixed;
         top: 0;
