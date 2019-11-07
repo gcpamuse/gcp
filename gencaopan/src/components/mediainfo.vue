@@ -184,7 +184,7 @@ export default {
             .media-info-title{
                 font-size: 18px;
                 font-weight: bold;
-                border-left: 4px solid red;
+                border-left: 4px solid #f42241;
                 line-height: 24px;
                 padding-left: 5px;
             }
