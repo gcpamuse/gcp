@@ -21,8 +21,8 @@
             <ul class="superior-nav fix"> 
                 <li class="active" @click="toJiaoYi" style="width:24.5%;border-right: 1px solid #eee;">交易概况</li> 
                 <li @click="toJIngZhi" style="width:24.5%;border-right: 1px solid #eee;">净值分析</li> 
-                <li style="width:24.5%;border-right: 1px solid #eee;">实时持仓</li> 
-                <li style="width:24.5%">当日成交</li> 
+                <li @click="toChiCang" style="width:24.5%;border-right: 1px solid #eee;">实时持仓</li> 
+                <li @click="toChengJao" style="width:24.5%">当日成交</li> 
             </ul>
             <div class="superior-content"> 
                 <div class="superior-con" v-if="xianshi">
@@ -172,6 +172,14 @@
                         <div><font color="red">+30000</font></div> 
                         <div>2019-10-30</div> 
                     </div> 
+                </div>
+                <div class="tradingRecord-state" v-if="sshi"> 
+                    <a class="dingyue">订 阅</a>
+                    <span class="fl">后可查看全部交易记录</span>
+                </div>
+                <div class="tradingRecord-state" v-if="dshi"> 
+                    <a class="dingyue">订 阅</a>
+                    <span class="fl">后可查看全部交易记录</span>
                 </div> 
             </div>
             <div class="tabbar"> 
@@ -207,6 +215,8 @@ export default {
             ],
             xianshi: true,
             xshi: false,
+            sshi: false,
+            dshi: false,
             active:0, 
             toast_control: false,
         }
@@ -215,10 +225,26 @@ export default {
         toJiaoYi(){
             this.xianshi=true;
             this.xshi=false;
+            this.sshi=false;
+            this.dshi=false;
         },
         toJIngZhi(){
             this.xianshi=false;
             this.xshi=true;
+            this.sshi=false;
+            this.dshi=false;
+        },
+        toChiCang(){
+            this.xianshi=false;
+            this.xshi=false;
+            this.sshi=true;
+            this.dshi=false;
+        },
+        toChengJao(){
+            this.xianshi=false;
+            this.xshi=false;
+            this.sshi=false;
+            this.dshi=true;
         }
     }
 }
@@ -342,7 +368,27 @@ export default {
                 font-weight: bold;
                 border-bottom: 1px solid #eee;
            }
-       } 
+       }
+        .tradingRecord-state{
+            text-align: center;
+            padding-top: 20px;
+            margin-bottom: 50px;
+            .dingyue{
+                display: inline-block;
+                border-radius: .5rem;
+                width: 6rem;
+                height: 2rem;
+                text-shadow: none;
+                line-height: 2rem;
+                text-align: center;
+                background-color: #f24848;
+                color: #fff; 
+            }
+            .fl{
+                font-size: 12px;
+                color: #333;
+            }
+        }
     }
     .toast-mask {
         position: fixed;
