@@ -350,6 +350,7 @@ export default {
             .fuzhi{
                 width: 50%;
                 line-height: 40px;
+                color: red;
             }
         }
     }
