@@ -94,7 +94,7 @@ export default {
             this.$router.push({name: 'applyInvestor'})
         },
         toGuanZhu(){
-            this.$router.push({name: 'wechatPay'})
+            this.$router.push({name: 'wechatPay',params: { id: 1}})
         }
     },
     components:{
