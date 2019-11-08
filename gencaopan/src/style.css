@@ -59,7 +59,7 @@
 }
 .van-icon-qihuo:before {
   content: "\e911";
-  color: #f55;
+  color: rgb(243, 87, 87);
 }
 .van-icon-user_youjian:before {
   content: "\e900";
