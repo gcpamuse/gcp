@@ -23,6 +23,8 @@ import login from '@/components/login'
 import register from '@/components/register'
 import findPasswd from '@/components/findPasswd'
 import applyInvestor from '@/components/applyInvestor'
+import wechatPay from '@/components/wechatPay'
+import subscribes from '@/components/subscribes'
 Vue.use(Router)
 
 export default new Router({
@@ -153,6 +155,16 @@ export default new Router({
       name: 'applyInvestor',
       meta:{tabbar: true},
       component: applyInvestor
+    },
+    {
+      path: '/wechatPay',
+      name: 'wechatPay',
+      component: wechatPay
+    },
+    {
+      path: '/subscribes',
+      name: 'subscribes',
+      component: subscribes
     },
   ]
 })
