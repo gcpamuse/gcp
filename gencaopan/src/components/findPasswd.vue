@@ -33,7 +33,9 @@ export default {
         }
     },
     methods:{
-        
+        scanCode(){
+            
+        }
     }
 }
 </script>
