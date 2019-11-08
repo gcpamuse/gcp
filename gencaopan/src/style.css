@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?x5c669');
-  src:  url('fonts/iconfont.eot?x5c669#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?x5c669') format('truetype'),
-    url('fonts/iconfont.woff?x5c669') format('woff'),
-    url('fonts/iconfont.svg?x5c669#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?xz1g98');
+  src:  url('fonts/iconfont.eot?xz1g98#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?xz1g98') format('truetype'),
+    url('fonts/iconfont.woff?xz1g98') format('woff'),
+    url('fonts/iconfont.svg?xz1g98#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -13,7 +13,7 @@
 [class^="van-icon-"], [class*=" van-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'iconfont' !important;
-  /* speak: none; */
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -35,17 +35,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.van-icon-clear:before {
+  content: "\e915";
+}
+.van-icon-m_dashang:before {
+  content: "\e914";
+  color: #d81e06;
+}
+.van-icon-danxuan:before {
+  content: "\e913";
+}
+.van-icon-xuanzhong:before {
+  content: "\e912";
+  color: #d81e06;
+}
 .van-icon-wode:before {
   content: "\e90f";
   color: #0aa8ff;
 }
 .van-icon-zimeiti:before {
   content: "\e910";
-  color: #ff9900;
+  color: #13227a;
 }
 .van-icon-qihuo:before {
   content: "\e911";
-  color: #f85555;
+  color: #d81e06;
 }
 .van-icon-user_youjian:before {
   content: "\e900";
@@ -111,16 +125,4 @@
 }
 .van-icon-bubbles4:before {
   content: "\e970";
-}
-.van-icon-xuanzhong:before {
-  content: "\e912";
-  color: #d81e06;
-}
-.van-icon-danxuan:before {
-  content: "\e913";
-  color: #fff;
-}
-.van-icon-m_dashang:before {
-  content: "\e914";
-  color: #f51738;
 }
