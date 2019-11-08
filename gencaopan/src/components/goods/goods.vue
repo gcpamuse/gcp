@@ -154,9 +154,12 @@ import { Button } from 'vant';
 				color: #fff;
 				border-radius: 50%;
 			}
-			// .yh_name{
-			// 	text-align: center;
-			// }
+			.yh_name{
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
 		}
 		.middle{
 			width:71%;
