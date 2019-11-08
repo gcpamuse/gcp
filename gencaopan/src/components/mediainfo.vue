@@ -119,10 +119,10 @@
                     <div class="qrcode-text">所有笔记仅供学习</div> 
                     <img src="../img/gencaopan.jpg" alt="跟操盘" class="qrcode-img">
                 </div> 
-                <div class="m-alert j-plate_red praiseArea"  v-show="toast_control"> 
-                    <div class="m-red-layer"> 
-                        <div class="close_box j-close j-sure_close praiseClose"> 
-                            <img class='close_img' src="../img/xx.png" alt=""> 
+                <div class="toast"  v-show="toast_control"> 
+                    <div class="toast-container"> 
+                        <div class="close_box"> 
+                            <img class='close_img' src="../img/xx.png" @click="toast_control = false"> 
                         </div> 
                         <div class="red-layer-banner"> 
                             <img src="../img/132.jpg" alt="" class="red-avatar"> 
@@ -328,6 +328,51 @@ export default {
         }
         .qrcode-img{
             width: 130px;
+        }
+    }
+    .toast-mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(46, 44, 44, 0.4);
+        z-index: 10000;
+        width: 100%;
+        height: 100%;
+    }
+    .toast {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 20000;
+        transform: translate(-50%, -50%);
+        width: 17.4375rem;
+        background: #f42241;
+        border-radius: 0.3125rem;
+        padding: 0.3125rem;
+        .toast-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            // padding: 8px;
+            .close_box{
+                text-align: right;
+                padding: 0 5px;
+                .close_img{
+                    width: 12px;
+                    height: 10px;
+                }
+            }
+            .red-layer-banner{
+                text-align: center;
+                margin-top: 2px;
+                .red-avatar{
+                    width: 45px;
+                }
+                .red-name{
+                    font-size: 12px;
+                    color: #fff5b4;
+                }
+            }
         }
     }
 </style>
