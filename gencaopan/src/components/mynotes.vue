@@ -163,7 +163,7 @@ export default {
             display: flex;
             padding: 10px 0;
             .panel-left{
-                width: 78%;
+                width: 76%;
                 padding-left: 10px;
                 font-size: 14px;
                 .left-title{
@@ -176,8 +176,8 @@ export default {
                 }
             }
             .panel-img{
-                width: 60px;
-                border: 1px solid red;
+                width: 70px;
+                // border: 1px solid red;
             }
         }
     }
