@@ -90,7 +90,7 @@
                                 <div class="pay-title">叶大户打赏</div> 
                             </div> 
                         </div> 
-                        <div class="pay-button j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66">立即打赏</div> 
+                        <div class="pay-button" @click="toast_control = true" money="6.66">立即打赏</div> 
                         <div class="pay_button">留言评论</div>
                     </div>   
                 </div>
@@ -118,7 +118,25 @@
                 <div class="note-qrcode"> 
                     <div class="qrcode-text">所有笔记仅供学习</div> 
                     <img src="../img/gencaopan.jpg" alt="跟操盘" class="qrcode-img">
-                </div>  
+                </div> 
+                <div class="m-alert j-plate_red praiseArea"  v-show="toast_control"> 
+                    <div class="m-red-layer"> 
+                        <div class="close_box j-close j-sure_close praiseClose"> 
+                            <img class='close_img' src="../img/xx.png" alt=""> 
+                        </div> 
+                        <div class="red-layer-banner"> 
+                            <img src="../img/132.jpg" alt="" class="red-avatar"> 
+                            <div class="red-name">灰太郎</div> 
+                        </div> 
+                        <div class="red-layer-content"> 
+                            <img src="../img/icon-1.png" alt="" class="red-c-img normalImg">
+                            <div class="red-c-money normalMoney">8.88</div> 
+                            <input type="text" class="red-c-input commentContent" placeholder="你想说什么?立即留言"> 
+                            <div class="red-c-button" onClick="doPraise();">打赏</div> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
             </div>
         </div>
          
@@ -135,7 +153,7 @@ export default {
     },
     data(){
         return{
-
+            toast_control: false,
         }
     }
 }
