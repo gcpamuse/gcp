@@ -16,8 +16,8 @@
 			<div  @click="toDetails" style="width: 80%;">
 				<div class="left">
 					<span class="daoshi_shou">收</span>
-					<img src="../../img/icon-5.png" class="img_top">
-					<p class="yh_name">徐不疾</p>
+					<img src="../../img/132.jpg" class="img_top">
+					<p class="yh_name">灰太狼</p>
 				</div>
 				<div class="middle">
 					<div class="middle_count">累计收益率:<span style="color:red">498.25%</span></div>
@@ -138,7 +138,7 @@ import { Button } from 'vant';
 			.img_top{
 				width: 60px;
 				height: 60px;
-				border: 1px solid #f24848;
+				// border: 1px solid #f24848;
 				margin-bottom: 5px;
 			}
 			.daoshi_shou{
@@ -154,15 +154,21 @@ import { Button } from 'vant';
 				color: #fff;
 				border-radius: 50%;
 			}
-			// .yh_name{
-			// 	text-align: center;
-			// }
+			.yh_name{
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 1;
+				overflow: hidden;
+			}
 		}
 		.middle{
-			width:71%;
-    		float: right;
+			width:70%;
+			float: right;
+			@media only screen and (max-width:320px){
+				width:66%;;
+			}
 			.middle_count{
-				line-height: 21px;
+				line-height: 20px;
 				color: #38c;
 				.co{
 					font-weight: normal;
@@ -176,7 +182,7 @@ import { Button } from 'vant';
 			}
 		}
 		.right{
-			// width:25%;
+			width:35%;
 			text-align: right;
 			color: #666;
 			margin-right: 3%;
