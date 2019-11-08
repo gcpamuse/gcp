@@ -125,18 +125,18 @@
                             <img class='close_img' src="../img/xx.png" @click="toast_control = false"> 
                         </div> 
                         <div class="red-layer-banner"> 
-                            <img src="../img/132.jpg" alt="" class="red-avatar"> 
+                            <img src="../img/132.jpg" class="red-avatar"> 
                             <div class="red-name">灰太郎</div> 
                         </div> 
                         <div class="red-layer-content"> 
-                            <img src="../img/icon-1.png" alt="" class="red-c-img normalImg">
+                            <img src="../img/icon-1.png" class="red-c-img">
                             <div class="red-c-money normalMoney">8.88</div> 
-                            <input type="text" class="red-c-input commentContent" placeholder="你想说什么?立即留言"> 
-                            <div class="red-c-button" onClick="doPraise();">打赏</div> 
+                            <input type="text" class="red-c-input" placeholder="你想说什么?立即留言"> 
+                            <div class="red-c-button">打赏</div> 
                         </div> 
                     </div> 
                 </div> 
-                <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
+                <div class="toast-mask" v-show="toast_control"></div>
             </div>
         </div>
          
@@ -334,21 +334,22 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
-        background: rgba(46, 44, 44, 0.4);
+        background: rgba(0, 0, 0, 0.8);
         z-index: 10000;
         width: 100%;
         height: 100%;
     }
     .toast {
         position: fixed;
-        top: 50%;
+        top: 45%;
         left: 50%;
         z-index: 20000;
         transform: translate(-50%, -50%);
-        width: 17.4375rem;
+        width: 18.4375rem;
         background: #f42241;
         border-radius: 0.3125rem;
         padding: 0.3125rem;
+        padding-bottom: 20px;
         .toast-container {
             position: relative;
             width: 100%;
@@ -366,11 +367,47 @@ export default {
                 text-align: center;
                 margin-top: 2px;
                 .red-avatar{
-                    width: 45px;
+                    width: 46px;
                 }
                 .red-name{
                     font-size: 12px;
                     color: #fff5b4;
+                    line-height: 24px;
+                }
+            }
+            .red-layer-content{
+                text-align: center;
+                margin-top: 30px;
+                .red-c-img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 80px;
+                    height: 80px;
+                }
+                .red-c-money {
+                    font-size: 19px;
+                    color: #fff5b4;
+                }
+                .red-c-input {
+                    border: 0;
+                    border-radius: 5px;
+                    width: 245px;
+                    height: 35px;
+                    line-height: 35px;
+                    padding: 0 5px;
+                    font-size: 13px;
+                    margin: 25px 0;
+                }
+                .red-c-button {
+                    margin: 0 auto;
+                    width: 245px;
+                    height: 35px;
+                    line-height: 35px;
+                    background: #fde434;
+                    border-radius: 35px;
+                    font-weight: 700;
+                    color: #f42241;
+                    font-size: 15px;
                 }
             }
         }
