@@ -91,7 +91,7 @@
                             </div> 
                         </div> 
                         <div class="pay-button" @click="toast_control = true" money="6.66">立即打赏</div> 
-                        <div class="pay_button">留言评论</div>
+                        <div class="pay_button" @click="toast_show = true">留言评论</div>
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
@@ -137,6 +137,19 @@
                     </div> 
                 </div> 
                 <div class="toast-mask" v-show="toast_control"></div>
+                <van-popup v-model="toast_show" position="bottom">
+                    <div class="m-rep-layer"> 
+                        <div class="m-rep"> 
+                            <div class="rep-layer-title"> 
+                                <div class="r-t-l" @click="quxiao">取消</div>
+                                <div class="r-t-r">提交</div> 
+                            </div> 
+                            <div class="rep-layer-content"> 
+                                <textarea class="addCom_content" id="rep-text"></textarea> 
+                            </div> 
+                        </div>
+                    </div> 
+                </van-popup>
             </div>
         </div>
          
@@ -154,6 +167,12 @@ export default {
     data(){
         return{
             toast_control: false,
+            toast_show:false
+        }
+    },
+    methods:{
+        quxiao(){
+            this.toast_show=false;
         }
     }
 }
@@ -409,6 +428,30 @@ export default {
                     color: #f42241;
                     font-size: 15px;
                 }
+            }
+        }
+    }
+    .m-rep-layer{
+        padding: 10px;
+        background-color: #efefef;
+        .m-rep{
+            .rep-layer-title{
+                display: flex;
+                margin-bottom: 12px;
+                font-size: 12px;
+                .r-t-l{
+                    width: 50%;
+                }
+                .r-t-r{
+                    text-align: right;
+                    width: 50%;
+                }
+            }
+        }
+        .rep-layer-content{
+            .addCom_content{
+                width: 99%;
+                height: 150px;
             }
         }
     }

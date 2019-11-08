@@ -29,7 +29,8 @@ import {
   RadioGroup,
   Radio,
   Checkbox,
-  Toast
+  Toast,
+  Popup
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -44,6 +45,7 @@ Vue.use(RadioGroup);
 Vue.use(Radio);
 Vue.use(Checkbox);
 Vue.use(Toast);
+Vue.use(Popup);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
