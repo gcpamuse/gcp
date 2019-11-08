@@ -122,7 +122,7 @@ import '../../../dist/static/css/swiper.min.css';
 	.swiper-ps {
 		position: absolute;
 		left: 0;
-		bottom:10px;
+		bottom:22px;
 		padding-left: 5px;
 		height: 30px;
 		line-height: 30px;
