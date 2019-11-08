@@ -162,10 +162,13 @@ import { Button } from 'vant';
 			}
 		}
 		.middle{
-			width:71%;
-    		float: right;
+			width:70%;
+			float: right;
+			@media only screen and (max-width:320px){
+				width:66%;;
+			}
 			.middle_count{
-				line-height: 21px;
+				line-height: 20px;
 				color: #38c;
 				.co{
 					font-weight: normal;
@@ -179,7 +182,7 @@ import { Button } from 'vant';
 			}
 		}
 		.right{
-			// width:25%;
+			width:35%;
 			text-align: right;
 			color: #666;
 			margin-right: 3%;
