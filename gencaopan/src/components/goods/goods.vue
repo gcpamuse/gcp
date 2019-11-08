@@ -12,18 +12,21 @@
 				:key="tab.type">
 			</van-tab>
 		</van-tabs>
-		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index" @click="toDetails"> 
-			<div class="left">
-				<span class="daoshi_shou">收</span>
-				<img src="../../img/icon-5.png" class="img_top">
-				<p class="yh_name">徐不疾</p>
+		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index">
+			<div  @click="toDetails" style="width: 80%;">
+				<div class="left">
+					<span class="daoshi_shou">收</span>
+					<img src="../../img/icon-5.png" class="img_top">
+					<p class="yh_name">徐不疾</p>
+				</div>
+				<div class="middle">
+					<div class="middle_count">累计收益率:<span style="color:red">498.25%</span></div>
+					<div class="middle_count">7日收益率：<span style="color:green">5.25%</span></div>
+					<div class="middle_count">净利润：<span class="col">1789231.75元</span></div>
+					<div class="middle_count"><span class="co">(推荐抄底)连续5年盈利</span></div>
+				</div>
 			</div>
-			<div class="middle">
-				<div class="middle_count">累计收益率:<span style="color:red">498.25%</span></div>
-				<div class="middle_count">7日收益率：<span style="color:green">5.25%</span></div>
-				<div class="middle_count">净利润：<span class="col">1789231.75元</span></div>
-				<div class="middle_count"><span class="co">(推荐抄底)连续5年盈利</span></div>
-			</div>
+			
 			<div class="right">
 				<div class="top">
 					<span>1000</span>元/月
@@ -128,9 +131,10 @@ import { Button } from 'vant';
 		width: 100%;
 		border-top: 1px solid #ddd;
 		.left{
-			width: 20%;
+			// width: 20%;
 			margin-left: 3%;
 			position: relative;
+			float: left;
 			.img_top{
 				width: 60px;
 				height: 60px;
@@ -155,7 +159,8 @@ import { Button } from 'vant';
 			// }
 		}
 		.middle{
-			width: 43%;
+			width:71%;
+    		float: right;
 			.middle_count{
 				line-height: 21px;
 				color: #38c;
@@ -171,9 +176,10 @@ import { Button } from 'vant';
 			}
 		}
 		.right{
-			width: 32%;
+			// width:25%;
 			text-align: right;
 			color: #666;
+			margin-right: 3%;
 			.top{
 				margin-bottom: 5px;
 			}
