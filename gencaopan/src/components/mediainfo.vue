@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="box"> 
-                    <div class="imgs"><img src="../img/icon-3.png" alt="" class="img"></div> 
+                    <div class="imgs"><img src="../img/900500.jpg" alt="" class="img"></div> 
                     <div class="xushu">
                         <p>hahaha</p>
                         <p class="kouyu">口语</p>
@@ -334,9 +334,8 @@ export default {
             width: 15%;
             text-align: center;
             .img{
-                width: 32px;
-                height: 32px;
-                border: 1px solid red;
+                width: 35px;
+                height: 35px;
             }
         }
         .xushu{
