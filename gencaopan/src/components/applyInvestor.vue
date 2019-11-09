@@ -16,7 +16,6 @@
         <van-radio-group v-model="radio">
             <van-radio name="1" icon-size="14px" checked-color="#e84d48">
                 <span>我已知晓相关风险，确认申请。</span> 
-                <van-icon slot="icon" size="10px" name="danxuan" />
             </van-radio>
         </van-radio-group> 
         <div class="but">
