@@ -51,9 +51,6 @@ export default {
     font-size: 15px;
     line-height: 34px;
 }
-// .bor{
-//     border-bottom: 1px solid #ccc;
-// }
 .van-radio{
     font-size: 12px;
     padding: 2px 15px;
