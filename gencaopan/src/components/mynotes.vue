@@ -103,7 +103,7 @@ export default {
             this.$router.push({name: 'mediainfo'})
         },
         guanZhu(){
-            this.$toast.success('自己无法关注自己')
+            this.$toast.fail('自己无法关注自己')
         }
     }
 }
