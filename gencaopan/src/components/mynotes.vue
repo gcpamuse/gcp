@@ -186,7 +186,7 @@ export default {
 		padding:15px 0 10px 0px;
 		background-color: #fff;
 		width: 100%;
-		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
 		.left{
 			margin-left: 4%;
 			position: relative;
