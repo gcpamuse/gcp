@@ -132,7 +132,7 @@
                             <img src="../img/icon-1.png" class="red-c-img">
                             <div class="red-c-money normalMoney">8.88</div> 
                             <input type="text" class="red-c-input" placeholder="你想说什么?立即留言"> 
-                            <div class="red-c-button">打赏</div> 
+                            <div class="red-c-button" @click="daShang">打赏</div> 
                         </div> 
                     </div> 
                 </div> 
@@ -142,7 +142,7 @@
                         <div class="m-rep"> 
                             <div class="rep-layer-title"> 
                                 <div class="r-t-l" @click="quxiao">取消</div>
-                                <div class="r-t-r">提交</div> 
+                                <div class="r-t-r" @click="submit">提交</div> 
                             </div> 
                             <div class="rep-layer-content"> 
                                 <textarea class="addCom_content" id="rep-text"></textarea> 
@@ -190,6 +190,12 @@ export default {
                 this.bg_color="#f42241";
                 this.ft_color="#fff";
             }
+        },
+        submit(){
+
+        },
+        daShang(){
+
         }
     }
 }
@@ -252,6 +258,7 @@ export default {
         }
         .media-info-content{
             padding: 10px;
+            text-align: justify;
             border-top: 1px solid rgba(235, 223, 223, 0.3);
             .imgs{
                 padding: 5px 0;
