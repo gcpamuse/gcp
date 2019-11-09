@@ -9,7 +9,7 @@
                         <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
                     </div>
                     <div class="guanzhu">
-                        <div class="m-concern">已关注</div> 
+                        <div class="m-concern" @click="followBtn" :style="{backgroundColor:bg_color, color: ft_color,}">{{content}}</div> 
                     </div>
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
@@ -167,12 +167,29 @@ export default {
     data(){
         return{
             toast_control: false,
-            toast_show:false
+            toast_show:false,
+            liked:false,
+            content:'+关注',
+            bg_color:"#f42241",
+            ft_color:"#fff",
         }
     },
     methods:{
         quxiao(){
             this.toast_show=false;
+        },
+        followBtn(e){
+            this.liked=!this.liked;
+            if(this.liked){
+                this.content="已关注";
+                this.bg_color="#fff";
+                this.ft_color="#ccc";
+            }
+            else{
+                this.content="+关注";
+                this.bg_color="#f42241";
+                this.ft_color="#fff";
+            }
         }
     }
 }
@@ -205,7 +222,7 @@ export default {
             margin-top: 6px;
             .m-concern{
                 font-size: 12px;
-                color: #ccc;
+                // color: #ccc;
                 border: 1px solid #ccc;
                 text-align: center;
                 padding: 5px;
