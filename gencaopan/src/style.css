@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?xz1g98');
-  src:  url('fonts/iconfont.eot?xz1g98#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?xz1g98') format('truetype'),
-    url('fonts/iconfont.woff?xz1g98') format('woff'),
-    url('fonts/iconfont.svg?xz1g98#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?jg02lb');
+  src:  url('fonts/iconfont.eot?jg02lb#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?jg02lb') format('truetype'),
+    url('fonts/iconfont.woff?jg02lb') format('woff'),
+    url('fonts/iconfont.svg?jg02lb#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -125,4 +125,8 @@
 }
 .van-icon-bubbles4:before {
   content: "\e970";
+}
+.van-icon-success:before {
+  content: "\e916";
+  color:#fff;
 }
