@@ -19,7 +19,7 @@
             </van-radio>
         </van-radio-group> 
         <div class="but">
-            <van-button type="primary" size="large" class="btu">立即申请</van-button>
+            <van-button type="primary" size="large" class="btu" @click="submit">立即申请</van-button>
         </div> 
         <div class="yiwen">
             <p>如果您有疑问，请联系客服</p>
@@ -41,6 +41,18 @@ export default {
             username:"",
             phone:"",
             radio: '1'
+        }
+    },
+    methods:{
+        submit(){
+            let phoneReg = /^1[34578]\d{9}$/;
+            if(this.username == ""){
+                this.$toast('姓名不能为空');
+            }else if(!phoneReg.test(this.phone)){   
+                this.$toast('请填写正确格式的手机号');
+            }else{
+
+            }
         }
     }
 }
