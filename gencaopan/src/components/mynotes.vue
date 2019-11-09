@@ -5,7 +5,7 @@
           <div class="inner-name">哈哈哈</div> 
           <div class="top">计划你的交易，交易你的计划</div>
           <div class="middle">
-              <div class="guanzhu">
+              <div class="guanzhu" @click="guanZhu">
                   +关注
               </div>
           </div>
@@ -102,6 +102,9 @@ export default {
         toDetails(){
             this.$router.push({name: 'mediainfo'})
         },
+        guanZhu(){
+            this.$toast.success('自己无法关注自己')
+        }
     }
 }
 </script>
