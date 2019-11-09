@@ -53,6 +53,7 @@ export default {
             if (file.type !== 'image/jpeg') {
                 if(file.type !== 'image/png'){
                     if(file.type !== 'image/gif'){
+                        this.$toast.fail('请上传正确的图片格式');
                         return false;
                     }
                 }
