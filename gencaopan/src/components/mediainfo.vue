@@ -124,10 +124,10 @@
                         <div class="close_box"> 
                             <img class='close_img' src="../img/xx.png" @click="toast_control = false"> 
                         </div> 
-                        <div class="red-layer-banner"> 
+                        <div class="red-layer-banner" :style="bgImg"> 
                             <img src="../img/132.jpg" class="red-avatar"> 
                             <div class="red-name">灰太郎</div> 
-                        </div> 
+                        </div>
                         <div class="red-layer-content"> 
                             <img src="../img/icon-1.png" class="red-c-img">
                             <div class="red-c-money normalMoney">8.88</div> 
@@ -172,6 +172,11 @@ export default {
             content:'+关注',
             bg_color:"#f42241",
             ft_color:"#fff",
+            bgImg:{
+                backgroundImage:"url("+require('../img/redbag.png')+")",
+                backgroundRepeat: "no-repeat",
+                backgroundSize:'100% 100%'
+            },
         }
     },
     methods:{
@@ -390,7 +395,7 @@ export default {
         width: 18.4375rem;
         background: #f42241;
         border-radius: 0.3125rem;
-        padding: 0.3125rem;
+        // padding: 0.3125rem;
         padding-bottom: 20px;
         .toast-container {
             position: relative;
@@ -399,7 +404,7 @@ export default {
             // padding: 8px;
             .close_box{
                 text-align: right;
-                padding: 0 5px;
+                padding: 2px 7px;
                 .close_img{
                     width: 12px;
                     height: 10px;
