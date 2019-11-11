@@ -48,7 +48,8 @@
                     </div>
                     <div class="pay-content"> 
                         <div class="pay-panel"> 
-                            <!-- <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
+                            
+                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
                                 <img src="../img/icon-1.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
                                     <van-icon name="m_dashang" />
@@ -87,7 +88,7 @@
                                     <span class="pay-text">188.88</span> 
                                 </div> 
                                 <div class="pay-title">叶大户打赏</div> 
-                            </div>  -->
+                            </div> 
                             <div v-for="(item,index) in list" :key="item.id" :index="index">
                                 <img :src="item.img" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
@@ -170,48 +171,6 @@
 export default {
     data(){
         return{
-            list:[
-                {
-                    img:'../img/icon-1.png',
-                    icon:'m_dashang',
-                    money:'6.66',
-                    title:'六六大顺！'
-                },
-                {
-                    img:'../img/icon-2.png',
-                    icon:'m_dashang',
-                    money:'13.14',
-                    title:'追随一生'
-                },
-                {
-                    img:'../img/icon-3.png',
-                    icon:'m_dashang',
-                    money:'52.00',
-                    title:'我爱老师'
-                },
-                {
-                    img:'../img/icon-4.png',
-                    icon:'m_dashang',
-                    money:'100.10',
-                    title:'百里挑一'
-                },
-                {
-                    img:'../img/icon-4.png',
-                    icon:'m_dashang',
-                    money:'188.88',
-                    title:'叶大户打赏'
-                }
-            ]
-        }
-    },
-    beforeCreate () {
-        document.querySelector('body').setAttribute('style', 'background-color:#efeff4')
-    },
-    beforeDestroy () {
-        document.querySelector('body').removeAttribute('style')
-    },
-    data(){
-        return{
             toast_control: false,
             toast_show:false,
             liked:false,
@@ -223,7 +182,45 @@ export default {
                 backgroundRepeat: "no-repeat",
                 backgroundSize:'100% 100%'
             },
+            // list:[
+            //     {
+            //         img:'/static/img/icon-2.69fa467.png',
+            //         icon:'m_dashang',
+            //         money:'6.66',
+            //         title:'六六大顺！'
+            //     },
+            //     {
+            //         img:'/static/img/icon-2.png',
+            //         icon:'m_dashang',
+            //         money:'13.14',
+            //         title:'追随一生'
+            //     },
+            //     {
+            //         img:'/static/img/icon-3.png',
+            //         icon:'m_dashang',
+            //         money:'52.00',
+            //         title:'我爱老师'
+            //     },
+            //     {
+            //         img:'/static/img/icon-4.png',
+            //         icon:'m_dashang',
+            //         money:'100.10',
+            //         title:'百里挑一'
+            //     },
+            //     {
+            //         img:'../img/icon-4.png',
+            //         icon:'m_dashang',
+            //         money:'188.88',
+            //         title:'叶大户打赏'
+            //     }
+            // ]
         }
+    },
+    beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#efeff4')
+    },
+    beforeDestroy () {
+        document.querySelector('body').removeAttribute('style')
     },
     methods:{
         quxiao(){
