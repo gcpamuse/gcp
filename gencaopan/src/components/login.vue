@@ -74,4 +74,7 @@ export default {
     border:2px solid #f24848;
     color: #666;
 }
+.van-cell-group {
+    background-color: #f1f1f1;
+}
 </style>
