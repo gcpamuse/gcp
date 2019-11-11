@@ -15,7 +15,7 @@
         />
     </van-cell-group>
     
-    <van-button size="large" class="btn login" @click="scanCode">登录</van-button>
+    <van-button size="large" class="btn login" @click="login">登录</van-button>
     <van-button size="large" class="btn reg" @click="scanCode">还没有账号，立即注册</van-button>
     <router-link to="/findPasswd" style="color:#999;font-size:15px;float: right;margin: 12px 0;">忘记密码</router-link>
    
@@ -33,6 +33,9 @@ export default {
         }
     },
     methods:{
+        login(){
+
+        },
         scanCode(){
             this.$router.push('/register')
         }
@@ -73,5 +76,8 @@ export default {
     background: #fff;
     border:2px solid #f24848;
     color: #666;
+}
+.van-cell-group {
+    background-color: #f1f1f1;
 }
 </style>
