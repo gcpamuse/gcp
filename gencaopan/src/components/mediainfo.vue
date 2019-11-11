@@ -394,7 +394,7 @@ export default {
         left: 50%;
         z-index: 20000;
         transform: translate(-50%, -50%);
-        width: 18.4375rem;
+        width: 18.9375rem;
         background: #f42241;
         border-radius: 0.3125rem;
         // padding: 0.3125rem;
