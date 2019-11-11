@@ -37,7 +37,7 @@
         </div>  
       </div> 
       <div class="conment" v-show="shipan">
-        <div  @click="toDetails" style="width: 80%;">
+        <div  @click="toNote" style="width: 80%;">
             <div class="left">
                 <span class="daoshi_shou">收</span>
                 <img src="../img/132.jpg" class="img_top">
@@ -101,6 +101,9 @@ export default {
         shiPan(){
             this.shipan=true;
             this.traderList=false;
+        },
+        toNote(){
+            this.$router.push({name: 'wechatPay'})
         },
         subsByDate(){
 
