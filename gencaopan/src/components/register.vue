@@ -24,7 +24,7 @@
             >
             </van-field>
             <van-field
-                v-model="name"
+                v-model="username"
                 placeholder="用户名最多32个字符"
             >
             </van-field>
@@ -53,7 +53,7 @@ export default {
             imgcode:'',
             phone:'',
             number:'',
-            name:'',
+            username:'',
             password:'',
             checkboxShape:'true',
             IdentifyingCode:'http://daoshi.simutz.com/vildateCode.shtml'

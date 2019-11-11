@@ -34,7 +34,17 @@ export default {
     },
     methods:{
         login(){
-
+            // axios({
+            //     type: "get",
+            //     url: "请求的接口路径",
+            //     params: { username: this.username, password: this.password }
+            // }).then(res => {
+            //     console.log(res);
+            //     // localStorage.setItem("token", this.username);
+            //     // this.$router.push({
+            //     // name: "goods"
+            //     // });
+            // });
         },
         scanCode(){
             this.$router.push('/register')
