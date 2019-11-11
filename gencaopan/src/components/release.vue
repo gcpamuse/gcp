@@ -8,7 +8,7 @@
         </van-cell-group>
         <div class="item-content"> 
             <textarea class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
-            <van-uploader :after-read="afterRead" :before-read="beforeRead" v-model="fileList">
+            <van-uploader :after-read="afterRead" :max-size="maxsize" :before-read="beforeRead" v-model="fileList">
                 <img src="../img/photo.png" alt="" class="photo-submit">
             </van-uploader> 
         </div>
@@ -41,7 +41,8 @@ export default {
         return{
             checked: false,
             check: true,
-            fileList: []
+            fileList: [],
+            maxsize: 4096 * 1024
         }
     },
     methods: {
@@ -59,7 +60,7 @@ export default {
                 }
             }
             return true;
-        },
+        }
     }
 }
 </script>
