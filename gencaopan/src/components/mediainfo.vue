@@ -48,7 +48,7 @@
                     </div>
                     <div class="pay-content"> 
                         <div class="pay-panel"> 
-                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
+                            <!-- <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
                                 <img src="../img/icon-1.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
                                     <van-icon name="m_dashang" />
@@ -83,12 +83,20 @@
                             <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-5.png" money="188.88"> 
                                 <img src="../img/icon-5.png" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
-                                    <!-- <span class="pay-icon"></span> -->
                                     <van-icon name="m_dashang" />
                                     <span class="pay-text">188.88</span> 
                                 </div> 
                                 <div class="pay-title">叶大户打赏</div> 
-                            </div> 
+                            </div>  -->
+                            <div v-for="(item,index) in list" :key="item.id" :index="index">
+                                <img :src="item.img" alt="" class="pay-img"> 
+                                <div class="pay-num"> 
+                                    <van-icon :name="item.icon" />
+                                    <span class="pay-text">{{item.money}}</span> 
+                                </div> 
+                                <div class="pay-title">{{item.title}}</div> 
+
+                            </div>
                         </div> 
                         <div class="pay-button" @click="toast_control = true" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
@@ -160,6 +168,42 @@
 
 <script>
 export default {
+    data(){
+        return{
+            list:[
+                {
+                    img:'../img/icon-1.png',
+                    icon:'m_dashang',
+                    money:'6.66',
+                    title:'六六大顺！'
+                },
+                {
+                    img:'../img/icon-2.png',
+                    icon:'m_dashang',
+                    money:'13.14',
+                    title:'追随一生'
+                },
+                {
+                    img:'../img/icon-3.png',
+                    icon:'m_dashang',
+                    money:'52.00',
+                    title:'我爱老师'
+                },
+                {
+                    img:'../img/icon-4.png',
+                    icon:'m_dashang',
+                    money:'100.10',
+                    title:'百里挑一'
+                },
+                {
+                    img:'../img/icon-4.png',
+                    icon:'m_dashang',
+                    money:'188.88',
+                    title:'叶大户打赏'
+                }
+            ]
+        }
+    },
     beforeCreate () {
         document.querySelector('body').setAttribute('style', 'background-color:#efeff4')
     },
