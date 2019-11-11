@@ -121,12 +121,14 @@
                 </div> 
                 <div class="toast"  v-show="toast_control"> 
                     <div class="toast-container"> 
+                        <div :style="bgImg">
                         <div class="close_box"> 
                             <img class='close_img' src="../img/xx.png" @click="toast_control = false"> 
                         </div> 
-                        <div class="red-layer-banner" :style="bgImg"> 
+                        <div class="red-layer-banner"> 
                             <img src="../img/132.jpg" class="red-avatar"> 
                             <div class="red-name">灰太郎</div> 
+                        </div>
                         </div>
                         <div class="red-layer-content"> 
                             <img src="../img/icon-1.png" class="red-c-img">
@@ -412,7 +414,8 @@ export default {
             }
             .red-layer-banner{
                 text-align: center;
-                margin-top: 2px;
+                // margin-top: 2px;
+                padding:2px 0 18px;
                 .red-avatar{
                     width: 46px;
                 }
