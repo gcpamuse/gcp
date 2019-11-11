@@ -415,7 +415,7 @@ export default {
             .red-layer-banner{
                 text-align: center;
                 // margin-top: 2px;
-                padding:2px 0 18px;
+                padding:2px 0 20px;
                 .red-avatar{
                     width: 46px;
                 }
@@ -427,7 +427,7 @@ export default {
             }
             .red-layer-content{
                 text-align: center;
-                margin-top: 30px;
+                // margin-top: 5px;
                 .red-c-img {
                     display: block;
                     margin: 0 auto;
