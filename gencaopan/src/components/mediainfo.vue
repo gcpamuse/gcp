@@ -441,7 +441,7 @@ export default {
                 .red-c-input {
                     border: 0;
                     border-radius: 5px;
-                    width: 245px;
+                    width: 235px;
                     height: 35px;
                     line-height: 35px;
                     padding: 0 5px;
