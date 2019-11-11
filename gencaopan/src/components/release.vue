@@ -2,7 +2,7 @@
   <div style="padding-top: 3px;">
         <van-cell-group>
             <van-field
-                value="请输入观点标题"
+                placeholder="请输入观点标题"
                 label="标题"
             />
         </van-cell-group>
@@ -16,9 +16,9 @@
         <van-cell-group class="group">
             <van-switch-cell v-model="checked" title="是否收费" active-color="#f42241" />
         </van-cell-group>
-        <van-cell-group style="display:none;">
+        <van-cell-group class="group" v-show="checked">
             <van-field
-                value="请输入阅读费"
+                placeholder="请输入阅读费"
                 label="阅读费"
             />
         </van-cell-group>
@@ -60,7 +60,7 @@ export default {
                 }
             }
             return true;
-        }
+        },
     }
 }
 </script>
