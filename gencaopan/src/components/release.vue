@@ -2,6 +2,7 @@
   <div style="padding-top: 3px;">
         <van-cell-group>
             <van-field
+                v-model="message"
                 placeholder="请输入观点标题"
                 label="标题"
             />
@@ -18,6 +19,7 @@
         </van-cell-group>
         <van-cell-group class="group" v-show="checked">
             <van-field
+                v-model="money"
                 placeholder="请输入阅读费"
                 label="阅读费"
             />
@@ -39,6 +41,8 @@ export default {
     },
     data(){
         return{
+            message:"",
+            money:"",
             checked: false,
             check: true,
             fileList: [],
