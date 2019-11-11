@@ -103,7 +103,7 @@ export default {
             this.traderList=false;
         },
         toNote(){
-            this.$router.push({name: 'wechatPay'})
+            this.$router.push({name: 'wechatPay',params: { id: 1}})
         },
         subsByDate(){
 
