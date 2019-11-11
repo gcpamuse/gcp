@@ -222,7 +222,7 @@ export default {
             }
         }
         .count{
-            width: 60%;
+            width: 62%;
             .count_c{
                 font-size: 12px;
                 line-height: 18px;
