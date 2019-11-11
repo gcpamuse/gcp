@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 import VueResource from 'vue-resource'
 import './common/css/style.css'
 import './common/css/reset.css'
@@ -12,6 +13,7 @@ import layer from 'vue-layer'
 Vue.prototype.$layer = layer(Vue);
 
 Vue.use(VueResource)
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 import {
   Button ,
