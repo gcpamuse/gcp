@@ -99,7 +99,7 @@
 
                             </div>
                         </div> 
-                        <div class="pay-button" @click="toast_control = true" money="6.66">立即打赏</div> 
+                        <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
                     </div>   
                 </div>
@@ -140,8 +140,10 @@
                         </div>
                         </div>
                         <div class="red-layer-content"> 
-                            <img src="../img/icon-1.png" class="red-c-img">
-                            <div class="red-c-money normalMoney">8.88</div> 
+                            <!-- <img src="../img/icon-1.png" class="red-c-img"> -->
+                            <img :src="img" class="red-c-img">
+                            <!-- <div class="red-c-money normalMoney">8.88</div>  -->
+                            <div class="red-c-money normalMoney">{{money}}</div>
                             <input type="text" class="red-c-input" placeholder="你想说什么?立即留言"> 
                             <div class="red-c-button" @click="daShang">打赏</div> 
                         </div> 
@@ -213,7 +215,10 @@ export default {
                     money:'188.88',
                     title:'叶大户打赏'
                 }
-            ]
+            ],
+            img:'',
+            money:6.66,
+            tupian:'/static/img/icon-1.76f397e.png'
         }
     },
     beforeCreate () {
@@ -239,6 +244,11 @@ export default {
                 this.ft_color="#f42241";
             }
         },
+        rewardDaShang(){
+            this.img = this.tupian;
+            this.money = 6.66;
+            this.toast_control = true; 
+        },
         submit(){
 
         },
@@ -246,7 +256,9 @@ export default {
 
         },
         toDaShang(item){
-            console.log(item);
+            this.img = item.img;
+            this.money = item.money;
+            this.toast_control = true;
         }
     }
 }
