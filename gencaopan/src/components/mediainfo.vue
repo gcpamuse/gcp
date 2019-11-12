@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="media-share j-share_click">
-                        <img src="../img/share2.png" alt="分享跟操盘">
+                        <img src="../img/share2.png" alt="分享跟操盘" @click="share_show = true">
                     </div>
                     <div class="pay-content"> 
                         <div class="pay-panel"> 
@@ -124,6 +124,16 @@
                         </div>
                     </div> 
                 </van-popup>
+                <van-popup
+                    v-model="share_show"
+                    position="top"
+                    @click="share_show = false"
+                    class="bg"
+                >
+                    <div class="bg_img">
+                        <img src="../img/share.png" class="share_img">
+                    </div>
+                </van-popup>
             </div>
         </div>
          
@@ -177,6 +187,7 @@ export default {
                     title:'叶大户打赏'
                 }
             ],
+            share_show:false,
             img:'',
             money:6.66,
             tupian:'/static/img/icon-1.76f397e.png'
@@ -220,7 +231,7 @@ export default {
             this.img = item.img;
             this.money = item.money;
             this.toast_control = true;
-        }
+        },
     }
 }
 </script>
@@ -502,5 +513,20 @@ export default {
                 height: 150px;
             }
         }
+    }
+    .bg{
+        .bg_img{
+            text-align: center;
+            padding-top: 10px;
+            .share_img{
+                width: 80%;
+            }
+        }
+    } 
+    .bg.van-popup.van-popup--top {
+        background-color: rgba(0,0,0,0);
+    }
+    .van-overlay {
+        background-color: rgba(0, 0, 0, 0.8);
     }
 </style>
