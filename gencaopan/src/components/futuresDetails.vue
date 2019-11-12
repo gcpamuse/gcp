@@ -114,7 +114,7 @@ export default {
 
 <style lang="less" scoped="scoped">
     .superior-top {
-        padding: 10px;
+        padding: 10px 10px 15px;
         background-color: #fff;
         font-size: 0.750rem;
         border-bottom: solid 1px #f3f3f3;
@@ -128,7 +128,7 @@ export default {
             }
         }
         .superior-main{
-            width: 68%;
+            width: 70%;
             h2{
                 font-size: 14px;
                 line-height: 22px;
@@ -146,14 +146,14 @@ export default {
             }
         }
         .quxian{
-            width: 14%;
+            width: 12%;
             text-align: right;
             padding-top: 26px;
             .book-btn{
                 text-align: center;
                 background-color: #f24848;
                 color: #fff;
-                padding:5px;
+                padding:5px 2px;
                 border-radius: 5px;
                 width: 40px;
             } 
