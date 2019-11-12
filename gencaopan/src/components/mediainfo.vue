@@ -458,7 +458,7 @@ export default {
                 // margin-top: 2px;
                 padding:2px 0 20px;
                 .red-avatar{
-                    width: 46px;
+                    width: 45px;
                 }
                 .red-name{
                     font-size: 12px;
@@ -471,9 +471,9 @@ export default {
                 // margin-top: 5px;
                 .red-c-img {
                     display: block;
-                    margin: 0 auto;
-                    width: 80px;
-                    height: 80px;
+                    margin: 0 auto 2px;
+                    width: 70px;
+                    height: 70px;
                 }
                 .red-c-money {
                     font-size: 19px;
