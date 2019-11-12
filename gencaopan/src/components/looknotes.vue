@@ -8,6 +8,9 @@
               <div class="guanzhu" @click="guanZhu">
                   +关注
               </div>
+              <div class="yiguanzhu" v-show="false">
+                  已关注
+              </div>
           </div>
           <div class="bottom">
               <div class="kuang" @click="wenZhang">
@@ -139,6 +142,13 @@ export default {
                 margin: 0 auto;
                 border-radius: 15px;
                 background-color: rgb(240, 16, 16);
+            }
+            .yiguanzhu{
+                border: 1px solid #ccc;
+                width: 60px;
+                padding: 6px 12px;
+                margin: 0 auto;
+                border-radius: 15px;
             }
         }
         .bottom{
