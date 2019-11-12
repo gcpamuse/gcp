@@ -128,7 +128,7 @@ export default {
             }
         }
         .superior-main{
-            width: 70%;
+            width: 68%;
             h2{
                 font-size: 14px;
                 line-height: 22px;
@@ -146,7 +146,7 @@ export default {
             }
         }
         .quxian{
-            width: 12%;
+            width: 14%;
             text-align: right;
             padding-top: 26px;
             .book-btn{
