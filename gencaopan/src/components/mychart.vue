@@ -22,11 +22,22 @@
                     <!-- <div style="min-width:256px">  -->
                         <div> 
                             <div class="gao">账户:</div> 
-                            <input name="zhanghu" type="text" value="" placeholder="期货保证金监控中心账户"> 
+                            <!-- <input name="zhanghu" type="text" value="" placeholder="期货保证金监控中心账户">  -->
+                            <van-field
+                                v-model="username"
+                                placeholder="期货保证金监控中心账户"
+                                class="bor"
+                            />
                         </div> 
                         <div> 
                             <div class="gao">密码:</div> 
-                            <input name="password" type="password" value="" placeholder="期货保证金监控中心密码"> 
+                            <!-- <input name="password" type="password" value="" placeholder="期货保证金监控中心密码">  -->
+                            <van-field
+                                v-model="password"
+                                type="password"
+                                placeholder="请输入密码"
+                                class="bor"
+                            />
                         </div> 
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
                             <div class="toast-cancel" @click="submit">提交</div>
@@ -84,6 +95,8 @@ export default {
             xshi: false,
             active:0, 
             toast_control: false,
+            username:'',
+            password:''
         }
     },
     components:{
@@ -100,11 +113,11 @@ export default {
             this.xshi=true;
         },
         submit(){
-            if(zhanghu == ''){
-                this.$toast('手机号码不能为空！');
+            if(this.username == ''){
+                this.$toast('账户不能为空！');
                 return false;
             }
-            if(password == ''){
+            if(this.password == ''){
                 this.$toast('密码不能为空！');
                 return false;
             }
@@ -192,6 +205,9 @@ export default {
             .gao{
                 line-height: 35px;
             }
+            .bor{
+                border: 1px solid #ccc;
+            }
             input{
                 border: 1px solid #ccc;
                 width: 245px;
@@ -214,5 +230,10 @@ export default {
                 text-align: center;
             }
         }
+    }
+    .van-cell {
+        width: 92%;
+        border-radius: 10px;
+        box-shadow: 0 0 3px #b3b1b1 inset;
     }
 </style>
