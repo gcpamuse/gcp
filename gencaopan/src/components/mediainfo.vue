@@ -431,7 +431,7 @@ export default {
     }
     .toast {
         position: fixed;
-        top: 45%;
+        top: 48%;
         left: 50%;
         z-index: 20000;
         transform: translate(-50%, -50%);
