@@ -14,7 +14,7 @@
                     </div> 
                 </div>
                 <div class="quxian">
-                    <a class="book-btn charge" @click="toast_control = true" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                    <a class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
                 </div> 
             </div> 
             <div class="toast" v-show="toast_control">  
@@ -182,7 +182,7 @@ export default {
         top: 0;
         left: 0;
         background: rgba(46, 44, 44, 0.4);
-        z-index: 10000;
+        z-index: 1000;
         width: 100%;
         height: 100%;
     }
@@ -190,7 +190,7 @@ export default {
         position: fixed;
         top: 50%;
         left: 50%;
-        z-index: 20000;
+        z-index: 2000;
         transform: translate(-50%, -50%);
         width: 17.4375rem;
         background: #fff;
