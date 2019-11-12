@@ -89,7 +89,7 @@
                                 </div> 
                                 <div class="pay-title">叶大户打赏</div> 
                             </div>  -->
-                            <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index">
+                            <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index" @click="toDaShang(item)">
                                 <img :src="item.img" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
                                     <van-icon :name="item.icon" />
@@ -244,6 +244,9 @@ export default {
         },
         daShang(){
 
+        },
+        toDaShag(item){
+            console.log(item);
         }
     }
 }
