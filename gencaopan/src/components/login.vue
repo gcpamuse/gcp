@@ -18,7 +18,7 @@
     
     <van-button size="large" class="btn login" @click="login">登录</van-button>
     <van-button size="large" class="btn reg" @click="scanCode">还没有账号，立即注册</van-button>
-    <router-link to="/findPasswd" style="color:#999;font-size:15px;float: right;margin: 12px 0;">忘记密码</router-link>
+    <router-link to="/findPasswd" style="color:#999;font-size:15px;float: right;margin: 12px 0;"><span style="color:#38c;">忘记密码</span></router-link>
    
 </div> 
 	
