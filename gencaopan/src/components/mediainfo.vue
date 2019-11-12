@@ -245,7 +245,7 @@ export default {
         daShang(){
 
         },
-        toDaShag(item){
+        toDaShang(item){
             console.log(item);
         }
     }
