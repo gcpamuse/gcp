@@ -25,6 +25,7 @@ import findPasswd from '@/components/findPasswd'
 import applyInvestor from '@/components/applyInvestor'
 import wechatPay from '@/components/wechatPay'
 import subscribes from '@/components/subscribes'
+import looknotes from '@/components/looknotes'
 Vue.use(Router)
 
 export default new Router({
@@ -165,6 +166,12 @@ export default new Router({
       path: '/subscribes',
       name: 'subscribes',
       component: subscribes
+    },
+    {
+      path: '/looknotes',
+      name: 'looknotes',
+      meta:{tabbar: true},
+      component: looknotes
     },
   ]
 })
