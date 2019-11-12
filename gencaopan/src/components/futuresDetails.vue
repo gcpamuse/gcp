@@ -114,7 +114,7 @@ export default {
 
 <style lang="less" scoped="scoped">
     .superior-top {
-        padding: 10px;
+        padding: 10px 10px 15px;
         background-color: #fff;
         font-size: 0.750rem;
         border-bottom: solid 1px #f3f3f3;
@@ -153,7 +153,7 @@ export default {
                 text-align: center;
                 background-color: #f24848;
                 color: #fff;
-                padding:5px;
+                padding:5px 2px;
                 border-radius: 5px;
                 width: 40px;
             } 

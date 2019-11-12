@@ -45,7 +45,7 @@ export default {
             }
         }
         .count{
-            width: 60%;
+            width: 64%;
             .count_c{
                 font-size: 12px;
                 line-height: 18px;
@@ -56,7 +56,7 @@ export default {
             }
         }
         .guanzhu{
-            width: 20%;
+            width: 21%;
             padding-right: 8px;
             margin-top: 6px;
             .m-concern{
