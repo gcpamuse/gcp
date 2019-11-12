@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="heard" :style="bgImg">
-          <img class="inner-avatar" src="../img/gencaopan2.png"/> 
+          <img class="inner-avatar" src="../img/132.jpg"/> 
           <div class="inner-name">灰太狼</div> 
           <div class="top">计划你的交易，交易你的计划</div>
           <div class="middle">

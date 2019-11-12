@@ -14,7 +14,8 @@
                     </div> 
                 </div>
                 <div class="quxian">
-                    <a class="book-btn charge" href="#curve" data-rel="popup" data-position-to="window" data-transition="fade">+关注</a>
+                    <div class="book-btn" @click="guanZhu" v-show="guanzhu">+关注</div>
+                    <div class="book-btn" @click="lookBiJi" v-show="biji">看笔记</div>
                 </div> 
             </div> 
             <div class="superior-content">
@@ -85,11 +86,18 @@ export default {
                 backgroundRepeat: "no-repeat",
                 backgroundSize:'100% 100%'
             },
-            
+            guanzhu:true,
+            biji:false
         }
     },
     methods:{
-        
+        guanZhu(){
+            this.guanzhu=false;
+            this.biji=true;
+        },
+        lookBiJi(){
+            this.$router.push({name: 'looknotes'})
+        },
         toRenZheng(){
             this.$router.push({name: 'applyInvestor'})
         },
@@ -120,7 +128,7 @@ export default {
             }
         }
         .superior-main{
-            width: 60%;
+            width: 70%;
             h2{
                 font-size: 14px;
                 line-height: 22px;
@@ -138,15 +146,16 @@ export default {
             }
         }
         .quxian{
-            width: 22%;
+            width: 12%;
             text-align: right;
             padding-top: 26px;
             .book-btn{
+                text-align: center;
                 background-color: #f24848;
                 color: #fff;
-                padding:3px 5px;
+                padding:5px;
                 border-radius: 5px;
-                
+                width: 40px;
             } 
         }
     }
