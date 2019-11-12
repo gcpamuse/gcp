@@ -18,7 +18,7 @@
                         <div class="media-info-title">约翰一墨菲的资金管理要领和交易策略举要</div> 
                         <div class="media-info-mt"><span class="f-r">2017/08/01 16:59:19</span></div> 
                     </div>
-                    <div class="media-info-content contentArea" style="font-size: 16px;">      
+                    <div class="media-info-content contentArea" style="font-size: 16px;line-height: 1.5;">      
                         一资本市场的高额利润应来的辉煌中。这也是多数人易现辉煌，难有成就的根本原因。<br />
     　　                    重仓和频繁交易导致成绩巨幅震荡是业余低手的表现，且两者相互作用，互为因果。坚忍，耐心，信心并顽强执着地积累成功才是职业的交易态度。<br />
                     　　能大的成绩，而成绩如何其中相当习惯----融会贯通----忘记----大成。<br />
@@ -48,9 +48,7 @@
                     </div>
                     <div class="pay-content"> 
                         <div class="pay-panel"> 
-                            
-                            
-                            <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index" @click="toDaShang(item)">
+                            <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index" @click="toDaShang(item,index)">
                                 <img :src="item.img" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
                                     <van-icon :name="item.icon" />
@@ -60,14 +58,16 @@
 
                             </div>
                         </div> 
+                       
                         <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
+                 
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
                 <div class="read-content"> 
                     <div class="read-content-title"> 
-                        <!-- <span class="read-title-icon"></span>  -->
+                
                         <span class="read-title-text">750人已阅</span> 
                     </div>
                 </div>
@@ -101,9 +101,7 @@
                         </div>
                         </div>
                         <div class="red-layer-content"> 
-                            <!-- <img src="../img/icon-1.png" class="red-c-img"> -->
                             <img :src="img" class="red-c-img">
-                            <!-- <div class="red-c-money normalMoney">8.88</div>  -->
                             <div class="red-c-money normalMoney">{{money}}</div>
                             <input type="text" class="red-c-input" placeholder="你想说什么?立即留言"> 
                             <div class="red-c-button" @click="daShang">打赏</div> 
@@ -136,6 +134,7 @@
                 </van-popup>
             </div>
         </div>
+        </div>
          
   </div>
 </template>
@@ -150,6 +149,7 @@ export default {
             content:'+关注',
             bg_color:"#f42241",
             ft_color:"#f42241",
+            hello:'6.66',
             bgImg:{
                 backgroundImage:"url("+require('../img/redbag.png')+")",
                 backgroundRepeat: "no-repeat",
@@ -437,7 +437,7 @@ export default {
                 padding: 2px 7px;
                 .close_img{
                     width: 12px;
-                    height: 10px;
+                    height: 12px;
                 }
             }
             .red-layer-banner{
