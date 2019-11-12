@@ -46,8 +46,8 @@
             </div> 
             <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
             <ul class="superior-nav fix"> 
-                <li class="active" @click="toJiaoYi" style="width:49%;border-right: 1px solid #eee;">交易概况</li> 
-                <li @click="toJIngZhi" style="width:49%">我的净值</li> 
+                <li class="active" @click="toJiaoYi" :style="{color:zi_color}">交易概况</li> 
+                <li @click="toJIngZhi" :style="{color:ziy_color}">我的净值</li> 
             </ul>
             <!-- <van-tabs v-model="active">
                 <van-tab 
@@ -96,7 +96,9 @@ export default {
             active:0, 
             toast_control: false,
             username:'',
-            password:''
+            password:'',
+            zi_color:"#f24848",
+            ziy_color:"#666"
         }
     },
     components:{
@@ -107,10 +109,14 @@ export default {
         toJiaoYi(){
             this.xianshi=true;
             this.xshi=false;
+            this.zi_color="#f24848";
+            this.ziy_color="#666";
         },
         toJIngZhi(){
             this.xianshi=false;
             this.xshi=true;
+            this.zi_color="#666";
+            this.ziy_color="#f24848";
         },
         submit(){
             if(this.username == ''){
@@ -171,9 +177,13 @@ export default {
         text-align: center;
         font-size: 14px;
         li{
+            width: 49%;
             padding: 15px 0;
             background-color: #f6f6f6;
-            color: #666! important;
+            // color: #666;
+        }
+        .active{
+            border-right: 1px solid #eee;
         }
     }
     
