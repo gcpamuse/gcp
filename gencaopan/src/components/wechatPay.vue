@@ -40,7 +40,8 @@ export default {
                         this.timer = null;
                         if(this.id==1){
                             this.$router.push({
-                                path: '/subscribes'
+                                // path: '/subscribes'
+                                 path: '/login'
                             });
                         }
                     }
