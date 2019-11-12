@@ -35,9 +35,9 @@ export default {
     },
     methods:{
         login(){
-            // axios({
-            //     type: "get",
-            //     url: "请求的接口路径",
+            // this.$axios({
+            //     type: "post",
+            //     url: "http://xx.com/api/user/login",
             //     params: { username: this.username, password: this.password }
             // }).then(res => {
             //     console.log(res);
