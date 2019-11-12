@@ -100,7 +100,14 @@ export default {
             this.xshi=true;
         },
         submit(){
-
+            if(zhanghu == ''){
+                this.$toast('手机号码不能为空！');
+                return false;
+            }
+            if(password == ''){
+                this.$toast('密码不能为空！');
+                return false;
+            }
         }
     }
 }
