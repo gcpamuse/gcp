@@ -11,6 +11,7 @@
         />
         <van-field
             v-model="password"
+            type="password"
             placeholder="密码"
         />
     </van-cell-group>
