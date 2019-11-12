@@ -48,47 +48,6 @@
                     </div>
                     <div class="pay-content"> 
                         <div class="pay-panel"> 
-                            
-                            <!-- <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-1.png" money="6.66"> 
-                                <img src="../img/icon-1.png" alt="" class="pay-img"> 
-                                <div class="pay-num"> 
-                                    <van-icon name="m_dashang" />
-                                    <span class="pay-text">6.66</span> 
-                                </div> 
-                                <div class="pay-title">六六大顺！</div> 
-                            </div> 
-                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-2.png" money="13.14"> 
-                                <img src="../img/icon-2.png" alt="" class="pay-img"> 
-                                <div class="pay-num"> 
-                                    <van-icon name="m_dashang" />
-                                    <span class="pay-text">13.14</span> 
-                                </div> 
-                                <div class="pay-title">追随一生</div> 
-                            </div> 
-                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-3.png" money="52.00"> 
-                                <img src="../img/icon-3.png" alt="" class="pay-img"> 
-                                <div class="pay-num"> 
-                                    <van-icon name="m_dashang" />
-                                    <span class="pay-text">52.00</span> 
-                                </div> 
-                                <div class="pay-title">我爱老师</div> 
-                            </div> 
-                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-4.png" money="100.10"> 
-                                <img src="../img/icon-4.png" alt="" class="pay-img"> 
-                                <div class="pay-num"> 
-                                    <van-icon name="m_dashang" />
-                                    <span class="pay-text">100.10</span> 
-                                </div> 
-                                <div class="pay-title">百里挑一</div>
-                            </div> 
-                            <div class="pay-box j-red_click praiseBtn" normalImg="../img/icon-5.png" money="188.88"> 
-                                <img src="../img/icon-5.png" alt="" class="pay-img"> 
-                                <div class="pay-num"> 
-                                    <van-icon name="m_dashang" />
-                                    <span class="pay-text">188.88</span> 
-                                </div> 
-                                <div class="pay-title">叶大户打赏</div> 
-                            </div>  -->
                             <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index" @click="toDaShang(item,index)">
                                 <img :src="item.img" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
@@ -99,7 +58,7 @@
 
                             </div>
                         </div> 
-                        <!-- <div class="pay-button" @click="inDaShang">立即打赏</div>  -->
+                       
                         <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
                  
@@ -108,7 +67,7 @@
                 <div style="height:6px;background-color:#f2f2f2;"></div>
                 <div class="read-content"> 
                     <div class="read-content-title"> 
-                        <!-- <span class="read-title-icon"></span>  -->
+                
                         <span class="read-title-text">750人已阅</span> 
                     </div>
                 </div>
@@ -142,11 +101,7 @@
                         </div>
                         </div>
                         <div class="red-layer-content"> 
-                            <!-- <img src="../img/icon-1.png" class="red-c-img">
-                            <div class="red-c-money normalMoney">{{hello}}</div>  -->
-                     
                             <img :src="img" class="red-c-img">
-                         
                             <div class="red-c-money normalMoney">{{money}}</div>
                             <input type="text" class="red-c-input" placeholder="你想说什么?立即留言"> 
                             <div class="red-c-button" @click="daShang">打赏</div> 
@@ -261,16 +216,6 @@ export default {
         daShang(){
 
         },
-        // inDaShang(){
-        //     this.toast_control = true
-        //     this.hello='6.66'
-        // },
-        // toDaShang(item,index){
-        //     this.toast_control = true
-        //     this.hello=item.money;
-            
-        // },    
-            
         toDaShang(item){
             this.img = item.img;
             this.money = item.money;
