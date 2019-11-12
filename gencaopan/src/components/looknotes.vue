@@ -18,7 +18,7 @@
                     <div class="info-title">文章</div>
               </div>
               <div class="kuang" @click="shiPan">
-                    <div class="info-num">0</div> 
+                    <div class="info-num">1</div> 
                     <div class="info-title">实盘</div> 
               </div>
               <div class="ka">
