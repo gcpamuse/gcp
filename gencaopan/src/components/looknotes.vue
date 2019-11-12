@@ -119,6 +119,7 @@ export default {
         padding-top: 10px;
         .inner-avatar{
             border-radius: 5px;
+            width:50px; 
         }
         .inner-name{
             margin-top: 10px;
