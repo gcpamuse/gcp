@@ -133,9 +133,7 @@
                     </div>
                 </van-popup>
             </div>
-        </div>
-        </div>
-         
+        </div>       
   </div>
 </template>
 
