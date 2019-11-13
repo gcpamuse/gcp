@@ -61,7 +61,6 @@
                        
                         <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
-                 
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
@@ -155,7 +154,7 @@ export default {
             },
             list:[
                 {
-                    img:'../../static/img/icon-1.png',
+                    img:'./static/img/icon-1.76f397e.png',
                     icon:'m_dashang',
                     money:'6.66',
                     title:'六六大顺！'
