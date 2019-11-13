@@ -7,25 +7,25 @@
 			<div class="swiper-wrapper">   
 				<div class="swiper-slide"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/9007502.jpg"  > 
+						<img src="../../img/zimeiti_lunbo1.jpg"  > 
 						<div class="swiper-ps">证券类投顾牛散将陆续入驻</div>
 					</a> 
 				</div>
 				<div class="swiper-slide"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/900500.jpg"  > 
+						<img src="../../img/zimeiti_lunbo2.jpg"  > 
 						<div class="swiper-ps">【ONE-77】10个月累计收益2009%！交易五年，盈利五</div>
 					</a> 
 				</div>
-				<div class="swiper-slide"> 
+				<!-- <div class="swiper-slide"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/banner00006.jpg"  > 
+						<img src="../../img/zimeiti_lunbo3.jpg"  > 
 						<div class="swiper-ps">为什么跟单不能挣钱！</div>
 					</a> 
-				</div> 
+				</div>  -->
 				<div class="swiper-slide"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/900500.jpg"  > 
+						<img src="../../img/zimeiti_lunbo3.jpg"  > 
 						<div class="swiper-ps">从3万到3600万，逻辑+价值投资的实践者</div>
 					</a> 
 				</div>  
@@ -122,7 +122,8 @@ import '../../../dist/static/css/swiper.min.css';
 	.swiper-ps {
 		position: absolute;
 		left: 0;
-		bottom:10px;
+		// bottom:10px;
+		bottom:0px;
 		padding-left: 5px;
 		height: 30px;
 		line-height: 30px;
