@@ -50,12 +50,20 @@
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
+                        <div class="tradingRecord-state" v-show="false"> 
+                            <a class="dingyue">登 录</a>
+                            <span class="fl">后订阅该导师可查看全部交易记录</span>
+                        </div>
                         <div class="tradingRecord-state"> 
                             <a class="dingyue">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
+                        <div class="tradingRecord-state" v-show="false"> 
+                            <a class="dingyue">登 录</a>
+                            <span class="fl">后订阅该导师可查看全部交易记录</span>
+                        </div>
                         <div class="tradingRecord-state"> 
                             <a class="dingyue">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
