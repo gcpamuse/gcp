@@ -2,7 +2,7 @@
 	<div class="goods">
         <div data-role="header" data-fullscreen="false" data-tap-toggle="false" style="background:#fff;"> 
 			<div style="margin-top:-1px;">
-				<img src="../../img/sy_qihuo1.jpg" class="img" >
+				<img src="../../img/sy_qihuo2.jpg" class="img" >
 			</div> 
 		</div> 
 		<van-tabs>
