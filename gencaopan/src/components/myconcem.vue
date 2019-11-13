@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div class="list">
+    <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
         <div class="imgs"><img src="../img/132.jpg" class="img"></div>
         <div class="count">
-            <p>灰太狼</p>
-            <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
+            <!-- <p>灰太狼</p> -->
+            <p>{{item.name}}</p>
+            <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
+            <p class="count_c"><span>{{item.piece}}</span>篇笔记&nbsp;被打赏<span>{{item.price}}元</span></p>
         </div>
         <div class="guanzhu">
-            <div class="m-concern">取消关注</div> 
+            <div class="m-concern" @click="RemoveConcerns(index)">取消关注</div> 
         </div>
     </div>
     
@@ -24,9 +26,30 @@ export default {
     },
     data(){
         return{
-
+            list:[
+                {
+                    name:'灰太狼',
+                    piece:0,
+                    price:0
+                },
+                {
+                    name:'徐不及',
+                    piece:0,
+                    price:0
+                },
+                {
+                    name:'naihaha',
+                    piece:0,
+                    price:0
+                },
+            ]
         }
     },
+    methods:{
+        RemoveConcerns(index){
+            this.list.splice(index,1);
+        }
+    }
 }
 </script>
 
@@ -60,7 +83,7 @@ export default {
             padding-right: 8px;
             margin-top: 6px;
             .m-concern{
-                font-size: 14px;
+                font-size: 12px;
                 color: #ccc;
                 border: 1px solid #ccc;
                 text-align: center;
