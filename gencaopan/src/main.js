@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import echarts from 'echarts'
 import VueResource from 'vue-resource'
 import Vuelidate from 'vuelidate'
 import './common/css/style.css'
@@ -16,6 +17,7 @@ Vue.prototype.$layer = layer(Vue);
 Vue.use(VueResource)
 Vue.use(Vuelidate)
 Vue.prototype.$axios = axios;
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 import {
   Button ,
