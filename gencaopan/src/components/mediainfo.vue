@@ -155,19 +155,19 @@ export default {
             },
             list:[
                 {
-                    img:'static/img/icon-1.png',
+                    img:'../../static/img/icon-1.png',
                     icon:'m_dashang',
                     money:'6.66',
                     title:'六六大顺！'
                 },
                 {
-                    img:'static/img/icon-2.69fa467.png',
+                    img:'./static/img/icon-2.69fa467.png',
                     icon:'m_dashang',
                     money:'13.14',
                     title:'追随一生'
                 },
                 {
-                    img:'static/img/icon-3.a340713.png',
+                    img:'./static/img/icon-3.a340713.png',
                     icon:'m_dashang',
                     money:'52.00',
                     title:'我爱老师'
