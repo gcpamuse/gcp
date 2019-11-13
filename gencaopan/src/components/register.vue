@@ -30,6 +30,7 @@
             </van-field>
             <van-field
                 v-model="password"
+                type="password"
                 placeholder="请输入密码"
             >
             </van-field>
