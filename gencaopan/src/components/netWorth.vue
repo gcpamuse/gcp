@@ -32,7 +32,11 @@ export default {
             optionline:{
                 title:{
                     text:'累计净值',
-                    x:'center'
+                    x:'center',
+                    textStyle:{
+                        fontSize:16,
+                        fontFamily: 'monospace',
+                    }
                 },
                 tooltip:{
                     trigger: 'axis'   //显示提示框
@@ -76,7 +80,11 @@ export default {
             optionlinetow:{
                 title:{
                     text:'累计盈亏',
-                    x:'center'
+                    x:'center',
+                    textStyle:{
+                        fontSize:16,
+                        fontFamily: 'monospace',
+                    }
                 },
                 tooltip:{
                     trigger: 'axis'   //显示提示框
