@@ -14,7 +14,8 @@
         <h5 class="numone">成交结构</h5> 
         <div id="bingtu" style="width:100%;height: 300px;border-bottom: 2px solid #eee;padding-top: 10px;"></div>
         <h5 class="numone">隔夜习惯</h5> 
-        <div class="graph chartField"></div> 
+        <!-- <div class="graph chartField"></div>  -->
+        <div id="chartmain" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
     </div> 
 </template>
 
@@ -339,12 +340,14 @@ export default {
         let myChart = echarts.init(document.getElementById('main'));
         let chart = echarts.init(document.getElementById('zhou'));
         let bingchart = echarts.init(document.getElementById('bingtu'));
+        let chartmain = this.$echarts.init(document.getElementById("chartmain"));
         //绘制图表
         chartmainline.setOption(this.optionline);
         chartmainlinetow.setOption(this.optionlinetow);
         myChart.setOption(this.option);
         chart.setOption(this.zhouoption);
         bingchart.setOption(this.bingoption);
+        chartmain.setOption(this.optionlinetow);
         window.onresize = function () {
             chartmainline.resize();
             chartmainlinetow.resize();
