@@ -11,7 +11,8 @@
         <!-- <div class="graph chartField"></div>  -->
         <div id="main" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">月盈亏</h5> 
-        <div class="graph chartField"></div> 
+        <!-- <div class="graph chartField"></div>  -->
+        <div id="zhou" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <!-- <h5 class="numone">品种盈亏</h5> 
         <div class="graph chartField"></div>  -->
         <h5 class="numone">成交结构</h5> 
@@ -171,7 +172,6 @@ export default {
                     axisLabel: {show: false},
                     axisTick: {show: false},
                     splitLine: {show: false},
-                    // 要与series数据顺序匹配正确
                     data: ['2019/30', '2019/31', '2019/32', '2019/34', '2019/35', '2019/36', '2019/37', '2019/38', '2019/39', '2019/40',
                         '2019/41', '2019/42', '2019/43', '2019/44', '2019/45','2019/46', '2019/47', '2019/48', '2019/49', '2019/50',
                         '2019/51', '2019/52', '2019/53', '2019/54', '2019/55',
@@ -198,13 +198,75 @@ export default {
                                 formatter: '{b}'
                             }
                         },
+                        data: [
+                            -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
+                        ],
+                        itemStyle: {
+                            normal: {
+                                color: function (params) {// 添加颜色显示规则 大于等于0红色; 小于0为绿色
+                                    return params.value >= 0 ? "red" : "green";
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            zhouoption : {
+                title: {
+                    text: '周盈亏',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    top: 80,
+                    bottom: 30
+                },
+                xAxis: {
+                    type: 'value',
+                    position: 'top',
+                    splitLine: {lineStyle: {type: 'dashed'}},
+                },
+                yAxis: {
+                    type: 'category',
+                    axisLine: {show: false},
+                    axisLabel: {show: false},
+                    axisTick: {show: false},
+                    splitLine: {show: false},
+                    // 要与series数据顺序匹配正确
+                    data: ['2017-10', '2017-11', '2017-12', '2018-1', '2018-2', '2018-3', '2018-4', '2018-5', '201-6', '2018-7',
+                        '2018-8', '2018-9', '2018-10', '2018-11', '2018-12','2019-1', '2019-2', '2019-3', '2019-4', '2019-5',
+                        '2019-6', '2019-7', '2019-8', '2019-9', '2019-10',
+                    ]
+                },
+                dataZoom:[
+                    {
+                        type: 'slider',
+                        show: true,
+                        yAxisIndex: [0],
+                        left: '93%',
+                        start: 0, //数据窗口范围的起始百分比
+                        end: 36
+                    }
+                ],
+                series: [
+                    {
+                        name: '盈亏(亿元)',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{b}'
+                            }
+                        },
                         // 表中从下到上，从最大亏损到最大盈利
                         data: [
-                            {value: -1.07},{value: -0.23},{value: -0.03},{value: 0.36},{value: 0.89},
-                            {value: -0.89},{value: -0.33},{value: 1.08},{value: 1.68},{value: 2.24},
-                            {value: 0.36},{value: 0.89},{value: -0.89},{value: -0.33},{value: 1.08},
-                            {value: -1.07},{value: -0.23},{value: -0.03},{value: 0.36},{value: 0.89},
-                            {value: -0.89},{value: -0.33},{value: 1.08},{value: 1.68},{value: 2.24},
+                            -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
                         ],
                         // 添加颜色显示规则
                         // 大于等于0红色; 小于0为绿色
@@ -229,10 +291,12 @@ export default {
         let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
         let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
         let myChart = echarts.init(document.getElementById('main'));
+        let chart = echarts.init(document.getElementById('zhou'));
         //绘制图表
         chartmainline.setOption(this.optionline);
         chartmainlinetow.setOption(this.optionlinetow);
         myChart.setOption(this.option);
+        chart.setOption(this.zhouoption);
         window.onresize = function () {
             chartmainline.resize();
             chartmainlinetow.resize();
