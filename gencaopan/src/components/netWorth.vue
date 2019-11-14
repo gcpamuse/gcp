@@ -157,6 +157,10 @@ export default {
         //绘制图表
         chartmainline.setOption(this.optionline);
         chartmainlinetow.setOption(this.optionlinetow);
+        window.onresize = function () {
+            chartmainline.resize();
+            chartmainlinetow.resize();
+        }
       }  
     }
 }
