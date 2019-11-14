@@ -310,7 +310,7 @@ export default {
                             {value:28, name:'棕榈'},
                             {value:38, name:'菜粕'},
                             {value:28, name:'ap'},
-                            {value:18, name:'铜'},
+                            {value:28, name:'铜'},
                             {value:48, name:'豆粕'},
                             {value:28, name:'白银'},
                             {value:298, name:'其他'}
