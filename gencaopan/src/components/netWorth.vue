@@ -1,23 +1,18 @@
 <template>
+    <!-- <div class="graph chartField"></div>  -->
     <div class="superior-con">
-            <!-- style="display:none"  -->
-        <h5 class="numone">累计净值</h5> 
-        <!-- <div class="graph chartField"></div>  -->
+        <h5 class="numone">累计净值</h5>        
         <div id="chartmainline" style="width:100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">盈亏曲线图</h5> 
-        <!-- <div class="graph chartField"></div>  -->
         <div id="chartmainlinetow" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">周盈亏</h5> 
-        <!-- <div class="graph chartField"></div>  -->
         <div id="main" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">月盈亏</h5> 
-        <!-- <div class="graph chartField"></div>  -->
         <div id="zhou" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <!-- <h5 class="numone">品种盈亏</h5> 
         <div class="graph chartField"></div>  -->
         <h5 class="numone">成交结构</h5> 
-        <!-- <div class="graph chartField"></div>  -->
-        <div id="bingtu" style="width:100%;height: 300px;border-bottom: 2px solid #eee;"></div>
+        <div id="bingtu" style="width:100%;height: 300px;border-bottom: 2px solid #eee;padding-top: 10px;"></div>
         <h5 class="numone">隔夜习惯</h5> 
         <div class="graph chartField"></div> 
     </div> 
@@ -75,7 +70,7 @@ export default {
                     areaStyle: {   
                         color: 'rgba(240, 16, 16,0.8)'
                     },
-                    data:[20,8,10,10,15,20,12,13,10,15,20,18,25,15,19,30,32,33,30,25,30,25,30,34,20,18,30,35,42,45]
+                    data:[20,8,10,10,15,17,12,13,10,15,20,22,25,20,26,30,32,35,31,25,30,25,30,34,27,26,30,35,42,45]
                 }]
             },
             optionlinetow:{
@@ -288,7 +283,7 @@ export default {
             },
             bingoption:{
                 title : {
-                    text: '成交结构',
+                    text: '',
                     x:'center',
                 },
                 tooltip : {
@@ -297,15 +292,15 @@ export default {
                 },
                 legend: {
                     orient: 'vertical',
-                    bottom: 'bottom',
+                    left:'left',
                     data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈\n','菜粕','ap','铜','豆粕','白银','其他']
                 },
                 series : [
                     {
-                        name: '成交结构',
+                        name: '成交偏好',
                         type: 'pie',
-                        radius : '55%',
-                        center: ['50%', '60%'],
+                        radius : '60%',
+                        center: ['55%', '45%'],
                         data:[
                             {value:35, name:'沪镍'},
                             {value:20, name:'塑料'},
@@ -318,15 +313,8 @@ export default {
                             {value:18, name:'铜'},
                             {value:48, name:'豆粕'},
                             {value:28, name:'白银'},
-                            {value:98, name:'其他'}
-                        ],
-                        itemStyle: {
-                            emphasis: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            }
-                        }
+                            {value:298, name:'其他'}
+                        ]
                     }
                 ]
             }
@@ -354,6 +342,7 @@ export default {
             chartmainlinetow.resize();
             myChart.resize();
             chart.resize();
+            bingchart.resize();
         }
       }  
     }
