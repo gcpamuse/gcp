@@ -3,17 +3,17 @@
             <!-- style="display:none"  -->
         <h5 class="numone">累计净值</h5> 
         <!-- <div class="graph chartField"></div>  -->
-        <div id="chartmainline" style="width:100%;height:300px"></div>
+        <div id="chartmainline" style="width:100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">盈亏曲线图</h5> 
         <!-- <div class="graph chartField"></div>  -->
-        <div id="chartmainlinetow" style="width:100%; height:300px;"></div>
+        <div id="chartmainlinetow" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">周盈亏</h5> 
         <!-- <div class="graph chartField"></div>  -->
-        <div id="main" style="width: 100%;height:300px;"></div>
+        <div id="main" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">月盈亏</h5> 
         <div class="graph chartField"></div> 
-        <h5 class="numone">品种盈亏</h5> 
-        <div class="graph chartField"></div> 
+        <!-- <h5 class="numone">品种盈亏</h5> 
+        <div class="graph chartField"></div>  -->
         <h5 class="numone">成交结构</h5> 
         <div class="graph chartField"></div> 
         <h5 class="numone">隔夜习惯</h5> 
@@ -53,9 +53,9 @@ export default {
                     type: "value",
                 },
                 grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
+                    // left: '3%',
+                    right: '6%',
+                    bottom: '6%',
                     containLabel: true
                 },
                 series:[{
@@ -95,9 +95,9 @@ export default {
                     type: "value",
                 },
                 grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
+                    left: '5%',
+                    right: '6%',
+                    bottom: '6%',
                     containLabel: true
                 },
                 series:[
@@ -113,7 +113,7 @@ export default {
                         areaStyle: {   
                             color: 'rgba(240, 16, 16,0.8)'
                         },
-                        data:[2000,8000,10000,9000,15000,20000,12000,13000,10000,15000,20000,18000,25000,15000,19000,30000,32000,30003,30000,25000,30000,20005,30000,34000,20000,18000,30000,35000,42000,45000]
+                        data:[2000,8000,10000,9000,15000,20000,12000,13000,10000,15000,20000,18000,25000,15000,19000,30000,32000,30003,30000,25000,30000,20005,30000,34000,20000,25000,30000,35000,42000,45000]
                     },
                     {
                         name:'累计净利润',
@@ -127,7 +127,7 @@ export default {
                         areaStyle: {   
                             color: 'rgba(240, 0, 0,0.8)'
                         },
-                        data:[1500,7800,9010,8010,10005,11120,10002,10003,9010,10005,10200,10080,20500,10005,10009,29030,30002,29033,23300,20005,23030,19025,25030,30004,16020,10008,23160,30500,40200,40500]
+                        data:[1500,7800,9010,8010,10005,11120,10002,10003,9010,10005,10200,10080,20500,10005,10009,29030,30002,29033,23300,20005,23030,19025,25030,30004,16020,14008,23160,30500,40200,40500]
                     },
                     {
                         name:'累计手续费',
