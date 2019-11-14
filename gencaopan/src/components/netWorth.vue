@@ -8,7 +8,8 @@
         <!-- <div class="graph chartField"></div>  -->
         <div id="chartmainlinetow" style="width:100%; height:300px;"></div>
         <h5 class="numone">周盈亏</h5> 
-        <div class="graph chartField"></div> 
+        <!-- <div class="graph chartField"></div>  -->
+        <div id="main" style="width: 100%;height:300px;"></div>
         <h5 class="numone">月盈亏</h5> 
         <div class="graph chartField"></div> 
         <h5 class="numone">品种盈亏</h5> 
@@ -143,6 +144,73 @@ export default {
                         data:[200,800,1000,1000,1500,2000,1020,1300,1000,1500,2000,1800,2500,1500,1900,3000,3200,3300,3000,2500,3000,2500,3000,3400,2000,1800,3000,3500,4200,4500]
                     }
                 ]
+            },
+            option : {
+                title: {
+                    text: '周盈亏',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    top: 80,
+                    bottom: 30
+                },
+                xAxis: {
+                    type: 'value',
+                    position: 'top',
+                    splitLine: {lineStyle: {type: 'dashed'}},
+                },
+                yAxis: {
+                    type: 'category',
+                    axisLine: {show: false},
+                    axisLabel: {show: false},
+                    axisTick: {show: false},
+                    splitLine: {show: false},
+                    // 要与series数据顺序匹配正确
+                    data: ['2019/36', '2019/37', '2019/38', '2019/39', '2019/40',
+                        '2019/41', '2019/42', '2019/43', '2019/44', '2019/45',
+                    ]
+                },
+                series: [
+                    {
+                        name: '盈亏(亿元)',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            normal: {
+                                show: true,
+                                formatter: '{b}'
+                            }
+                        },
+                        // 表中从下到上，从最大亏损到最大盈利
+                        data: [
+                            {value: -1.07},
+                            {value: -0.23},
+                            {value: -0.03},
+                            {value: 0.36},
+                            {value: 0.89},
+                            {value: -0.89},
+                            {value: -0.33},
+                            {value: 1.08},
+                            {value: 1.68},
+                            {value: 2.24},
+                        ],
+                        // 添加颜色显示规则
+                        // 大于等于0红色; 小于0为绿色
+                        itemStyle: {
+                            normal: {
+                                color: function (params) {
+                                    return params.value >= 0 ? "red" : "green";
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
@@ -154,12 +222,15 @@ export default {
         //基于准本好的DOM，初始化echarts实例
         let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
         let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
+        let myChart = echarts.init(document.getElementById('main'));
         //绘制图表
         chartmainline.setOption(this.optionline);
         chartmainlinetow.setOption(this.optionlinetow);
+        myChart.setOption(this.option);
         window.onresize = function () {
             chartmainline.resize();
             chartmainlinetow.resize();
+            myChart.resize();
         }
       }  
     }
