@@ -354,6 +354,7 @@ export default {
             myChart.resize();
             chart.resize();
             bingchart.resize();
+            chartmain.resize();
         }
       }  
     }
