@@ -334,29 +334,29 @@ export default {
     },
     methods:{
         drawLine: function(){
-        //基于准本好的DOM，初始化echarts实例
-        let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
-        let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
-        let myChart = echarts.init(document.getElementById('main'));
-        let chart = echarts.init(document.getElementById('zhou'));
-        let bingchart = echarts.init(document.getElementById('bingtu'));
-        let chartmain = this.$echarts.init(document.getElementById("chartmain"));
-        //绘制图表
-        chartmainline.setOption(this.optionline);
-        chartmainlinetow.setOption(this.optionlinetow);
-        myChart.setOption(this.option);
-        chart.setOption(this.zhouoption);
-        bingchart.setOption(this.bingoption);
-        chartmain.setOption(this.optionlinetow);
-        window.onresize = function () {
-            chartmainline.resize();
-            chartmainlinetow.resize();
-            myChart.resize();
-            chart.resize();
-            bingchart.resize();
-            chartmain.resize();
-        }
-      }  
+            //基于准本好的DOM，初始化echarts实例
+            let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
+            let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
+            let myChart = echarts.init(document.getElementById('main'));
+            let chart = echarts.init(document.getElementById('zhou'));
+            let bingchart = echarts.init(document.getElementById('bingtu'));
+            let chartmain = this.$echarts.init(document.getElementById("chartmain"));
+            //绘制图表
+            chartmainline.setOption(this.optionline);
+            chartmainlinetow.setOption(this.optionlinetow);
+            myChart.setOption(this.option);
+            chart.setOption(this.zhouoption);
+            bingchart.setOption(this.bingoption);
+            chartmain.setOption(this.optionlinetow);
+            window.onresize = function () {
+                chartmainline.resize();
+                chartmainlinetow.resize();
+                myChart.resize();
+                chart.resize();
+                bingchart.resize();
+                chartmain.resize();
+            }
+        }  
     }
 }
 </script>
