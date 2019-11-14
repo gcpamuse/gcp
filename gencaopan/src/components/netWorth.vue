@@ -16,7 +16,8 @@
         <!-- <h5 class="numone">品种盈亏</h5> 
         <div class="graph chartField"></div>  -->
         <h5 class="numone">成交结构</h5> 
-        <div class="graph chartField"></div> 
+        <!-- <div class="graph chartField"></div>  -->
+        <div id="bingtu" style="width:100%;height: 300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">隔夜习惯</h5> 
         <div class="graph chartField"></div> 
     </div> 
@@ -25,6 +26,7 @@
 <script>
 let echarts = require('echarts/lib/echarts');
 require('echarts/lib/chart/line');
+require('echarts/lib/chart/pie');
 require('echarts/lib/component/tooltip');
 require('echarts/lib/component/title');
 require('echarts/lib/component/legend');
@@ -34,13 +36,15 @@ export default {
         return{
             optionline:{
                 title:{
-                    // text:'累计净值',
-                    // x:'center'
+                    text:'累计净值',
+                    x:'center'
                 },
                 tooltip:{
                     trigger: 'axis'   //显示提示框
                 },
                 legend:{
+                    orient: 'vertical',
+                    bottom: 'bottom',
                     data:['累计净值']
                 },
                 xAxis:{
@@ -76,13 +80,15 @@ export default {
             },
             optionlinetow:{
                 title:{
-                    // text:'累计盈亏',
-                    // x:'center'
+                    text:'累计盈亏',
+                    x:'center'
                 },
                 tooltip:{
                     trigger: 'axis'   //显示提示框
                 },
                 legend:{
+                    orient: 'vertical',
+                    bottom: 'bottom',
                     data:['累计毛利润','累计净利润','累计手续费']
                 },
                 xAxis:{
@@ -279,6 +285,50 @@ export default {
                         }
                     }
                 ]
+            },
+            bingoption:{
+                title : {
+                    text: '成交结构',
+                    x:'center',
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    bottom: 'bottom',
+                    data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈\n','菜粕','ap','铜','豆粕','白银','其他']
+                },
+                series : [
+                    {
+                        name: '成交结构',
+                        type: 'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:35, name:'沪镍'},
+                            {value:20, name:'塑料'},
+                            {value:34, name:'沪锌'},
+                            {value:35, name:'焦炭'},
+                            {value:38, name:'橡胶'},
+                            {value:28, name:'棕榈'},
+                            {value:38, name:'菜粕'},
+                            {value:28, name:'ap'},
+                            {value:18, name:'铜'},
+                            {value:48, name:'豆粕'},
+                            {value:28, name:'白银'},
+                            {value:98, name:'其他'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
@@ -292,15 +342,18 @@ export default {
         let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
         let myChart = echarts.init(document.getElementById('main'));
         let chart = echarts.init(document.getElementById('zhou'));
+        let bingchart = echarts.init(document.getElementById('bingtu'));
         //绘制图表
         chartmainline.setOption(this.optionline);
         chartmainlinetow.setOption(this.optionlinetow);
         myChart.setOption(this.option);
         chart.setOption(this.zhouoption);
+        bingchart.setOption(this.bingoption);
         window.onresize = function () {
             chartmainline.resize();
             chartmainlinetow.resize();
             myChart.resize();
+            chart.resize();
         }
       }  
     }
