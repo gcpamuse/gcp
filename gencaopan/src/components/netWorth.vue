@@ -219,7 +219,7 @@ export default {
             },
             zhouoption : {
                 title: {
-                    text: '周盈亏',
+                    text: '月盈亏',
                     x: 'center'
                 },
                 tooltip: {
