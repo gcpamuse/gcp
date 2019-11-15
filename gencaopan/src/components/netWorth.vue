@@ -229,7 +229,7 @@ export default {
                         label: {
                             normal: {
                                 show: true,
-                                formatter: '{b}'
+                                formatter: '{b}',
                             }
                         },
                         data: [
