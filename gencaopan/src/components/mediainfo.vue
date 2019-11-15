@@ -3,8 +3,8 @@
         <div class="page"> 
             <div class="content"> 
                 <div class="list">
-                    <div class="imgs"><img src="../img/132.jpg" class="img"></div>
-                    <div class="count">
+                    <div class="imgs" @click="toLookNotes"><img src="../img/132.jpg" class="img"></div>
+                    <div class="count" @click="toLookNotes">
                         <p>灰太狼</p>
                         <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
                     </div>
@@ -229,6 +229,9 @@ export default {
             this.money = item.money;
             this.toast_control = true;
         },
+        toLookNotes(){
+            this.$router.push({name: 'looknotes'})
+        }
     }
 }
 </script>
