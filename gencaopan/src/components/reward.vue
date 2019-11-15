@@ -158,7 +158,6 @@ a {
     text-decoration: none;
 }
 .m_je .row span {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 32px;
     line-height: 34px;
     color: #c65f3c;
@@ -169,7 +168,6 @@ a {
     text-align: center;
     color: #9d9d9d;
     font-size: 16px;
-    font-family: "微软雅黑";
     margin-top: 40px;
 }
 .m_je .row i {
