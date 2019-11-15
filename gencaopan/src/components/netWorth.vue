@@ -240,7 +240,7 @@ export default {
                                 color: function (params) {// 添加颜色显示规则 大于等于0红色; 小于0为绿色
                                     return params.value >= 0 ? "red" : "green";
                                 }
-                            }
+                            },
                         }
                     }
                 ]
