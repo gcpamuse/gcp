@@ -178,9 +178,9 @@ export default {
     margin: 15px 0;
 }
   .m-invest-tipBox .u-invest-p-red a{
-	color: #0894ec;;
+	color: #0894ec;
 }
 .m-invest-tipBox .u-invest-p-red{
-	color: #0894ec;;
+	color: #0894ec;
 }
 </style>
