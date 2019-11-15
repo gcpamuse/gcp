@@ -5,11 +5,11 @@
             <img src="../img/bg1.png">
         </div> 
         <div class="back" @click="prev">返回</div> 
-        <div class="title">打赏徐不疾</div> 
+        <div class="title">打赏灰太狼</div> 
         <div class="avatar"><img src="../img/132.jpg"></div> 
     </div> 
     <div class="m_name"> 
-        <p class="n_title">徐不疾</p> 
+        <p class="n_title">灰太狼</p> 
         <p class="n_describe">（推荐抄底）连续5年盈利</p>
     </div> 
     <div class="m_je container"> 
@@ -61,7 +61,7 @@ export default {
             this.$router.go(-1)
         },
         doPraise(){
-            
+
         }
     }
 }
