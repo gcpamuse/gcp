@@ -21,8 +21,6 @@
                     <input type="text"  v-model="realname" placeholder="请输入真实姓名"> 
                 </div>
         </div>
-
-
         <div class="m-invest-panel"> 
             <div class="u-invest-title">联系电话</div> 
             <div class="u-invest-input"> 
@@ -39,7 +37,6 @@
             <input type="hidden" id="filetype" class="filetypeInput" value="" />
             <input type="hidden" id="filename" class="filenameInput" value="" /> 
         </div> 
-   
      
         <van-button size="large" class="release-btn" @click="releaseBtn">申请并支付</van-button>
         <div class="m-invest-tipBox"> 
