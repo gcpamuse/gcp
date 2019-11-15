@@ -26,6 +26,7 @@ import applyInvestor from '@/components/applyInvestor'
 import wechatPay from '@/components/wechatPay'
 import subscribes from '@/components/subscribes'
 import looknotes from '@/components/looknotes'
+import reward from '@/components/reward'
 Vue.use(Router)
 
 export default new Router({
@@ -172,6 +173,11 @@ export default new Router({
       name: 'looknotes',
       meta:{tabbar: true},
       component: looknotes
+    },
+    {
+      path: '/reward',
+      name: 'reward',
+      component: reward
     },
   ]
 })
