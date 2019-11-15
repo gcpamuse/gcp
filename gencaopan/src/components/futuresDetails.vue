@@ -3,7 +3,7 @@
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
-                <div class="pic"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
+                <div class="pic" @click="toReward"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
                 <div class="superior-main"> 
                     <h2>naihaha</h2> 
                     <div class="mychart_d"> 
@@ -99,6 +99,9 @@ export default {
         }
     },
     methods:{
+        toReward(){
+            this.$router.push({name: 'reward'})
+        },
         guanZhu(){
             this.guanzhu=false;
             this.biji=true;
