@@ -90,7 +90,7 @@ export default {
                         name:'',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
                             color: 'rgb(236, 5, 5)'
@@ -105,7 +105,7 @@ export default {
                         name:'',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
                             color: 'rgb(33, 57, 80)'
@@ -120,7 +120,7 @@ export default {
                         name:'',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
                             color: 'rgb(63, 65, 63)'
