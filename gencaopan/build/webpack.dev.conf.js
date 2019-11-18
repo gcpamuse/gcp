@@ -14,7 +14,7 @@ const portfinder = require('portfinder')
 const express = require('express')
 const app = express()
 const appData = require('../static/data.json')//加载本地json文件
-const majorlist = appData.contents;//获取本地对应数据
+const majorlist = appData.data;//获取本地对应数据
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
 

@@ -379,6 +379,21 @@ export default {
                 chartmain.resize();
             }
         }  
+    },
+    created(){
+    　　let _this = this;
+    　　this.$http.get("/api/majorlist").then(function(response){
+    　　　　 console.log(response.data.data);
+    // 　　　　let data = response.data.data;
+    // 　　　　for(let i = 0; i < data.length; i++){
+    // 　　　　　　if(this.majorIndex == data[i].type){
+    // 　　　　　　　　this.dataList = data[i];
+    // 　　　　　　}
+    // 　　　　}
+    　　})
+    　　.catch(function(error){
+    　　　　console.log("出错喽："+error);
+    　　});
     }
 }
 </script>
