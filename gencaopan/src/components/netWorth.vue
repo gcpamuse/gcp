@@ -32,6 +32,8 @@ export default {
         return{
             data1:[],
             data2:[],
+            data3:[],
+            name:[],
             optionline:{
                 title:{
                     text:'累计净值',
@@ -109,7 +111,8 @@ export default {
                 legend:{
                     orient: 'vertical',
                     bottom: 'bottom',
-                    data:['累计毛利润','累计净利润','累计手续费']
+                    data:[]
+                    // data:['累计毛利润','累计净利润','累计手续费']
                 },
                 xAxis:{
                     type: 'category',
@@ -120,9 +123,10 @@ export default {
                         show:true 
                     },
                     boundaryGap:false,
-                    data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
-                    "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
-                    "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
+                    data:[]
+                    // data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
+                    // "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
+                    // "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
                 },
                 yAxis:{
                     type: "value",
@@ -390,28 +394,57 @@ export default {
                 this.data2=response.data.data.x;
                 chartmainline.setOption({
                     xAxis: {
-                    data: this.data2
+                        data: this.data2
                     }, 
                     series: [{ 
-                    data: this.data1
+                        data: this.data1
                     }]
                 });
-                let tata3=response;
-                console.log(tata3)
-        //         let datatow = response.data.datatow.y;
-        // 　　　　for(let i = 0; i < datatow.length; i++){　　　
-        // 　　　　　　　let tata4 = datatow[i].data;
-        //             let name=datatow[i].name;
-        // 　　　　}
-        //         chartmainlinetow.setOption({
-        //             xAxis: {
-        //                 data: data3
-        //             }, 
-        //             series: [{ 
-        //                 name:name,
-        //                 data: data4
-        //             }]
-        //         });
+                let datatow = response.data.data.c;
+        　　　　 for(let i = 0; i < datatow.length; i++){　　　
+        　　　　     this.data3[i] = datatow[i].data;
+                    this.name[i]=datatow[i].name;
+        　　　　 }
+                chartmainlinetow.setOption({
+                    xAxis: {
+                        data: this.data2
+                    }, 
+                    legend:{
+                        data:this.name
+                    },
+                    series: [
+                        { 
+                        name:this.name[0],
+                        data:this.data3[0]
+                        },
+                        { 
+                        name:this.name[1],
+                        data:this.data3[1]
+                        },
+                        { 
+                        name:this.name[2],
+                        data:this.data3[2]
+                        }
+                    ]
+                });
+                chartmain.setOption({
+                    xAxis: {
+                        data: this.data2
+                    }, 
+                    legend:{
+                        data:this.name
+                    },
+                    series: [
+                        { 
+                        name:this.name[0],
+                        data:this.data3[0]
+                        },
+                        { 
+                        name:this.name[1],
+                        data:this.data3[1]
+                        }
+                    ]
+                });
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
