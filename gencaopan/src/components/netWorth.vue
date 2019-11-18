@@ -41,7 +41,8 @@ export default {
             text2:[],
             optionlinetow:{
                 title:{
-                    text:'累计盈亏',
+                    // text:'累计盈亏',
+                    text:'',
                     x:'center',
                     textStyle:{
                         fontSize:16,
