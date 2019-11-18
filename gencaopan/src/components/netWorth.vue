@@ -62,11 +62,11 @@ export default {
                 },
                 yAxis:{
                     type: "value",
-                    splitLine :{    //网格线
+                    splitLine :{    
                         lineStyle:{
-                            type:'dashed'    //设置网格线类型 dotted：虚线   solid:实线
+                            type:'dashed'    
                         },
-                        show:true //隐藏或显示
+                        show:true 
                     }
                 },
                 grid: {
@@ -109,11 +109,11 @@ export default {
                 },
                 xAxis:{
                     type: 'category',
-                    splitLine :{    //网格线
+                    splitLine :{    
                         lineStyle:{
-                            type:'dashed'    //设置网格线类型 dotted：虚线   solid:实线
+                            type:'dashed'    
                         },
-                        show:true //隐藏或显示
+                        show:true 
                     },
                     boundaryGap:false,
                     data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
@@ -122,11 +122,11 @@ export default {
                 },
                 yAxis:{
                     type: "value",
-                    splitLine :{    //网格线
+                    splitLine :{    
                         lineStyle:{
-                            type:'dashed'    //设置网格线类型 dotted：虚线   solid:实线
+                            type:'dashed'    
                         },
-                        show:true //隐藏或显示
+                        show:true 
                     },
                 },
                 grid: {
