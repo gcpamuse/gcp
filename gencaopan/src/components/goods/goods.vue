@@ -220,6 +220,10 @@ import { Button } from 'vant';
 				.co{
 					font-weight: normal;
 					font-size: 12px;
+					display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
 				}
 				span{
 					color: #333;
