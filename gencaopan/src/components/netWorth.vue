@@ -396,16 +396,27 @@ export default {
                     data: this.data1
                     }]
                 });
-                // console.log(this.data1);
-                // console.log(this.data2);
+                let tata3=response;
+                console.log(tata3)
+        //         let datatow = response.data.datatow.y;
+        // 　　　　for(let i = 0; i < datatow.length; i++){　　　
+        // 　　　　　　　let tata4 = datatow[i].data;
+        //             let name=datatow[i].name;
+        // 　　　　}
+        //         chartmainlinetow.setOption({
+        //             xAxis: {
+        //                 data: data3
+        //             }, 
+        //             series: [{ 
+        //                 name:name,
+        //                 data: data4
+        //             }]
+        //         });
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
         　　});
         }  
-    },
-    created(){
-    　　
     }
 }
 </script>
