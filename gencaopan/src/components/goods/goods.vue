@@ -86,6 +86,8 @@
 </template>
 
 <script>
+
+import jsonp from 'jsonp';
 import { Button } from 'vant';
 	export default{
 		name:'goods',
@@ -120,20 +122,6 @@ import { Button } from 'vant';
 				list:[]
 			}
 		},
-		created(){
-			 let url = "http://daoshi.simutz.com/sign/api/teacherList/";
-				this.$axios(url, {
-				
-				})
-				.then(res => {
-					// console.log(res.data.subjects);
-					this.list = res.data.data
-				})
-				.catch(error => {
-					console.log(error);
-				})
-			
-		},
 		methods:{
 			subsByDate(){
 				this.modePop = true
@@ -146,7 +134,15 @@ import { Button } from 'vant';
 			},
 		},
 		mounted(){
-
+			
+			jsonp(`http://daoshi.simutz.com/sign/api/teacherList/`,(err, res) => {
+				if (err) {
+				console.error(err.message);
+				} else {
+				console.log(res);
+				this.list=res.data.data;
+				}
+			});
 		},
 		computed:{
 			
