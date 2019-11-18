@@ -12,7 +12,7 @@
 				:key="tab.type">
 			</van-tab>
 		</van-tabs>
-		<div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index">
+		<!-- <div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index">
 			<div  @click="toDetails" style="width: 80%;">
 				<div class="left">
 					<span class="daoshi_shou">收</span>
@@ -38,6 +38,35 @@
 				</div>
 				<div class="xia">
 					<div class="dingyue">1242人已订阅</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
+			<div  @click="toDetails" style="width: 80%;">
+				<div class="left">
+					<span class="daoshi_shou">收</span>
+					<img src="../../img/132.jpg" class="img_top">
+					<p class="yh_name">{{item.nickname}}</p>
+				</div>
+				<div class="middle">
+					<div class="middle_count">累计收益率:<span style="color:red">{{item.profit_rate}}%</span></div>
+					<div class="middle_count">7日收益率：<span style="color:green">{{item.week_yield}}%</span></div>
+					<div class="middle_count">净利润：<span class="col">{{item.tn_profit}}元</span></div>
+					<div class="middle_count"><span class="co">{{item.mark}}</span></div>
+				</div>
+			</div>
+			
+			<div class="right">
+				<div class="top">
+					<span>{{item.month_price}}</span>元/月
+					<van-button class="but" size="mini" @click="subsByDate">包月</van-button>
+				</div>
+				<div class="zhong">
+					<span>{{item.quarter_price}}</span>元/季
+					<van-button class="but" size="mini" @click="subsByDate">包季</van-button>
+				</div>
+				<div class="xia">
+					<div class="dingyue">{{item.total_subscribe_person}}人已订阅</div>
 				</div>
 			</div>
 		</div>
@@ -88,9 +117,21 @@ import { Button } from 'vant';
 					}
 				],
 				modePop:false,
+				list:[]
 			}
 		},
 		created(){
+			 let url = "http://daoshi.simutz.com/sign/api/teacherList/";
+				this.$axios(url, {
+				
+				})
+				.then(res => {
+					// console.log(res.data.subjects);
+					this.list = res.data.data
+				})
+				.catch(error => {
+					console.log(error);
+				})
 			
 		},
 		methods:{
@@ -103,6 +144,9 @@ import { Button } from 'vant';
 			toDetails(){
 				this.$router.push({name: 'futuresDetails'})
 			},
+		},
+		mounted(){
+
 		},
 		computed:{
 			
