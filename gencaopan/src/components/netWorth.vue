@@ -93,10 +93,10 @@ export default {
                         symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(255, 70, 131)'
+                            color: 'rgb(236, 5, 5)'
                         },
                         areaStyle: {   
-                            color: 'rgba(240, 16, 16,0.8)'
+                            color: 'rgba(236, 5, 5,0.9)'
                         },
                         data:[]
                     },
@@ -108,10 +108,10 @@ export default {
                         symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(105, 70, 131)'
+                            color: 'rgb(33, 57, 80)'
                         },
                         areaStyle: {   
-                            color: 'rgba(240, 0, 0,0.8)'
+                            color: 'rgba(33, 57, 80,0.8)'
                         },
                         data:[]
                     },
@@ -123,10 +123,10 @@ export default {
                         symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(200, 0, 131)'
+                            color: 'rgb(63, 65, 63)'
                         },
                         areaStyle: {   
-                            color: 'rgba(170, 16, 16,0.8)'
+                            color: 'rgba(63, 65, 63,0.8)'
                         },
                         data:[]
                     }
@@ -424,6 +424,7 @@ export default {
         .graph{
             height:20rem;
             border-bottom: 2px solid #eee;
+            color: rgb(63, 65, 63);
         }
     } 
 </style>
