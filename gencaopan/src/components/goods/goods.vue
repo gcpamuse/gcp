@@ -91,6 +91,12 @@
 import jsonp from 'jsonp';
 import { Button } from 'vant';
 	export default{
+		beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#f9f9f9')
+		},
+		beforeDestroy () {
+			document.querySelector('body').removeAttribute('style')
+		},
 		name:'goods',
 		props:{
 			
