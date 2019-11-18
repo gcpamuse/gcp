@@ -10,6 +10,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+//vue配置请求本地json数据
+const express = require('express')
+const app = express()
+const appData = require('../static/data.json')//加载本地json文件
+const majorlist = appData.contents;//获取本地对应数据
+const apiRoutes = express.Router()
+app.use('/api',apiRoutes)
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -42,6 +50,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
+
+    before (app) {
+      　　app.get('/api/majorlist',(req, res) => {
+      　　　　res.json({
+      　　　　　　erron:0,
+      　　　　　　data: majorlist
+      　　　　})//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
+       　　})
+       }
+      
   },
   plugins: [
     new webpack.DefinePlugin({
