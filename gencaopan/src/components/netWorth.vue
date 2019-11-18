@@ -334,12 +334,11 @@ export default {
                 let ydata = response.data.data.y;
         　　　　for(let i = 0; i < ydata.length; i++){　　　
         　　　　　　 this.data1 = ydata[i].data;
-                    this.text = ydata[i].text;
         　　　　}
                 this.data2=response.data.data.x;
                 chartmainline.setOption({
                     title:{
-                        text: this.text
+                        text: "累计净值"
                     },
                     xAxis: {
                         data: this.data2
@@ -352,11 +351,10 @@ export default {
         　　　　 for(let i = 0; i < datatow.length; i++){　　　
         　　　　     this.data3[i] = datatow[i].data;
                     this.name[i]=datatow[i].name;
-                    this.text1[i] = datatow[i].text;
         　　　　 }
                 chartmainlinetow.setOption({
                     title:{
-                        text: this.text1[0]
+                        text: "累计盈亏"
                     },
                     xAxis: {
                         data: this.data2
@@ -383,11 +381,13 @@ export default {
         　　　　 for(let i = 0; i < datad.length; i++){　　　
         　　　　     this.data4[i] = datad[i].data;
                     this.name1[i] = datad[i].name;
-                    this.text2[i] = datad[i].text;
         　　　　 }
                 chartmain.setOption({
+                    title:{
+                        text: "每日仓位"
+                    },
                     xAxis: {
-                        data: this.text2[0]
+                        data: this.data2
                     }, 
                     legend:{
                         data:this.name1
