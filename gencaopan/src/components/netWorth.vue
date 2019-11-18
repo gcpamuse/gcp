@@ -30,6 +30,8 @@ export default {
     name:"netWorth",
     data(){
         return{
+            data1:[],
+            data2:[],
             optionline:{
                 title:{
                     text:'累计净值',
@@ -56,9 +58,10 @@ export default {
                         show:true //隐藏或显示
                     },
                     boundaryGap:false,
-                    data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
-                    "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
-                    "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
+                    data:[]
+                    // data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
+                    // "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
+                    // "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
                 },
                 yAxis:{
                     type: "value",
@@ -87,7 +90,8 @@ export default {
                     areaStyle: {   
                         color: 'rgba(240, 16, 16,0.8)'
                     },
-                    data:[20,8,10,10,15,14,12,15,14,15,20,22,25,20,26,30,28,25,31,20,30,25,30,34,27,26,32,30,35,45]
+                    data:[]
+                    // data:[20,8,10,10,15,14,12,15,14,15,20,22,25,20,26,30,28,25,31,20,30,25,30,34,27,26,32,30,35,45]
                 }]
             },
             optionlinetow:{
@@ -377,23 +381,31 @@ export default {
                 chart.resize();
                 bingchart.resize();
                 chartmain.resize();
-            }
+            };
+            this.$http.get("/api/majorlist").then(function(response){
+                let ydata = response.data.data.y;
+        　　　　for(let i = 0; i < ydata.length; i++){　　　
+        　　　　　　　this.data1 = ydata[i].data;
+        　　　　}
+                this.data2=response.data.data.x;
+                chartmainline.setOption({
+                    xAxis: {
+                    data: this.data2
+                    }, 
+                    series: [{ 
+                    data: this.data1
+                    }]
+                });
+                // console.log(this.data1);
+                // console.log(this.data2);
+        　　})
+        　　.catch(function(error){
+        　　　　console.log("出错喽："+error);
+        　　});
         }  
     },
     created(){
-    　　let _this = this;
-    　　this.$http.get("/api/majorlist").then(function(response){
-    　　　　 console.log(response.data.data);
-    // 　　　　let data = response.data.data;
-    // 　　　　for(let i = 0; i < data.length; i++){
-    // 　　　　　　if(this.majorIndex == data[i].type){
-    // 　　　　　　　　this.dataList = data[i];
-    // 　　　　　　}
-    // 　　　　}
-    　　})
-    　　.catch(function(error){
-    　　　　console.log("出错喽："+error);
-    　　});
+    　　
     }
 }
 </script>
