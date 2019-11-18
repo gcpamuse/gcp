@@ -44,13 +44,14 @@
 		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
 			<div  @click="toDetails" style="width: 80%;">
 				<div class="left">
-					<span class="daoshi_shou">收</span>
+					<span class="daoshi_shou" v-if="item.free == 1">收</span>
+					<span class="daoshi_shou" v-else>免</span>
 					<img src="../../img/132.jpg" class="img_top">
 					<p class="yh_name">{{item.nickname}}</p>
 				</div>
 				<div class="middle">
-					<div class="middle_count">累计收益率:<span style="color:red">{{item.profit_rate}}%</span></div>
-					<div class="middle_count">7日收益率：<span style="color:green">{{item.week_yield}}%</span></div>
+					<div class="middle_count">累计收益率:<span :style="{'color':(item.profit_rate >= 0 ? 'red':'green')}">{{item.profit_rate}}%</span></div>
+					<div class="middle_count">7日收益率：<span :style="{'color':(item.week_yield >= 0 ? 'red':'green')}">{{item.week_yield}}%</span></div>
 					<div class="middle_count">净利润：<span class="col">{{item.tn_profit}}元</span></div>
 					<div class="middle_count"><span class="co">{{item.mark}}</span></div>
 				</div>
