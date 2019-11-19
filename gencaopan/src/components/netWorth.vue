@@ -162,7 +162,7 @@ export default {
                         yAxisIndex: [0],
                         left: '93%',
                         start: 0, //数据窗口范围的起始百分比
-                        end: 36
+                        end: 26
                     }
                 ],
                 series: [
@@ -322,6 +322,11 @@ export default {
                     yAxis: {
                         data:response.data.data.f
                     },
+                    dataZoom:[
+                        {
+                            end: 6
+                        }
+                    ],
                     series: [
                         {
                             data:response.data.data.e
