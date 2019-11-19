@@ -5,7 +5,9 @@
         <div class="table">
             <div class="table_c" v-for="(item,index) in gaishu" :key="item.id" :index="index">
                 <div>{{item.name}}</div>
-                <div>{{item.value}}<span>{{item.ext}}</span></div>
+                <div>
+                    {{item.value}}<span>{{item.ext}}</span>
+                </div>
             </div>
         </div>
 
@@ -45,7 +47,6 @@ export default {
     methods:{
         logdata(){
             this.$http.get("/api/majorlist1").then(function(response){
-                console.log(response.data.data.stat);
                 let data = response.data.data.stat;
                 this.gaishu = data.a;
                 this.tingli = data.b;
