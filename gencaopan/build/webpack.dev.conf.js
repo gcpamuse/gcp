@@ -52,12 +52,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
 
     before (app) {
-      　　app.get('/api/majorlist',(req, res) => {
-      　　　　res.json({
-      　　　　　　erron:0,
-      　　　　　　data: majorlist
-      　　　　})//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
-       　　})
+        app.get('/api/majorlist', (req, res) => {
+            res.json({
+              errno: 0,
+              data: majorlist
+            })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
+        })
+       
        }
       
   },
