@@ -410,14 +410,14 @@ export default {
                 });
                 this.tedata1 = response.data.data.e;
                 this.tedata2 = response.data.data.f;
-                console.log(response.data.data)
-                console.log(response.data.data.f)
+                // console.log(this.tedata1)
+                // console.log(this.tedata2)
                 myChart.setOption({
                     title:{
                         text: "周盈亏"
                     },
                     xAxis: {
-                        data: this.tedata1
+                        data:this.tedata1
                     }, 
                     series: [
                         { 
