@@ -47,7 +47,8 @@
 				<div class="left">
 					<span class="daoshi_shou" v-if="item.free == 1">收</span>
 					<span class="daoshi_shou" v-else>免</span>
-					<img src="../../img/132.jpg" class="img_top">
+					<!-- <img src="../../img/132.jpg" class="img_top"> -->
+			
 					<p class="yh_name">{{item.nickname}}</p>
 				</div>
 				<div class="middle">
