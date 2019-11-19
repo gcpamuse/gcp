@@ -5,11 +5,12 @@
 				<img src="../../img/sy_qihuo2.jpg" class="img" >
 			</div> 
 		</div> 
-		<van-tabs>
+		<van-tabs @click="scroller">
 			<van-tab 
 				v-for="tab in tabsItem"
 			 	:title="tab.name" 
-				:key="tab.type">
+				:key="tab.type"
+				>
 			</van-tab>
 		</van-tabs>
 		<!-- <div class="conment" v-for="(i,index) in 6" :key="i.id" :index="index">
@@ -139,6 +140,13 @@ import { Button } from 'vant';
 			toDetails(){
 				this.$router.push({name: 'futuresDetails'})
 			},
+			scroller(){
+				this.$http.get('/api/teacherList').then((res) => {
+					
+					let data = res.data.data.data;
+					this.list = data.data;
+				});
+			}
 		},
 		mounted(){
 			
@@ -151,8 +159,9 @@ import { Button } from 'vant';
 			// 	}
 			// });
 			this.$http.get('/api/teacherList').then((res) => {
-				this.list=res.data.data;    //res.data可根据你的数据格式来，看需求
-   				console.log(res.data.data)
+			   
+				let data = res.data.data.data;
+   				this.list = data.data;
 			});
 		},
 		computed:{
