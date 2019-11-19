@@ -438,6 +438,17 @@ export default {
                         }
                     ]
                 });
+                console.log(response.data.data.k)
+                bingchart.setOption({
+                    legend: {
+                        data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈','菜粕','ap','铜','豆粕','白银','其他']
+                    },
+                    series : [
+                        {
+                            data:response.data.data.k
+                        }
+                    ]
+                });
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
