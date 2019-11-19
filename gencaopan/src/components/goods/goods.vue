@@ -48,7 +48,7 @@
 					<span class="daoshi_shou" v-if="item.free == 1">收</span>
 					<span class="daoshi_shou" v-else>免</span>
 					<!-- <img src="../../img/132.jpg" class="img_top"> -->
-			
+					<img :src="'http://tg.simutz.com/avatar/'+ item.uid + '_middle.jpg'" alt="" class="img_t">
 					<p class="yh_name">{{item.nickname}}</p>
 				</div>
 				<div class="middle">
@@ -214,6 +214,10 @@ import { Button } from 'vant';
 				line-height: 18px;
 				color: #fff;
 				border-radius: 50%;
+			}
+			.img_t{ 
+				width: 60px; 
+				height: 60px; 
 			}
 			.yh_name{
 				display: -webkit-box;
