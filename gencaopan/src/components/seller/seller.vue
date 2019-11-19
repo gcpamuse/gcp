@@ -1,8 +1,10 @@
 <template>
 	<div class="seller">
 		<div class="heard">
-			<img src="../../img/default_middle.png" class="img">
-			<div class="name">哈哈哈</div>
+			<!-- <img src="../../img/default_middle.png" class="img">
+			<div class="name">哈哈哈</div> -->
+			<img :src="img" class="img">
+			<div class="name">{{name}}</div>
 		</div>
 		<div class="user_module">
 			<van-cell-group>	
@@ -49,8 +51,8 @@
 export default {
   data: function () {
     return {
-      
-      
+	  img:"http://tg.simutz.com/avatar/83564_middle.jpg",
+      name:"哈哈哈"
     }
   },
   methods:{

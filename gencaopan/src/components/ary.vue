@@ -123,6 +123,20 @@ export default {
         return{
 
         }
+    },
+    mounted(){
+        this.logdata();
+    },
+    methods:{
+        logdata(){
+            this.$http.get("/api/majorlist1").then(function(response){
+                console.log(response.data.data.stat);
+                let data = response.data.data.stat;
+        　　})
+        　　.catch(function(error){
+        　　　　console.log("出错喽："+error);
+        　　});
+        }
     }
 }
 </script>
