@@ -14,7 +14,8 @@ const portfinder = require('portfinder')
 const express = require('express')
 const app = express()
 const appData = require('../static/data.json')//加载本地json文件
-const majorlist = appData.data;//获取本地对应数据
+//获取本地对应数据
+
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
 
@@ -57,6 +58,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               errno: 0,
               data: majorlist
             })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
+        })
+        app.get('/api/teacherList', (req, res) => {
+            res.json({
+              errno: 0,
+              data: teacherList
+            })
         })
        
        }
