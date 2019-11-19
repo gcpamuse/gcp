@@ -150,6 +150,10 @@ import { Button } from 'vant';
 				this.list=res.data.data;
 				}
 			});
+			// this.$http.get('/api/teacherList').then((res) => {
+			// 	this.list=res.data.data;    //res.data可根据你的数据格式来，看需求
+   			// 	console.log(res.data.data)
+			// });
 		},
 		computed:{
 			
