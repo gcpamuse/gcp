@@ -410,7 +410,7 @@ export default {
                 });
                 this.tedata1 = response.data.data.e;
                 this.tedata2 = response.data.data.f;
-                console.log(response.data.data.e)
+                console.log(response.data.data)
                 console.log(response.data.data.f)
                 myChart.setOption({
                     title:{
