@@ -3,7 +3,7 @@
     "message":"",
     "data":{
         "stat":{
-            "\u8d26\u6237\u6982\u8ff0":[
+            "a":[
                 {"name":"\u521d\u59cb\u6743\u76ca","value":"4.83\u4e07","ext":"\u5143"},
                 {"name":"\u8d77\u59cb\u65e5\u671f","value":"2014-01-13","ext":""},
                 {"name":"\u6700\u65b0\u6743\u76ca","value":"150.58\u4e07","ext":"\u5143"},
@@ -20,7 +20,7 @@
                 {"name":"\u5e73\u5747\u6bcf\u7b14\u8d39\u7528","value":"15.81","ext":"\u5143"},
                 {"name":"\u8d39\u7528\u5360\u6bd4","value":"0.30","ext":"%"}
             ],
-            "\u76c8\u5229\u80fd\u529b":[
+            "b":[
                 {"name":"\u5e74\u5316\u6536\u76ca\u7387","value":"<em style=\"color:#f00\">140.60%<\/em>","ext":""},
                 {"name":"\u7d2f\u8ba1\u6536\u76ca\u7387","value":"<em style=\"color:#f00\">717.6616%<\/em>","ext":""},
                 {"name":"\u5f53\u65e5\u6536\u76ca\u7387","value":"<em style=\"color:#209d04\">-5.7521%<\/em>","ext":""},
@@ -30,7 +30,7 @@
                 {"name":"\u8fde\u7eed\u76c8\u5229\u5929\u6570","value":10,"ext":"\u5929"},
                 {"name":"\u8fde\u7eed\u4e8f\u635f\u5929\u6570","value":8,"ext":"\u5929"}
             ],
-            "\u7a33\u5b9a\u6027":[
+            "c":[
                 {"name":"\u6700\u5927\u56de\u64a4\u7387","value":"59.00%","ext":""},
                 {"name":"\u65e5\u6700\u5927\u8d62\u5229\u989d","value":"<em style=\"color:#f00\">558163.07<\/em>","ext":"<em style=\"color:#f00\">\u5143<\/em>"},
                 {"name":"\u65e5\u6700\u5927\u4e8f\u635f\u989d","value":"<em style=\"color:#209d04\">-211299.33<\/em>","ext":"<em style=\"color:#209d04\">\u5143<\/em>"}
