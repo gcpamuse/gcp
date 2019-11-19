@@ -18,6 +18,7 @@ const appData = require('../static/data.json')//加载本地json文件
 
 const appData1 = require('../static/gaikuang.json')//加载本地json文件
 const majorlist = appData.data;//获取本地对应数据
+const teacherList= appData.test;
 const majorlist1 = appData1.data;//获取本地对应数据
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
