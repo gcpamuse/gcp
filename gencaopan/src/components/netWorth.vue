@@ -136,7 +136,8 @@ export default {
             },
             option : {
                 title: {
-                    text: '周盈亏',
+                    // text: '周盈亏',
+                    text: '',
                     x: 'center'
                 },
                 tooltip: {
@@ -324,7 +325,8 @@ export default {
             chartmainline.setOption(this.optionlinetow);
             chartmainlinetow.setOption(this.optionlinetow);
             myChart.setOption(this.option);
-            chart.setOption(this.zhouoption);
+            // chart.setOption(this.zhouoption);
+            chart.setOption(this.option);
             bingchart.setOption(this.bingoption);
             chartmain.setOption(this.optionlinetow);
             window.onresize = function () {
@@ -408,20 +410,18 @@ export default {
                         }
                     ]
                 });
-                this.tedata1 = response.data.data.e;
-                this.tedata2 = response.data.data.f;
-                // console.log(this.tedata1)
-                // console.log(this.tedata2)
+                // this.tedata1 = response.data.data.e;
+                // this.tedata2 = response.data.data.f;
                 myChart.setOption({
                     title:{
                         text: "周盈亏"
                     },
-                    xAxis: {
-                        data:this.tedata1
-                    }, 
+                    yAxis: {
+                        data:response.data.data.f
+                    },
                     series: [
-                        { 
-                        data:this.tedata2
+                        {
+                            data:response.data.data.e
                         }
                     ]
                 });
