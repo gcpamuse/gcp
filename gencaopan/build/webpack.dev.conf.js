@@ -14,14 +14,11 @@ const portfinder = require('portfinder')
 const express = require('express')
 const app = express()
 const appData = require('../static/data.json')//加载本地json文件
-<<<<<<< HEAD
 //获取本地对应数据
 
-=======
 const appData1 = require('../static/gaikuang.json')//加载本地json文件
 const majorlist = appData.data;//获取本地对应数据
 const majorlist1 = appData1.data;//获取本地对应数据
->>>>>>> b4dd71d655bf27802a27bc0be99a380135c7a414
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
 
