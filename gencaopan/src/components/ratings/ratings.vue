@@ -34,17 +34,23 @@
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
 		<div class="index-tab"> 
-			<div class="tabs" v-for="(image, index) in 6" :index="index" :key="image.id" @click="toDetails">
+			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
-							<div class="left-title">傅海棠：怎样的品种可以做多，什么时候可以加仓</div> 
-							<div class="left-content">
+							<!-- <div class="left-title">傅海棠：怎样的品种可以做多，什么时候可以加仓</div>  -->
+							<div class="left-title">{{image.title}}</div> 
+							<!-- <div class="left-content">
 								独孤龙谷
 								<div class="left-time">2019/08/23 12:42:25</div> 
+							</div>  -->
+							<div class="left-content">
+								{{image.name}}
+								<div class="left-time">{{image.time}}</div> 
 							</div> 
 						</div> 
-						<img src="../../img/1568117337170.jpg"   alt="傅海棠：怎样的品种可以做多，什么时候可以加仓" class="panel-img"> 
+						<!-- <img src="../../img/1568117337170.jpg"   alt="傅海棠：怎样的品种可以做多，什么时候可以加仓" class="panel-img">  -->
+						<img :src="image.img" class="panel-img">
 					</div> 
 				</div> 
 			</div> 
@@ -61,7 +67,38 @@ import '../../../dist/static/css/swiper.min.css';
 		name:'ratings',
 		data(){
 			return{
-				
+				list:[
+					{
+						img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
+						name:'独孤龙谷',
+						time:'2019/08/23 12:42:25',
+						title:'傅海棠：怎样的品种可以做多，什么时候可以加仓'
+					},
+					{
+						img:'http://daoshi.simutz.com/attachments/mediaImages/1574039282439.jpg',
+						name:'积善之家,必有余庆 ',
+						time:'昨天 09:08:02',
+						title:'德者才之王，才者德之奴'
+					},
+					{
+						img:'http://daoshi.simutz.com/attachments/mediaImages/1573451622454.jpeg',
+						name:'宁静致远',
+						time:'2019/11/11 13:53:42',
+						title:'趋势，压力，逻辑思维下单'
+					},
+					{
+						img:'http://daoshi.simutz.com/attachments/mediaImages/1572843068713.jpeg',
+						name:'文晓',
+						time:'2019/11/04 12:51:08',
+						title:'系统的力量2'
+					},
+					{
+						img:'http://daoshi.simutz.com/attachments/mediaImages/1569755464707.jpeg',
+						name:'欧阳摇摇',
+						time:'2019/09/29 19:11:04',
+						title:'未來10年股市走勢'
+					}
+				]
 			}
 		},
 		props:{
@@ -163,6 +200,10 @@ import '../../../dist/static/css/swiper.min.css';
 					padding: 10px 0;
 					.left-title{
 						margin-bottom: 10px;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 2;
+						overflow: hidden;
 					}
 					.left-content{
 						font-size: 10px;
@@ -178,8 +219,8 @@ import '../../../dist/static/css/swiper.min.css';
 				}
 				.panel-img{
 					width:80px;
-					height: 70px; 
-					border: 1px solid red;
+					height: 62px; 
+					// border: 1px solid red;
 				}
 			}
 		}
