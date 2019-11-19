@@ -39,12 +39,9 @@ export default {
             text:[],
             text1:[],
             text2:[],
-            tedata1:[],
-            tedata2:[],
             optionlinetow:{
                 title:{
-                    // text:'累计盈亏',
-                    text:'',
+                    text:'',// text:'累计盈亏',
                     x:'center',
                     textStyle:{
                         fontSize:16,
@@ -57,8 +54,7 @@ export default {
                 legend:{
                     orient: 'vertical',
                     bottom: 'bottom',
-                    data:[]
-                    // data:['累计毛利润','累计净利润','累计手续费']
+                    data:[]// data:['累计毛利润','累计净利润','累计手续费']
                 },
                 xAxis:{
                     type: 'category',
@@ -87,9 +83,8 @@ export default {
                     containLabel: true
                 },
                 series:[
-                    {
-                        // name:'累计毛利润',
-                        name:'',
+                    {                        
+                        name:'',// name:'累计毛利润',
                         type:'line', //设置图表主题
                         smooth:true,
                         // symbol: 'none',
@@ -102,9 +97,8 @@ export default {
                         },
                         data:[]
                     },
-                    {
-                        // name:'累计净利润',
-                        name:'',
+                    {                       
+                        name:'',// name:'累计净利润',
                         type:'line', //设置图表主题
                         smooth:true,
                         // symbol: 'none',
@@ -117,9 +111,8 @@ export default {
                         },
                         data:[]
                     },
-                    {
-                        // name:'累计手续费',
-                        name:'',
+                    {                       
+                        name:'',// name:'累计手续费',
                         type:'line', //设置图表主题
                         smooth:true,
                         // symbol: 'none',
@@ -135,9 +128,8 @@ export default {
                 ]
             },
             option : {
-                title: {
-                    // text: '周盈亏',
-                    text: '',
+                title: {                   
+                    text: '',// text: '周盈亏',
                     x: 'center'
                 },
                 tooltip: {
@@ -162,10 +154,6 @@ export default {
                     axisTick: {show: false},
                     splitLine: {show: false},
                     data:[]
-                    // data: ['2019/30', '2019/31', '2019/32', '2019/34', '2019/35', '2019/36', '2019/37', '2019/38', '2019/39', '2019/40',
-                    //     '2019/41', '2019/42', '2019/43', '2019/44', '2019/45','2019/46', '2019/47', '2019/48', '2019/49', '2019/50',
-                    //     '2019/51', '2019/52', '2019/53', '2019/54', '2019/55',
-                    // ]
                 },
                 dataZoom:[
                     {
@@ -189,82 +177,12 @@ export default {
                             }
                         },
                         data:[],
-                        // data: [
-                        //     -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
-                        // ],
                         itemStyle: {
                             normal: {
                                 color: function (params) {// 添加颜色显示规则 大于等于0红色; 小于0为绿色
                                     return params.value >= 0 ? "red" : "green";
                                 }
                             },
-                        }
-                    }
-                ]
-            },
-            zhouoption : {
-                title: {
-                    text: '月盈亏',
-                    x: 'center'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
-                },
-                grid: {
-                    top: 80,
-                    bottom: 30
-                },
-                xAxis: {
-                    type: 'value',
-                    position: 'top',
-                    splitLine: {lineStyle: {type: 'dashed'}},
-                },
-                yAxis: {
-                    type: 'category',
-                    axisLine: {show: false},
-                    axisLabel: {show: false},
-                    axisTick: {show: false},
-                    splitLine: {show: false},
-                    data: ['2017-10', '2017-11', '2017-12', '2018-1', '2018-2', '2018-3', '2018-4', '2018-5', '201-6', '2018-7',
-                        '2018-8', '2018-9', '2018-10', '2018-11', '2018-12','2019-1', '2019-2', '2019-3', '2019-4', '2019-5',
-                        '2019-6', '2019-7', '2019-8', '2019-9', '2019-10',
-                    ]
-                },
-                dataZoom:[
-                    {
-                        type: 'slider',
-                        show: true,
-                        yAxisIndex: [0],
-                        left: '93%',
-                        start: 0, //数据窗口范围的起始百分比
-                        end: 36
-                    }
-                ],
-                series: [
-                    {
-                        name: '盈亏(亿元)',
-                        type: 'bar',
-                        stack: '总量',
-                        label: {
-                            normal: {
-                                show: true,
-                                formatter: '{b}'
-                            }
-                        },
-                        data: [
-                            -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
-                        ],
-                        // 添加颜色显示规则
-                        // 大于等于0红色; 小于0为绿色
-                        itemStyle: {
-                            normal: {
-                                color: function (params) {
-                                    return params.value >= 0 ? "red" : "green";
-                                }
-                            }
                         }
                     }
                 ]
@@ -281,7 +199,7 @@ export default {
                 legend: {
                     orient: 'vertical',
                     left:'left',
-                    data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈','菜粕','ap','铜','豆粕','白银','其他']
+                    data:[]
                 },
                 series : [
                     {
@@ -289,20 +207,7 @@ export default {
                         type: 'pie',
                         radius : '60%',
                         center: ['55%', '45%'],
-                        data:[
-                            {value:35, name:'沪镍'},
-                            {value:20, name:'塑料'},
-                            {value:34, name:'沪锌'},
-                            {value:35, name:'焦炭'},
-                            {value:38, name:'橡胶'},
-                            {value:28, name:'棕榈'},
-                            {value:38, name:'菜粕'},
-                            {value:28, name:'ap'},
-                            {value:28, name:'铜'},
-                            {value:48, name:'豆粕'},
-                            {value:28, name:'白银'},
-                            {value:298, name:'其他'}
-                        ]
+                        data:[]
                     }
                 ]
             }
@@ -410,8 +315,6 @@ export default {
                         }
                     ]
                 });
-                // this.tedata1 = response.data.data.e;
-                // this.tedata2 = response.data.data.f;
                 myChart.setOption({
                     title:{
                         text: "周盈亏"
@@ -438,10 +341,9 @@ export default {
                         }
                     ]
                 });
-                console.log(response.data.data.k)
                 bingchart.setOption({
                     legend: {
-                        data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈','菜粕','ap','铜','豆粕','白银','其他']
+                        data: response.data.data.n
                     },
                     series : [
                         {
