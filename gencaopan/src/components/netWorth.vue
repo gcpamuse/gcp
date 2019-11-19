@@ -425,6 +425,19 @@ export default {
                         }
                     ]
                 });
+                chart.setOption({
+                    title:{
+                        text: "月盈亏"
+                    },
+                    yAxis: {
+                        data:response.data.data.h
+                    },
+                    series: [
+                        {
+                            data:response.data.data.g
+                        }
+                    ]
+                });
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
