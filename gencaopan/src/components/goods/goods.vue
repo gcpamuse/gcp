@@ -142,18 +142,18 @@ import { Button } from 'vant';
 		},
 		mounted(){
 			
-			jsonp(`http://daoshi.simutz.com/sign/api/teacherList/`,(err, res) => {
-				if (err) {
-				console.error(err.message);
-				} else {
-				console.log(res);
-				this.list=res.data.data;
-				}
-			});
-			// this.$http.get('/api/teacherList').then((res) => {
-			// 	this.list=res.data.data;    //res.data可根据你的数据格式来，看需求
-   			// 	console.log(res.data.data)
+			// jsonp(`http://daoshi.simutz.com/sign/api/teacherList/`,(err, res) => {
+			// 	if (err) {
+			// 	console.error(err.message);
+			// 	} else {
+			// 	console.log(res);
+			// 	this.list=res.data.data;
+			// 	}
 			// });
+			this.$http.get('/api/teacherList').then((res) => {
+				this.list=res.data.data;    //res.data可根据你的数据格式来，看需求
+   				console.log(res.data.data)
+			});
 		},
 		computed:{
 			
