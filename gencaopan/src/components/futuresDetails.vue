@@ -19,7 +19,7 @@
                 </div> 
             </div> 
             <div class="superior-content">
-                <van-tabs active="b" line-height='0'>
+                <van-tabs active="b" line-height='0' background='#f6f6f6'>
                     <van-tab title="交易概况" name="a">
                         <div class="superior-con">
                             <ary></ary>
@@ -180,9 +180,8 @@ export default {
 		/deep/ .van-tab--active{
 			color: red;
 		}
-	}
+    }
     .superior-content{
-        
         .superior-con{
             .numone{
                 padding: 10px;
