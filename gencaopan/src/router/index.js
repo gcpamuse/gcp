@@ -30,6 +30,7 @@ import reward from '@/components/reward'
 import transaction from '@/components/transaction'
 import holdPositions from '@/components/holdPositions'
 import setUp from '@/components/setUp'
+import inoutMoney from '@/components/inoutMoney'
 Vue.use(Router)
 
 export default new Router({
@@ -196,6 +197,11 @@ export default new Router({
       path: '/setUp',
       name: 'setUp',
       component: setUp
+    },
+    {
+      path: '/inoutMoney',
+      name: 'inoutMoney',
+      component: inoutMoney
     },
   ]
 })

@@ -42,11 +42,13 @@
                                 <div>金额</div> 
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
-                            <div class="jy_count"> 
-                                <div>入金</div> 
-                                <div><font color="red">+30000</font></div> 
-                                <div>2019-10-30</div> 
-                            </div> 
+                            <inoutMoney></inoutMoney>
+                            <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id"> 
+                               
+                                <div>{{item.ocname}}</div> 
+                                <div>{{item.money}}</div> 
+                                <div>{{item.dateline}}</div> 
+                            </div>  -->
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
@@ -90,6 +92,7 @@ import ary from './ary';
 import netWorth from './netWorth'
 import transaction from './transaction'
 import holdPositions from './holdPositions'
+import inoutMoney from './inoutMoney'
 export default {
     data(){
         return{
@@ -99,7 +102,8 @@ export default {
                 backgroundSize:'100% 100%'
             },
             guanzhu:true,
-            biji:false
+            biji:false,
+            inoutList:[]
         }
     },
     methods:{
@@ -235,16 +239,7 @@ export default {
                     color: #333;
                 }
             }
-            .jy_crj,.jy_count{
-                display: flex;
-                font-size: 13px;
-                text-align: center;
-                border-bottom: 1px dashed #eee;
-                div{
-                    width: 33.33%;
-                    padding: 10px 0;
-                }
-            }
+            
             .jy_crj{
                 font-weight: bold;
                 border-bottom: 1px solid #eee;
