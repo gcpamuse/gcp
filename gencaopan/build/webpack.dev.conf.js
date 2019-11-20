@@ -19,6 +19,7 @@ const appData = require('../static/data.json')//加载本地json文件
 const appData1 = require('../static/gaikuang.json')//加载本地json文件
 const majorlist = appData.data;//获取本地对应数据
 const teacherList = appData.teacherList;
+const inout = appData.inout;
 const majorlist1 = appData1.data;//获取本地对应数据
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
@@ -74,6 +75,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
             errno: 0,
             data: majorlist1
+          })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
+        }),
+        app.get('/api/inout', (req, res) => {
+          res.json({
+            errno: 0,
+            data: inout
           })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
         })
        }
