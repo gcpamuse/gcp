@@ -58,6 +58,7 @@ export default {
     }
 }
 .table{
+    font-size: 13px;
     font-weight: normal;
     padding: 8px 0;
 }
