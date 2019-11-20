@@ -1,6 +1,6 @@
 <template>
     <div class="user-info">
-        <van-nav-bar @click-left="goBack" title="个人信息" >
+        <van-nav-bar @click-left="goBack" title="个人信息" :border="false">
             <van-icon name="left" slot="left" style="font-size:16px;"/>
         </van-nav-bar>
         <van-cell-group>
@@ -54,7 +54,11 @@ export default {
         
         },
         nameBeforeClose(action, done) {
-        
+            if (action === 'confirm') {
+                setTimeout(done, 1000);
+            } else {
+                done();
+            }
         }
     }
 }
@@ -68,8 +72,8 @@ export default {
     height: 50px;
     border: 1px solid #ccc;
     img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
     }
     // i {
     //   position: absolute;
