@@ -27,6 +27,7 @@ import wechatPay from '@/components/wechatPay'
 import subscribes from '@/components/subscribes'
 import looknotes from '@/components/looknotes'
 import reward from '@/components/reward'
+import transaction from '@/components/transaction'
 Vue.use(Router)
 
 export default new Router({
@@ -178,6 +179,11 @@ export default new Router({
       path: '/reward',
       name: 'reward',
       component: reward
+    },
+    {
+      path: '/transaction',
+      name: 'transaction',
+      component: transaction
     },
   ]
 })
