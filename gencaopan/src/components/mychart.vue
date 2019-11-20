@@ -134,13 +134,14 @@ export default {
 
 <style lang="less" scoped="scoped">
     .superior-top {
-        padding: 10px;
+        padding: 10px 0;
         background-color: #fff;
         font-size: 0.750rem;
         border-bottom: solid 1px #f3f3f3;
         display: flex;
         .pic{
             width: 18%;
+            text-align: center;
             .avatar{
                 border-radius: 10px;
                 width: 55px;
@@ -148,7 +149,7 @@ export default {
             }
         }
         .superior-main{
-            width: 60%;
+            width: 62%;
             h2{
                 font-size: 14px;
                 line-height: 22px;
@@ -160,8 +161,8 @@ export default {
             }
         }
         .quxian{
-            width: 22%;
-            text-align: right;
+            width: 20%;
+            text-align: center;
             padding-top: 16px;
             .book-btn{
                 background-color: #f24848;
@@ -177,7 +178,7 @@ export default {
         text-align: center;
         font-size: 14px;
         li{
-            width: 49%;
+            width: 50%;
             padding: 15px 0;
             background-color: #f6f6f6;
             // color: #666;
