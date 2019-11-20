@@ -29,6 +29,7 @@ import looknotes from '@/components/looknotes'
 import reward from '@/components/reward'
 import transaction from '@/components/transaction'
 import holdPositions from '@/components/holdPositions'
+import setUp from '@/components/setUp'
 Vue.use(Router)
 
 export default new Router({
@@ -190,6 +191,11 @@ export default new Router({
       path: '/holdPositions',
       name: 'holdPositions',
       component: holdPositions
+    },
+    {
+      path: '/setUp',
+      name: 'setUp',
+      component: setUp
     },
   ]
 })

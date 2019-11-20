@@ -36,7 +36,8 @@ import {
   Radio,
   Checkbox,
   Toast,
-  Popup
+  Popup,
+  NavBar
 } from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
@@ -52,6 +53,7 @@ Vue.use(Radio);
 Vue.use(Checkbox);
 Vue.use(Toast);
 Vue.use(Popup);
+Vue.use(NavBar);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

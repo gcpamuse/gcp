@@ -1,0 +1,84 @@
+<template>
+    <div class="user-info">
+        <van-nav-bar @click-left="goBack" title="个人信息" >
+            <van-icon name="left" slot="left" style="font-size:16px;"/>
+        </van-nav-bar>
+        <van-cell-group>
+            <van-cell title="头像" class="cell_middle">
+                        <van-uploader :afterRead="avatarAfterRead">
+                            <div class="user_avatar_upload">
+                                <img :src="avatar" alt="你的头像" v-if="avatar">
+                                <van-icon name="camera_full" v-else></van-icon>
+                            </div>
+                        </van-uploader>
+                    </van-cell>
+            <van-cell title="昵称" @click="nameShow = true" :value="name" isLink />
+        </van-cell-group>
+        <van-dialog
+        v-model="nameShow"
+        show-cancel-button
+        :before-close="nameBeforeClose"
+        >
+            <van-field
+                v-model="name"
+                label="昵称"
+                placeholder="请输入昵称"
+                icon="clear"
+                @click-icon="name = ''"
+            />
+        </van-dialog>
+    </div>
+</template>
+
+<script>
+export default {
+    beforeCreate () {
+        document.querySelector('body').setAttribute('style', 'background-color:#f9f9f9')
+	},
+	beforeDestroy () {
+		document.querySelector('body').removeAttribute('style')
+	},
+    data(){
+        return{
+            nameShow: false,
+            avatar:'https://img.yzcdn.cn/vant/leaf.jpg',
+            name:'哈哈哈',
+            user: {}
+        }
+    },
+    methods: {
+        goBack(){
+            this.$router.go(-1)
+        },
+        avatarAfterRead(file) {
+        
+        },
+        nameBeforeClose(action, done) {
+        
+        }
+    }
+}
+</script>
+
+<style lang="less" scoped="scoped">
+.user-info {
+  .user_avatar_upload {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    // i {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   font-size: 20px;
+    //   color: #ccc;
+    // }
+  }
+}
+</style>
