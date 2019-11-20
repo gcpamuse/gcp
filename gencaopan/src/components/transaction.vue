@@ -58,7 +58,7 @@ export default {
     }
 }
 .table{
-    font-weight: bold;
+    font-weight: normal;
     padding: 8px 0;
 }
 .content{
