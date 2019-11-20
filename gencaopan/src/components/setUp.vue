@@ -71,14 +71,14 @@ export default {
       max-width: 100%;
       max-height: 100%;
     }
-    i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 20px;
-      color: #ccc;
-    }
+    // i {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   font-size: 20px;
+    //   color: #ccc;
+    // }
   }
 }
 </style>
