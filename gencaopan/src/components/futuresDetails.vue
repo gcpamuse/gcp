@@ -30,7 +30,7 @@
                                 <a class="dingyue">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
-                        
+                            <transaction></transaction>
                         </div> 
                     </van-tab>
                     <van-tab title="净值分析" name="b">
@@ -68,6 +68,7 @@
                             <a class="dingyue">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
+                        <transaction></transaction>
                     </van-tab>
                 </van-tabs>
             </div>
@@ -86,6 +87,7 @@
 <script>
 import ary from './ary';
 import netWorth from './netWorth'
+import transaction from './transaction'
 export default {
     data(){
         return{
@@ -118,7 +120,8 @@ export default {
     },
     components:{
         ary,
-        netWorth
+        netWorth,
+        transaction
     }
 }
 </script>
