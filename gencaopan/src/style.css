@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?4sqdym');
-  src:  url('fonts/iconfont.eot?4sqdym#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?4sqdym') format('truetype'),
-    url('fonts/iconfont.woff?4sqdym') format('woff'),
-    url('fonts/iconfont.svg?4sqdym#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?riek83');
+  src:  url('fonts/iconfont.eot?riek83#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?riek83') format('truetype'),
+    url('fonts/iconfont.woff?riek83') format('woff'),
+    url('fonts/iconfont.svg?riek83#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -143,4 +143,7 @@
 .van-icon-user_grzl:before {
   content: "\e91a";
   color: #bfbfbf;
+}
+.van-icon-upload-image:before {
+  content: "\e945";
 }
