@@ -13,6 +13,7 @@
                         </van-uploader>
                     </van-cell>
             <van-cell title="昵称" @click="nameShow = true" :value="name" isLink />
+            <van-cell title="退出登录" @click="Logout" isLink />
         </van-cell-group>
         <van-dialog
         v-model="nameShow"
@@ -23,7 +24,7 @@
                 v-model="name"
                 label="昵称"
                 placeholder="请输入昵称"
-                icon="clear"
+                right-icon="clear"
                 @click-icon="name = ''"
             />
         </van-dialog>
@@ -59,6 +60,9 @@ export default {
             } else {
                 done();
             }
+        },
+        Logout(){
+            
         }
     }
 }
