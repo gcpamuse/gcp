@@ -1,24 +1,27 @@
 <template>
   <div>
-      <div class="table">
-          <div class="heyue">合约</div>
-          <div>买持仓</div>
-          <div>买入价</div>
-          <div>卖持仓</div>
-          <div>卖出价</div>
-          <div class="heyue">成交时间</div>
-      </div>
-      <div class="content">
-          <div class="heyue">
-              <p>xxxxxx</p>
-              <p>xxxxxx</p>
-          </div>
-          <div>0.00</div>
-          <div>2300</div>
-          <div>0.00</div>
-          <div>3000</div>
-          <div class="heyue">2019-11-1</div>
-      </div>
+    <table class="table-m2" cellspacing="0"> 
+        <thead> 
+            <tr> 
+                <th>合约</th> 
+                <th>买持仓</th> 
+                <th>买入价</th>
+                <th>卖持仓</th> 
+                <th>卖出价</th> 
+                <th>成交时间</th>
+            </tr> 
+        </thead> 
+        <tbody>
+            <tr>
+                <td>合计</td>
+                <td>0</td>
+                <td>2300.00</td>
+                <td>0</td>
+                <td>0.00</td>
+                <td>2019-11-1</td>
+            </tr>
+        </tbody> 
+    </table>
   </div>
 </template>
 
@@ -29,25 +32,28 @@ export default {
 </script>
 
 <style lang="less" scoped="scoped">
-.table,.content{
-    display: flex;
-    font-size: 12px;
-    text-align: center;
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-    div{
-        width: 15%;
-    }
-    .heyue{
-        width: 20%
-    }
+.table-m2{  
+    width: 100%; 
+}
+.table-m2 thead tr th,.table-m2 tbody tr td{ 
+    padding: .5rem 0; 
+    text-align: center; 
+    color: #666; 
+    line-height: 1.42857143; 
+    vertical-align:middle; 
+    font-size:.750rem; 
+    font-weight:100;
 }
 .table{
     font-size: 14px;
     font-weight: normal;
     padding: 8px 0;
 }
-.content{
-    color: #666;
+.table-m2 thead tr th{ 
+    border-bottom:solid 1px #eee; 
+    font-weight: 600;
+}
+.table-m2 tbody tr td{ 
+    border-bottom: dashed 1px #eee; 
 }
 </style>

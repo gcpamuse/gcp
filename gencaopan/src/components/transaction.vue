@@ -1,26 +1,30 @@
 <template>
     <div>
-        <div class="table">
-            <div class="heyue">合约</div>
-            <div class="kaip">买/卖</div>
-            <div class="div">成交价</div>
-            <div class="div">成交额</div>
-            <div class="kaip">开/平</div>
-            <div class="heyue">平仓盈亏</div>
-            <div class="time">成交时间</div>
-        </div>
-        <div class="content">
-            <div class="heyue">
-                <p>xxxxxx</p>
-                <p>xxxxxx</p>
-            </div>
-            <div class="kaip">买</div>
-            <div class="div">2300</div>
-            <div class="div">30000</div>
-            <div class="kaip">开</div>
-            <div class="heyue">1200.00</div>
-            <div class="time">2019-11-1</div>
-        </div>
+        
+        <table class="table-m2" cellspacing="0"> 
+            <thead> 
+                <tr> 
+                    <th>合约</th> 
+                    <th>买/卖</th> 
+                    <th>成交价</th>
+                    <th>成交额</th> 
+                    <th>开/平</th> 
+                    <th>平仓盈亏</th>  
+                    <th>成交时间</th>
+                </tr> 
+            </thead> 
+            <tbody>
+                <tr>
+                    <td>合计</td>
+                    <td>买</td>
+                    <td>2300.00</td>
+                    <td>30000.00</td>
+                    <td>开</td>
+                    <td>1200.00</td>
+                    <td>2019-11-1</td>
+                </tr>
+            </tbody> 
+        </table>
   </div>
 </template>
 
@@ -31,38 +35,29 @@ export default {
 </script>
 
 <style lang="less" scoped="scoped">
-.table,.content{
-    display: flex;
-    font-size: 12px;
-    text-align: center;
-    // line-height: 36px;
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
-    div{
-        display: inline-block;
-    }
-    .div{
-        width: 13%;
-    }
-    .heyue{
-        width: 17%;
-        // p{
-        //     line-height: 18px;
-        // }
-    }
-    .time{
-        width: 20%;
-    }
-    .kaip{
-        width: 10%;
-    }
+.table-m2{  
+    width: 100%; 
+}
+.table-m2 thead tr th,.table-m2 tbody tr td{ 
+    padding: .5rem 0; 
+    text-align: center; 
+    color: #666; 
+    line-height: 1.42857143; 
+    vertical-align:middle; 
+    font-size:.750rem; 
+    font-weight:100;
 }
 .table{
     font-size: 13px;
     font-weight: normal;
     padding: 8px 0;
 }
-.content{
-    color: #666;
+.table-m2 thead tr th{ 
+    border-bottom:solid 1px #eee; 
+    font-weight: 600;
 }
+.table-m2 tbody tr td{ 
+    border-bottom: dashed 1px #eee; 
+}
+
 </style>
