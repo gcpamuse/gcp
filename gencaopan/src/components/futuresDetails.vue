@@ -58,6 +58,7 @@
                             <a class="dingyue">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
+                        <holdPositions></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
                         <div class="tradingRecord-state" v-show="false"> 
@@ -88,6 +89,7 @@
 import ary from './ary';
 import netWorth from './netWorth'
 import transaction from './transaction'
+import holdPositions from './holdPositions'
 export default {
     data(){
         return{
@@ -121,7 +123,8 @@ export default {
     components:{
         ary,
         netWorth,
-        transaction
+        transaction,
+        holdPositions
     }
 }
 </script>

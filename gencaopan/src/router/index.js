@@ -28,6 +28,7 @@ import subscribes from '@/components/subscribes'
 import looknotes from '@/components/looknotes'
 import reward from '@/components/reward'
 import transaction from '@/components/transaction'
+import holdPositions from '@/components/holdPositions'
 Vue.use(Router)
 
 export default new Router({
@@ -184,6 +185,11 @@ export default new Router({
       path: '/transaction',
       name: 'transaction',
       component: transaction
+    },
+    {
+      path: '/holdPositions',
+      name: 'holdPositions',
+      component: holdPositions
     },
   ]
 })
