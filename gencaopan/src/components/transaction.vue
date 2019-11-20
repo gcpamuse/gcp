@@ -46,6 +46,10 @@ export default {
     vertical-align:middle; 
     font-size:.750rem; 
     font-weight:100;
+.table{
+    font-size: 13px;
+    font-weight: normal;
+    padding: 8px 0;
 }
 .table-m2 thead tr th{ 
     border-bottom:solid 1px #eee; 

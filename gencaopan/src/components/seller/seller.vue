@@ -1,5 +1,6 @@
 <template>
 	<div class="seller">
+		<van-icon name="user_grzl" class="user_set" @click="toSetUp" />
 		<div class="heard">
 			<!-- <img src="../../img/default_middle.png" class="img">
 			<div class="name">哈哈哈</div> -->
@@ -70,6 +71,13 @@ export default {
 
 <style lang="less" scoped="scoped">
 .seller{
+	position: relative;
+	.user_set{
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 20px;
+	}
 	.heard{
 		text-align: center;
 		padding: 15px;

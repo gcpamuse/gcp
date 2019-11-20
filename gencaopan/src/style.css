@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?tiqhaa');
-  src:  url('fonts/iconfont.eot?tiqhaa#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?tiqhaa') format('truetype'),
-    url('fonts/iconfont.woff?tiqhaa') format('woff'),
-    url('fonts/iconfont.svg?tiqhaa#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?4sqdym');
+  src:  url('fonts/iconfont.eot?4sqdym#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?4sqdym') format('truetype'),
+    url('fonts/iconfont.woff?4sqdym') format('woff'),
+    url('fonts/iconfont.svg?4sqdym#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -135,8 +135,12 @@
 }
 .van-icon-arrow:before {
   content: "\e919";
-  padding-top: 6px;
+  padding-top: 4px;
 }
 .van-icon-left:before {
   content: "\e918";
+}
+.van-icon-user_grzl:before {
+  content: "\e91a";
+  color: #bfbfbf;
 }
