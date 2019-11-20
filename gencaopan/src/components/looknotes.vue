@@ -5,11 +5,11 @@
           <div class="inner-name">灰太狼</div> 
           <div class="top">计划你的交易，交易你的计划</div>
           <div class="middle">
-              <div class="guanzhu" @click="guanZhu">
-                  +关注
-              </div>
-              <div class="yiguanzhu" v-show="false">
+              <div class="yiguanzhu" v-if="follow">
                   已关注
+              </div>
+              <div class="guanzhu" v-else @click="guanZhu">
+                  +关注
               </div>
           </div>
           <div class="bottom">
@@ -87,7 +87,8 @@ export default {
                 backgroundSize:'100% 100%'
             },
             traderList:true,
-            shipan:false
+            shipan:false,
+            follow:false
         }
     }, 
     methods:{
@@ -96,6 +97,7 @@ export default {
         },
         guanZhu(){
             // this.$toast.fail('自己无法关注自己')
+            this.follow = true;
         },
         wenZhang(){
             this.traderList=true;
@@ -144,10 +146,11 @@ export default {
                 background-color: rgb(240, 16, 16);
             }
             .yiguanzhu{
-                border: 1px solid #ccc;
+                border: 1px solid rgb(233, 93, 93);
                 width: 60px;
                 padding: 6px 12px;
                 margin: 0 auto;
+                background-color: rgb(233, 93, 93);
                 border-radius: 15px;
             }
         }
