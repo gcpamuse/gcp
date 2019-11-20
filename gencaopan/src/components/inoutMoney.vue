@@ -2,7 +2,7 @@
     <div>
         <div class="jy_count" v-for="item in inoutList" :key="item.id"> 
             <div>{{item.ocname}}</div> 
-            <div>{{item.money}}</div> 
+            <div v-html="item.money"></div> 
             <div>{{item.dateline}}</div> 
         </div> 
     </div>
@@ -18,7 +18,7 @@ export default {
     mounted(){
         this.$http.get('/api/inout').then((res) => {
 			let data = res.data.data;
-            this.list = data;
+            this.inoutList = data.data;
 		});
     }
 }

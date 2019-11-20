@@ -128,7 +128,8 @@ export default {
         ary,
         netWorth,
         transaction,
-        holdPositions
+        holdPositions,
+        inoutMoney
     }
 }
 </script>
@@ -239,7 +240,16 @@ export default {
                     color: #333;
                 }
             }
-            
+            .jy_crj,.jy_count{
+                display: flex;
+                font-size: 13px;
+                text-align: center;
+                border-bottom: 1px dashed #eee;
+                div{
+                    width: 33.33%;
+                    padding: 10px 0;
+                }
+            }
             .jy_crj{
                 font-weight: bold;
                 border-bottom: 1px solid #eee;
