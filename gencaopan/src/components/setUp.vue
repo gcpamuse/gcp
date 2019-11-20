@@ -8,7 +8,7 @@
                         <van-uploader :afterRead="avatarAfterRead">
                             <div class="user_avatar_upload">
                                 <img :src="avatar" alt="你的头像" v-if="avatar">
-                                <van-icon name="camera_full" v-else></van-icon>
+                                <van-icon name="upload-image" v-else></van-icon>
                             </div>
                         </van-uploader>
                     </van-cell>
@@ -62,7 +62,7 @@ export default {
             }
         },
         Logout(){
-            
+
         }
     }
 }
@@ -79,14 +79,14 @@ export default {
       width: 100%;
       height: 100%;
     }
-    // i {
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    //   font-size: 20px;
-    //   color: #ccc;
-    // }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: #ccc;
+    }
   }
 }
 </style>
