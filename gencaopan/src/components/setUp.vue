@@ -42,7 +42,7 @@ export default {
     data(){
         return{
             nameShow: false,
-            avatar:'https://img.yzcdn.cn/vant/leaf.jpg',
+            avatar:'http://tg.simutz.com/avatar/83564_middle.jpg',
             name:'哈哈哈',
             user: {}
         }
