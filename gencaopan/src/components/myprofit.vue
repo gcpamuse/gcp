@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="heard" :style="bgImg">
-          <div class="top">¥66.66</div>
+          <div class="top">¥{{money}}</div>
           <div class="middle">总收益</div>
           <div class="bottom">
               <div class="kuang">来源</div>
@@ -9,10 +9,15 @@
               <div class="ka">时间</div>
           </div>
       </div>
-      <div class="count" v-for="(i,index) in 6" :index="index" :key="i">
+      <!-- <div class="count" v-for="(i,index) in 6" :index="index" :key="i">
             <div class="shang">打赏</div>
             <div class="shang">¥30.66</div>
             <div class="shang">2019-11-1</div>
+      </div> -->
+      <div class="count" v-for="(i,index) in list" :index="index" :key="i.id">
+            <div class="shang">{{i.source}}</div>
+            <div class="shang">¥{{i.price}}</div>
+            <div class="shang">{{i.time}}</div>
       </div>
       
   </div>
@@ -32,7 +37,25 @@ export default {
                 backgroundImage:"url("+require('../img/bg_mine.png')+")",
                 backgroundRepeat: "no-repeat",
                 backgroundSize:'100% 100%'
-            }
+            },
+            money:666.66,
+            list:[
+                {
+                    source:'打赏',
+                    time:'2019-10-1',
+                    price:6.66
+                },
+                {
+                    source:'打赏',
+                    time:'2019-11-1',
+                    price:6.66
+                },
+                {
+                    source:'订阅',
+                    time:'2019-11-2',
+                    price:600.00
+                },
+            ]
         }
     }, 
 }
