@@ -46,6 +46,7 @@ export default {
     vertical-align:middle; 
     font-size:.750rem; 
     font-weight:100;
+}
 .table{
     font-size: 13px;
     font-weight: normal;
