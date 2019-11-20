@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';
-  src:  url('fonts/iconfont.eot?ic8iuh');
-  src:  url('fonts/iconfont.eot?ic8iuh#iefix') format('embedded-opentype'),
-    url('fonts/iconfont.ttf?ic8iuh') format('truetype'),
-    url('fonts/iconfont.woff?ic8iuh') format('woff'),
-    url('fonts/iconfont.svg?ic8iuh#iconfont') format('svg');
+  src:  url('fonts/iconfont.eot?tiqhaa');
+  src:  url('fonts/iconfont.eot?tiqhaa#iefix') format('embedded-opentype'),
+    url('fonts/iconfont.ttf?tiqhaa') format('truetype'),
+    url('fonts/iconfont.woff?tiqhaa') format('woff'),
+    url('fonts/iconfont.svg?tiqhaa#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -132,4 +132,10 @@
 }
 .van-icon-fail:before {
   content: "\e917";
+}
+.van-icon-arrow:before {
+  content: "\e919";
+}
+.van-icon-left:before {
+  content: "\e918";
 }
