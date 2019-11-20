@@ -25,7 +25,7 @@
                 label="昵称"
                 placeholder="请输入昵称"
                 right-icon="clear"
-                @click-icon="name = ''"
+                @click-right-icon="name = ''"
             />
         </van-dialog>
     </div>
