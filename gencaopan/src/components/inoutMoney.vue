@@ -19,6 +19,7 @@ export default {
         this.$http.get('/api/inout').then((res) => {
 			let data = res.data.data;
             this.inoutList = data.data;
+            console.log(data)
 		});
     }
 }
