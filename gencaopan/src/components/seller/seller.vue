@@ -3,7 +3,7 @@
 		<div class="heard">
 			<!-- <img src="../../img/default_middle.png" class="img">
 			<div class="name">哈哈哈</div> -->
-			<img :src="img" class="img">
+			<img :src="img" class="img" @click="toSetUp">
 			<div class="name">{{name}}</div>
 		</div>
 		<div class="user_module">
@@ -60,7 +60,9 @@ export default {
      	this.$router.push('/applyManager')
         
     },
-    
+    toSetUp(){
+		this.$router.push('/setUp')
+	}
     
   }
 }
