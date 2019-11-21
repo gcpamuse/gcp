@@ -83,7 +83,7 @@ import '../../../dist/static/css/swiper.min.css';
 				],
 				list:[],
 				busy:false,
-				page:1
+			
 				// list:[
 				// 	{
 				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
@@ -134,17 +134,17 @@ import '../../../dist/static/css/swiper.min.css';
 			loadMore(){
 				this.busy = true;
 				setTimeout(() => {
-				this.page++
+				// this.page++
 				this.getGoodLists(true)
 				}, 500)
 			},
 			getGoodLists(flag){
-				var param = { page: this.page};
-				this.$http.get('/api/mediaList', {params: param}).then(function(res){
+				// var param = { page: this.page};
+				this.$http.get('/api/mediaList',).then(function(res){
 					let data = res.data.data.data;
 					let dataLength = data.data.length;
 					if (dataLength > 0) {
-						that.page++
+						// that.page++
 						this.list = data.data;
 					}
 					
