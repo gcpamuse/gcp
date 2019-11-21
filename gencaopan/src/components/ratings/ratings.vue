@@ -69,15 +69,16 @@ import '../../../dist/static/css/swiper.min.css';
 			return{
 				images:[
 					{
-						img:'./static/img/zimeiti_lunbo1.68871e1.jpg',
+						// img:'./static/img/zimeiti_lunbo1.68871e1.jpg',
+						img: require('../../img/zimeiti_lunbo1.jpg'),
 						text:'证券类投顾牛散将陆续入驻'
 					},
 					{
-						img:'./static/img/zimeiti_lunbo2.c82d195.jpg',
+						img: require('../../img/zimeiti_lunbo2.jpg'),
 						text:'【ONE-77】10个月累计收益2009%！交易五年，盈利五'
 					},
 					{
-						img:'./static/img/zimeiti_lunbo3.9d51a18.jpg',
+						img: require('../../img/zimeiti_lunbo3.jpg'),
 						text:'从3万到3600万，逻辑+价值投资的实践者'
 					}
 				],
