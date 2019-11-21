@@ -83,7 +83,7 @@ import '../../../dist/static/css/swiper.min.css';
 				],
 				list:[],
 				busy:false,
-				page:1
+				page:0
 				// list:[
 				// 	{
 				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
