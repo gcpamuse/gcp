@@ -199,37 +199,37 @@ export default {
     .van-overlay {
         background-color: #252525;
     }
-        .toast-container {
-            position: relative;
-            //204
-            .gao{
-                line-height: 35px;
-            }
-            .bor{
-                border: 1px solid #ccc;
-            }
-            input{
-                border: 1px solid #ccc;
-                width: 245px;
-                // padding:8px 5px;
-                border-radius: 8px;
-                box-shadow: 0 0 3px #b3b1b1 inset;
-            }
-            input:focus{
-                box-shadow: 0 0 0 #b3b1b1 inset;
-                box-shadow: 0 0 8px #38c;
-            }
-            .toast-cancel {
-                background: #f24848;
-                padding: 12px 5px;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                border-radius: 6px;
-                color: #fff;
-                width: 245px;
-                text-align: center;
-            }
+    .toast-container {
+        position: relative;
+        //204
+        .gao{
+            line-height: 35px;
         }
+        .bor{
+            border: 1px solid #ccc;
+        }
+        input{
+            border: 1px solid #ccc;
+            width: 245px;
+            // padding:8px 5px;
+            border-radius: 8px;
+            box-shadow: 0 0 3px #b3b1b1 inset;
+        }
+        input:focus{
+            box-shadow: 0 0 0 #b3b1b1 inset;
+            box-shadow: 0 0 8px #38c;
+        }
+        .toast-cancel {
+            background: #f24848;
+            padding: 12px 5px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            color: #fff;
+            width: 245px;
+            text-align: center;
+        }
+    }
     //233
     .van-cell {
         width: 100%;
