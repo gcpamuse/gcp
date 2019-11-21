@@ -57,9 +57,10 @@ export default {
             this.$http.get('/api/followList').then(function(res){
 				let data = res.data.data.data;
 				this.list = data.data;	
-            },function(res){
-				alert("请求失败!!");
-			})
+            })
+            .catch(function(error){
+        　　　　console.log("出错喽："+error);
+        　　});
         }
     }
 }
