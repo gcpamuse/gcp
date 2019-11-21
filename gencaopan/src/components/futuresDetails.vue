@@ -206,7 +206,6 @@ export default {
                 width: 100%;
                 text-align: center;
                 font-size: 12px;
-            //    border-bottom: 2px solid #eee;
                 color: #666;
                 tr{
                     line-height: 25px;
