@@ -135,8 +135,12 @@ import '../../../dist/static/css/swiper.min.css';
 				this.$router.push({name: 'release'})
 			},
 			loadMore(){
-				this.page++;
-				this.getGoodLists();
+				setTimeout(() => {
+					this.loading = true;
+					this.page++;
+					this.getGoodLists();
+				},1000)
+				
 			},
 			getGoodLists(){
 				var that = this;
