@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
@@ -44,7 +44,7 @@
                             </div> 
                             <inoutMoney></inoutMoney>
                             <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id">
-                                 
+
                                 <div>{{item.ocname}}</div> 
                                 <div>{{item.money}}</div> 
                                 <div>{{item.dateline}}</div> 
@@ -74,7 +74,7 @@
                         <transaction></transaction>
                     </van-tab>
                 </van-tabs>
-                <promise v-show="modePop"></promise>
+                <!-- <promise v-show="modePop"></promise> -->
             </div>
             <div class="tabbar"> 
                 <div class="tab">
@@ -94,7 +94,7 @@ import netWorth from './netWorth'
 import transaction from './transaction'
 import holdPositions from './holdPositions'
 import inoutMoney from './inoutMoney'
-import promise from './promise'
+// import promise from './promise'
 export default {
     data(){
         return{
@@ -127,8 +127,8 @@ export default {
             this.$router.push({name: 'wechatPay',params: { id: 1}})
         },
         toSubscribe(){
-            // this.$router.push({name: 'zhifu'})
-            this.modePop=true;
+            this.$router.push({name: 'zhifu'})
+            // this.modePop=true;
         }
     },
     components:{
@@ -137,7 +137,7 @@ export default {
         transaction,
         holdPositions,
         inoutMoney,
-        promise
+        // promise
     }
 }
 </script>
