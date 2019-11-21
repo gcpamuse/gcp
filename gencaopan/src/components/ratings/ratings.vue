@@ -33,7 +33,7 @@
 		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
-		<div class="index-tab" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"> 
+		<div class="index-tab" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0"> 
 			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
@@ -83,7 +83,8 @@ import '../../../dist/static/css/swiper.min.css';
 				],
 				list:[],
 				busy:false,
-				page:0
+				page:0,
+				pageSize:10
 				// list:[
 				// 	{
 				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
@@ -139,19 +140,23 @@ import '../../../dist/static/css/swiper.min.css';
 				}, 500)
 			},
 			getGoodLists(flag){
-				var param = { page: this.page};
+				var param = { 
+					page: this.page,
+					pageSize:this.pageSize
+					};
 				this.$http.get('/api/mediaList', {params: param}).then(function(res){
 					let data = res.data.data.data;
 					let dataLength = data.data.length;
+					console.log(dataLength)
 					if (dataLength > 0) {
-						this.page++
-						this.list = data.data;
+
+						this.list = this.list.concat(data.data)
 					}
 					
               	},function(res){
 					alert("请求失败");
 				})
-				// this.more = false;
+				this.busy = false;
 			}
 		},
 		created(){
