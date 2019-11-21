@@ -33,28 +33,27 @@
 		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
-		<div class="index-tab" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0"> 
+		<van-list 
+			v-model="loading"
+			:finished="finished"
+			finished-text="暂无更多数据"
+			@load="loadMore"
+			class="index-tab"> 
 			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
-							<!-- <div class="left-title">傅海棠：怎样的品种可以做多，什么时候可以加仓</div>  -->
 							<div class="left-title">{{image.title}}</div> 
-							<!-- <div class="left-content">
-								独孤龙谷
-								<div class="left-time">2019/08/23 12:42:25</div> 
-							</div>  -->
 							<div class="left-content">
 								{{image.user}}
 								<div class="left-time">{{image.format_addtime}}</div> 
 							</div> 
 						</div> 
-						<!-- <img src="../../img/1568117337170.jpg"   alt="傅海棠：怎样的品种可以做多，什么时候可以加仓" class="panel-img">  -->
 						<img :src="image.thumb" class="panel-img">
 					</div> 
 				</div> 
 			</div> 
-		</div>
+		</van-list>
 		<div class="fabu" @click="toFabu"><span>+</span> 发布</div>
 		<!--  -->
 	</div>
@@ -82,9 +81,10 @@ import '../../../dist/static/css/swiper.min.css';
 					}
 				],
 				list:[],
-				busy:false,
-				page:1,
-				pageSize:10
+				finished: false,
+				loading: false,
+				page: 0,
+				limit: 10,
 				
 				// list:[
 				// 	{
@@ -134,36 +134,34 @@ import '../../../dist/static/css/swiper.min.css';
 				this.$router.push({name: 'release'})
 			},
 			loadMore(){
-				this.busy = true;
-				setTimeout(() => {
-				this.page++
-				this.getGoodLists(true)
-				}, 500)
+				this.page++;
+				this.getGoodLists();
 			},
-			getGoodLists(flag){
+			getGoodLists(){
+				var that = this;
 				var param = { 
 					page: this.page,
-					pageSize:this.pageSize
-					};
+					limit:this.limit
+				};
 				this.$http.get('/api/mediaList', {params: param}).then(function(res){
+					that.loading = false;
 					let data = res.data.data.data;
-					let dataLength = data.data.length;
-					console.log(dataLength)
-					if (dataLength > 0) {
-
-						this.list = this.list.concat(data.data)
+					if(data.data.length){
+						this.list = this.list.concat(data.data);
+					}else{
+						 that.finished = true;
 					}
-					
-              	},function(res){
+                },function(res){
 					alert("请求失败");
 				})
-				this.busy = false;
+				
 			}
 		},
 		created(){
 			
 		},
 		mounted(){
+			this.getGoodLists();
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度
