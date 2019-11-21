@@ -238,26 +238,7 @@ export default {
                 border: solid 12px transparent;
                 border-top: solid 12px #f90;
             }
-            .tradingRecord-state{
-                text-align: center;
-                padding-top: 20px;
-                margin-bottom: 50px;
-                .dingyue{
-                    display: inline-block;
-                    border-radius: .5rem;
-                    width: 6rem;
-                    height: 2rem;
-                    text-shadow: none;
-                    line-height: 2rem;
-                    text-align: center;
-                    background-color: #f24848;
-                    color: #fff; 
-                }
-                .fl{
-                    font-size: 12px;
-                    color: #333;
-                }
-            }
+            //241
             .jy_crj,.jy_count{
                 display: flex;
                 font-size: 13px;
@@ -295,58 +276,7 @@ export default {
                 color: #333;
             }
         }
-    
-    .toast-mask {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: rgba(46, 44, 44, 0.4);
-        z-index: 10000;
-        width: 100%;
-        height: 100%;
-    }
-    .toast {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        z-index: 20000;
-        transform: translate(-50%, -50%);
-        width: 17.4375rem;
-        background: #fff;
-        border-radius: 0.3125rem;
-        padding: 0.3125rem;
-        box-shadow: 0 0 15px rgb(68, 67, 67);
-        .toast-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 8px 12px 12px;
-            .gao{
-                line-height: 35px;
-            }
-            input{
-                border: 1px solid #ccc;
-                width: 245px;
-                padding:8px 5px;
-                border-radius: 8px;
-                box-shadow: 0 0 3px #b3b1b1 inset;
-            }
-            input:focus{
-                box-shadow: 0 0 0 #b3b1b1 inset;
-                box-shadow: 0 0 8px #38c;
-            }
-            .toast-cancel {
-                background: #f24848;
-                padding: 12px 5px;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                border-radius: 6px;
-                color: #fff;
-                width: 245px;
-                text-align: center;
-            }
-        }
-    }
+    //279
     .tabbar{
         position: fixed;
         bottom: 0;
