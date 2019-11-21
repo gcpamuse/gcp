@@ -53,38 +53,51 @@ export default {
 </script>
 
 <style lang="less" scoped="scoped">
-    .niu_right-msg{
-        .ok{
-            width: 80%;
-            margin: 3rem auto; 
-            box-shadow: 0 0 10px #93D9F3; 
-            padding: 20px; 
-            color: #fff; 
-            background: #93D9F3; 
-            border-radius: 10px; 
-            font-size: 16px; 
-            line-height: 1.5; 
-            text-shadow:none;
-        }
-        .ok:after{ 
-            position: absolute; 
-            bottom: -26px; 
-            left: 20%; 
-            content: ''; 
-            width: 0; 
-            height: 0; 
-            border: solid 10px transparent; 
-            border-top: solid 16px #93D9F3; 
-        }
-        .niu_right-msg-bottom{ 
-            margin: 0 auto; 
-            width: 260px; 
-            font-size: 18px; 
-            text-shadow: 0 0 3px #bbb; 
-            line-height: 1.5;
-        }
-        span{ 
-            font-size: 24px; 
-        }
-    }
+.niu_error-msg .error,
+.niu_right-msg .ok{ 
+    position: relative; 
+    margin: 3rem auto; 
+    box-shadow: 0 0 10px #93D9F3; 
+    width: 80%; 
+    padding: 20px; color: #fff; 
+    background: #93D9F3; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    line-height: 1.5; 
+    text-shadow:none; 
+}
+.niu_error-msg .error:after,
+.niu_right-msg .ok:after{ 
+    position: absolute; 
+    bottom: -26px; 
+    left: 20%; 
+    content: ''; 
+    width: 0; 
+    height: 0; 
+    border: solid 10px transparent; 
+    border-top: solid 16px #93D9F3; 
+}
+.niu_error-msg .niu_error-msg-bottom,
+.niu_right-msg .niu_right-msg-bottom{ 
+    margin: 0 auto; 
+    width: 260px; 
+    font-size: 18px; 
+    text-shadow: 0 0 3px #bbb; 
+    line-height: 1.5;
+}
+.niu_error-msg .niu_error-msg-bottom span,
+.niu_error-msg .niu_error-msg-bottom a,
+.niu_right-msg .niu_right-msg-bottom span,
+.niu_right-msg .niu_right-msg-bottom a{ 
+    color: #f24848; 
+}
+.niu_error-msg .niu_error-msg-bottom em,
+.niu_right-msg .niu_right-msg-bottom em{ 
+    display: block; 
+    margin-left: 120px; 
+}
+.niu_error-msg .niu_error-msg-bottom span,
+.niu_right-msg .niu_right-msg-bottom span{ 
+    font-size: 24px; 
+}
 </style>
