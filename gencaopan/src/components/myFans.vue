@@ -47,9 +47,10 @@ export default {
             this.$axios.get('/api/followList').then(res => {
                 let data = res.data.data.data;
 		 		this.list = data.data;
-            }, response => {
-                console.log("error");
-            });
+            })
+            .catch(error => {
+         　　　　console.log("出错喽："+error);
+         　　});
         }
     }
 }
