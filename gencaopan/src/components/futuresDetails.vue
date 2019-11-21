@@ -43,7 +43,8 @@
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
                             <inoutMoney></inoutMoney>
-                            <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id"> 
+                            <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id">
+                                 
                                 <div>{{item.ocname}}</div> 
                                 <div>{{item.money}}</div> 
                                 <div>{{item.dateline}}</div> 
