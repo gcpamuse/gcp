@@ -33,6 +33,9 @@
 		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
+		<div v-if='noData'>
+          暂无数据
+        </div>
 		<van-list 
 			v-model="loading"
 			:finished="finished"
@@ -83,8 +86,9 @@ import '../../../dist/static/css/swiper.min.css';
 				list:[],
 				finished: false,
 				loading: false,
-				page: 0,
+				page:1,
 				limit: 10,
+				noData:false
 				
 				// list:[
 				// 	{
