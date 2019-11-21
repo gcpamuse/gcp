@@ -21,6 +21,7 @@ const majorlist = appData.data;//获取本地对应数据
 const teacherList = appData.teacherList;
 const inout = appData.inout;
 const mediaList = appData.mediaList;
+const followList = appData.followList;
 const majorlist1 = appData1.data;//获取本地对应数据
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
@@ -83,11 +84,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             errno: 0,
             data: inout
           })
-        })
+        }),
         app.get('/api/mediaList', (req, res) => {
           res.json({
             errno: 0,
             data: mediaList
+          })
+        }),
+        app.get('/api/followList', (req, res) => {
+          res.json({
+            errno: 0,
+            data: followList
           })
         })
        }

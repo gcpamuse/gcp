@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
-        <div class="imgs"><img src="../img/132.jpg" class="img"></div>
+        <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
+        <div class="imgs"><img :src="item.img" class="img"></div>
         <div class="count">
             <!-- <p>灰太狼</p> -->
             <p>{{item.name}}</p>
@@ -27,27 +28,39 @@ export default {
     data(){
         return{
             list:[
-                {
-                    name:'灰太狼',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'徐不及',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'naihaha',
-                    piece:0,
-                    price:0
-                },
+                // {
+                //     name:'灰太狼',
+                //     piece:0,
+                //     price:0
+                // },
+                // {
+                //     name:'徐不及',
+                //     piece:0,
+                //     price:0
+                // },
+                // {
+                //     name:'naihaha',
+                //     piece:0,
+                //     price:0
+                // },
             ]
         }
+    },
+    mounted() {
+       this.initFollow()
     },
     methods:{
         RemoveConcerns(index){
             this.list.splice(index,1);
+        },
+        initFollow(){
+            this.$http.get('/api/followList').then(function(res){
+				let data = res.data.data.data;
+				this.list = data.data;	
+            })
+            .catch(function(error){
+        　　　　console.log("出错喽："+error);
+        　　});
         }
     }
 }
