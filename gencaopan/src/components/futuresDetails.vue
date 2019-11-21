@@ -128,7 +128,7 @@ export default {
         },
         toSubscribe(){
             // this.$router.push({name: 'zhifu'})
-            this.modePop = true
+            this.modePop=true;
         }
     },
     components:{
