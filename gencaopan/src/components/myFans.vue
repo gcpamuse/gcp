@@ -37,13 +37,19 @@ export default {
             this.list.splice(index,1);
         },
         initFollow(){
-            this.$http.get('/api/followList').then(function(res){
-				let data = res.data.data.data;
-				this.list = data.data;	
-            })
-            .catch(function(error){
-        　　　　console.log("出错喽："+error);
-        　　});
+        //     this.$http.get('/api/followList').then(function(res){
+		// 		let data = res.data.data.data;
+		// 		this.list = data.data;	
+        //     })
+        //     .catch(function(error){
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
+            this.$axios.get('/api/followList').then(res => {
+                let data = res.data.data.data;
+		 		this.list = data.data;
+            }, response => {
+                console.log("error");
+            });
         }
     }
 }
