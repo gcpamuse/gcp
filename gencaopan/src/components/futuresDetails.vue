@@ -27,7 +27,7 @@
                             <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
                             <h5 class="numone">历史交易记录</h5>    
                             <div class="tradingRecord-state"> 
-                                <a class="dingyue">订 阅</a>
+                                <a class="dingyue" @click="toSubscribe">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
                             <transaction></transaction>
@@ -57,7 +57,7 @@
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
                         <div class="tradingRecord-state"> 
-                            <a class="dingyue">订 阅</a>
+                            <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
                         <holdPositions></holdPositions>
@@ -68,7 +68,7 @@
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
                         <div class="tradingRecord-state"> 
-                            <a class="dingyue">订 阅</a>
+                            <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
                         <transaction></transaction>
@@ -122,6 +122,9 @@ export default {
         },
         toGuanZhu(){
             this.$router.push({name: 'wechatPay',params: { id: 1}})
+        },
+        toSubscribe(){
+            this.$router.push({name: 'zhifu'})
         }
     },
     components:{
