@@ -149,6 +149,7 @@ export default {
                 },
                 yAxis: {
                     type: 'category',
+                    inverse: true,
                     axisLine: {show: false},
                     axisLabel: {show: false},
                     axisTick: {show: false},
@@ -162,7 +163,8 @@ export default {
                         yAxisIndex: [0],
                         left: '93%',
                         start: 0, //数据窗口范围的起始百分比
-                        end: 26
+                        end: 26,
+                        zoomLock:true
                     }
                 ],
                 series: [
