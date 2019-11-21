@@ -74,6 +74,7 @@
                         <transaction></transaction>
                     </van-tab>
                 </van-tabs>
+                <promise v-show="modePop"></promise>
             </div>
             <div class="tabbar"> 
                 <div class="tab">
@@ -81,7 +82,6 @@
                     <div class="fuzhi" @click="toRenZheng">立即复制</div>
                 </div> 
             </div>
-            <promise v-model="modePop"></promise>
         </div> 
     </div>
     
