@@ -244,7 +244,8 @@ export default {
     }
     .van-cell {
         width: 92%;
-        border-radius: 10px;
+        border-radius: 5px;
+        padding: 6px 16px;
         box-shadow: 0 0 3px #b3b1b1 inset;
     }
 </style>
