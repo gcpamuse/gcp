@@ -27,27 +27,38 @@ export default {
     data(){
         return{
             list:[
-                {
-                    name:'灰太狼',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'徐不及',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'naihaha',
-                    piece:0,
-                    price:0
-                },
+                // {
+                //     name:'灰太狼',
+                //     piece:0,
+                //     price:0
+                // },
+                // {
+                //     name:'徐不及',
+                //     piece:0,
+                //     price:0
+                // },
+                // {
+                //     name:'naihaha',
+                //     piece:0,
+                //     price:0
+                // },
             ]
         }
+    },
+    mounted() {
+       this.initFollow()
     },
     methods:{
         RemoveConcerns(index){
             this.list.splice(index,1);
+        },
+        initFollow(){
+            this.$http.get('/api/followList').then(function(res){
+				let data = res.data.data.data;
+				this.list = data.data;	
+            },function(res){
+				alert("请求失败!!");
+			})
         }
     }
 }
