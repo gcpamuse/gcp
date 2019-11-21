@@ -66,6 +66,16 @@ export default {
             line-height: 1.5; 
             text-shadow:none;
         }
+        .ok:after{ 
+            position: absolute; 
+            bottom: -26px; 
+            left: 20%; 
+            content: ''; 
+            width: 0; 
+            height: 0; 
+            border: solid 10px transparent; 
+            border-top: solid 16px #93D9F3; 
+        }
         .niu_right-msg-bottom{ 
             margin: 0 auto; 
             width: 260px; 

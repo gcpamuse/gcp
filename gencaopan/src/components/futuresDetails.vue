@@ -223,6 +223,17 @@ export default {
                 line-height: 2.2;
                 border-radius: 5px;
             }
+            .tip:after {
+                position: absolute;
+                bottom: -1.5rem;
+                left: 50%;
+                margin-left: -.750rem;
+                content: "";
+                width: 0;
+                height: 0;
+                border: solid 12px transparent;
+                border-top: solid 12px #f90;
+            }
             .tradingRecord-state{
                 text-align: center;
                 padding-top: 20px;
