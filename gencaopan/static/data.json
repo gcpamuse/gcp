@@ -416,5 +416,37 @@
                 }
             ]
         }
+    },
+    "followList":{
+        "response":0,
+        "message":"",
+        "data":{
+            "data":[
+              	{
+                    "name":"灰太狼",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33698_middle.jpg"
+                },
+                {
+                    "name":"徐不及",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33739_middle.jpg"
+                },
+                {
+                    "name":"naihaha",
+                    "piece":1,
+                    "price":6.66,
+                    "img":"http://tg.simutz.com/avatar/83564_middle.jpg"
+                },
+		        {
+                    "name":"全国第三",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/36822_middle.jpg"
+                }
+            ]
+        }
     }
 }
