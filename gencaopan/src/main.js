@@ -11,7 +11,8 @@ import './common/css/style.css'
 import './common/css/reset.css'
 import './style.css'
 import layer from 'vue-layer'
-
+import vueiInfinite from 'vue-infinite-scroll'
+Vue.use(vueiInfinite)
 Vue.prototype.$layer = layer(Vue);
 
 Vue.use(VueResource)
