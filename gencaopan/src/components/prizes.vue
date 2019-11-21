@@ -4,7 +4,7 @@
         <div class="content"> 
             <div class="banner"> 
                 <img src="../img/banner2.png" alt="跟操盘"> 
-                <div class="banner-text">分享跟操盘首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获100元奖励</div> 
+                <div class="banner-text">分享期学堂首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获100元奖励</div> 
             </div> 
             <div class="list-block icon-content"> 
                 <div class="qr-block disblock"> 
