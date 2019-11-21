@@ -69,7 +69,6 @@ import '../../../dist/static/css/swiper.min.css';
 			return{
 				images:[
 					{
-						// img:'./static/img/zimeiti_lunbo1.68871e1.jpg',
 						img: require('../../img/zimeiti_lunbo1.jpg'),
 						text:'证券类投顾牛散将陆续入驻'
 					},
