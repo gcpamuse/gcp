@@ -81,6 +81,7 @@
                     <div class="fuzhi" @click="toRenZheng">立即复制</div>
                 </div> 
             </div>
+            <promise v-model="modePop"></promise>
         </div> 
     </div>
     
@@ -93,6 +94,7 @@ import netWorth from './netWorth'
 import transaction from './transaction'
 import holdPositions from './holdPositions'
 import inoutMoney from './inoutMoney'
+import promise from './promise'
 export default {
     data(){
         return{
@@ -103,7 +105,8 @@ export default {
             },
             guanzhu:true,
             biji:false,
-            inoutList:[]
+            inoutList:[],
+            modePop:false,
         }
     },
     methods:{
@@ -124,7 +127,8 @@ export default {
             this.$router.push({name: 'wechatPay',params: { id: 1}})
         },
         toSubscribe(){
-            this.$router.push({name: 'zhifu'})
+            // this.$router.push({name: 'zhifu'})
+            this.modePop = true
         }
     },
     components:{
@@ -132,7 +136,8 @@ export default {
         netWorth,
         transaction,
         holdPositions,
-        inoutMoney
+        inoutMoney,
+        promise
     }
 }
 </script>
