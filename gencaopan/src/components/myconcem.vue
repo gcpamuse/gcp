@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
-        <div class="imgs"><img src="../img/132.jpg" class="img"></div>
+        <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
+        <div class="imgs"><img :src="item.img" class="img"></div>
         <div class="count">
             <!-- <p>灰太狼</p> -->
             <p>{{item.name}}</p>
