@@ -33,7 +33,7 @@
 		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
-		<div class="index-tab"> 
+		<div class="index-tab" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10"> 
 			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
@@ -45,12 +45,12 @@
 								<div class="left-time">2019/08/23 12:42:25</div> 
 							</div>  -->
 							<div class="left-content">
-								{{image.name}}
-								<div class="left-time">{{image.time}}</div> 
+								{{image.user}}
+								<div class="left-time">{{image.format_addtime}}</div> 
 							</div> 
 						</div> 
 						<!-- <img src="../../img/1568117337170.jpg"   alt="傅海棠：怎样的品种可以做多，什么时候可以加仓" class="panel-img">  -->
-						<img :src="image.img" class="panel-img">
+						<img :src="image.thumb" class="panel-img">
 					</div> 
 				</div> 
 			</div> 
@@ -81,38 +81,41 @@ import '../../../dist/static/css/swiper.min.css';
 						text:'从3万到3600万，逻辑+价值投资的实践者'
 					}
 				],
-				list:[
-					{
-						img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
-						name:'独孤龙谷',
-						time:'2019/08/23 12:42:25',
-						title:'傅海棠：怎样的品种可以做多，什么时候可以加仓'
-					},
-					{
-						img:'http://daoshi.simutz.com/attachments/mediaImages/1574039282439.jpg',
-						name:'积善之家,必有余庆 ',
-						time:'昨天 09:08:02',
-						title:'德者才之王，才者德之奴'
-					},
-					{
-						img:'http://daoshi.simutz.com/attachments/mediaImages/1573451622454.jpeg',
-						name:'宁静致远',
-						time:'2019/11/11 13:53:42',
-						title:'趋势，压力，逻辑思维下单'
-					},
-					{
-						img:'http://daoshi.simutz.com/attachments/mediaImages/1572843068713.jpeg',
-						name:'文晓',
-						time:'2019/11/04 12:51:08',
-						title:'系统的力量2'
-					},
-					{
-						img:'http://daoshi.simutz.com/attachments/mediaImages/1569755464707.jpeg',
-						name:'欧阳摇摇',
-						time:'2019/09/29 19:11:04',
-						title:'未來10年股市走勢'
-					}
-				]
+				list:[],
+				busy:false,
+				page:1
+				// list:[
+				// 	{
+				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1572014343221.png',
+				// 		name:'独孤龙谷',
+				// 		time:'2019/08/23 12:42:25',
+				// 		title:'傅海棠：怎样的品种可以做多，什么时候可以加仓'
+				// 	},
+				// 	{
+				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1574039282439.jpg',
+				// 		name:'积善之家,必有余庆 ',
+				// 		time:'昨天 09:08:02',
+				// 		title:'德者才之王，才者德之奴'
+				// 	},
+				// 	{
+				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1573451622454.jpeg',
+				// 		name:'宁静致远',
+				// 		time:'2019/11/11 13:53:42',
+				// 		title:'趋势，压力，逻辑思维下单'
+				// 	},
+				// 	{
+				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1572843068713.jpeg',
+				// 		name:'文晓',
+				// 		time:'2019/11/04 12:51:08',
+				// 		title:'系统的力量2'
+				// 	},
+				// 	{
+				// 		img:'http://daoshi.simutz.com/attachments/mediaImages/1569755464707.jpeg',
+				// 		name:'欧阳摇摇',
+				// 		time:'2019/09/29 19:11:04',
+				// 		title:'未來10年股市走勢'
+				// 	}
+				// ]
 			}
 		},
 		props:{
@@ -127,6 +130,28 @@ import '../../../dist/static/css/swiper.min.css';
 			},
 			toFabu(){
 				this.$router.push({name: 'release'})
+			},
+			loadMore(){
+				this.busy = true;
+				setTimeout(() => {
+				this.page++
+				this.getGoodLists(true)
+				}, 500)
+			},
+			getGoodLists(flag){
+				var param = { page: this.page};
+				this.$http.get('/api/mediaList', {params: param}).then(function(res){
+					let data = res.data.data.data;
+					let dataLength = data.data.length;
+					if (dataLength > 0) {
+						this.page++
+						this.list = data.data;
+					}
+					
+              	},function(res){
+					alert("请求失败");
+				})
+				// this.more = false;
 			}
 		},
 		created(){
@@ -148,6 +173,7 @@ import '../../../dist/static/css/swiper.min.css';
 		　　// 这样，即使我们滑动之后， 定时器也不会被清除
 		　　autoplayDisableOnInteraction : false,
 			});
+
 		}
 
 	}
