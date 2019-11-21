@@ -17,7 +17,8 @@
                     <a class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
                 </div> 
             </div> 
-            <div class="toast" v-show="toast_control">  
+            <!-- 20 -->
+                <van-popup v-model="toast_control"> 
                 <div class="toast-container"> 
                     <!-- <div style="min-width:256px">  -->
                         <div> 
@@ -42,22 +43,14 @@
                         <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
                             <div class="toast-cancel" @click="submit">提交</div>
                     <!-- </div>  -->
-                </div>  
-            </div> 
-            <div class="toast-mask" v-show="toast_control" @click="toast_control = false"></div>
+                </div>
+                </van-popup>  
+            <!-- 48 -->
             <ul class="superior-nav fix"> 
                 <li class="active" @click="toJiaoYi" :style="{color:zi_color}">交易概况</li> 
                 <li @click="toJIngZhi" :style="{color:ziy_color}">我的净值</li> 
             </ul>
-            <!-- <van-tabs v-model="active">
-                <van-tab 
-                    v-for="tab in tabsItem"
-                    :title="tab.name" 
-                    :key="tab.type"
-                    @click="totab(tab.status)"
-                    class="tab">
-                </van-tab>
-            </van-tabs> -->
+            <!-- 53 -->
             <div class="superior-content">
                 
                 <ary v-if="xianshi"></ary> 
@@ -197,53 +190,49 @@ export default {
         width: 100%;
         height: 100%;
     }
-    .toast {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        z-index: 2000;
-        transform: translate(-50%, -50%);
-        width: 17.4375rem;
-        background: #fff;
-        border-radius: 0.3125rem;
-        padding: 0.3125rem;
-        box-shadow: 0 0 15px rgb(68, 67, 67);
-        .toast-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 8px 12px 12px;
-            .gao{
-                line-height: 35px;
-            }
-            .bor{
-                border: 1px solid #ccc;
-            }
-            input{
-                border: 1px solid #ccc;
-                width: 245px;
-                padding:8px 5px;
-                border-radius: 8px;
-                box-shadow: 0 0 3px #b3b1b1 inset;
-            }
-            input:focus{
-                box-shadow: 0 0 0 #b3b1b1 inset;
-                box-shadow: 0 0 8px #38c;
-            }
-            .toast-cancel {
-                background: #f24848;
-                padding: 12px 5px;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                border-radius: 6px;
-                color: #fff;
-                width: 245px;
-                text-align: center;
-            }
+    //193
+    .van-popup{
+        padding: 12px 17px;
+        border-radius: 5px;
+        box-shadow: 0 0 12px rgba(0,0,0,.6);
+    }
+    .van-overlay {
+        background-color: #252525;
+    }
+    .toast-container {
+        position: relative;
+        //204
+        .gao{
+            line-height: 35px;
+        }
+        .bor{
+            border: 1px solid #ccc;
+        }
+        input{
+            border: 1px solid #ccc;
+            width: 245px;
+            // padding:8px 5px;
+            border-radius: 8px;
+            box-shadow: 0 0 3px #b3b1b1 inset;
+        }
+        input:focus{
+            box-shadow: 0 0 0 #b3b1b1 inset;
+            box-shadow: 0 0 8px #38c;
+        }
+        .toast-cancel {
+            background: #f24848;
+            padding: 12px 5px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            color: #fff;
+            width: 245px;
+            text-align: center;
         }
     }
+    //233
     .van-cell {
-        width: 92%;
+        width: 100%;
         border-radius: 5px;
         padding: 6px 16px;
         box-shadow: 0 0 3px #b3b1b1 inset;
