@@ -44,7 +44,6 @@
                             </div> 
                             <inoutMoney></inoutMoney>
                             <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id"> 
-                               
                                 <div>{{item.ocname}}</div> 
                                 <div>{{item.money}}</div> 
                                 <div>{{item.dateline}}</div> 
