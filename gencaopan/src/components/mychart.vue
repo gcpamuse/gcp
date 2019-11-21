@@ -35,7 +35,7 @@
                             <van-field
                                 v-model="password"
                                 type="password"
-                                placeholder="请输入密码"
+                                placeholder="期货保证金监控中心密码"
                                 class="bor"
                             />
                         </div> 
