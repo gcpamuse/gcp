@@ -1,19 +1,25 @@
 <template>
   <div>
-    <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
-        <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
-        <div class="imgs"><img :src="item.img" class="img"></div>
-        <div class="count">
-            <!-- <p>灰太狼</p> -->
-            <p>{{item.name}}</p>
-            <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
-            <p class="count_c"><span>{{item.piece}}</span>篇笔记&nbsp;被打赏<span>{{item.price}}元</span></p>
-        </div>
-        <div class="guanzhu">
-            <div class="m-concern" @click="RemoveConcerns(index)">取消关注</div> 
-        </div>
-    </div>
-    
+        <van-list 
+        v-model="loading"
+        :finished="finished"
+        finished-text="暂无更多数据"
+        @load="loadMore"
+        class="index-tab"> 
+            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
+                <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
+                <div class="imgs"><img :src="item.img" class="img"></div>
+                <div class="count">
+                    <!-- <p>灰太狼</p> -->
+                    <p>{{item.name}}</p>
+                    <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
+                    <p class="count_c"><span>{{item.piece}}</span>篇笔记&nbsp;被打赏<span>{{item.price}}元</span></p>
+                </div>
+                <div class="guanzhu">
+                    <div class="m-concern" @click="RemoveConcerns(index)">取消关注</div> 
+                </div>
+            </div>
+        </van-list>
   </div>
 </template>
 
@@ -43,20 +49,43 @@ export default {
                 //     piece:0,
                 //     price:0
                 // },
-            ]
+            ],
+            finished: false,
+            loading: false,
+            page:1,
+			limit: 10
         }
     },
     mounted() {
-       this.initFollow()
+    //    this.initFollow()
     },
     methods:{
         RemoveConcerns(index){
             this.list.splice(index,1);
         },
+        loadMore(){
+            setTimeout(() => {
+                this.loading = true;
+                this.page++;
+                this.initFollow();
+            },1000)
+            
+        },
         initFollow(){
+            var that = this;
+            var param = { 
+                page: this.page,
+                limit:this.limit
+            };
             this.$http.get('/api/followList').then(function(res){
+                that.loading = false;
 				let data = res.data.data.data;
-				this.list = data.data;	
+                // this.list = data.data;	
+                if(data.data.length){
+                    this.list = this.list.concat(data.data);
+                }else{
+                        that.finished = true;
+                }
             })
             .catch(function(error){
         　　　　console.log("出错喽："+error);

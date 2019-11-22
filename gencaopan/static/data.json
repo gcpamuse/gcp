@@ -431,6 +431,54 @@
                     "piece":0,
                     "price":0,
                     "img":"http://tg.simutz.com/avatar/36822_middle.jpg"
+                },
+                {
+                    "name":"灰太狼1",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33698_middle.jpg"
+                },
+                {
+                    "name":"徐不及1",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33739_middle.jpg"
+                },
+                {
+                    "name":"naihaha1",
+                    "piece":1,
+                    "price":6.66,
+                    "img":"http://tg.simutz.com/avatar/83564_middle.jpg"
+                },
+		        {
+                    "name":"全国第三1",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/36822_middle.jpg"
+                },
+                {
+                    "name":"灰太狼2",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33698_middle.jpg"
+                },
+                {
+                    "name":"徐不及2",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/33739_middle.jpg"
+                },
+                {
+                    "name":"naihaha2",
+                    "piece":1,
+                    "price":6.66,
+                    "img":"http://tg.simutz.com/avatar/83564_middle.jpg"
+                },
+		        {
+                    "name":"全国第三2",
+                    "piece":0,
+                    "price":0,
+                    "img":"http://tg.simutz.com/avatar/36822_middle.jpg"
                 }
             ]
         }
