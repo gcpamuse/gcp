@@ -1,9 +1,13 @@
 <template>
   <div>
+       <div v-if='noData'>
+          暂无数据
+        </div>
         <van-list 
+        v-else
         v-model="loading"
         :finished="finished"
-        finished-text="暂无更多数据"
+        :finished-text="finishedText"
         @load="loadMore"
         class="index-tab"> 
             <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
@@ -53,7 +57,9 @@ export default {
             finished: false,
             loading: false,
             page:1,
-			limit: 10
+            finishedText: "",
+            pageSize: 10,
+            noData: false
         }
     },
     mounted() {
@@ -66,25 +72,30 @@ export default {
         loadMore(){
             setTimeout(() => {
                 this.loading = true;
-                this.page++;
                 this.initFollow();
             },1000)
             
         },
         initFollow(){
             var that = this;
-            var param = { 
+            var params = { 
                 page: this.page,
-                limit:this.limit
+                pageSize: this.pageSize
             };
-            this.$http.get('/api/followList').then(function(res){
+            this.$http.get('/api/followList', {params: params}).then(function(res){
                 that.loading = false;
 				let data = res.data.data.data;
-                // this.list = data.data;	
+                // this.list = data.data;
                 if(data.data.length){
+                    this.loading = false;
                     this.list = this.list.concat(data.data);
+                    this.page++;
+                    if (this.list.length === 0 && this.page === 1) {
+                        this.noData = true
+                    }
                 }else{
-                        that.finished = true;
+                    that.finished = true;
+                    this.finishedText = "- 没有更多了-";
                 }
             })
             .catch(function(error){
