@@ -32,11 +32,9 @@
                 <td><a class="callof" data-ajax="false" href="">续订</a></td>
                 <td><a href="javascript:;" data-ajax="false" @click="teacherSth(index)">移除</a></td>
             </tr>
-
-
-            <li v-show="anyOne">您还没有订阅任何导师的信号哦！</li>
         </tbody> 
     </table> 
+     <p v-show="anyOne" style="text-align: center;margin: 10px 0;font-size: 12px;">您还没有订阅任何导师的信号哦！</p>
 </div> 
 	
 </template>
