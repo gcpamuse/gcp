@@ -34,7 +34,7 @@
             </tr>
 
 
-            <!-- <li>您还没有订阅任何导师的信号哦！</li> -->
+            <li v-show="anyOne">您还没有订阅任何导师的信号哦！</li>
         </tbody> 
     </table> 
 </div> 
@@ -46,7 +46,8 @@
 export default {
     data(){
         return{
-            teacherList:[]
+            teacherList:[],
+            anyOne:false
         }
     },
     methods:{
@@ -58,7 +59,8 @@ export default {
         let that =this;
         that.$http.get('/api/teacherSubscribe').then((res) => {
             let data = res.data.data.data
-			this.teacherList = data;
+            this.teacherList = data;
+            if (this.teacherList.length == 0) this.anyOne = true
 		});
     }
 }
