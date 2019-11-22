@@ -1,6 +1,10 @@
 <template>
   <div>
+       <div v-if='noData'>
+          暂无数据
+        </div>
         <van-list 
+        v-else
         v-model="loading"
         :finished="finished"
         :finished-text="finishedText"
@@ -54,7 +58,8 @@ export default {
             loading: false,
             page:1,
             finishedText: "",
-			pageSize: 10
+            pageSize: 10,
+            noData: false
         }
     },
     mounted() {
@@ -73,18 +78,21 @@ export default {
         },
         initFollow(){
             var that = this;
-            var param = { 
+            var params = { 
                 page: this.page,
-                pageSize:this.pageSize
+                pageSize: this.pageSize
             };
-            console.log(param)
-            this.$http.get('/api/followList').then(function(res){
+            this.$http.get('/api/followList', {params: params}).then(function(res){
                 that.loading = false;
 				let data = res.data.data.data;
                 // this.list = data.data;
                 if(data.data.length){
-                    this.page++;
+                    this.loading = false;
                     this.list = this.list.concat(data.data);
+                    this.page++;
+                    if (this.list.length === 0 && this.page === 1) {
+                        this.noData = true
+                    }
                 }else{
                     that.finished = true;
                     this.finishedText = "- 没有更多了-";
@@ -93,7 +101,6 @@ export default {
             .catch(function(error){
         　　　　console.log("出错喽："+error);
         　　});
-            // this.loading = false;
         }
     }
 }
