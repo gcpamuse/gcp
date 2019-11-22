@@ -3,7 +3,7 @@
         <van-list 
         v-model="loading"
         :finished="finished"
-        finished-text="暂无更多数据"
+        :finished-text="finishedText"
         @load="loadMore"
         class="index-tab"> 
             <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
@@ -53,7 +53,8 @@ export default {
             finished: false,
             loading: false,
             page:1,
-			limit: 10
+            finishedText: "",
+			pageSize: 10
         }
     },
     mounted() {
@@ -66,7 +67,6 @@ export default {
         loadMore(){
             setTimeout(() => {
                 this.loading = true;
-                this.page++;
                 this.initFollow();
             },1000)
             
@@ -75,21 +75,25 @@ export default {
             var that = this;
             var param = { 
                 page: this.page,
-                limit:this.limit
+                pageSize:this.pageSize
             };
+            console.log(param)
             this.$http.get('/api/followList').then(function(res){
                 that.loading = false;
 				let data = res.data.data.data;
-                // this.list = data.data;	
+                // this.list = data.data;
                 if(data.data.length){
+                    this.page++;
                     this.list = this.list.concat(data.data);
                 }else{
-                        that.finished = true;
+                    that.finished = true;
+                    this.finishedText = "- 没有更多了-";
                 }
             })
             .catch(function(error){
         　　　　console.log("出错喽："+error);
         　　});
+            // this.loading = false;
         }
     }
 }
