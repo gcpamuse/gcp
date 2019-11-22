@@ -11,18 +11,18 @@
             </tr> 
         </thead> 
         <tbody id="teacherList"> 
-            <!-- <tr v-for="item in teacherList" :key="item.id">
+            <tr v-for="item in teacherList" :key="item.id">
                 <td style="text-align:left;padding-left:.5rem">
                     <a data-ajax="false" class="" href="">
-                        <span class="daoshi_shou" style="font-size:.700rem;">收</span>
-                        <span class="daoshi_shou" style="font-size:.700rem;">免</span>
+                        <span class="daoshi_shou" style="font-size:.700rem;" v-if="item.free == 1">收</span>
+                        <span class="daoshi_shou" style="font-size:.700rem;" v-else>免</span>
                         {{item.nickname}}
                     </a>
                 </td>
-                
-                <td>
-                    <span style="color:red;">+</span>
-                    <span style="color:green;">-</span>
+                <td v-if="item.profit == 0">0</td>
+                <td v-else>
+                    <span style="color:red;" v-if="item.profit > 0">+</span>
+                    <span style="color:green;"  v-else-if="item.profit < 0">-</span>
                     {{Math.abs(item.profit)}}
                 </td>
                 <td style="font-size:12px">
@@ -31,7 +31,7 @@
                 </td>
                 <td><a class="callof" data-ajax="false" href="">续订</a></td>
                 <td><a href="javascript:;" data-ajax="false" onclick="teacherSth()">移除</a></td>
-            </tr> -->
+            </tr>
 
 
             <!-- <li>您还没有订阅任何导师的信号哦！</li> -->
@@ -46,13 +46,14 @@
 export default {
     data(){
         return{
-            // teacherList:[]
+            teacherList:[]
         }
     },
     mounted(){
         let that =this;
         that.$http.get('/api/teacherSubscribe').then((res) => {
-			console.log(res.data)
+            let data = res.data.data.data
+			this.teacherList = data;
 		});
     }
 }
