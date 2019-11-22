@@ -11,7 +11,7 @@
             </tr> 
         </thead> 
         <tbody id="teacherList"> 
-            <tr v-for="item in teacherList" :key="item.id">
+            <tr v-for="(item,index) in teacherList" :key="item.id" :index='index'>
                 <td style="text-align:left;padding-left:.5rem">
                     <a data-ajax="false" class="" href="">
                         <span class="daoshi_shou" style="font-size:.700rem;" v-if="item.free == 1">收</span>
@@ -30,7 +30,7 @@
                    {{item.end_time}}
                 </td>
                 <td><a class="callof" data-ajax="false" href="">续订</a></td>
-                <td><a href="javascript:;" data-ajax="false" onclick="teacherSth()">移除</a></td>
+                <td><a href="javascript:;" data-ajax="false" @click="teacherSth(index)">移除</a></td>
             </tr>
 
 
@@ -47,6 +47,11 @@ export default {
     data(){
         return{
             teacherList:[]
+        }
+    },
+    methods:{
+        teacherSth(index){
+           this.teacherList.splice(index,1);
         }
     },
     mounted(){
