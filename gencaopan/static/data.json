@@ -482,5 +482,33 @@
                 }
             ]
         }
+    },
+    "teacherSubscribe":{
+        "data":[
+            {
+                "nickname":"全国第三",
+                "profit":"966.30",
+                "start_time":"2019-11-1",
+                "end_time":"2019-11-10"
+            },
+            {
+                "nickname":"灰太狼",
+                "profit":"652.30",
+                "start_time":"2019-11-1",
+                "end_time":"2019-11-10"
+            },
+            {
+                "nickname":"叶",
+                "profit":"-32.01",
+                "start_time":"2019-11-1",
+                "end_time":"2019-11-10"
+            },
+            {
+                "nickname":"徐不疾",
+                "profit":"845.00",
+                "start_time":"2019-11-1",
+                "end_time":"2019-11-10"
+            }
+        ]
     }
 }

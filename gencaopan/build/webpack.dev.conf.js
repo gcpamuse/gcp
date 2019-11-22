@@ -20,6 +20,7 @@ const appData1 = require('../static/gaikuang.json')//加载本地json文件
 const majorlist = appData.data;//获取本地对应数据
 const teacherList = appData.teacherList;
 const inout = appData.inout;
+const teacherSubscribe = appData.teacherSubscribe;
 const mediaList = appData.mediaList;
 const followList = appData.followList;
 const majorlist1 = appData1.data;//获取本地对应数据
@@ -95,6 +96,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
             errno: 0,
             data: followList
+          })
+        })
+        app.get('/api/teacherSubscribe', (req, res) => {
+          res.json({
+            errno: 0,
+            data: teacherSubscribe
           })
         })
        }
