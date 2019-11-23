@@ -40,24 +40,38 @@ export default {
             },
             money:666.66,
             list:[
-                {
-                    source:'打赏',
-                    time:'2019-10-1',
-                    price:6.66
-                },
-                {
-                    source:'打赏',
-                    time:'2019-11-1',
-                    price:6.66
-                },
-                {
-                    source:'订阅',
-                    time:'2019-11-2',
-                    price:600.00
-                },
+                // {
+                //     source:'打赏',
+                //     time:'2019-10-1',
+                //     price:6.66
+                // },
+                // {
+                //     source:'打赏',
+                //     time:'2019-11-1',
+                //     price:6.66
+                // },
+                // {
+                //     source:'订阅',
+                //     time:'2019-11-2',
+                //     price:600.00
+                // },
             ]
         }
-    }, 
+    },
+    mounted() {
+       this.initFollow()
+    },
+    methods:{
+        initFollow(){
+            this.$axios.get('/api/profit').then(res => {
+                let data = res.data.data;
+		 		this.list = data.data;
+            })
+            .catch(error => {
+         　　　　console.log("出错喽："+error);
+         　　});
+        }
+    } 
 }
 </script>
 
