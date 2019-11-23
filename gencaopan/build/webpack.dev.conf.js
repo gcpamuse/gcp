@@ -23,6 +23,7 @@ const inout = appData.inout;
 const teacherSubscribe = appData.teacherSubscribe;
 const mediaList = appData.mediaList;
 const followList = appData.followList;
+const profit = appData.profit;
 const majorlist1 = appData1.data;//获取本地对应数据
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
@@ -102,6 +103,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           res.json({
             errno: 0,
             data: teacherSubscribe
+          })
+        }),
+        app.get('/api/profit', (req, res) => {
+          res.json({
+            errno: 0,
+            data: profit
           })
         })
        }
