@@ -10,10 +10,10 @@
         :finished-text="finishedText"
         @load="loadMore"
         class="index-tab"> 
-            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index" @click="toNotes">
+            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
                 <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
-                <div class="imgs"><img :src="item.img" class="img"></div>
-                <div class="count">
+                <div class="imgs" @click="toNotes"><img :src="item.img" class="img"></div>
+                <div class="count" @click="toNotes">
                     <!-- <p>灰太狼</p> -->
                     <p>{{item.name}}</p>
                     <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
