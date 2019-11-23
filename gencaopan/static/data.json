@@ -405,7 +405,7 @@
     },
     "followList":{
         "response":0,
-        "message":"",
+        "message":true,
         "data":{
             "data":[
               	{

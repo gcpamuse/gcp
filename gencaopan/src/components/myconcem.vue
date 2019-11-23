@@ -89,8 +89,7 @@ export default {
                 that.loading = false;
 				let data = res.data.data.data;
                 // this.list = data.data;
-                // if(data.data.length){
-                if(data.data){
+                if(data.data.length){
                     this.loading = false;
                     // this.list = this.list.concat(data.data);
                     this.list.push(...data.data);
