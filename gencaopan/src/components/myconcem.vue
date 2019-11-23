@@ -91,7 +91,8 @@ export default {
                 // this.list = data.data;
                 if(data.data.length){
                     this.loading = false;
-                    this.list = this.list.concat(data.data);
+                    // this.list = this.list.concat(data.data);
+                    this.list.push(...data.data);
                     this.page++;
                     if (this.list.length === 0 && this.page === 1) {
                         this.noData = true
