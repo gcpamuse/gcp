@@ -93,6 +93,10 @@ export default {
                     if (this.list.length === 0 && this.page === 1) {
                         this.noData = true
                     }
+                    if (this.list.length ===data.data.length) {
+                        this.finished = true;
+                        this.finishedText = "- 没有更多了-";
+                    }
                 }else{
                     that.finished = true;
                     this.finishedText = "- 没有更多了-";
