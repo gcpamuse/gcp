@@ -38,21 +38,7 @@ export default {
     data(){
         return{
             list:[
-                // {
-                //     name:'灰太狼',
-                //     piece:0,
-                //     price:0
-                // },
-                // {
-                //     name:'徐不及',
-                //     piece:0,
-                //     price:0
-                // },
-                // {
-                //     name:'naihaha',
-                //     piece:0,
-                //     price:0
-                // },
+                //41
             ],
             finished: false,
             loading: false,
@@ -94,13 +80,7 @@ export default {
                     // this.list = this.list.concat(data.data);
                     this.list.push(...data.data);
                     this.page++;
-                    if (this.list.length === 0 && this.page === 1) {
-                        this.noData = true
-                    }
-                    // if (this.list.length ===data.data.length) {
-                    //     this.finished = true;
-                    //     this.finishedText = "- 没有更多了-";
-                    // }
+                    //83
                 }else{
                     that.finished = true;
                     this.finishedText = "- 没有更多了-";
