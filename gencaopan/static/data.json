@@ -516,6 +516,7 @@
         ]
     },
     "profit":{
+        "money":666.66,
         "data":[
             {
                 "source":"打赏",

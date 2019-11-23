@@ -38,7 +38,7 @@ export default {
                 backgroundRepeat: "no-repeat",
                 backgroundSize:'100% 100%'
             },
-            money:666.66,
+            money: 0,
             list:[
                 // {
                 //     source:'打赏',
@@ -65,7 +65,8 @@ export default {
         initFollow(){
             this.$axios.get('/api/profit').then(res => {
                 let data = res.data.data;
-		 		this.list = data.data;
+                 this.list = data.data;
+                 this.money = data.money;
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);
