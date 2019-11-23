@@ -146,11 +146,11 @@ export default {
                 background-color: rgb(240, 16, 16);
             }
             .yiguanzhu{
-                border: 1px solid rgb(233, 93, 93);
+                border: 1px solid #acacad;
                 width: 60px;
                 padding: 6px 12px;
                 margin: 0 auto;
-                background-color: rgb(233, 93, 93);
+                background-color: #acacad;
                 border-radius: 15px;
             }
         }
