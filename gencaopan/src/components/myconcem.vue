@@ -10,7 +10,7 @@
         :finished-text="finishedText"
         @load="loadMore"
         class="index-tab"> 
-            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
+            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index" @click="toNotes">
                 <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
                 <div class="imgs"><img :src="item.img" class="img"></div>
                 <div class="count">
@@ -68,6 +68,9 @@ export default {
     methods:{
         RemoveConcerns(index){
             this.list.splice(index,1);
+        },
+        toNotes(){
+            this.$router.push({name: 'looknotes'})
         },
         loadMore(){
             setTimeout(() => {
