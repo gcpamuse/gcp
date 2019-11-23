@@ -82,7 +82,7 @@ export default {
                 page: this.page,
                 pageSize: this.pageSize
             };
-            this.$http.get('/api/followList', {params: params}).then(function(res){
+            this.$http.get('/api/followList', {params: params}).then( res=>{
                 that.loading = false;
 				let data = res.data.data.data;
                 // this.list = data.data;
@@ -98,7 +98,7 @@ export default {
                     this.finishedText = "- 没有更多了-";
                 }
             })
-            .catch(function(error){
+            .catch( error=>{
         　　　　console.log("出错喽："+error);
         　　});
         }
