@@ -85,6 +85,9 @@ export default {
                     that.finished = true;
                     this.finishedText = "- 没有更多了-";
                 }
+                if (this.list.length === 0 && this.page === 1) {
+                    this.noData = true
+                }
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
