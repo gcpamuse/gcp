@@ -59,10 +59,10 @@ export default {
         }
     },
     mounted() {
-       this.initFollow()
+       this.initProfit()
     },
     methods:{
-        initFollow(){
+        initProfit(){
             this.$axios.get('/api/profit').then(res => {
                 let data = res.data.data;
                  this.list = data.data;
