@@ -5,12 +5,12 @@
             <img src="../img/bg1.png">
         </div> 
         <div class="back" @click="prev">返回</div> 
-        <div class="title">打赏灰太狼</div> 
-        <div class="avatar"><img src="../img/132.jpg"></div> 
+        <div class="title">{{title}}</div> 
+        <div class="avatar"><img :src="img"></div> 
     </div> 
     <div class="m_name"> 
-        <p class="n_title">灰太狼</p> 
-        <p class="n_describe">（推荐抄底）连续5年盈利</p>
+        <p class="n_title">{{name}}</p> 
+        <p class="n_describe">{{text}}</p>
     </div> 
     <div class="m_je container"> 
         <div class="row"> 
@@ -38,7 +38,7 @@
         <div class="clear"></div> 
     </div> 
     <div class="m_sm"> 
-        <p pnum="4" class="hadPraisePerson">本策略已有&nbsp;4&nbsp;人打赏</p> 
+        <p pnum="4" class="hadPraisePerson">本策略已有&nbsp;{{sum}}&nbsp;人打赏</p> 
     </div>  
   </div>
 </template>
@@ -53,7 +53,11 @@ export default {
     },
     data(){
         return{
-
+            title:"打赏灰太狼",
+            img:"http://tg.simutz.com/avatar/33698_big.jpg",
+            name:"灰太狼",
+            text:"（推荐抄底）连续5年盈利",
+            sum:4
         }
     },
     methods:{
