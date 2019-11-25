@@ -16,7 +16,7 @@
                 v-model="phone"
                 placeholder="手机号码"
             >
-                <van-button slot="button" size="small" type="primary" style="background-color: #f24848;border: 1px solid #f24848;">获取短信验证码</van-button>
+                <van-button slot="button" @click="sendSms" size="small" type="primary" style="background-color: #f24848;border: 1px solid #f24848;">获取短信验证码</van-button>
             </van-field>
             <van-field
                 v-model="number"
@@ -39,7 +39,7 @@
     <van-radio-group class="demo-radio-group">
         <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square"> 我已阅读并同意《跟操盘平台订阅用户服务协议》</van-checkbox></div>
     </van-radio-group>
-    <van-button size="large" class="btn login">注册</van-button>
+    <van-button size="large" class="btn login" @click="Register">注册</van-button>
     <router-link to="/login" style="color:#38c;font-size:15px;float: right;margin: 12px 0;">已有账号，直接登录</router-link>
    
 </div> 
@@ -63,6 +63,32 @@ export default {
     methods:{
         updateIdentifyingCode(bRefresh){
             this.IdentifyingCode = "http://daoshi.simutz.com/vildateCode.shtml?" + Math.random() * 5;
+        },
+        sendSms(){
+            var params = {
+                phone:this.phone, 
+                captcha:this.number
+            };
+            this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
+        },
+        Register(){
+            var params = { 
+                username:this.username,
+                password:this.password,
+                sms:this.number,
+                phone:this.phone
+            };
+            this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         }
     }
 }
