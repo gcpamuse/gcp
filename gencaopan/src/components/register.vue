@@ -105,8 +105,8 @@ export default {
             var params = { 
                 username:this.username,
                 password:this.password,
-                sms:this.number,
-                phone:this.phone
+                phone:this.phone,
+                sms:this.number
             };
             this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
                 console.log(res)
