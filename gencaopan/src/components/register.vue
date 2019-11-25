@@ -65,6 +65,15 @@ export default {
             this.IdentifyingCode = "http://daoshi.simutz.com/vildateCode.shtml?" + Math.random() * 5;
         },
         sendSms(){
+            if(this.phone == ''){
+                this.$toast('手机号不能为空！');
+                return false;
+            }else{
+                if(!(/^1[34578]\d{9}$/.test(this.phone))){
+                    this.$toast('请输入正确的手机号格式');
+                    return false;
+                }
+            }
             var params = {
                 phone:this.phone, 
                 captcha:this.number
