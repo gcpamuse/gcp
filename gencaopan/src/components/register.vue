@@ -77,6 +77,31 @@ export default {
         　　});
         },
         Register(){
+            if(this.imgcode == ''){
+                this.$toast('验证码不能为空！');
+                return false;
+            }
+            if(this.phone == ''){
+                this.$toast('手机号不能为空！');
+                return false;
+            }else{
+                if(!(/^1[34578]\d{9}$/.test(this.phone))){
+                    this.$toast('请输入正确的手机号格式');
+                    return false;
+                }
+            }
+            if(this.number == ''){
+                this.$toast('请输入手机验证码！');
+                return false;
+            }
+            if(this.username == ''){
+                this.$toast('账户不能为空！');
+                return false;
+            }
+            if(this.password == ''){
+                this.$toast('密码不能为空！');
+                return false;
+            }
             var params = { 
                 username:this.username,
                 password:this.password,

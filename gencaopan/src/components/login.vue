@@ -35,17 +35,21 @@ export default {
     },
     methods:{
         login(){
-            // this.$axios({
-            //     type: "post",
-            //     url: "http://xx.com/api/user/login",
-            //     params: { username: this.username, password: this.password }
-            // }).then(res => {
-            //     console.log(res);
-            //     // localStorage.setItem("token", this.username);
-            //     // this.$router.push({
-            //     // name: "goods"
-            //     // });
-            // });
+            if(this.username==""&&this.password==""){
+                this.$toast('用户名或密码不能为空！')
+            }else{
+                this.$axios({
+                    type: "post",
+                    url: "http://192.168.0.99:8080/",
+                    params: { username: this.username, password: this.password }
+                }).then(res => {
+                    console.log(res);
+                    // localStorage.setItem("token", this.username);
+                    // this.$router.push({
+                    // name: "goods"
+                    // });
+                });
+            }
         },
         scanCode(){
             this.$router.push('/register')
