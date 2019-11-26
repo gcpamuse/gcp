@@ -44,7 +44,8 @@ export default {
                     password:this.password
                 };
                 this.$axios.post('http://192.168.0.99:8080/',params).then( res=>{
-                    console.log(res)
+                    
+                //    this.$router.push({path:'/'})
                 })
                 .catch( error=>{
             　　　　console.log("出错喽："+error);
