@@ -148,11 +148,11 @@ import '../../../dist/static/css/swiper.min.css';
 			},
 			getGoodLists(){
 				var that = this;
-				var param = { 
+				var params = { 
 					currentPage: this.page,
 					pageSize: this.limit
 				};
-				this.$http.get('/api/mediaList', {params: param}).then(function(res){
+				this.$http.get('/api/mediaList',params).then(function(res){
 					that.loading = false;
 					let data = res.data.data.data;
 					if(data.data.length){
@@ -163,7 +163,7 @@ import '../../../dist/static/css/swiper.min.css';
                 },function(res){
 					alert("请求失败");
 				})
-				// this.$http.get('http://192.168.0.99:8080/article/index', {params: param}).then(function(res){
+				// this.$http.get('http://192.168.0.99:8080/article/index',params).then(function(res){
 				// 	if (res.status != 200) return
 				// 	console.log(res.data)
                 // },function(res){

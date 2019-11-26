@@ -232,6 +232,13 @@ export default {
         toLookNotes(){
             this.$router.push({name: 'looknotes'})
         }
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/article/info').then(function(res){
+           console.log(res.data)
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>
