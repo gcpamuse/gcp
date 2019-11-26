@@ -52,15 +52,27 @@ export default {
             this.$router.go(-1)
         },
         avatarAfterRead(file) {
-            var params = { 
-                portrait:this.avatar
-            };
-            this.$axios.post('http://192.168.0.99:8080/user/data',params).then(res => {
+            console.log(file)
+            this.avatar = file.content;
+            let params = new FormData(); //创建form对象
+            params.append("file", file.file);
+           
+            this.$axios.post('http://192.168.0.99:8080/article/upload',params).then((res) => {
                 console.log(res)
             })
             .catch(error => {
-         　　　　console.log("出错喽："+error);
-         　　});
+          　　　　console.log("出错喽："+error);
+          　});
+
+        //     var params = { 
+        //         portrait:this.avatar
+        //     };
+        //     this.$axios.post('http://192.168.0.99:8080/user/data',params).then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(error => {
+        //  　　　　console.log("出错喽："+error);
+        //  　　});
         },
         nameBeforeClose(action, done) {
             if (action === 'confirm') {
