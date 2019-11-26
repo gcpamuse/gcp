@@ -120,7 +120,7 @@ import { Button } from 'vant';
 				this.$router.push({name: 'zhifu'})
 			},
 			toDetails(){
-				this.$router.push({name: 'futuresDetails'})
+				this.$router.push({name: 'futuresDetails',params:{id:this.id}})
 			},
 			scroller(){
 				// this.$http.get('/api/teacherList').then((res) => {
