@@ -65,17 +65,21 @@ export default {
     methods:{
         releaseBtn(){
             let phoneReg = /^1[34578]\d{9}$/;
+            let param = {
+                organizationName:this.company,
+                name:this.realname,
+                phone:this.mobile
+            }
             if(this.company == ""){
-                // alert('请填写机构名称')
                 this.$toast('请填写机构名称');
             }else if (this.realname == "") {
-                
                 this.$toast('请填写真实姓名');
             }else if(!phoneReg.test(this.mobile)){
-               
-                this.$toast('请填写正确格式的手机号');
+               this.$toast('请填写正确格式的手机号');
             }else{
-
+                this.$axios.post('http://192.168.0.99:8080/user/joinAgent',params).then( res=>{
+                    console.log(res)
+                })
             }
         }
         
