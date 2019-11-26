@@ -80,9 +80,6 @@ export default {
             mobile:'',
         }
     },
-    created(){
-        this.initdata();
-    },
     methods:{
         onClickAlert(){
             this.show = true
@@ -125,14 +122,13 @@ export default {
         closeBox(){
             this.show = false
         },
-        initdata(){
-            this.$axios.post('http://192.168.0.99:8080/user/share').then( res=>{
-                console.log(res)
-            })
-            .catch( error=>{
-        　　　　console.log("出错喽："+error);
-        　　}); 
-        }
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/user/share').then(function(res){
+           console.log(res.data)
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>
