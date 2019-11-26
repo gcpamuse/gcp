@@ -13,6 +13,11 @@
                 placeholder="请输入您收到的短信验证码"
             >
             </van-field>
+            <van-field
+                v-model="password"
+                placeholder="请输入新密码"
+            >
+            </van-field>
         </van-cell-group>
         
     </div> 
@@ -29,12 +34,40 @@ export default {
     data(){
         return{
             phone:'',
-            number:''
+            number:'',
+            password:''
         }
     },
     methods:{
         scanCode(){
-            
+            if(this.phone == ''){
+                this.$toast('手机号不能为空！');
+                return false;
+            }else{
+                if(!(/^1[34578]\d{9}$/.test(this.phone))){
+                    this.$toast('请输入正确的手机号格式');
+                    return false;
+                }
+            }
+            if(this.number == ''){
+                this.$toast('请输入手机验证码！');
+                return false;
+            }
+            if(this.password == ''){
+                this.$toast('新密码不能为空！');
+                return false;
+            }
+            var params = { 
+                phone:this.phone,
+                sms:this.number,
+                password:this.password
+            };
+            this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         }
     }
 }
