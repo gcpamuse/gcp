@@ -57,12 +57,12 @@ export default {
             username:'',
             password:'',
             checkboxShape:'true',
-            IdentifyingCode:'http://daoshi.simutz.com/vildateCode.shtml'
+            IdentifyingCode:'http://192.168.0.99:8080/auth/captcha'
         }
     },
     methods:{
         updateIdentifyingCode(bRefresh){
-            this.IdentifyingCode = "http://daoshi.simutz.com/vildateCode.shtml?" + Math.random() * 5;
+            this.IdentifyingCode = "http://192.168.0.99:8080/auth/captcha?" + Math.random() * 5;
         },
         sendSms(){
             if(this.phone == ''){
@@ -78,7 +78,7 @@ export default {
                 phone:this.phone, 
                 captcha:this.number
             };
-            this.$axios.post('http://192.168.0.99:8080/',params).then( res=>{
+            this.$axios.post('http://192.168.0.99:8080/auth/sendSms',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
@@ -117,7 +117,7 @@ export default {
                 phone:this.phone,
                 sms:this.number
             };
-            this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
+            this.$axios.post('http://192.168.0.99:8080/auth/register',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
