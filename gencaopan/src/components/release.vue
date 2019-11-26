@@ -57,7 +57,7 @@ export default {
             var params = { 
                 file:file
             };
-            this.$axios.post('http://192.168.0.99:8080/article/release',params).then( res=>{
+            this.$axios.post('http://192.168.0.99:8080/article/upload',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
