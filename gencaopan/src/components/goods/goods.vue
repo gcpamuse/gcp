@@ -99,7 +99,9 @@ import { Button } from 'vant';
 					}
 				],
 				modePop:false,
-				list:[]
+				list:[],
+				page:1,
+				pageSize:8
 			}
 		},
 		methods:{
@@ -113,10 +115,17 @@ import { Button } from 'vant';
 				this.$router.push({name: 'futuresDetails'})
 			},
 			scroller(){
-				this.$http.get('/api/teacherList').then((res) => {
+				// this.$http.get('/api/teacherList').then((res) => {
 					
-					let data = res.data.data.data;
-					this.list = data.data;
+				// 	let data = res.data.data.data;
+				// 	this.list = data.data;
+				// });
+				var params = { 
+					currentPage: this.page,
+					pageSize: this.pageSize
+            	};
+				this.$axios.post('http://192.168.0.99:8080/futures/index',{params: params}).then((res) => {
+					console.log(res.data.data.rows)
 				});
 			}
 		},
