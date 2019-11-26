@@ -52,7 +52,15 @@ export default {
             this.$router.go(-1)
         },
         avatarAfterRead(file) {
-        
+            var params = { 
+                portrait:this.avatar
+            };
+            this.$axios.post('http://192.168.0.99:8080/user/data',params).then(res => {
+                console.log(res)
+            })
+            .catch(error => {
+         　　　　console.log("出错喽："+error);
+         　　});
         },
         nameBeforeClose(action, done) {
             if (action === 'confirm') {

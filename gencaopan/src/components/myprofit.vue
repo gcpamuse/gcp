@@ -71,7 +71,7 @@ export default {
         //     .catch(error => {
         //  　　　　console.log("出错喽："+error);
         //  　　});
-            this.$axios.get('http://192.168.0.99:8080/tutor/profit').then(res => {
+            this.$axios.post('http://192.168.0.99:8080/tutor/profit').then(res => {
                 console.log(res)
             })
             .catch(error => {
