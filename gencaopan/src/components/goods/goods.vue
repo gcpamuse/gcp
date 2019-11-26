@@ -109,15 +109,9 @@ import { Button } from 'vant';
 		methods:{
 			subsByDate(){
 				this.modePop = true;
-				var params = { 
-					id: this.id,
-				};
-				this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
-			
-				});
 			},
 			determine(){
-				this.$router.push({name: 'zhifu'})
+				this.$router.push({name: 'zhifu',params:{id:this.id}})
 			},
 			toDetails(){
 				this.$router.push({name: 'futuresDetails',params:{id:this.id}})
