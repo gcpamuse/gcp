@@ -53,7 +53,16 @@ export default {
     methods: {
         afterRead(file) {
             // 此时可以自行将文件上传至服务器
-            console.log(file);
+            // console.log(file);
+            var params = { 
+                file:file
+            };
+            this.$axios.post('http://192.168.0.99:8080/article/release',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         },
         beforeRead(file) {
             if (file.type !== 'image/jpeg') {
