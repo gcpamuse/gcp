@@ -62,7 +62,7 @@ export default {
                 sms:this.number,
                 password:this.password
             };
-            this.$axios.post('http://192.168.0.99:8080/', {params: params}).then( res=>{
+            this.$axios.post('http://192.168.0.99:8080/',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{

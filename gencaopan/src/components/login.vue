@@ -38,17 +38,17 @@ export default {
             if(this.username==""&&this.password==""){
                 this.$toast('用户名或密码不能为空！')
             }else{
-                this.$axios({
-                    type: "post",
-                    url: "http://192.168.0.99:8080/",
-                    params: { username: this.username, password: this.password }
-                }).then(res => {
-                    console.log(res);
-                    // localStorage.setItem("token", this.username);
-                    // this.$router.push({
-                    // name: "goods"
-                    // });
-                });
+                var params = { 
+                    username:this.username,
+                    password:this.password,
+                    password:this.password
+                };
+                this.$axios.post('http://192.168.0.99:8080/',params).then( res=>{
+                    console.log(res)
+                })
+                .catch( error=>{
+            　　　　console.log("出错喽："+error);
+            　　});
             }
         },
         scanCode(){
