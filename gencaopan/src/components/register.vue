@@ -57,7 +57,10 @@ export default {
             username:'',
             password:'',
             checkboxShape:'true',
-            IdentifyingCode:'http://192.168.0.99:8080/auth/captcha'
+            IdentifyingCode:'http://192.168.0.99:8080/auth/captcha',
+            content: '获取短信验证码',
+            totalTime: 60,
+            canClick: true
         }
     },
     methods:{
@@ -74,6 +77,19 @@ export default {
                     return false;
                 }
             }
+            if (!this.canClick) return
+            this.canClick = false
+            this.content = this.totalTime + 'S后重新发送'
+            let clock = window.setInterval(() => {
+                this.totalTime--
+                this.content = this.totalTime + 'S后重新发送'
+                if (this.totalTime < 0) {
+                    window.clearInterval(clock)
+                    this.content = '重新发送验证码'
+                    this.totalTime = 10
+                    this.canClick = true
+                }
+            },1000)
             var params = {
                 phone:this.phone, 
                 captcha:this.number

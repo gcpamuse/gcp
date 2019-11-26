@@ -51,7 +51,7 @@ export default {
                     return false;
                 }
             }
-            if (!this.canClick) return  //改动的是这两行代码
+            if (!this.canClick) return
             this.canClick = false
             this.content = this.totalTime + 'S后重新发送'
             let clock = window.setInterval(() => {
