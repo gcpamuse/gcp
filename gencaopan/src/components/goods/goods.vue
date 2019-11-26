@@ -102,12 +102,19 @@ import { Button } from 'vant';
 				modePop:false,
 				list:[],
 				page:1,
-				pageSize:8
+				pageSize:8,
+				id:''
 			}
 		},
 		methods:{
 			subsByDate(){
-				this.modePop = true
+				this.modePop = true;
+				var params = { 
+					id: this.id,
+				};
+				this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
+			
+				});
 			},
 			determine(){
 				this.$router.push({name: 'zhifu'})
@@ -125,32 +132,18 @@ import { Button } from 'vant';
 					currentPage: this.page,
 					pageSize: this.pageSize
             	};
-				this.$axios.post('http://192.168.0.99:8080/futures/index',{params: params}).then((res) => {
+				this.$axios.post('http://192.168.0.99:8080/futures/index',params).then((res) => {
 					console.log(res.data.data.rows)
 				});
 			}
 		},
 		mounted(){
 			
-			// jsonp(`http://daoshi.simutz.com/sign/api/teacherList/`,(err, res) => {
-			// 	if (err) {
-			// 	console.error(err.message);
-			// 	} else {
-			// 	console.log(res);
-			// 	this.list=res.data.data;
-			// 	}
-			// });
 			this.$http.get('/api/teacherList').then((res) => {
 			   
 				let data = res.data.data.data;
    				this.list = data.data;
 			});
-		},
-		computed:{
-			
-		},
-		components:{
-			
 		}
 	}
 </script>
