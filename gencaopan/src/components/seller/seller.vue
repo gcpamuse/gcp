@@ -18,7 +18,7 @@
 				<van-cell icon="user_shouyi" title="我的收益" :to="{ name: 'myprofit'}">
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>	
-				<van-cell icon="user_biji" title="我的笔记" :to="{ name: 'mynotes'}">
+				<van-cell icon="user_biji" title="我的笔记" @click="goLink">
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>
 				<van-cell icon="user_shuoming" title="使用说明" :to="{ name: 'applyShow'}">
@@ -53,7 +53,8 @@ export default {
 	data: function () {
 		return {
 		img:"http://tg.simutz.com/avatar/83564_middle.jpg",
-		name:"哈哈哈"
+		name:"哈哈哈",
+		id:6
 		}
 	},
 	methods:{
@@ -63,8 +64,15 @@ export default {
 		},
 		toSetUp(){
 			this.$router.push('/setUp')
+		},
+		goLink () {
+			this.$router.push({
+				path: '/mynotes',
+				query: {
+					id:this.id
+				}
+			})
 		}
-		
 	},
 	mounted(){
 		this.$axios.post('http://192.168.0.99:8080/user').then(function(res){
