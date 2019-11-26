@@ -149,8 +149,8 @@ import '../../../dist/static/css/swiper.min.css';
 			getGoodLists(){
 				var that = this;
 				var param = { 
-					page: this.page,
-					limit:this.limit
+					currentPage: this.page,
+					pageSize: this.limit
 				};
 				this.$http.get('/api/mediaList', {params: param}).then(function(res){
 					that.loading = false;
@@ -163,7 +163,12 @@ import '../../../dist/static/css/swiper.min.css';
                 },function(res){
 					alert("请求失败");
 				})
-				
+				// this.$http.get('http://192.168.0.99:8080/article/index', {params: param}).then(function(res){
+				// 	if (res.status != 200) return
+				// 	console.log(res.data)
+                // },function(res){
+				// 	alert("请求失败");
+				// })
 			}
 		},
 		created(){
