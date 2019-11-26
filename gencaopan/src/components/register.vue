@@ -16,7 +16,7 @@
                 v-model="phone"
                 placeholder="手机号码"
             >
-                <van-button slot="button" @click="sendSms" size="small" type="primary" style="background-color: #f24848;border: 1px solid #f24848;">获取短信验证码</van-button>
+                <van-button slot="button" @click="sendSms" size="small" type="primary" style="background-color: #f24848;border: 1px solid #f24848;">{{content}}</van-button>
             </van-field>
             <van-field
                 v-model="number"
