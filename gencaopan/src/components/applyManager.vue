@@ -77,7 +77,7 @@ export default {
             }else if(!phoneReg.test(this.mobile)){
                this.$toast('请填写正确格式的手机号');
             }else{
-                this.$axios.post('http://192.168.0.99:8080/user/joinAgent',params).then( res=>{
+                this.$axios.post('http://192.168.0.99:8080/user/joinAgent',param).then( res=>{
                     console.log(res)
                 })
             }
