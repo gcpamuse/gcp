@@ -79,9 +79,9 @@ export default {
                 this.$toast('请选择封面');
                 return false;
             }
-            if(checked){
+            if(this.checked){
                 if(this.money==""){
-                    this.$toast('请输入金额');
+                    this.$toast('请输入阅读费金额');
                     return false; 
                 }
             }
