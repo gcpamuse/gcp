@@ -50,22 +50,29 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-	  img:"http://tg.simutz.com/avatar/83564_middle.jpg",
-      name:"哈哈哈"
-    }
-  },
-  methods:{
-    scanCode:function(){
-     	this.$router.push('/applyManager')
-        
-    },
-    toSetUp(){
-		this.$router.push('/setUp')
+	data: function () {
+		return {
+		img:"http://tg.simutz.com/avatar/83564_middle.jpg",
+		name:"哈哈哈"
+		}
+	},
+	methods:{
+		scanCode:function(){
+			this.$router.push('/applyManager')
+			
+		},
+		toSetUp(){
+			this.$router.push('/setUp')
+		}
+		
+	},
+	mounted(){
+		this.$axios.post('http://192.168.0.99:8080/user').then(function(res){
+           console.log(res)
+        },function(res){
+            alert("请求失败");
+        })
 	}
-    
-  }
 }
 </script>
 
