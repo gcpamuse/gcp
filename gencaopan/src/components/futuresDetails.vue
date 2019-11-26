@@ -107,7 +107,7 @@ export default {
             biji:false,
             inoutList:[],
             modePop:false,
-            id:this.$router.params.id
+            id:this.$route.params.id
         }
     },
     methods:{
