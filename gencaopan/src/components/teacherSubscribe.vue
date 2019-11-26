@@ -59,7 +59,12 @@ export default {
             let data = res.data.data.data
             this.teacherList = data;
             if (this.teacherList.length == 0) this.anyOne = true
-		});
+        });
+        // that.$axios.post('http://192.168.0.99:8080/user/subscribes').then(function(res){
+        //    console.log(res.data)
+        // },function(res){
+        //     alert("请求失败");
+        // })
     }
 }
 </script>
