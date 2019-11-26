@@ -37,16 +37,15 @@ export default {
             this.list.splice(index,1);
         },
         initFollow(){
-        //     this.$http.get('/api/followList').then(function(res){
-		// 		let data = res.data.data.data;
-		// 		this.list = data.data;	
+        //     this.$axios.get('/api/followList').then(res => {
+        //         let data = res.data.data.data;
+		//  		this.list = data.data;
         //     })
-        //     .catch(function(error){
-        // 　　　　console.log("出错喽："+error);
-        // 　　});
-            this.$axios.get('/api/followList').then(res => {
-                let data = res.data.data.data;
-		 		this.list = data.data;
+        //     .catch(error => {
+        //  　　　　console.log("出错喽："+error);
+        //  　　});
+            this.$axios.get('http://192.168.0.99:8080/tutor/students').then(res => {
+                console.log(res)
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);

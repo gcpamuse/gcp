@@ -63,10 +63,16 @@ export default {
     },
     methods:{
         initProfit(){
-            this.$axios.get('/api/profit').then(res => {
-                let data = res.data.data;
-                 this.list = data.data;
-                 this.money = data.money;
+        //     this.$axios.get('/api/profit').then(res => {
+        //         let data = res.data.data;
+        //          this.list = data.data;
+        //          this.money = data.money;
+        //     })
+        //     .catch(error => {
+        //  　　　　console.log("出错喽："+error);
+        //  　　});
+            this.$axios.get('http://192.168.0.99:8080/tutor/profit').then(res => {
+                console.log(res)
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);
