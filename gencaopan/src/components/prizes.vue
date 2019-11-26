@@ -87,11 +87,40 @@ export default {
             this.show = true
         },
         determine(){
+            var param={
+                amount:this.amount,
+                aliAccount:this.account,
+                name:this.name,
+                phone:this.mobile
+            }
+            if(this.amount == ''){
+                this.$toast('请填写金额');
+            }else if(this.account == ''){
+                this.$toast('请填写支付宝账号');
+            }else if(this.name == ''){
+                this.$toast('请填写姓名');
+            }else if(!(/^1[34578]\d{9}$/.test(this.mobile))){
+                this.$toast('请正确的手机号');
+            }else{
+                this.$axios.post('http://192.168.0.99:8080/user/atm',param).then(function(res){
+                    console.log(res)
+                },function(res){
+                    alert("请求失败");
+                })
+            }
+            
             
         },
         closeBox(){
             this.show = false
         }
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/user/share').then(function(res){
+           console.log(res.data)
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>
