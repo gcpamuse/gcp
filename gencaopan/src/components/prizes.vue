@@ -71,8 +71,6 @@
 
 
 export default {
-    
-
     data(){
         return{
             show:false,
@@ -82,15 +80,58 @@ export default {
             mobile:'',
         }
     },
+    created(){
+        this.initdata();
+    },
     methods:{
         onClickAlert(){
             this.show = true
         },
         determine(){
-            
+            if(this.amount == ''){
+                this.$toast('请输入提现金额！');
+                return false;
+            }
+            if(this.account == ''){
+                this.$toast('支付宝账号不能为空！');
+                return false;
+            }
+            if(this.name == ''){
+                this.$toast('账户不能为空！');
+                return false;
+            }
+            if(this.mobile == ''){
+                this.$toast('手机号不能为空！');
+                return false;
+            }else{
+                if(!(/^1[34578]\d{9}$/.test(this.mobile))){
+                    this.$toast('请输入正确的手机号格式');
+                    return false;
+                }
+            }
+            var params = { 
+                amount:this.amount,
+                aliAccount:this.account,
+                name:this.name,
+                phone:this.mobile
+            };
+            this.$axios.post('http://192.168.0.99:8080/user/atm',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　}); 
         },
         closeBox(){
             this.show = false
+        },
+        initdata(){
+            this.$axios.post('http://192.168.0.99:8080/user/share').then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　}); 
         }
     }
 }
