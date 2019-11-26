@@ -5,30 +5,14 @@
 
 			</div> 
 			<div class="swiper-wrapper">   
-				<!-- <div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo1.jpg"  > 
-						<div class="swiper-ps">证券类投顾牛散将陆续入驻</div>
-					</a> 
-				</div>
-				<div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo2.jpg"  > 
-						<div class="swiper-ps">【ONE-77】10个月累计收益2009%！交易五年，盈利五</div>
-					</a> 
-				</div> -->
+				<!-- 8 -->
 				<div class="swiper-slide" v-for="(image, index) in images" :index="index" :key="image.id"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
 						<img :src="image.img" /> 
 						<div class="swiper-ps">{{image.text}}</div>
 					</a> 
 				</div> 
-				<!-- <div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo3.jpg"  > 
-						<div class="swiper-ps">从3万到3600万，逻辑+价值投资的实践者</div>
-					</a> 
-				</div>   -->
+				<!-- 15 -->
 			</div>
 		</div> 
 		<div class="zimeiti">自媒体</div>
@@ -152,23 +136,23 @@ import '../../../dist/static/css/swiper.min.css';
 					currentPage: this.page,
 					pageSize: this.limit
 				};
-				this.$http.get('/api/mediaList',params).then(function(res){
-					that.loading = false;
-					let data = res.data.data.data;
-					if(data.data.length){
-						this.list = this.list.concat(data.data);
-					}else{
-						 that.finished = true;
-					}
-                },function(res){
-					alert("请求失败");
-				})
-				// this.$http.get('http://192.168.0.99:8080/article/index',params).then(function(res){
-				// 	if (res.status != 200) return
-				// 	console.log(res.data)
+				// this.$http.get('/api/mediaList',params).then(function(res){
+				// 	that.loading = false;
+				// 	let data = res.data.data.data;
+				// 	if(data.data.length){
+				// 		this.list = this.list.concat(data.data);
+				// 	}else{
+				// 		 that.finished = true;
+				// 	}
                 // },function(res){
 				// 	alert("请求失败");
 				// })
+				this.$http.get('http://192.168.0.99:8080/article/index',params).then(function(res){
+					if (res.status != 200) return
+					console.log(res.data)
+                },function(res){
+					alert("请求失败");
+				})
 			}
 		},
 		created(){
