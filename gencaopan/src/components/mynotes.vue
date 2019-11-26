@@ -108,6 +108,13 @@ export default {
         subsByDate(){
 
         }
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/article/person').then(function(res){
+           console.log(res.data)
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>
