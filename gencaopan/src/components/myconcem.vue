@@ -48,8 +48,8 @@ export default {
             noData: false
         }
     },
-    mounted() {
-    //    this.initFollow()
+    created() {
+       this.intndata()
     },
     methods:{
         RemoveConcerns(index){
@@ -88,6 +88,14 @@ export default {
                 if (this.list.length === 0 && this.page === 1) {
                     this.noData = true
                 }
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
+        },
+        intndata(){
+            this.$http.get('http://192.168.0.99:8080/user/follows').then( res=>{
+                console.log(res)
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
