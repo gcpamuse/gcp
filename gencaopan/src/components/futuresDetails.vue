@@ -107,6 +107,7 @@ export default {
             biji:false,
             inoutList:[],
             modePop:false,
+            id:''
         }
     },
     methods:{
@@ -114,6 +115,13 @@ export default {
             this.$router.push({name: 'reward'})
         },
         guanZhu(){
+            var params = { 
+                isFollow: true,
+                followId: this.id
+            };
+            this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
+                
+            });
             this.guanzhu=false;
             this.biji=true;
         },
