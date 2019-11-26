@@ -40,11 +40,10 @@ export default {
             }else{
                 var params = { 
                     username:this.username,
-                    password:this.password,
                     password:this.password
                 };
                 this.$axios.post('http://192.168.0.99:8080/auth/login',params).then( res=>{
-
+                    console.log(res)
                 //    this.$router.push({path:'/'})
                 })
                 .catch( error=>{
