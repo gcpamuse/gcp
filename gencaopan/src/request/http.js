@@ -8,7 +8,7 @@ import store from '../store/index'
  
 // 环境的切换
 if (process.env.NODE_ENV == 'development') { 
- axios.defaults.baseURL = '/api';
+ axios.defaults.baseURL = 'http://qxt.yuhaige.xyz/api/';
 } else if (process.env.NODE_ENV == 'debug') { 
  axios.defaults.baseURL = '';
 } else if (process.env.NODE_ENV == 'production') { 
