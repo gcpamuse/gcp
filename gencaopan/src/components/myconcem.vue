@@ -104,9 +104,15 @@ export default {
         　　});
         },
         intndata(){
+            var params = { 
+                page: this.page,
+                pageSize: this.pageSize
+            };
             this.$http.get('http://192.168.0.99:8080/user/follows').then( res=>{
                 console.log(res)
-                // this.list = res.data;
+                // this.loading = false;
+                // this.list.push(...res.data);
+                // this.page++;
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
