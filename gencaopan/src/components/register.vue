@@ -94,7 +94,7 @@ export default {
                 phone:this.phone, 
                 captcha:this.number
             };
-            this.$axios.post('http://192.168.0.99:8080/auth/sendSms',params).then( res=>{
+            this.$axios.post('http://qxt.yuhaige.xyz/api/auth/sendSms',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
@@ -133,7 +133,7 @@ export default {
                 phone:this.phone,
                 sms:this.number
             };
-            this.$axios.post('http://192.168.0.99:8080/auth/register',params).then( res=>{
+            this.$axios.post('http://qxt.yuhaige.xyz/api/auth/register',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
