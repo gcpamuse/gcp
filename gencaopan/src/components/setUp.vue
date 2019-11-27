@@ -54,8 +54,9 @@ export default {
         avatarAfterRead(file) {
             console.log(file)
             this.avatar = file.content;
-            let params = new FormData(); //创建form对象
-            params.append("file", file.file);
+            var params = { 
+                 file:file
+            };
            
             this.$axios.post('http://192.168.0.99:8080/article/upload',params).then((res) => {
                 console.log(res)
