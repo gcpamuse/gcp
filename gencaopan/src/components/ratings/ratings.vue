@@ -32,11 +32,11 @@
 						<div class="panel-left"> 
 							<div class="left-title">{{image.title}}</div> 
 							<div class="left-content">
-								{{image.user}}
-								<div class="left-time">{{image.format_addtime}}</div> 
+								{{image.userName}}
+								<div class="left-time">{{image.createAt}}</div> 
 							</div> 
 						</div> 
-						<img :src="image.thumb" class="panel-img">
+						<img :src="image.cover" class="panel-img">
 					</div> 
 				</div> 
 			</div> 
@@ -67,7 +67,7 @@ import '../../../dist/static/css/swiper.min.css';
 						text:'从3万到3600万，逻辑+价值投资的实践者'
 					}
 				],
-				list:[],
+				list:{},
 				finished: false,
 				loading: false,
 				page:1,
@@ -92,30 +92,16 @@ import '../../../dist/static/css/swiper.min.css';
 			loadMore(){
 				setTimeout(() => {
 					
-					this.getGoodLists();
+					// this.getGoodLists();
 				},1000)
 				
 			},
 			getGoodLists(){
-				var that = this;
-				var params = { 
-					currentPage: this.page,
-					pageSize: this.limit
-				};
-				// this.$http.get('/api/mediaList',params).then(function(res){
-				// 	that.loading = false;
-				// 	let data = res.data.data.data;
-				// 	if(data.data.length){
-				// 		this.list = this.list.concat(data.data);
-				// 	}else{
-				// 		 that.finished = true;
-				// 	}
-                // },function(res){
-				// 	alert("请求失败");
-				// })
-				this.$axios.get('http://192.168.0.99:8080/article/index',params).then(function(res){
+				this.$http.post('/article/index').then(function(res){
 					if (res.status != 200) return
-					console.log(res.data)
+					let data = res.data.data;
+					this.list = data
+					console.log(data)
 					// that.loading = false;
 					// this.list = this.list.concat(res.data.rows);
 					// this.page++;
@@ -128,10 +114,10 @@ import '../../../dist/static/css/swiper.min.css';
 			}
 		},
 		created(){
-			
+			this.getGoodLists();
 		},
 		mounted(){
-			// this.getGoodLists();
+			
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度

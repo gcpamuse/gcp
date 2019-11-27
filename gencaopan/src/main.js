@@ -57,6 +57,8 @@ Vue.use(Toast);
 Vue.use(Popup);
 Vue.use(NavBar);
 Vue.use(List);
+
+require('./mock/mock.js')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
