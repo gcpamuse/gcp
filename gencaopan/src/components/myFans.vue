@@ -46,6 +46,7 @@ export default {
         //  　　});
             this.$axios.post('http://192.168.0.99:8080/tutor/students').then(res => {
                 console.log(res)
+                this.list=res.data;
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);

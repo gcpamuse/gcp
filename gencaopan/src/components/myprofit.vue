@@ -14,12 +14,16 @@
             <div class="shang">¥30.66</div>
             <div class="shang">2019-11-1</div>
       </div> -->
-      <div class="count" v-for="(i,index) in list" :index="index" :key="i.id">
+      <!-- <div class="count" v-for="(i,index) in list" :index="index" :key="i.id">
             <div class="shang">{{i.source}}</div>
             <div class="shang">¥{{i.price}}</div>
             <div class="shang">{{i.time}}</div>
+      </div> -->
+      <div class="count" v-for="(i,index) in list" :index="index" :key="i.id">
+            <div class="shang">{{i.relationshipType}}</div>
+            <div class="shang">¥{{i.accountAmount}}</div>
+            <div class="shang">{{i.createAt}}</div>
       </div>
-      
   </div>
 </template>
 
@@ -73,6 +77,7 @@ export default {
         //  　　});
             this.$axios.post('http://192.168.0.99:8080/tutor/profit').then(res => {
                 console.log(res)
+                this.list=res.data;
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);

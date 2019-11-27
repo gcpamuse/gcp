@@ -73,6 +73,9 @@
 export default {
     data(){
         return{
+            rewardAmount:"",
+            rewardAmountSum:"",
+            balance:"",
             show:false,
             amount:'',
             account:'',
@@ -126,6 +129,9 @@ export default {
     mounted(){
         this.$axios.post('http://192.168.0.99:8080/user/share').then(function(res){
            console.log(res.data)
+           this.rewardAmount = res.data.rewardAmount;
+           this.rewardAmountSum = res.data.rewardAmountSum;
+           rhis.balance = res.data.balance;
         },function(res){
             alert("请求失败");
         })
