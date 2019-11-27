@@ -36,6 +36,22 @@ const profitNewsData = function() {
 		data: {profit,total}
 	}
 }
+const studentsNewsData = function() {
+	let students = [];
+	for (let i = 0; i < 10; i++) {
+		let newArticleObject = {
+			id: Random.integer(1, 100),
+			portrait: Random.dataImage('35x35', 'mock的图片'), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
+			userName: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
+		}
+		students.push(newArticleObject)
+	}
+
+	return {
+		data: students
+	}
+}
 // Mock.mock( url, post/get , 返回的数据)；
 Mock.mock('/article/index', 'post', produceNewsData);
 Mock.mock('/tutor/profit', 'post', profitNewsData);
+Mock.mock('/tutor/students', 'post', studentsNewsData);
