@@ -3,44 +3,38 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
+// api url
+// import api from './request/api'
+// Vue.prototype.$api = api
+
+// import http from './request/http'
+// Vue.prototype.$http = http;
+
+// axios
 import axios from 'axios'
+Vue.prototype.$axios = axios;
+
+// echarts
 import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
+// VueResource
 import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
+// Vuelidate
 import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
+//CSS
 import './common/css/style.css'
 import './common/css/reset.css'
 import './style.css'
-import layer from 'vue-layer'
-import vueiInfinite from 'vue-infinite-scroll'
-Vue.use(vueiInfinite)
-Vue.prototype.$layer = layer(Vue);
 
-Vue.use(VueResource)
-Vue.use(Vuelidate)
-Vue.prototype.$axios = axios;
-Vue.prototype.$echarts = echarts
-Vue.config.productionTip = false
-import {
-  Button ,
-  Tabbar,
-  TabbarItem, 
-  Tab, 
-  Tabs,
-  Cell,
-  CellGroup,
-  Icon,
-  Field,
-  SwitchCell,
-  Uploader,
-  Dialog,
-  RadioGroup,
-  Radio,
-  Checkbox,
-  Toast,
-  Popup,
-  NavBar,
-  List,
-} from 'vant'
+
+//Vant
+import {Button ,Tabbar,TabbarItem,Tab,Tabs,Cell,CellGroup,Icon,Field,SwitchCell,Uploader,Dialog,RadioGroup,Radio,Checkbox,Toast,Popup,NavBar,List,} from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
 Vue.use(Tab).use(Tabs);
@@ -58,8 +52,11 @@ Vue.use(Popup);
 Vue.use(NavBar);
 Vue.use(List);
 
+Vue.config.productionTip = false
+
+//mock
 require('./mock/mock.js')
-/* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,
