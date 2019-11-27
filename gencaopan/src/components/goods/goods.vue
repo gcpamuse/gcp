@@ -123,11 +123,6 @@ import { Button } from 'vant';
 				this.$router.push({name: 'futuresDetails',params:{id:this.id}})
 			},
 			scroller(){
-				// this.$http.get('/api/teacherList').then((res) => {
-					
-				// 	let data = res.data.data.data;
-				// 	this.list = data.data;
-				// });
 				var params = { 
 					currentPage: this.page,
 					pageSize: this.pageSize
