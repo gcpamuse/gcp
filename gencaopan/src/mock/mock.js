@@ -5,7 +5,7 @@ const Random = Mock.Random;
 // mock一组数据
 const produceNewsData = function() {
 	let articles = [];
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 30; i++) {
 		let newArticleObject = {
             title: Random.csentence(5, 20), //  Random.csentence( min, max )
 			cover: Random.dataImage('73x62', 'mock的图片'), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
@@ -13,10 +13,13 @@ const produceNewsData = function() {
 			createAt: Random.date() + ' ' + Random.time() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；Random.time() 返回一个随机的时间字符串
 		}
 		articles.push(newArticleObject)
-	}
+    }
+    let meat = {
+        per_page:10
+    }
 
 	return {
-		data: articles
+		data: {articles,meat}
 	}
 }
 const profitNewsData = function() {

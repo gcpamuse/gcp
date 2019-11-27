@@ -21,7 +21,7 @@
           暂无数据
         </div>
 		<van-list 
-			
+			v-model="loading"
 			:finished="finished"
 			finished-text="暂无更多数据"
 			@load="loadMore"
@@ -67,11 +67,11 @@ import '../../../dist/static/css/swiper.min.css';
 						text:'从3万到3600万，逻辑+价值投资的实践者'
 					}
 				],
-				list:{},
+				list:[],
 				finished: false,
 				loading: false,
 				page:1,
-				limit: 10,
+				pageSize: 10,
 				noData:false
 				
 			}
@@ -92,25 +92,37 @@ import '../../../dist/static/css/swiper.min.css';
 			loadMore(){
 				setTimeout(() => {
 					
-					// this.getGoodLists();
+					this.getGoodLists();
 				},1000)
 				
 			},
 			getGoodLists(){
-				this.$http.post('/article/index').then(function(res){
-					if (res.status != 200) return
-					let data = res.data.data;
-					this.list = data
-					console.log(data)
-					// that.loading = false;
-					// this.list = this.list.concat(res.data.rows);
-					// this.page++;
-					// if(this.page==total){
-					// 	that.finished = true;
-					// }
-                },function(res){
-					alert("请求失败");
+				if (this.noData) return
+      			this.loading = true;
+				var params = {
+					currentPage:this.page,
+					pageSize:this.pageSize
+				}
+				this.$axios.post('/article/index',params).then(res => {
+					let data = res.data.data.articles;
+					let perPage = res.data.data.meat.per_page;
+					let dataLength = data.length;
+					if(dataLength > 0){
+						this.page++;
+						this.list= this.list.concat(data);
+						if (dataLength < perPage) this.noData = true
+						console.log(dataLength)
+						console.log(perPage)
+						console.log(this.page)
+					}else{
+						this.noData = true
+					}
+					this.loading = false;
+					
 				})
+				.catch(error => {
+			　　　　console.log("出错喽："+error);
+			　　});
 			}
 		},
 		created(){
