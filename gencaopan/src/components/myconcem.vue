@@ -57,7 +57,7 @@ export default {
                 isFollow: false,
                 followId: index
             };
-            this.$http.get('http://192.168.0.99:8080/user/follow').then( res=>{
+            this.$http.get('http://192.168.0.99:8080/user/follow',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
