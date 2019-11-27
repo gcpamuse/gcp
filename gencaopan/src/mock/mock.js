@@ -19,6 +19,21 @@ const produceNewsData = function() {
 		data: articles
 	}
 }
+const profitNewsData = function() {
+	let profit = [];
+	for (let i = 0; i < 10; i++) {
+		let newArticleObject = {
+            accountAmount: Random.float(0, 100, 0, 2), 
+			relationshipType: Random.ctitle(2,3),
+			createAt: Random.date()  // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd
+		}
+		profit.push(newArticleObject)
+	}
 
+	return {
+		data: profit
+	}
+}
 // Mock.mock( url, post/get , 返回的数据)；
 Mock.mock('/article/index', 'post', produceNewsData);
+Mock.mock('/tutor/profit', 'post', profitNewsData);
