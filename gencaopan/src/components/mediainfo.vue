@@ -61,6 +61,7 @@
                        
                         <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                         <div class="pay_button" @click="toast_show = true">留言评论</div>
+                        <!-- <div class="pay_button">留言评论</div> -->
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
