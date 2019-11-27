@@ -53,6 +53,16 @@ export default {
     },
     methods:{
         RemoveConcerns(index){
+            var params = { 
+                isFollow: false,
+                followId: index
+            };
+            this.$http.get('http://192.168.0.99:8080/user/follow').then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
             this.list.splice(index,1);
         },
         toNotes(){
@@ -96,6 +106,7 @@ export default {
         intndata(){
             this.$http.get('http://192.168.0.99:8080/user/follows').then( res=>{
                 console.log(res)
+                // this.list = res.data;
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
