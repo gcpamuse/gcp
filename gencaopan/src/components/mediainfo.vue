@@ -187,7 +187,15 @@ export default {
             share_show:false,
             img:'',
             money:6.66,
-            tupian:'/static/img/icon-1.png'
+            tupian:'/static/img/icon-1.png',
+            title:"",
+            cover:"",
+            content:"",
+            amount:'',
+            userName:"",
+            articleSize:'',
+            createAt:"",
+            isPay:false
         }
     },
     beforeCreate () {
@@ -236,6 +244,15 @@ export default {
     mounted(){
         this.$axios.post('http://192.168.0.99:8080/article/info').then(function(res){
            console.log(res.data)
+           this.title = res.data.title;
+           this.cover = res.data.cover;
+           this.content = res.data.content;
+           this.amount = res.data.amount;
+           this.userName = res.data.user.userName;
+           this.articleSize = res.data.user.articleSize;
+           //this.liked = res.data.user.isFollow;
+           this.createAt = res.data.createAt;
+           this.isPay = res.data.isPay;
         },function(res){
             alert("请求失败");
         })
