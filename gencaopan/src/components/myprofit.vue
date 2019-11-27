@@ -78,7 +78,8 @@ export default {
             // this.$axios.post('http://192.168.0.99:8080/tutor/profit').then(res => {
             this.$axios.post('/tutor/profit').then(res => {
                 console.log(res)
-                this.list=res.data.data;
+                this.list=res.data.data.profit;
+                this.money = res.data.data.total.total;
             })
             .catch(error => {
          　　　　console.log("出错喽："+error);

@@ -29,9 +29,11 @@ const profitNewsData = function() {
 		}
 		profit.push(newArticleObject)
 	}
-
+	let total = {
+		total:Random.float(0, 1000, 0, 2),
+	}
 	return {
-		data: profit
+		data: {profit,total}
 	}
 }
 // Mock.mock( url, post/get , 返回的数据)；
