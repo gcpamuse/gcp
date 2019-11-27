@@ -21,7 +21,7 @@
           暂无数据
         </div>
 		<van-list 
-			v-model="loading"
+			
 			:finished="finished"
 			finished-text="暂无更多数据"
 			@load="loadMore"
@@ -91,8 +91,7 @@ import '../../../dist/static/css/swiper.min.css';
 			},
 			loadMore(){
 				setTimeout(() => {
-					this.loading = true;
-					// this.page++;
+					
 					this.getGoodLists();
 				},1000)
 				
@@ -117,12 +116,12 @@ import '../../../dist/static/css/swiper.min.css';
 				this.$axios.get('http://192.168.0.99:8080/article/index',params).then(function(res){
 					if (res.status != 200) return
 					console.log(res.data)
-					that.loading = false;
-					this.list = this.list.concat(res.data.rows);
-					this.page++;
-					if(this.page==total){
-						that.finished = true;
-					}
+					// that.loading = false;
+					// this.list = this.list.concat(res.data.rows);
+					// this.page++;
+					// if(this.page==total){
+					// 	that.finished = true;
+					// }
                 },function(res){
 					alert("请求失败");
 				})
@@ -132,7 +131,7 @@ import '../../../dist/static/css/swiper.min.css';
 			
 		},
 		mounted(){
-			this.getGoodLists();
+			// this.getGoodLists();
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度
