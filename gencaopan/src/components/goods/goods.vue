@@ -112,7 +112,7 @@ import { Button } from 'vant';
 				var params = { 
 					id: this.id,
 				};
-				this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
+				this.$axios.post('/order/subscribe',params).then((res) => {
                     console.log(res)
 				});
 			},
@@ -127,7 +127,7 @@ import { Button } from 'vant';
 					currentPage: this.page,
 					pageSize: this.pageSize
             	};
-				this.$axios.post('http://192.168.0.99:8080/futures/index',params).then((res) => {
+				this.$axios.post('/futures/index',params).then((res) => {
 					console.log(res.data.data.rows)
 				});
 			}
