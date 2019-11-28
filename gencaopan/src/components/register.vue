@@ -57,7 +57,7 @@ export default {
             username:'',
             password:'',
             checkboxShape:'true',
-            IdentifyingCode:'http://192.168.0.99:8080/auth/captcha',
+            IdentifyingCode:'/auth/captcha',
             content: '获取短信验证码',
             totalTime: 60,
             canClick: true
@@ -65,7 +65,7 @@ export default {
     },
     methods:{
         updateIdentifyingCode(bRefresh){
-            this.IdentifyingCode = "http://192.168.0.99:8080/auth/captcha?" + Math.random() * 5;
+            this.IdentifyingCode = "/auth/captcha?" + Math.random() * 5;
         },
         sendSms(){
             if(this.phone == ''){
@@ -92,9 +92,9 @@ export default {
             },1000)
             var params = {
                 phone:this.phone, 
-                captcha:this.number
+                captcha:this.IdentifyingCode
             };
-            this.$axios.post('http://qxt.yuhaige.xyz/api/auth/sendSms',params).then( res=>{
+            this.$axios.post('/api/auth/sendSms',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
@@ -133,7 +133,7 @@ export default {
                 phone:this.phone,
                 sms:this.number
             };
-            this.$axios.post('http://qxt.yuhaige.xyz/api/auth/register',params).then( res=>{
+            this.$axios.post('/auth/register',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
