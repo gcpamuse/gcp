@@ -14,6 +14,8 @@ import router from './router'
 // axios
 import axios from 'axios'
 Vue.prototype.$axios = axios;
+Axios.defaults.baseURL = '/api'
+Axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // echarts
 import echarts from 'echarts'

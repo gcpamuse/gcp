@@ -38,11 +38,14 @@ export default {
             if(this.username==""&&this.password==""){
                 this.$toast('用户名或密码不能为空！')
             }else{
-                var params = { 
+                // var params = { 
+                //     username:this.username,
+                //     password:this.password
+                // };
+                this.$axios.post('/auth/login',{ 
                     username:this.username,
                     password:this.password
-                };
-                this.$axios.post('http://qxt.yuhaige.xyz/api/auth/login',params).then( res=>{
+                }).then( res=>{
                     console.log(res)
                 //    this.$router.push({path:'/'})
                 })
