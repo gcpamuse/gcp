@@ -54,12 +54,12 @@ export default {
         }
     },
     mounted(){
-        let that =this;
-        that.$http.get('/api/teacherSubscribe').then((res) => {
-            let data = res.data.data.data
-            this.teacherList = data;
-            if (this.teacherList.length == 0) this.anyOne = true
-        });
+        // let that =this;
+        // that.$http.get('/api/teacherSubscribe').then((res) => {
+        //     let data = res.data.data.data
+        //     this.teacherList = data;
+        //     if (this.teacherList.length == 0) this.anyOne = true
+        // });
         // that.$axios.post('http://192.168.0.99:8080/user/subscribes').then(function(res){
         //    console.log(res.data)
         // },function(res){

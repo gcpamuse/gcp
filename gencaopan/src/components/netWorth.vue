@@ -244,124 +244,124 @@ export default {
                 bingchart.resize();
                 chartmain.resize();
             };
-            this.$http.get("/api/majorlist").then(function(response){
-                let ydata = response.data.data.y;
-        　　　　for(let i = 0; i < ydata.length; i++){　　　
-        　　　　　　 this.data1 = ydata[i].data;
-        　　　　}
-                this.data2=response.data.data.x;
-                chartmainline.setOption({
-                    title:{
-                        text: "累计净值"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    series: [{ 
-                        data: this.data1
-                    }]
-                });
-                let datatow = response.data.data.c;
-        　　　　 for(let i = 0; i < datatow.length; i++){　　　
-        　　　　     this.data3[i] = datatow[i].data;
-                    this.name[i]=datatow[i].name;
-        　　　　 }
-                chartmainlinetow.setOption({
-                    title:{
-                        text: "累计盈亏"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    legend:{
-                        data:this.name
-                    },
-                    series: [
-                        { 
-                        name:this.name[0],
-                        data:this.data3[0]
-                        },
-                        { 
-                        name:this.name[1],
-                        data:this.data3[1]
-                        },
-                        { 
-                        name:this.name[2],
-                        data:this.data3[2]
-                        }
-                    ]
-                });
-                let datad = response.data.data.d;
-        　　　　 for(let i = 0; i < datad.length; i++){　　　
-        　　　　     this.data4[i] = datad[i].data;
-                    this.name1[i] = datad[i].name;
-        　　　　 }
-                chartmain.setOption({
-                    title:{
-                        text: "每日仓位"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    legend:{
-                        data:this.name1
-                    },
-                    series: [
-                        { 
-                        name:this.name1[0],
-                        data:this.data4[0]
-                        },
-                        { 
-                        name:this.name1[1],
-                        data:this.data4[1]
-                        }
-                    ]
-                });
-                myChart.setOption({
-                    title:{
-                        text: "周盈亏"
-                    },
-                    yAxis: {
-                        data:response.data.data.f
-                    },
-                    dataZoom:[
-                        {
-                            end: 6
-                        }
-                    ],
-                    series: [
-                        {
-                            data:response.data.data.e
-                        }
-                    ]
-                });
-                chart.setOption({
-                    title:{
-                        text: "月盈亏"
-                    },
-                    yAxis: {
-                        data:response.data.data.h
-                    },
-                    series: [
-                        {
-                            data:response.data.data.g
-                        }
-                    ]
-                });
-                bingchart.setOption({
-                    legend: {
-                        data: response.data.data.n
-                    },
-                    series : [
-                        {
-                            data:response.data.data.k
-                        }
-                    ]
-                });
-        　　})
-        　　.catch(function(error){
-        　　　　console.log("出错喽："+error);
-        　　});
+        //     this.$http.get("/api/majorlist").then(function(response){
+        //         let ydata = response.data.data.y;
+        // 　　　　for(let i = 0; i < ydata.length; i++){　　　
+        // 　　　　　　 this.data1 = ydata[i].data;
+        // 　　　　}
+        //         this.data2=response.data.data.x;
+        //         chartmainline.setOption({
+        //             title:{
+        //                 text: "累计净值"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             series: [{ 
+        //                 data: this.data1
+        //             }]
+        //         });
+        //         let datatow = response.data.data.c;
+        // 　　　　 for(let i = 0; i < datatow.length; i++){　　　
+        // 　　　　     this.data3[i] = datatow[i].data;
+        //             this.name[i]=datatow[i].name;
+        // 　　　　 }
+        //         chartmainlinetow.setOption({
+        //             title:{
+        //                 text: "累计盈亏"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             legend:{
+        //                 data:this.name
+        //             },
+        //             series: [
+        //                 { 
+        //                 name:this.name[0],
+        //                 data:this.data3[0]
+        //                 },
+        //                 { 
+        //                 name:this.name[1],
+        //                 data:this.data3[1]
+        //                 },
+        //                 { 
+        //                 name:this.name[2],
+        //                 data:this.data3[2]
+        //                 }
+        //             ]
+        //         });
+        //         let datad = response.data.data.d;
+        // 　　　　 for(let i = 0; i < datad.length; i++){　　　
+        // 　　　　     this.data4[i] = datad[i].data;
+        //             this.name1[i] = datad[i].name;
+        // 　　　　 }
+        //         chartmain.setOption({
+        //             title:{
+        //                 text: "每日仓位"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             legend:{
+        //                 data:this.name1
+        //             },
+        //             series: [
+        //                 { 
+        //                 name:this.name1[0],
+        //                 data:this.data4[0]
+        //                 },
+        //                 { 
+        //                 name:this.name1[1],
+        //                 data:this.data4[1]
+        //                 }
+        //             ]
+        //         });
+        //         myChart.setOption({
+        //             title:{
+        //                 text: "周盈亏"
+        //             },
+        //             yAxis: {
+        //                 data:response.data.data.f
+        //             },
+        //             dataZoom:[
+        //                 {
+        //                     end: 6
+        //                 }
+        //             ],
+        //             series: [
+        //                 {
+        //                     data:response.data.data.e
+        //                 }
+        //             ]
+        //         });
+        //         chart.setOption({
+        //             title:{
+        //                 text: "月盈亏"
+        //             },
+        //             yAxis: {
+        //                 data:response.data.data.h
+        //             },
+        //             series: [
+        //                 {
+        //                     data:response.data.data.g
+        //                 }
+        //             ]
+        //         });
+        //         bingchart.setOption({
+        //             legend: {
+        //                 data: response.data.data.n
+        //             },
+        //             series : [
+        //                 {
+        //                     data:response.data.data.k
+        //                 }
+        //             ]
+        //         });
+        // 　　})
+        // 　　.catch(function(error){
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
         }  
     }
 }

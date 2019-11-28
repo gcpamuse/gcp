@@ -46,15 +46,15 @@ export default {
     },
     methods:{
         logdata(){
-            this.$http.get("/api/majorlist1").then(function(response){
-                let data = response.data.data.stat;
-                this.gaishu = data.a;
-                this.tingli = data.b;
-                this.wendx = data.c;
-        　　})
-        　　.catch(function(error){
-        　　　　console.log("出错喽："+error);
-        　　});
+        //     this.$http.get("/api/majorlist1").then(function(response){
+        //         let data = response.data.data.stat;
+        //         this.gaishu = data.a;
+        //         this.tingli = data.b;
+        //         this.wendx = data.c;
+        // 　　})
+        // 　　.catch(function(error){
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
         }
     }
 }
