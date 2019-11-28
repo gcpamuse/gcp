@@ -48,7 +48,7 @@
 
 <script>
 import Swiper from 'swiper';
-import '../../../dist/static/css/swiper.min.css';
+import '../../../src/common/css/swiper.min.css';
 	export default{
 		name:'ratings',
 		data(){
