@@ -26,15 +26,15 @@
 			finished-text="暂无更多数据"
 			@load="loadMore"
 			class="index-tab"> 
-			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
+			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails(image.id)">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
-							<div class="left-title">{{image.title}}</div> 
+							<div class="left-title" v-html="image.title"></div>
 							<div class="left-content">
-								{{image.userName}}
+								<div v-html="image.userName"></div> 
 								<div class="left-time">{{image.createAt}}</div> 
-							</div> 
+							</div> 	
 						</div> 
 						<img :src="image.cover" class="panel-img">
 					</div> 
@@ -83,15 +83,15 @@ import '../../../src/common/css/swiper.min.css';
 			
 		},
 		methods:{
-			toDetails(){
-				this.$router.push({name: 'mediainfo'})
+			toDetails(uid){
+				this.$router.push({name: 'mediainfo',params:{id:uid}})
 			},
 			toFabu(){
 				this.$router.push({name: 'release'})
 			},
 			loadMore(){
 				setTimeout(() => {
-					
+					this.loading = true;
 					this.getGoodLists();
 				},1000)
 				
@@ -104,20 +104,21 @@ import '../../../src/common/css/swiper.min.css';
 					pageSize:this.pageSize
 				}
 				this.$axios.post('/article/index',params).then(res => {
-					let data = res.data.data.articles;
-					let perPage = res.data.data.meat.per_page;
-					let dataLength = data.length;
-					if(dataLength > 0){
-						this.page++;
-						this.list= this.list.concat(data);
-						if (dataLength < perPage) this.noData = true
-						console.log(dataLength)
-						console.log(perPage)
-						console.log(this.page)
-					}else{
-						this.noData = true
+					let data = res.data.data.rows;
+					let total = res.data.data.total;
+					if(res.data.code==200){
+						if(data.Length < 0&&this.page==1){
+							this.noData = true
+						}else{
+							this.loading = false;
+							this.list= this.list.concat(data);
+							if(this.page===total){
+								this.finished = true;
+							}
+							this.page++;
+						}	
 					}
-					this.loading = false;
+					console.log(res)
 					
 				})
 				.catch(error => {
@@ -221,7 +222,7 @@ import '../../../src/common/css/swiper.min.css';
 						font-size: 10px;
 						color: #ccc;
 						position: relative;
-	
+						display: flex;
 						.left-time{
 							display: inline-block;
 							position: absolute;

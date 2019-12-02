@@ -2,22 +2,23 @@
 	<div class="seller">
 		<van-icon name="user_grzl" class="user_set" @click="toSetUp" />
 		<div class="heard">
-			<!-- <img src="../../img/default_middle.png" class="img">
-			<div class="name">哈哈哈</div> -->
-			<img :src="img" class="img" @click="toSetUp">
-			<div class="name">{{name}}</div>
+			<img :src="list.portrait ? list.portrait : img" class="img" @click="toSetUp">
+			<div class="name">{{list.username}}</div>
 		</div>
 		<div class="user_module">
 			<van-cell-group>	
 				<van-cell icon="user_quxian" title="我的曲线" :to="{ name: 'mychart'}" >
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
-				</van-cell>	
-				<van-cell icon="user_fensi" title="我的粉丝" :to="{ name: 'myFans'}">
-					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
-				</van-cell>	
-				<van-cell icon="user_shouyi" title="我的收益" :to="{ name: 'myprofit'}">
-					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
-				</van-cell>	
+				</van-cell>
+				<!-- <div v-if="list.isTutor"> -->
+					<van-cell v-if="list.isTutor" icon="user_fensi" title="我的粉丝" :to="{ name: 'myFans'}">
+						<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+					</van-cell>	
+					<van-cell v-if="list.isTutor" icon="user_shouyi" title="我的收益" :to="{ name: 'myprofit'}">
+						<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+					</van-cell>	
+				<!-- </div> -->
+				
 				<van-cell icon="user_biji" title="我的笔记" @click="goLink">
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>
@@ -50,11 +51,11 @@
 
 <script>
 export default {
-	data: function () {
+	data() {
 		return {
-		img:"http://tg.simutz.com/avatar/83564_middle.jpg",
-		name:"哈哈哈",
-		id:6
+			img:"http://tg.simutz.com/avatar/83564_middle.jpg",
+			list:{},
+			id:''
 		}
 	},
 	methods:{
@@ -75,11 +76,16 @@ export default {
 		}
 	},
 	mounted(){
-		this.$axios.post('http://192.168.0.99:8080/user').then(function(res){
-           console.log(res)
-        },function(res){
-            alert("请求失败");
-        })
+		this.$axios.post('user').then(res=>{
+		   	console.log(res)
+		   	if(res.data.code!==200) return
+			this.list = res.data.data;
+			this.id = res.data.data.id;
+			
+		})
+		.catch( error=>{
+	　　　　console.log(error);
+	　　});
 	}
 }
 </script>

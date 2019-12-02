@@ -57,7 +57,7 @@ export default {
             username:'',
             password:'',
             checkboxShape:'true',
-            IdentifyingCode:'/auth/captcha',
+            IdentifyingCode:'/api/auth/captcha',
             content: '获取短信验证码',
             totalTime: 60,
             canClick: true
@@ -65,7 +65,7 @@ export default {
     },
     methods:{
         updateIdentifyingCode(bRefresh){
-            this.IdentifyingCode = "/auth/captcha?" + Math.random() * 5;
+            this.IdentifyingCode = "/api/auth/captcha?" + Math.random() * 5;
         },
         sendSms(){
             if(this.phone == ''){
@@ -92,9 +92,9 @@ export default {
             },1000)
             var params = {
                 phone:this.phone, 
-                captcha:this.IdentifyingCode
+                captcha:this.imgcode
             };
-            this.$axios.post('/api/auth/sendSms',params).then( res=>{
+            this.$axios.post('/auth/sendSms',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{

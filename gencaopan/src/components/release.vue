@@ -55,9 +55,9 @@ export default {
             // 此时可以自行将文件上传至服务器
             // console.log(file);
             var params = { 
-                file:file
+                file:file.content
             };
-            this.$axios.post('http://192.168.0.99:8080/article/upload',params).then( res=>{
+            this.$axios.post('article/upload',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
@@ -101,7 +101,7 @@ export default {
                 amount:this.money,
                 isContentCover:this.check
             };
-            this.$axios.post('http://192.168.0.99:8080/article/release',params).then( res=>{
+            this.$axios.post('/article/release',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{

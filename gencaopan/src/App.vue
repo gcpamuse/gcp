@@ -3,18 +3,6 @@
 	<div class="app-mian">
 		<router-view name="default"></router-view>
 	</div>
-	
-  	<!-- <div class="nav">
-  		<div class="nav-item border-1px">
-  			<router-link to='/goods'>期货</router-link>
-  		</div>
-  		<div class="nav-item">	
-  			<router-link to='/ratings'>自媒体</router-link>
-  		</div>
-  		<div class="nav-item">
-  			<router-link to='/seller'>我的</router-link>
-  		</div>
-  	</div> -->
 	<van-tabbar v-show="isTabbar" route>
 		<van-tabbar-item
 			replace
@@ -72,24 +60,6 @@ export default {
 	.app-mian{
 		padding-bottom: 50px;
 	}
-  .nav{
-		display: flex;
-		width: 100%;
-		height: 40px;
-		line-height: 40px;
-		/*border-bottom: 1px solid rgba(7,17,27,0.1);*/
-		.border-1px(rgba(7,17,27,0.1));
-  }
-  .nav-item{
-  	flex: 1;
-	  text-align: center;
-  	a{
-  		font-size: 14px;
-  		color: rgba(77,85,93);
-  	}
-  	a.router-link-active{
-  		color: rgba(240,20,20);
-  	}
-  }
+  
 }
 </style>

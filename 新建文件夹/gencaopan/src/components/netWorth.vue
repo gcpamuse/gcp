@@ -30,69 +30,18 @@ export default {
     name:"netWorth",
     data(){
         return{
-            optionline:{
-                title:{
-                    text:'累计净值',
-                    x:'center',
-                    textStyle:{
-                        fontSize:16,
-                        fontFamily: 'monospace',
-                    }
-                },
-                tooltip:{
-                    trigger: 'axis'   //显示提示框
-                },
-                legend:{
-                    orient: 'vertical',
-                    bottom: 'bottom',
-                    data:['累计净值']
-                },
-                xAxis:{
-                    type: 'category',
-                    splitLine :{    //网格线
-                        lineStyle:{
-                            type:'dashed'    //设置网格线类型 dotted：虚线   solid:实线
-                        },
-                        show:true //隐藏或显示
-                    },
-                    boundaryGap:false,
-                    data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
-                    "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
-                    "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
-                },
-                yAxis:{
-                    type: "value",
-                    splitLine :{    
-                        lineStyle:{
-                            type:'dashed'    
-                        },
-                        show:true 
-                    }
-                },
-                grid: {
-                    // left: '3%',
-                    right: '6%',
-                    bottom: '6%',
-                    containLabel: true
-                },
-                series:[{
-                    name:'累计净值',
-                    type:'line', //设置图表主题
-                    smooth:true,
-                    symbol: 'none',
-                    sampling: 'average',
-                    itemStyle: {
-                        color: 'rgb(255, 70, 131)'
-                    },
-                    areaStyle: {   
-                        color: 'rgba(240, 16, 16,0.8)'
-                    },
-                    data:[20,8,10,10,15,14,12,15,14,15,20,22,25,20,26,30,28,25,31,20,30,25,30,34,27,26,32,30,35,45]
-                }]
-            },
+            data1:[],
+            data2:[],
+            data3:[],
+            name:[],
+            data4:[],
+            name1:[],
+            text:[],
+            text1:[],
+            text2:[],
             optionlinetow:{
                 title:{
-                    text:'累计盈亏',
+                    text:'',// text:'累计盈亏',
                     x:'center',
                     textStyle:{
                         fontSize:16,
@@ -105,7 +54,7 @@ export default {
                 legend:{
                     orient: 'vertical',
                     bottom: 'bottom',
-                    data:['累计毛利润','累计净利润','累计手续费']
+                    data:[]// data:['累计毛利润','累计净利润','累计手续费']
                 },
                 xAxis:{
                     type: 'category',
@@ -116,9 +65,7 @@ export default {
                         show:true 
                     },
                     boundaryGap:false,
-                    data:["2004-10-8","2005-5-10","2005-12-8","2006-5-10","2006-10-10","2006-12-10","2007-6-10","2007-11-8","2008-3-10","2008-11-11",
-                    "2009-1-8","2009-5-10","2009-12-8","2010-3-10","2010-7-10","2010-10-10","2011-1-10","2011-11-8","2012-3-10","2012-11-11",
-                    "2014-10-8","2015-5-10","2015-12-8","2016-5-10","2017-4-10","2017-10-10","2018-1-10","2018-11-8","2019-3-10","2019-11-11"]
+                    data:[]
                 },
                 yAxis:{
                     type: "value",
@@ -136,53 +83,53 @@ export default {
                     containLabel: true
                 },
                 series:[
-                    {
-                        name:'累计毛利润',
+                    {                        
+                        name:'',// name:'累计毛利润',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(255, 70, 131)'
+                            color: 'rgb(236, 5, 5)'
                         },
                         areaStyle: {   
-                            color: 'rgba(240, 16, 16,0.8)'
+                            color: 'rgba(236, 5, 5,0.9)'
                         },
-                        data:[2000,8000,10000,9000,15000,20000,18000,16000,19000,19090,20000,18000,25000,21000,19000,30000,32000,30003,30000,25000,30000,22005,30000,34000,20000,25000,30000,35000,42000,45000]
+                        data:[]
                     },
-                    {
-                        name:'累计净利润',
+                    {                       
+                        name:'',// name:'累计净利润',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(105, 70, 131)'
+                            color: 'rgb(33, 57, 80)'
                         },
                         areaStyle: {   
-                            color: 'rgba(240, 0, 0,0.8)'
+                            color: 'rgba(33, 57, 80,0.8)'
                         },
-                        data:[1500,7800,9010,8010,10000,12120,13002,14003,15010,14005,16200,17080,20500,16005,15009,20030,26002,29033,23300,20005,23030,19025,25030,30004,16020,14008,23160,30500,40200,40500]
+                        data:[]
                     },
-                    {
-                        name:'累计手续费',
+                    {                       
+                        name:'',// name:'累计手续费',
                         type:'line', //设置图表主题
                         smooth:true,
-                        symbol: 'none',
+                        // symbol: 'none',
                         sampling: 'average',
                         itemStyle: {
-                            color: 'rgb(200, 0, 131)'
+                            color: 'rgb(63, 65, 63)'
                         },
                         areaStyle: {   
-                            color: 'rgba(170, 16, 16,0.8)'
+                            color: 'rgba(63, 65, 63,0.8)'
                         },
-                        data:[200,800,1000,1000,1500,2000,1020,1300,1000,1500,2000,1800,2500,1500,1900,3000,3200,3300,3000,2500,3000,2500,3000,3400,2000,1800,3000,3500,4200,4500]
+                        data:[]
                     }
                 ]
             },
             option : {
-                title: {
-                    text: '周盈亏',
+                title: {                   
+                    text: '',// text: '周盈亏',
                     x: 'center'
                 },
                 tooltip: {
@@ -202,14 +149,12 @@ export default {
                 },
                 yAxis: {
                     type: 'category',
+                    inverse: true,
                     axisLine: {show: false},
                     axisLabel: {show: false},
                     axisTick: {show: false},
                     splitLine: {show: false},
-                    data: ['2019/30', '2019/31', '2019/32', '2019/34', '2019/35', '2019/36', '2019/37', '2019/38', '2019/39', '2019/40',
-                        '2019/41', '2019/42', '2019/43', '2019/44', '2019/45','2019/46', '2019/47', '2019/48', '2019/49', '2019/50',
-                        '2019/51', '2019/52', '2019/53', '2019/54', '2019/55',
-                    ]
+                    data:[]
                 },
                 dataZoom:[
                     {
@@ -218,7 +163,8 @@ export default {
                         yAxisIndex: [0],
                         left: '93%',
                         start: 0, //数据窗口范围的起始百分比
-                        end: 36
+                        end: 26,
+                        zoomLock:true
                     }
                 ],
                 series: [
@@ -232,82 +178,13 @@ export default {
                                 formatter: '{b}',
                             }
                         },
-                        data: [
-                            -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
-                        ],
+                        data:[],
                         itemStyle: {
                             normal: {
                                 color: function (params) {// 添加颜色显示规则 大于等于0红色; 小于0为绿色
                                     return params.value >= 0 ? "red" : "green";
                                 }
                             },
-                        }
-                    }
-                ]
-            },
-            zhouoption : {
-                title: {
-                    text: '月盈亏',
-                    x: 'center'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
-                },
-                grid: {
-                    top: 80,
-                    bottom: 30
-                },
-                xAxis: {
-                    type: 'value',
-                    position: 'top',
-                    splitLine: {lineStyle: {type: 'dashed'}},
-                },
-                yAxis: {
-                    type: 'category',
-                    axisLine: {show: false},
-                    axisLabel: {show: false},
-                    axisTick: {show: false},
-                    splitLine: {show: false},
-                    data: ['2017-10', '2017-11', '2017-12', '2018-1', '2018-2', '2018-3', '2018-4', '2018-5', '201-6', '2018-7',
-                        '2018-8', '2018-9', '2018-10', '2018-11', '2018-12','2019-1', '2019-2', '2019-3', '2019-4', '2019-5',
-                        '2019-6', '2019-7', '2019-8', '2019-9', '2019-10',
-                    ]
-                },
-                dataZoom:[
-                    {
-                        type: 'slider',
-                        show: true,
-                        yAxisIndex: [0],
-                        left: '93%',
-                        start: 0, //数据窗口范围的起始百分比
-                        end: 36
-                    }
-                ],
-                series: [
-                    {
-                        name: '盈亏(亿元)',
-                        type: 'bar',
-                        stack: '总量',
-                        label: {
-                            normal: {
-                                show: true,
-                                formatter: '{b}'
-                            }
-                        },
-                        data: [
-                            -1.7, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24, 0.36, 0.89, -0.89, -0.33, 1.08, -1.07, -0.23, -0.03, 0.36, 0.89, -0.89, -0.33, 1.08, 1.68, 2.24,
-                        ],
-                        // 添加颜色显示规则
-                        // 大于等于0红色; 小于0为绿色
-                        itemStyle: {
-                            normal: {
-                                color: function (params) {
-                                    return params.value >= 0 ? "red" : "green";
-                                }
-                            }
                         }
                     }
                 ]
@@ -324,7 +201,7 @@ export default {
                 legend: {
                     orient: 'vertical',
                     left:'left',
-                    data: ['沪镍','塑料','沪锌','焦炭','橡胶','棕榈','菜粕','ap','铜','豆粕','白银','其他']
+                    data:[]
                 },
                 series : [
                     {
@@ -332,20 +209,7 @@ export default {
                         type: 'pie',
                         radius : '60%',
                         center: ['55%', '45%'],
-                        data:[
-                            {value:35, name:'沪镍'},
-                            {value:20, name:'塑料'},
-                            {value:34, name:'沪锌'},
-                            {value:35, name:'焦炭'},
-                            {value:38, name:'橡胶'},
-                            {value:28, name:'棕榈'},
-                            {value:38, name:'菜粕'},
-                            {value:28, name:'ap'},
-                            {value:28, name:'铜'},
-                            {value:48, name:'豆粕'},
-                            {value:28, name:'白银'},
-                            {value:298, name:'其他'}
-                        ]
+                        data:[]
                     }
                 ]
             }
@@ -364,10 +228,12 @@ export default {
             let bingchart = echarts.init(document.getElementById('bingtu'));
             let chartmain = this.$echarts.init(document.getElementById("chartmain"));
             //绘制图表
-            chartmainline.setOption(this.optionline);
+            // chartmainline.setOption(this.optionline);
+            chartmainline.setOption(this.optionlinetow);
             chartmainlinetow.setOption(this.optionlinetow);
             myChart.setOption(this.option);
-            chart.setOption(this.zhouoption);
+            // chart.setOption(this.zhouoption);
+            chart.setOption(this.option);
             bingchart.setOption(this.bingoption);
             chartmain.setOption(this.optionlinetow);
             window.onresize = function () {
@@ -377,7 +243,125 @@ export default {
                 chart.resize();
                 bingchart.resize();
                 chartmain.resize();
-            }
+            };
+        //     this.$http.get("/api/majorlist").then(function(response){
+        //         let ydata = response.data.data.y;
+        // 　　　　for(let i = 0; i < ydata.length; i++){　　　
+        // 　　　　　　 this.data1 = ydata[i].data;
+        // 　　　　}
+        //         this.data2=response.data.data.x;
+        //         chartmainline.setOption({
+        //             title:{
+        //                 text: "累计净值"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             series: [{ 
+        //                 data: this.data1
+        //             }]
+        //         });
+        //         let datatow = response.data.data.c;
+        // 　　　　 for(let i = 0; i < datatow.length; i++){　　　
+        // 　　　　     this.data3[i] = datatow[i].data;
+        //             this.name[i]=datatow[i].name;
+        // 　　　　 }
+        //         chartmainlinetow.setOption({
+        //             title:{
+        //                 text: "累计盈亏"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             legend:{
+        //                 data:this.name
+        //             },
+        //             series: [
+        //                 { 
+        //                 name:this.name[0],
+        //                 data:this.data3[0]
+        //                 },
+        //                 { 
+        //                 name:this.name[1],
+        //                 data:this.data3[1]
+        //                 },
+        //                 { 
+        //                 name:this.name[2],
+        //                 data:this.data3[2]
+        //                 }
+        //             ]
+        //         });
+        //         let datad = response.data.data.d;
+        // 　　　　 for(let i = 0; i < datad.length; i++){　　　
+        // 　　　　     this.data4[i] = datad[i].data;
+        //             this.name1[i] = datad[i].name;
+        // 　　　　 }
+        //         chartmain.setOption({
+        //             title:{
+        //                 text: "每日仓位"
+        //             },
+        //             xAxis: {
+        //                 data: this.data2
+        //             }, 
+        //             legend:{
+        //                 data:this.name1
+        //             },
+        //             series: [
+        //                 { 
+        //                 name:this.name1[0],
+        //                 data:this.data4[0]
+        //                 },
+        //                 { 
+        //                 name:this.name1[1],
+        //                 data:this.data4[1]
+        //                 }
+        //             ]
+        //         });
+        //         myChart.setOption({
+        //             title:{
+        //                 text: "周盈亏"
+        //             },
+        //             yAxis: {
+        //                 data:response.data.data.f
+        //             },
+        //             dataZoom:[
+        //                 {
+        //                     end: 6
+        //                 }
+        //             ],
+        //             series: [
+        //                 {
+        //                     data:response.data.data.e
+        //                 }
+        //             ]
+        //         });
+        //         chart.setOption({
+        //             title:{
+        //                 text: "月盈亏"
+        //             },
+        //             yAxis: {
+        //                 data:response.data.data.h
+        //             },
+        //             series: [
+        //                 {
+        //                     data:response.data.data.g
+        //                 }
+        //             ]
+        //         });
+        //         bingchart.setOption({
+        //             legend: {
+        //                 data: response.data.data.n
+        //             },
+        //             series : [
+        //                 {
+        //                     data:response.data.data.k
+        //                 }
+        //             ]
+        //         });
+        // 　　})
+        // 　　.catch(function(error){
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
         }  
     }
 }
@@ -394,6 +378,7 @@ export default {
         .graph{
             height:20rem;
             border-bottom: 2px solid #eee;
+            color: rgb(63, 65, 63);
         }
     } 
 </style>

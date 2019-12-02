@@ -101,23 +101,30 @@ import { Button } from 'vant';
 				],
 				modePop:false,
 				list:[],
-				page:1,
-				pageSize:8,
-				id:''
+				id:2
 			}
 		},
 		methods:{
 			subsByDate(){
 				this.modePop = true;
+				// var params = { 
+				// 	id: this.id,
+				// };
+				// console.log(params)
+				// this.$axios.post('/order/subscribe',params).then((res) => {
+                //     console.log(res)
+				// });
+			},
+			determine(){
 				var params = { 
 					id: this.id,
 				};
+				console.log(params)
 				this.$axios.post('/order/subscribe',params).then((res) => {
-                    console.log(res)
+					console.log(res)
+					if(res.data.code!==200) return
+					this.$router.push({name: 'zhifu'})
 				});
-			},
-			determine(){
-				this.$router.push({name: 'zhifu'})
 			},
 			toDetails(){
 				this.$router.push({name: 'futuresDetails',params:{id:this.id}})
@@ -128,17 +135,17 @@ import { Button } from 'vant';
 					pageSize: this.pageSize
             	};
 				this.$axios.post('/futures/index',params).then((res) => {
-					console.log(res.data.data.rows)
+					console.log(res)
 				});
 			}
 		},
 		mounted(){
 			
-			// this.$http.get('/api/teacherList').then((res) => {
+			this.$http.get('/api/teacherList').then((res) => {
 			   
-			// 	let data = res.data.data.data;
-   			// 	this.list = data.data;
-			// });
+				let data = res.data.data.data;
+   				this.list = data.data;
+			});
 		}
 	}
 </script>

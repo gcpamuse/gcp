@@ -54,26 +54,19 @@ export default {
         avatarAfterRead(file) {
             console.log(file)
             this.avatar = file.content;
-            var params = { 
-                 file:file
-            };
-           
-            this.$axios.post('http://192.168.0.99:8080/article/upload',params).then((res) => {
+            // var params = { 
+            //     avatar:file,
+            //     //  avatar:file.content,
+            //     //  file: file.file.name
+            // };
+            let params = new FormData();
+            params.append("avatar", file.content);
+            this.$axios.post('/article/upload',params).then((res) => {
                 console.log(res)
             })
             .catch(error => {
           　　　　console.log("出错喽："+error);
           　});
-
-        //     var params = { 
-        //         portrait:this.avatar
-        //     };
-        //     this.$axios.post('http://192.168.0.99:8080/user/data',params).then(res => {
-        //         console.log(res)
-        //     })
-        //     .catch(error => {
-        //  　　　　console.log("出错喽："+error);
-        //  　　});
         },
         nameBeforeClose(action, done) {
             if (action === 'confirm') {
@@ -83,8 +76,24 @@ export default {
             }
         },
         Logout(){
+            setTimeout(() => {
+				localStorage.removeItem('Authorization');
+                this.$router.push('/login');
+			},1000)
+           
             
         }
+    },
+    mounted(){
+        var params = {
+                username:this.name
+            };
+        this.$axios.post('user/data',params).then(res => {
+                console.log(res)
+        })
+        .catch(error => {
+          　　　　console.log("出错喽："+error);
+        });
     }
 }
 </script>

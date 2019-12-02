@@ -43,12 +43,6 @@
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
                             <inoutMoney></inoutMoney>
-                            <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id">
-
-                                <div>{{item.ocname}}</div> 
-                                <div>{{item.money}}</div> 
-                                <div>{{item.dateline}}</div> 
-                            </div>  -->
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
@@ -119,7 +113,7 @@ export default {
                 isFollow: true,
                 followId: this.id
             };
-            this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
+            this.$axios.post('order/subscribe',params).then((res) => {
                 
             });
             this.guanzhu=false;
@@ -132,7 +126,8 @@ export default {
             this.$router.push({name: 'applyInvestor'})
         },
         toGuanZhu(){
-            this.$router.push({name: 'wechatPay',params: { id: 1}})
+            // this.$router.push({name: 'wechatPay',params: { id: 1}})
+            this.$router.push({name: 'zhifu'})
         },
         toSubscribe(){
             this.$router.push({name: 'zhifu'})

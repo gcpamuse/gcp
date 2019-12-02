@@ -1,9 +1,14 @@
 <template>
   <div>
-    <div class="list">
-        <div class="imgs"><img src="../img/132.jpg" class="img"></div>
+    <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
+        <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div>
         <div class="count">
             <p>灰太狼</p>
+            <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
+        </div> {{item.piece}}{{item.price}}-->
+        <div class="imgs"><img :src="item.portrait" class="img"></div>
+        <div class="count">
+            <p>{{item.userName}}</p>
             <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
         </div>
     </div>
@@ -21,9 +26,34 @@ export default {
     },
     data(){
         return{
-
+            list:[]
         }
     },
+    mounted() {
+       this.initFollow()
+    },
+    methods:{
+        RemoveConcerns(index){
+            this.list.splice(index,1);
+        },
+        initFollow(){
+        //     this.$axios.get('/api/followList').then(res => {
+        //         let data = res.data.data.data;
+		//  		this.list = data.data;
+        //     })
+        //     .catch(error => {
+        //  　　　　console.log("出错喽："+error);
+        //  　　});
+            // this.$axios.post('http://192.168.0.99:8080/tutor/students').then(res => {
+            this.$axios.post('/tutor/students').then(res => {
+                console.log(res)
+                this.list=res.data.data;
+            })
+            .catch(error => {
+         　　　　console.log("出错喽："+error);
+         　　});
+        }
+    }
 }
 </script>
 
