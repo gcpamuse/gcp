@@ -56,7 +56,7 @@ Vue.use(List);
 Vue.config.productionTip = false
 
 //mock
-require('./mock/mock.js')
+// require('./mock/mock.js')
 
 new Vue({
   el: '#app',
