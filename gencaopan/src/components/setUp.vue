@@ -54,13 +54,13 @@ export default {
         avatarAfterRead(file) {
             console.log(file)
             this.avatar = file.content;
-            // var params = { 
-            //     avatar:file,
-            //     //  avatar:file.content,
-            //     //  file: file.file.name
-            // };
-            let params = new FormData();
-            params.append("avatar", file.content);
+            var params = { 
+                // avatar:file,
+                //  avatar:file.content,
+                 file: file
+            };
+            // let params = new FormData();
+            // params.append("file", file);
             this.$axios.post('/article/upload',params).then((res) => {
                 console.log(res)
             })
