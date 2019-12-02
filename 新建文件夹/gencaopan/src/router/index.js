@@ -27,6 +27,10 @@ import wechatPay from '@/components/wechatPay'
 import subscribes from '@/components/subscribes'
 import looknotes from '@/components/looknotes'
 import reward from '@/components/reward'
+import transaction from '@/components/transaction'
+import holdPositions from '@/components/holdPositions'
+import setUp from '@/components/setUp'
+import inoutMoney from '@/components/inoutMoney'
 Vue.use(Router)
 
 export default new Router({
@@ -129,7 +133,10 @@ export default new Router({
     {
       path: '/zhifu',
       name: 'zhifu',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        //requireAuth: true
+      },
       component: zhifu
     },
     {
@@ -179,5 +186,44 @@ export default new Router({
       name: 'reward',
       component: reward
     },
+    {
+      path: '/transaction',
+      name: 'transaction',
+      component: transaction
+    },
+    {
+      path: '/holdPositions',
+      name: 'holdPositions',
+      component: holdPositions
+    },
+    {
+      path: '/setUp',
+      name: 'setUp',
+      component: setUp
+    },
+    {
+      path: '/inoutMoney',
+      name: 'inoutMoney',
+      component: inoutMoney
+    },
   ]
-})
+});
+
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+//      let token = localStorage.getItem('Authorization'); 
+//      if (token === null || token === '') { //判断当前的token是否存在
+//        next({
+//             path: '/login',
+//             query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//        })
+//      } else {
+//        next();
+//      }
+//   }
+//   else {
+//       next();
+//   }
+// });
+ 
+// export default router;

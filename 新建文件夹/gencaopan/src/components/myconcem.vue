@@ -1,18 +1,29 @@
 <template>
   <div>
-    <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
-        <div class="imgs"><img src="../img/132.jpg" class="img"></div>
-        <div class="count">
-            <!-- <p>灰太狼</p> -->
-            <p>{{item.name}}</p>
-            <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
-            <p class="count_c"><span>{{item.piece}}</span>篇笔记&nbsp;被打赏<span>{{item.price}}元</span></p>
+       <div v-if='noData'>
+          暂无数据
         </div>
-        <div class="guanzhu">
-            <div class="m-concern" @click="RemoveConcerns(index)">取消关注</div> 
-        </div>
-    </div>
-    
+        <!-- <van-list 
+        v-else
+        v-model="loading"
+        :finished="finished"
+        :finished-text="finishedText"
+        @load="loadMore"
+        class="index-tab">  -->
+            <div class="list" v-for="(item,index) in list" :key="item.id" :index="index">
+                <!-- <div class="imgs"><img src="../img/132.jpg" class="img"></div> -->
+                <div class="imgs" @click="toNotes"><img :src="item.portrait" class="img"></div>
+                <div class="count" @click="toNotes">
+                    <!-- <p>灰太狼</p> -->
+                    <p>{{item.userName}}</p>
+                    <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
+                    <p class="count_c"><span>{{item.articleCount}}</span>篇笔记&nbsp;被打赏<span>{{item.articleCount}}元</span></p>
+                </div>
+                <div class="guanzhu">
+                    <div class="m-concern" @click="RemoveConcerns(index,item.id)">取消关注</div> 
+                </div>
+            </div>
+        <!-- </van-list> -->
   </div>
 </template>
 
@@ -27,27 +38,80 @@ export default {
     data(){
         return{
             list:[
-                {
-                    name:'灰太狼',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'徐不及',
-                    piece:0,
-                    price:0
-                },
-                {
-                    name:'naihaha',
-                    piece:0,
-                    price:0
-                },
-            ]
+                //41
+            ],
+            finished: false,
+            loading: false,
+            page:1,
+            finishedText: "",
+            pageSize: 10,
+            noData: false
         }
     },
+    created() {
+       this.intndata()
+    },
     methods:{
-        RemoveConcerns(index){
+        RemoveConcerns(index,id){
+            var params = { 
+                isFollow: false,
+                followId: id
+            };
+            this.$http.get('http://192.168.0.99:8080/user/follow',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
             this.list.splice(index,1);
+        },
+        toNotes(){
+            this.$router.push({name: 'looknotes'})
+        },
+        // loadMore(){
+        //     setTimeout(() => {
+        //         this.loading = true;
+        //         this.initFollow();
+        //     },1000)
+            
+        // },
+        // initFollow(){
+        //     var that = this;
+        //     var params = { 
+        //         page: this.page,
+        //         pageSize: this.pageSize
+        //     };
+        //     this.$http.get('/api/followList', {params: params}).then( res=>{
+        //         that.loading = false;
+		// 		let data = res.data.data.data;
+        //         // this.list = data.data;
+        //         if(data.data.length > 0){
+        //             this.loading = false;
+        //             // this.list = this.list.concat(data.data);
+        //             this.list.push(...data.data);
+        //             this.page++;
+        //             //83
+        //         }else{
+        //             that.finished = true;
+        //             this.finishedText = "- 没有更多了-";
+        //         }
+        //         if (this.list.length === 0 && this.page === 1) {
+        //             this.noData = true
+        //         }
+        //     })
+        //     .catch( error=>{
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
+        // },
+        intndata(){
+            // this.$http.post('http://192.168.0.99:8080/user/follows').then( res=>{
+            this.$http.post('/user/follows').then( res=>{
+                console.log(res.data)
+                this.list = res.data.data;
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         }
     }
 }

@@ -8,7 +8,7 @@
             />
         </van-cell-group>
         <div class="item-content"> 
-            <textarea class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
+            <textarea v-model="content" class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
             <van-uploader :after-read="afterRead" :max-size="maxsize" :before-read="beforeRead" :max-count="1" v-model="fileList">
                 <img src="../img/photo.png" alt="" class="photo-submit">
             </van-uploader> 
@@ -27,7 +27,7 @@
         <van-cell-group class="group">
             <van-switch-cell v-model="check" title="封面照片是否显示在正文中" active-color="#f42241" />
         </van-cell-group>
-        <div class="viewpoint-submit releaseBtn" val="0">发布</div> 
+        <div @click="release" class="viewpoint-submit releaseBtn" val="0">发布</div> 
   </div>
 </template>
 
@@ -42,17 +42,27 @@ export default {
     data(){
         return{
             message:"",
-            money:"",
+            money:0,
             checked: false,
             check: true,
             fileList: [],
+            content:"",
             maxsize: 4096 * 1024
         }
     },
     methods: {
         afterRead(file) {
             // 此时可以自行将文件上传至服务器
-            console.log(file);
+            // console.log(file);
+            var params = { 
+                file:file
+            };
+            this.$axios.post('http://192.168.0.99:8080/article/upload',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         },
         beforeRead(file) {
             if (file.type !== 'image/jpeg') {
@@ -65,6 +75,39 @@ export default {
             }
             return true;
         },
+        release(){
+            if(this.message==""){
+                this.$toast('请输入观点标题');
+                return false;
+            }
+            if(this.content==""){
+                this.$toast('填写内容不能为空！');
+                return false;
+            }
+            if(this.fileList==""){
+                this.$toast('请选择封面');
+                return false;
+            }
+            if(this.checked){
+                if(this.money==""){
+                    this.$toast('请输入阅读费金额');
+                    return false; 
+                }
+            }
+            var params = { 
+                title:this.message,
+                content:this.content,
+                cover:this.fileList,
+                amount:this.money,
+                isContentCover:this.check
+            };
+            this.$axios.post('http://192.168.0.99:8080/article/release',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
+        }
     }
 }
 </script>

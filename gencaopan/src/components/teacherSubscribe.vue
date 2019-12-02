@@ -54,17 +54,18 @@ export default {
         }
     },
     mounted(){
-        // let that =this;
+        let that =this;
         // that.$http.get('/api/teacherSubscribe').then((res) => {
         //     let data = res.data.data.data
         //     this.teacherList = data;
         //     if (this.teacherList.length == 0) this.anyOne = true
         // });
-        // that.$axios.post('http://192.168.0.99:8080/user/subscribes').then(function(res){
-        //    console.log(res.data)
-        // },function(res){
-        //     alert("请求失败");
-        // })
+        that.$axios.post('user/subscribes').then(res=>{
+           console.log(res.data)
+        })
+        .catch(error=>{
+            console.log("出错喽:"+error);
+        });
     }
 }
 </script>

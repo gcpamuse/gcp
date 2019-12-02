@@ -49,6 +49,7 @@ export default {
             radio1: '400',
             checkboxShape: true,
             gender: '',
+            id:this.$route.params.id
         }
     },
     methods:{

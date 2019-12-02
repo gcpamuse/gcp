@@ -68,7 +68,7 @@ export default {
                 phone:this.phone, 
                 captcha:this.number
             };
-            this.$axios.post('http://192.168.0.99:8080/',params).then( res=>{
+            this.$axios.post('',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{
@@ -98,7 +98,7 @@ export default {
                 sms:this.number,
                 password:this.password
             };
-            this.$axios.post('http://192.168.0.99:8080/auth/forgetPassword',params).then( res=>{
+            this.$axios.post('auth/forgetPassword',params).then( res=>{
                 console.log(res)
             })
             .catch( error=>{

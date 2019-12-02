@@ -4,7 +4,7 @@
         <div class="content"> 
             <div class="banner"> 
                 <img src="../img/banner2.png" alt="跟操盘"> 
-                <div class="banner-text">分享跟操盘首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获100元奖励</div> 
+                <div class="banner-text">分享期学堂首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获100元奖励</div> 
             </div> 
             <div class="list-block icon-content"> 
                 <div class="qr-block disblock"> 
@@ -27,7 +27,8 @@
                 </div> 
             </div> 
         </div>
-        <van-dialog v-model="show" title="" @confirm='determine'>
+        <!-- <van-dialog v-model="show" title="" @confirm='determine'> -->
+            <van-popup v-model="show">
             <div class="m-plate_sure_layer"> 
                 <div class="close_box j-close j-sure_close" @click="closeBox"> 
                     <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
@@ -54,10 +55,12 @@
                         <span class="cash-end"></span> 
                     </div> 
                 </div> 
-                
+                <div class="button_box f-cb"> 
+                    <button type="button" class="button-right j-sure" @click="determine">确认</button> 
+                </div> 
             </div>
-            
-        </van-dialog>
+          </van-popup>  
+        <!-- </van-dialog> -->
     </div> 
     
 </div> 
@@ -68,10 +71,11 @@
 
 
 export default {
-    
-
     data(){
         return{
+            rewardAmount:"",
+            rewardAmountSum:"",
+            balance:"",
             show:false,
             amount:'',
             account:'',
@@ -84,11 +88,53 @@ export default {
             this.show = true
         },
         determine(){
-            
+            if(this.amount == ''){
+                this.$toast('请输入提现金额！');
+                return false;
+            }
+            if(this.account == ''){
+                this.$toast('支付宝账号不能为空！');
+                return false;
+            }
+            if(this.name == ''){
+                this.$toast('账户不能为空！');
+                return false;
+            }
+            if(this.mobile == ''){
+                this.$toast('手机号不能为空！');
+                return false;
+            }else{
+                if(!(/^1[34578]\d{9}$/.test(this.mobile))){
+                    this.$toast('请输入正确的手机号格式');
+                    return false;
+                }
+            }
+            var params = { 
+                amount:this.amount,
+                aliAccount:this.account,
+                name:this.name,
+                phone:this.mobile
+            };
+            this.$axios.post('http://192.168.0.99:8080/user/atm',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　}); 
         },
         closeBox(){
             this.show = false
-        }
+        },
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/user/share').then(function(res){
+           console.log(res.data)
+           this.rewardAmount = res.data.rewardAmount;
+           this.rewardAmountSum = res.data.rewardAmountSum;
+           rhis.balance = res.data.balance;
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>
@@ -229,5 +275,39 @@ export default {
 #dpage-invite  .cash-end {
 	width: 20px;
 }
-
+.m-plate_sure_layer .button_box {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #fff;
+}
+.m-plate_sure_layer .button_box .button-right {
+    line-height: 42px;
+    height: 42px;
+    width: 100%;
+    background-color: #f85943;
+    border-radius: 5px;
+    border: 0;
+}
+span.cash-end {
+    font-size: 14px;
+}
+.van-popup {
+    padding: 15px 15px 0;
+    border-radius: 6px;
+}
+input#withdraw_amount {
+    font-size: 14px;
+}
+input#withdraw_account {
+    font-size: 14px;
+}
+input#withdraw_name {
+    font-size: 14px;
+}
+input#withdraw_mobile {
+    font-size: 14px;
+}
+img.close_img {
+    width: 18px;
+}
 </style>

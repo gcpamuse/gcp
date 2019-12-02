@@ -88,9 +88,18 @@ export default {
             },
             traderList:true,
             shipan:false,
-            follow:false
+            follow:false,
+            id:this.$route.params.id,
+            articleCount:0,
+            fansCount:0,
+            userName:"",
+            articleList: [],
+            firmList:[]
         }
-    }, 
+    },
+    created(){
+        this.initdata();
+    },
     methods:{
         toDetails(){
             this.$router.push({name: 'mediainfo'})
@@ -112,6 +121,23 @@ export default {
         },
         subsByDate(){
 
+        },
+        initdata(){
+        //     var params = { 
+        //         id:this.id
+        //     };
+        //     this.$axios.post('/article/person',params).then( res=>{
+        //         console.log(res)
+        //         this.userName=res.data.data.userName;
+        //         this.articleCount=res.data.data.articleCount;
+        //         this.isFollow=res.data.data.isFollow;
+        //         this.fansCount=res.data.data.fansCount;
+        //         this.articleList=res.data.data.articleList;
+        //         this.firmList=res.data.data.firmList;
+        //     })
+        //     .catch( error=>{
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
         }
     }
 }

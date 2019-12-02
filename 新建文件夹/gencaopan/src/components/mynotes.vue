@@ -15,7 +15,7 @@
                     <div class="info-title">文章</div>
               </div>
               <div class="kuang" @click="shiPan">
-                    <div class="info-num">0</div> 
+                    <div class="info-num">1</div> 
                     <div class="info-title">实盘</div> 
               </div>
               <div class="ka">
@@ -84,9 +84,13 @@ export default {
                 backgroundSize:'100% 100%'
             },
             traderList:true,
-            shipan:false
+            shipan:false,
+            id:this.$route.query.id
         }
     }, 
+    created(){
+        this.initdata()
+    },
     methods:{
         toDetails(){
             this.$router.push({name: 'mediainfo'})
@@ -107,7 +111,25 @@ export default {
         },
         subsByDate(){
 
+        },
+        initdata(){
+            var params = { 
+                id:this.id
+            };
+            this.$axios.post('http://192.168.0.99:8080/article/person',params).then( res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log("出错喽："+error);
+        　　});
         }
+    },
+    mounted(){
+        this.$axios.post('http://192.168.0.99:8080/article/person').then(function(res){
+           console.log(res.data)
+        },function(res){
+            alert("请求失败");
+        })
     }
 }
 </script>

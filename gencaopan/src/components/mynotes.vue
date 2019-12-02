@@ -2,7 +2,7 @@
   <div>
       <div class="heard" :style="bgImg">
           <img class="inner-avatar" src="../img/default_middle.png"/> 
-          <div class="inner-name">哈哈哈</div> 
+          <div class="inner-name">{{userName}}</div> 
           <div class="top">计划你的交易，交易你的计划</div>
           <div class="middle">
               <div class="guanzhu" @click="guanZhu">
@@ -11,33 +11,34 @@
           </div>
           <div class="bottom">
               <div class="kuang" @click="wenZhang">
-                    <div class="info-num">1</div> 
+                    <div class="info-num">{{articleCount}}</div> 
                     <div class="info-title">文章</div>
               </div>
               <div class="kuang" @click="shiPan">
-                    <div class="info-num">1</div> 
+                    <div class="info-num">0</div> 
                     <div class="info-title">实盘</div> 
               </div>
               <div class="ka">
-                    <div class="info-num">0</div> 
+                    <div class="info-num">{{fansCount}}</div> 
                     <div class="info-title">粉丝</div>
               </div>
           </div>
       </div>
-      <div class="mine-article" v-show="traderList">  
+      <div class="mine-article" v-show="traderList" v-for="(item,index) in articleList" :key="item.id" :index="index">  
         <div class="media-panel"> 
-            <div class="panel-left" @click="toDetails"> 
-                <div class="left-title">灰太狼交易模式解析</div> 
-                <div class="left-title"></div> 
+            <div class="panel-left" @click="toDetails(item.id)"> 
+                <div class="left-title" v-html="item.title"></div> 
+                <div class="left-title">{{item.name}}</div> 
                 <div class="left-content">
-                    <div class="left-time">2018/12/20 11:06:43</div>
+                    <div class="left-time">{{item.createAt}}</div>
                 </div> 
             </div> 
-            <img src="../img/1568117337170.jpg" alt="" class="panel-img"> 
+            <!-- <img src="../img/1568117337170.jpg" alt="" class="panel-img">  -->
+            <img :src="'/api'+item.cover" alt="" class="panel-img"> 
         </div>  
       </div> 
       <div class="conment" v-show="shipan">
-        <div  @click="toNote" style="width: 80%;">
+        <!-- <div  @click="toNote" style="width: 80%;">
             <div class="left">
                 <span class="daoshi_shou">收</span>
                 <img src="../img/132.jpg" class="img_top">
@@ -62,7 +63,7 @@
             <div class="xia">
                 <div class="dingyue">1242人已订阅</div>
             </div>
-        </div>
+        </div> -->
 	  </div>  
       <div style="height:50px;"></div>
   </div>
@@ -85,15 +86,21 @@ export default {
             },
             traderList:true,
             shipan:false,
-            id:this.$route.query.id
+            id:this.$route.query.id,
+            articleCount:0,
+            fansCount:0,
+            isFollow:false,
+            userName:"",
+            articleList: [],
+            firmList:[]
         }
     }, 
     created(){
         this.initdata()
     },
     methods:{
-        toDetails(){
-            this.$router.push({name: 'mediainfo'})
+        toDetails(uid){
+            this.$router.push({name: 'mediainfo',params:{id:uid}})
         },
         guanZhu(){
             this.$toast.fail('自己无法关注自己')
@@ -116,21 +123,27 @@ export default {
             var params = { 
                 id:this.id
             };
-            this.$axios.post('http://192.168.0.99:8080/article/person',params).then( res=>{
+            this.$axios.post('/article/person',params).then( res=>{
                 console.log(res)
+                this.userName=res.data.data.userName;
+                this.articleCount=res.data.data.articleCount;
+                this.isFollow=res.data.data.isFollow;
+                this.fansCount=res.data.data.fansCount;
+                this.articleList=res.data.data.articleList;
+                this.firmList=res.data.data.firmList;
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
         　　});
         }
     },
-    mounted(){
-        this.$axios.post('http://192.168.0.99:8080/article/person').then(function(res){
-           console.log(res.data)
-        },function(res){
-            alert("请求失败");
-        })
-    }
+    // mounted(){
+    //     this.$axios.post('/article/person').then(function(res){
+    //        console.log(res.data)
+    //     },function(res){
+    //         alert("请求失败");
+    //     })
+    // }
 }
 </script>
 
@@ -183,6 +196,7 @@ export default {
         }
     }
     .mine-article{
+        border-bottom: 1px solid rgba(204, 178, 178, 0.2);
         .media-panel{
             background-color: #fff;
             display: flex;
@@ -211,7 +225,7 @@ export default {
 		padding:15px 0 10px 0px;
 		background-color: #fff;
 		width: 100%;
-		border-bottom: 1px solid #ddd;
+		// border-bottom: 1px solid #ddd;
 		.left{
 			margin-left: 4%;
 			position: relative;

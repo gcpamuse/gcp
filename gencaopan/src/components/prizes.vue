@@ -4,7 +4,7 @@
         <div class="content"> 
             <div class="banner"> 
                 <img src="../img/banner2.png" alt="跟操盘"> 
-                <div class="banner-text">分享期学堂首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获100元奖励</div> 
+                <div class="banner-text">分享期学堂首页或者任意导师详情页，用户通过链接进入即算您的客户，每次消费您都可获{{banner.rewardAmount}}元奖励</div> 
             </div> 
             <div class="list-block icon-content"> 
                 <div class="qr-block disblock"> 
@@ -15,20 +15,20 @@
                 <div class="invite-spread" onClick="window.open('');">推广建议</div> 
                 <div class="item-content invite-mine"> 
                     <div class="item-inner"> 
-                        <div class="item-title mine-left">我的账户:<span class="mine-money">0.00</span>元</div>
+                        <div class="item-title mine-left">我的账户:<span class="mine-money">{{banner.balance}}</span>元</div>
                         <div class="mine-right j-rule_click" @click="onClickAlert">提现</div> 
                     </div> 
                 </div> 
                 <div class="invite-lists"> 
                     <div class="lists-box"> 
-                        <div class="lists-title">您已获得<span class="lists-money">0</span>元奖励</div> 
+                        <div class="lists-title">您已获得<span class="lists-money">{{banner.rewardAmountSum}}</span>元奖励</div> 
                         <div class="lists-content">  </div> 
                     </div> 
                 </div> 
             </div> 
         </div>
-        <!-- <van-dialog v-model="show" title="" @confirm='determine'> -->
-            <van-popup v-model="show">
+ 
+        <van-popup v-model="show">
             <div class="m-plate_sure_layer"> 
                 <div class="close_box j-close j-sure_close" @click="closeBox"> 
                     <img class='close_img' src="../img/xx-1.png" alt="跟操盘提现"> 
@@ -59,8 +59,7 @@
                     <button type="button" class="button-right j-sure" @click="determine">确认</button> 
                 </div> 
             </div>
-          </van-popup>  
-        <!-- </van-dialog> -->
+        </van-popup>
     </div> 
     
 </div> 
@@ -73,9 +72,7 @@
 export default {
     data(){
         return{
-            rewardAmount:"",
-            rewardAmountSum:"",
-            balance:"",
+            banner:{},
             show:false,
             amount:'',
             account:'',
@@ -115,8 +112,11 @@ export default {
                 name:this.name,
                 phone:this.mobile
             };
-            this.$axios.post('http://192.168.0.99:8080/user/atm',params).then( res=>{
+            this.$axios.post('user/atm',params).then( res=>{
                 console.log(res)
+                if(res.data.code!==200) return
+                this.$toast.fail('提现成功');
+                this.show = false
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
@@ -125,16 +125,17 @@ export default {
         closeBox(){
             this.show = false
         },
+        
     },
     mounted(){
-        this.$axios.post('http://192.168.0.99:8080/user/share').then(function(res){
-           console.log(res.data)
-           this.rewardAmount = res.data.rewardAmount;
-           this.rewardAmountSum = res.data.rewardAmountSum;
-           rhis.balance = res.data.balance;
-        },function(res){
-            alert("请求失败");
+        this.$axios.post('/user/share').then(res=>{
+            console.log(res.data.data)
+            this.banner = res.data.data;
+           
         })
+        .catch(error=>{
+            console.log("出错喽:"+error);
+        });
     }
 }
 </script>

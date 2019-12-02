@@ -25,7 +25,7 @@
 </template>
 
 <script>
-
+import { mapMutations } from 'vuex';
 export default {
     data(){
         return{
@@ -34,25 +34,26 @@ export default {
         }
     },
     methods:{
+        ...mapMutations(['changeLogin']),
         login(){
-            if(this.username==""&&this.password==""){
-                this.$toast('用户名或密码不能为空！')
-            }else{
-                // var params = { 
-                //     username:this.username,
-                //     password:this.password
-                // };
-                this.$axios.post('/auth/login',{ 
-                    username:this.username,
-                    password:this.password
-                }).then( res=>{
+            this.$axios.post('/auth/login',{ 
+                username:this.username,
+                password:this.password
+            }).then( res=>{
+                if(res.data.code !== 200){
+                    this.$toast(res.data.message);
+                }else{
+                    
+                    this.userToken = 'Bearer ' + res.data.data.token;
+                    this.changeLogin({ Authorization: this.userToken });
+                    this.$router.push('/')
                     console.log(res)
-                //    this.$router.push({path:'/'})
-                })
-                .catch( error=>{
-            　　　　console.log("出错喽："+error);
-            　　});
-            }
+                }
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+            
         },
         scanCode(){
             this.$router.push('/register')

@@ -33,7 +33,7 @@ import setUp from '@/components/setUp'
 import inoutMoney from '@/components/inoutMoney'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -50,84 +50,126 @@ export default new Router({
     {
       path: '/seller',
       name: 'seller',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: seller
     },
     {
       path: '/myprofit',
       name: 'myprofit',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: myprofit
     },
     {
       path: '/myconcem',
       name: 'myconcem',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: myconcem
     },
     {
       path: '/myFans',
       name: 'myFans',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: myFans
     },
     {
       path: '/mynotes',
       name: 'mynotes',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: mynotes
     },
     {
-      path: '/mediainfo',
+      path: '/mediainfo/:id',
       name: 'mediainfo',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: mediainfo
     },
     {
       path: '/apply',
       name: 'applyShow',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: applyShow
     },
     {
       path: '/prizes',
       name: 'prizes',
+      meta:{
+        requireAuth: true
+      },
       component: prizes
     },
     {
       path: '/teacherSubscribe',
       name: 'teacherSubscribe',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: teacherSubscribe
     },
     {
       path: '/pushSetting',
       name: 'pushSetting',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: pushSetting
     },
     {
       path: '/cooperation',
       name: 'cooperation',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: cooperation
     },
     {
       path: '/applyManager',
       name: 'applyManager',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: applyManager
     },
     {
       path: '/release',
       name: 'release',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: release
     },
     {
       path: '/mychart',
       name: 'mychart',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: mychart
     },
     {
@@ -135,13 +177,16 @@ export default new Router({
       name: 'zhifu',
       meta:{
         tabbar: true,
-        //requireAuth: true
+        requireAuth: true
       },
       component: zhifu
     },
     {
       path: '/futuresDetails',
       name: 'futuresDetails',
+      meta:{
+        requireAuth: true
+      },
       component: futuresDetails
     },
     {
@@ -162,7 +207,10 @@ export default new Router({
     {
       path: '/applyInvestor',
       name: 'applyInvestor',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: applyInvestor
     },
     {
@@ -176,54 +224,72 @@ export default new Router({
       component: subscribes
     },
     {
-      path: '/looknotes',
+      path: '/looknotes/:id',
       name: 'looknotes',
-      meta:{tabbar: true},
+      meta:{
+        tabbar: true,
+        requireAuth: true
+      },
       component: looknotes
     },
     {
       path: '/reward',
       name: 'reward',
+      meta:{
+        requireAuth: true
+      },
       component: reward
     },
     {
       path: '/transaction',
       name: 'transaction',
+      meta:{
+        requireAuth: true
+      },
       component: transaction
     },
     {
       path: '/holdPositions',
       name: 'holdPositions',
+      meta:{
+        requireAuth: true
+      },
       component: holdPositions
     },
     {
       path: '/setUp',
       name: 'setUp',
+      meta:{
+        requireAuth: true
+      },
       component: setUp
     },
     {
       path: '/inoutMoney',
       name: 'inoutMoney',
+      meta:{
+        requireAuth: true
+      },
       component: inoutMoney
     },
   ]
 });
-
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-//      let token = localStorage.getItem('Authorization'); 
-//      if (token === null || token === '') { //判断当前的token是否存在
-//        next({
-//             path: '/login',
-//             query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-//        })
-//      } else {
-//        next();
-//      }
-//   }
-//   else {
-//       next();
-//   }
-// });
+  
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+     let token = localStorage.getItem('Authorization'); 
+     if (token === null || token === '') { //判断当前的token是否存在
+       next({
+            path: '/login',
+            query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+       })
+     } else {
+       next();
+     }
+  }
+  else {
+      next();
+  }
+});
  
-// export default router;
+export default router;

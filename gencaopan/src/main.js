@@ -4,13 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-// api url
-// import api from './request/api'
-// Vue.prototype.$api = api
-
-// import http from './request/http'
-// Vue.prototype.$http = http;
-
+import store from '@/store/index';
 // axios
 import axios from 'axios'
 Vue.prototype.$axios = axios;
@@ -58,9 +52,66 @@ Vue.config.productionTip = false
 //mock
 require('./mock/mock.js')
 
+// 请求拦截器
+axios.interceptors.request.use( 
+  config => {
+    Toast.loading({
+      mask: true,
+      message: '加载中...'
+    });
+    // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
+    // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
+    if (localStorage.getItem('Authorization')) {
+      config.headers.Authorization = localStorage.getItem('Authorization');
+    } 
+    return config; 
+  }, 
+  error => {  
+   return Promise.error(error); 
+})
+// 响应拦截
+axios.interceptors.response.use(res => {
+  // 对响应数据做处理
+  const code = res.data.code;
+  if (code === 401) {
+    Toast('请登录');
+    router.push('/login')
+    localStorage.removeItem('token')
+    return false;
+  } 
+  if (code === 5003) {
+    Toast('账号已在别处登陆，请重新登陆');
+    router.push('/login')
+    localStorage.removeItem('token')
+    return false;
+  }
+  if (code === 429) {
+    Toast('尝试次数较多，请稍后尝试');
+    return false;
+  }
+  if (code === 408){
+    Toast('请求超时');
+    return false;
+  }
+  if (code === 400){
+    Toast('请求错误');
+    return false;
+  }
+  if (code === 404){
+    Toast('请求地址错误');
+    return false;
+  }
+  return res;
+
+}, error => {
+  return Promise.reject(error); // 对响应错误做处理
+})  
+
+
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -5,50 +5,42 @@
 
 			</div> 
 			<div class="swiper-wrapper">   
-				<div class="swiper-slide"> 
+				<!-- 8 -->
+				<div class="swiper-slide" v-for="(image, index) in images" :index="index" :key="image.id"> 
 					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo1.jpg"  > 
-						<div class="swiper-ps">证券类投顾牛散将陆续入驻</div>
+						<img :src="image.img" /> 
+						<div class="swiper-ps">{{image.text}}</div>
 					</a> 
-				</div>
-				<div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo2.jpg"  > 
-						<div class="swiper-ps">【ONE-77】10个月累计收益2009%！交易五年，盈利五</div>
-					</a> 
-				</div>
-				<!-- <div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo3.jpg"  > 
-						<div class="swiper-ps">为什么跟单不能挣钱！</div>
-					</a> 
-				</div>  -->
-				<div class="swiper-slide"> 
-					<a href="javascript:;" class="swiper-pos" onClick=""> 
-						<img src="../../img/zimeiti_lunbo3.jpg"  > 
-						<div class="swiper-ps">从3万到3600万，逻辑+价值投资的实践者</div>
-					</a> 
-				</div>  
+				</div> 
+				<!-- 15 -->
 			</div>
 		</div> 
 		<div class="zimeiti">自媒体</div>
 		<div style="height:6px;background:#f2f2f2;"></div>
-		<div class="index-tab"> 
-			<div class="tabs" v-for="(image, index) in 6" :index="index" :key="image.id" @click="toDetails">
+		<div v-if='noData'>
+          暂无数据
+        </div>
+		<van-list 
+			v-model="loading"
+			:finished="finished"
+			finished-text="暂无更多数据"
+			@load="loadMore"
+			class="index-tab"> 
+			<div class="tabs" v-for="(image, index) in list" :index="index" :key="image.id" @click="toDetails">
 				<div class="media-content">  
 					<div class="media-panel"> 
 						<div class="panel-left"> 
-							<div class="left-title">傅海棠：怎样的品种可以做多，什么时候可以加仓</div> 
+							<div class="left-title">{{image.title}}</div> 
 							<div class="left-content">
-								独孤龙谷
-								<div class="left-time">2019/08/23 12:42:25</div> 
+								{{image.userName}}
+								<div class="left-time">{{image.createAt}}</div> 
 							</div> 
 						</div> 
-						<img src="../../img/1568117337170.jpg"   alt="傅海棠：怎样的品种可以做多，什么时候可以加仓" class="panel-img"> 
+						<img :src="image.cover" class="panel-img">
 					</div> 
 				</div> 
 			</div> 
-		</div>
+		</van-list>
 		<div class="fabu" @click="toFabu"><span>+</span> 发布</div>
 		<!--  -->
 	</div>
@@ -56,11 +48,31 @@
 
 <script>
 import Swiper from 'swiper';
-import '../../../dist/static/css/swiper.min.css';
+import '../../../src/common/css/swiper.min.css';
 	export default{
 		name:'ratings',
 		data(){
 			return{
+				images:[
+					{
+						img: require('../../img/zimeiti_lunbo1.jpg'),
+						text:'证券类投顾牛散将陆续入驻'
+					},
+					{
+						img: require('../../img/zimeiti_lunbo2.jpg'),
+						text:'【ONE-77】10个月累计收益2009%！交易五年，盈利五'
+					},
+					{
+						img: require('../../img/zimeiti_lunbo3.jpg'),
+						text:'从3万到3600万，逻辑+价值投资的实践者'
+					}
+				],
+				list:[],
+				finished: false,
+				loading: false,
+				page:1,
+				pageSize: 10,
+				noData:false
 				
 			}
 		},
@@ -76,12 +88,48 @@ import '../../../dist/static/css/swiper.min.css';
 			},
 			toFabu(){
 				this.$router.push({name: 'release'})
+			},
+			loadMore(){
+				setTimeout(() => {
+					
+					this.getGoodLists();
+				},1000)
+				
+			},
+			getGoodLists(){
+				if (this.noData) return
+      			this.loading = true;
+				var params = {
+					currentPage:this.page,
+					pageSize:this.pageSize
+				}
+				this.$axios.post('/article/index',params).then(res => {
+					let data = res.data.data.articles;
+					let perPage = res.data.data.meat.per_page;
+					let dataLength = data.length;
+					if(dataLength > 0){
+						this.page++;
+						this.list= this.list.concat(data);
+						if (dataLength < perPage) this.noData = true
+						console.log(dataLength)
+						console.log(perPage)
+						console.log(this.page)
+					}else{
+						this.noData = true
+					}
+					this.loading = false;
+					
+				})
+				.catch(error => {
+			　　　　console.log("出错喽："+error);
+			　　});
 			}
 		},
 		created(){
-			
+			this.getGoodLists();
 		},
 		mounted(){
+			
 			new Swiper ('.swiper-container', {
 				direction:'horizontal',
 				//播放速度
@@ -97,6 +145,7 @@ import '../../../dist/static/css/swiper.min.css';
 		　　// 这样，即使我们滑动之后， 定时器也不会被清除
 		　　autoplayDisableOnInteraction : false,
 			});
+
 		}
 
 	}
@@ -113,7 +162,7 @@ import '../../../dist/static/css/swiper.min.css';
 	}
 	.swiper-slide img{
 		width: 100%;
-		height: 100%;
+		height: 200px;
 	}
 	.swiper-pos {
 		position: relative;
@@ -163,6 +212,10 @@ import '../../../dist/static/css/swiper.min.css';
 					padding: 10px 0;
 					.left-title{
 						margin-bottom: 10px;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 2;
+						overflow: hidden;
 					}
 					.left-content{
 						font-size: 10px;
@@ -178,8 +231,8 @@ import '../../../dist/static/css/swiper.min.css';
 				}
 				.panel-img{
 					width:80px;
-					height: 70px; 
-					border: 1px solid red;
+					height: 62px; 
+					// border: 1px solid red;
 				}
 			}
 		}

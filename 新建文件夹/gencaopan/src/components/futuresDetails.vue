@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
@@ -19,7 +19,7 @@
                 </div> 
             </div> 
             <div class="superior-content">
-                <van-tabs active="b" line-height='0'>
+                <van-tabs active="b" line-height='0' background='#f6f6f6'>
                     <van-tab title="交易概况" name="a">
                         <div class="superior-con">
                             <ary></ary>
@@ -27,10 +27,10 @@
                             <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
                             <h5 class="numone">历史交易记录</h5>    
                             <div class="tradingRecord-state"> 
-                                <a class="dingyue">订 阅</a>
+                                <a class="dingyue" @click="toSubscribe">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
-                        
+                            <transaction></transaction>
                         </div> 
                     </van-tab>
                     <van-tab title="净值分析" name="b">
@@ -42,11 +42,13 @@
                                 <div>金额</div> 
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
-                            <div class="jy_count"> 
-                                <div>入金</div> 
-                                <div><font color="red">+30000</font></div> 
-                                <div>2019-10-30</div> 
-                            </div> 
+                            <inoutMoney></inoutMoney>
+                            <!-- <div class="jy_count" v-for="item in inoutList" :key="item.id">
+
+                                <div>{{item.ocname}}</div> 
+                                <div>{{item.money}}</div> 
+                                <div>{{item.dateline}}</div> 
+                            </div>  -->
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
@@ -55,9 +57,10 @@
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
                         <div class="tradingRecord-state"> 
-                            <a class="dingyue">订 阅</a>
+                            <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
+                        <holdPositions></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
                         <div class="tradingRecord-state" v-show="false"> 
@@ -65,11 +68,13 @@
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
                         <div class="tradingRecord-state"> 
-                            <a class="dingyue">订 阅</a>
+                            <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
+                        <transaction></transaction>
                     </van-tab>
                 </van-tabs>
+                <!-- <promise v-show="modePop"></promise> -->
             </div>
             <div class="tabbar"> 
                 <div class="tab">
@@ -86,6 +91,10 @@
 <script>
 import ary from './ary';
 import netWorth from './netWorth'
+import transaction from './transaction'
+import holdPositions from './holdPositions'
+import inoutMoney from './inoutMoney'
+// import promise from './promise'
 export default {
     data(){
         return{
@@ -95,7 +104,10 @@ export default {
                 backgroundSize:'100% 100%'
             },
             guanzhu:true,
-            biji:false
+            biji:false,
+            inoutList:[],
+            modePop:false,
+            id:this.$route.params.id
         }
     },
     methods:{
@@ -103,6 +115,13 @@ export default {
             this.$router.push({name: 'reward'})
         },
         guanZhu(){
+            var params = { 
+                isFollow: true,
+                followId: this.id
+            };
+            this.$axios.post('http://192.168.0.99:8080/order/subscribe',params).then((res) => {
+                
+            });
             this.guanzhu=false;
             this.biji=true;
         },
@@ -114,11 +133,19 @@ export default {
         },
         toGuanZhu(){
             this.$router.push({name: 'wechatPay',params: { id: 1}})
+        },
+        toSubscribe(){
+            this.$router.push({name: 'zhifu'})
+            // this.modePop=true;
         }
     },
     components:{
         ary,
-        netWorth
+        netWorth,
+        transaction,
+        holdPositions,
+        inoutMoney,
+        // promise
     }
 }
 </script>
@@ -174,9 +201,8 @@ export default {
 		/deep/ .van-tab--active{
 			color: red;
 		}
-	}
+    }
     .superior-content{
-        
         .superior-con{
             .numone{
                 padding: 10px;
@@ -188,7 +214,6 @@ export default {
                 width: 100%;
                 text-align: center;
                 font-size: 12px;
-            //    border-bottom: 2px solid #eee;
                 color: #666;
                 tr{
                     line-height: 25px;
@@ -210,26 +235,18 @@ export default {
                 line-height: 2.2;
                 border-radius: 5px;
             }
-            .tradingRecord-state{
-                text-align: center;
-                padding-top: 20px;
-                margin-bottom: 50px;
-                .dingyue{
-                    display: inline-block;
-                    border-radius: .5rem;
-                    width: 6rem;
-                    height: 2rem;
-                    text-shadow: none;
-                    line-height: 2rem;
-                    text-align: center;
-                    background-color: #f24848;
-                    color: #fff; 
-                }
-                .fl{
-                    font-size: 12px;
-                    color: #333;
-                }
+            .tip:after {
+                position: absolute;
+                bottom: -1.5rem;
+                left: 50%;
+                margin-left: -.750rem;
+                content: "";
+                width: 0;
+                height: 0;
+                border: solid 12px transparent;
+                border-top: solid 12px #f90;
             }
+            //241
             .jy_crj,.jy_count{
                 display: flex;
                 font-size: 13px;
@@ -267,58 +284,7 @@ export default {
                 color: #333;
             }
         }
-    
-    .toast-mask {
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: rgba(46, 44, 44, 0.4);
-        z-index: 10000;
-        width: 100%;
-        height: 100%;
-    }
-    .toast {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        z-index: 20000;
-        transform: translate(-50%, -50%);
-        width: 17.4375rem;
-        background: #fff;
-        border-radius: 0.3125rem;
-        padding: 0.3125rem;
-        box-shadow: 0 0 15px rgb(68, 67, 67);
-        .toast-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 8px 12px 12px;
-            .gao{
-                line-height: 35px;
-            }
-            input{
-                border: 1px solid #ccc;
-                width: 245px;
-                padding:8px 5px;
-                border-radius: 8px;
-                box-shadow: 0 0 3px #b3b1b1 inset;
-            }
-            input:focus{
-                box-shadow: 0 0 0 #b3b1b1 inset;
-                box-shadow: 0 0 8px #38c;
-            }
-            .toast-cancel {
-                background: #f24848;
-                padding: 12px 5px;
-                margin-top: 15px;
-                margin-bottom: 5px;
-                border-radius: 6px;
-                color: #fff;
-                width: 245px;
-                text-align: center;
-            }
-        }
-    }
+    //279
     .tabbar{
         position: fixed;
         bottom: 0;

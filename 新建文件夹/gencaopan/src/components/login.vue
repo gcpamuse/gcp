@@ -35,17 +35,24 @@ export default {
     },
     methods:{
         login(){
-            // this.$axios({
-            //     type: "post",
-            //     url: "http://xx.com/api/user/login",
-            //     params: { username: this.username, password: this.password }
-            // }).then(res => {
-            //     console.log(res);
-            //     // localStorage.setItem("token", this.username);
-            //     // this.$router.push({
-            //     // name: "goods"
-            //     // });
-            // });
+            if(this.username==""&&this.password==""){
+                this.$toast('用户名或密码不能为空！')
+            }else{
+                // var params = { 
+                //     username:this.username,
+                //     password:this.password
+                // };
+                this.$axios.post('/auth/login',{ 
+                    username:this.username,
+                    password:this.password
+                }).then( res=>{
+                    console.log(res)
+                //    this.$router.push({path:'/'})
+                })
+                .catch( error=>{
+            　　　　console.log("出错喽："+error);
+            　　});
+            }
         },
         scanCode(){
             this.$router.push('/register')
