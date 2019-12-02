@@ -37,7 +37,7 @@
         </van-cell-group> 
     </div>
     <van-radio-group class="demo-radio-group">
-        <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square"> 我已阅读并同意《跟操盘平台订阅用户服务协议》</van-checkbox></div>
+        <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square"> 我已阅读并同意《期学堂平台订阅用户服务协议》</van-checkbox></div>
     </van-radio-group>
     <van-button size="large" class="btn login" @click="Register">注册</van-button>
     <router-link to="/login" style="color:#38c;font-size:15px;float: right;margin: 12px 0;">已有账号，直接登录</router-link>
