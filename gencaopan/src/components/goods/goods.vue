@@ -141,7 +141,7 @@ import { Button } from 'vant';
 		},
 		mounted(){
 			
-			this.$http.get('/api/teacherList').then((res) => {
+			this.$http.get('http://localhost:8080/api/teacherList').then((res) => {
 				console.log(res)
 			   
 				let data = res.data.data.data;
