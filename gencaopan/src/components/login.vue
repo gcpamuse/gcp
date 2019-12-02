@@ -1,7 +1,7 @@
 <template>
 <div class="myjoin loginwarp"> 
     <div style="text-align:center;color:#ccc;"> 
-        <img src="../img/heidi_logo.png" > 
+        <img src="../img/qxt_login_logo.png" > 
         <p style="padding:10px 0 0 0 ;">汇聚操盘牛人&nbsp;带你账户翻红</p> 
     </div> 
     <van-cell-group>
