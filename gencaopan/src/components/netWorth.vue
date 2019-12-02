@@ -244,7 +244,10 @@ export default {
                 bingchart.resize();
                 chartmain.resize();
             };
-            this.$http.get("/api/majorlist").then(function(response){
+            // this.$http.get("/api/majorlist").then(function(response){
+            this.$http.get("/static/data.json").then(function(response){
+                // let ydata = response.data.data.y;
+                console.log(response.data.data)
                 let ydata = response.data.data.y;
         　　　　for(let i = 0; i < ydata.length; i++){　　　
         　　　　　　 this.data1 = ydata[i].data;

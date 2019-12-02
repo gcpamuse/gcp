@@ -16,9 +16,13 @@ export default {
         }
     },
     mounted(){
-        this.$http.get('/api/inout').then((res) => {
-			let data = res.data.data;
-            this.inoutList = data.data;
+        // this.$http.get('/api/inout').then((res) => {
+		// 	let data = res.data.data;
+        //     this.inoutList = data.data;
+        // });
+        this.$http.get('/static/data.json').then((res) => {
+            console.log(res.data)
+            this.inoutList = res.data.inout.data;
 		});
     }
 }

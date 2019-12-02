@@ -46,7 +46,8 @@ export default {
     },
     methods:{
         logdata(){
-            this.$http.get("/api/majorlist1").then(function(response){
+            // this.$http.get("/api/majorlist1").then(function(response){
+            this.$http.get("/static/gaikuang.json").then(function(response){
                 let data = response.data.data.stat;
                 this.gaishu = data.a;
                 this.tingli = data.b;
