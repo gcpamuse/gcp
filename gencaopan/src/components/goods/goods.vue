@@ -141,11 +141,11 @@ import { Button } from 'vant';
 		},
 		mounted(){
 			
-			this.$http.get('/api/teacherList').then((res) => {
+			// this.$http.get('/api/teacherList').then((res) => {
 			   
-				let data = res.data.data.data;
-   				this.list = data.data;
-			});
+			// 	let data = res.data.data.data;
+   			// 	this.list = data.data;
+			// });
 		}
 	}
 </script>
