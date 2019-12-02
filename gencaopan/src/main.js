@@ -50,7 +50,7 @@ Vue.use(List);
 Vue.config.productionTip = false
 
 //mock
-require('./mock/mock.js')
+// require('./mock/mock.js')
 
 // 请求拦截器
 axios.interceptors.request.use( 
