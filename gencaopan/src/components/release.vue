@@ -9,11 +9,18 @@
         </van-cell-group>
         <div class="item-content"> 
             <textarea v-model="content" class='content' placeholder="填写交易策略，行情分析，最少100字，建议写上买入区间，止损参考。禁止广告，恶意刷屏，如有发现，一律封号。如设备阅读收费，未付费状态下将只能查看全篇内容的10%" name="content"></textarea>        
-            <van-uploader :after-read="afterRead" :max-size="maxsize" :before-read="beforeRead" :max-count="1" v-model="fileList">
-                <img src="../img/photo.png" alt="" class="photo-submit">
-            </van-uploader> 
+            <div class="edit">
+                <div class="avatar">
+                <div class="img">
+                    <img :src="avatar" @click="setAvatar" class="photo-submit">
+                </div>
+                <input type="file" name="avatar" accept="image/gif,image/jpeg,image/jpg,image/png" style="display:none" @change="changeImage($event)" ref="avatarInput">
+                </div>
+                <div class="up_but">
+                    <div class="but" @click="edit">确认添加</div>
+                </div>
+            </div>
         </div>
-        <!-- <van-uploader :after-read="afterRead" />  -->
         <van-cell-group class="group">
             <van-switch-cell v-model="checked" title="是否收费" active-color="#f42241" />
         </van-cell-group>
@@ -47,34 +54,11 @@ export default {
             check: true,
             fileList: [],
             content:"",
-            maxsize: 4096 * 1024
+            maxsize: 4096 * 1024,
+            avatar:require('../img/photo.png')
         }
     },
     methods: {
-        afterRead(file) {
-            // 此时可以自行将文件上传至服务器
-            // console.log(file);
-            var params = { 
-                file:file.content
-            };
-            this.$axios.post('article/upload',params).then( res=>{
-                console.log(res)
-            })
-            .catch( error=>{
-        　　　　console.log("出错喽："+error);
-        　　});
-        },
-        beforeRead(file) {
-            if (file.type !== 'image/jpeg') {
-                if(file.type !== 'image/png'){
-                    if(file.type !== 'image/gif'){
-                        this.$toast.fail('请上传正确的图片格式');
-                        return false;
-                    }
-                }
-            }
-            return true;
-        },
         release(){
             if(this.message==""){
                 this.$toast('请输入观点标题');
@@ -84,7 +68,7 @@ export default {
                 this.$toast('填写内容不能为空！');
                 return false;
             }
-            if(this.fileList==""){
+            if(this.avatar==""){
                 this.$toast('请选择封面');
                 return false;
             }
@@ -97,7 +81,7 @@ export default {
             var params = { 
                 title:this.message,
                 content:this.content,
-                cover:this.fileList,
+                cover:this.avatar,
                 amount:this.money,
                 isContentCover:this.check
             };
@@ -107,6 +91,32 @@ export default {
             .catch( error=>{
         　　　　console.log("出错喽："+error);
         　　});
+        },
+        edit() {// 修改头像
+            if (this.$refs.avatarInput.files.length !== 0) {
+                var image = new FormData()
+                image.append('file', this.$refs.avatarInput.files[0])
+                this.$axios.post('/article/upload', image, {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }).then(res=>{
+                    console.log(res.data)
+                    this.avatar = "/api"+ res.data.data.fileName;
+                })
+            }
+        },
+        setAvatar() {
+            this.$refs.avatarInput.click()
+        },
+        changeImage(e) {
+            var file = e.target.files[0]
+            var reader = new FileReader()
+            var that = this
+            reader.readAsDataURL(file)
+            reader.onload = function(e) {
+                that.avatar = this.result
+            }
         }
     }
 }
@@ -146,7 +156,19 @@ export default {
         }
         .photo-submit{
             width: 60px; 
-            margin: 0 10px 10px 0;       
+            margin: 0 10px 0 0;       
+        }
+        .up_but{
+            width: 92%;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            .but{
+                display: inline-block;
+                width: 50px;
+                font-size: 12px;
+                color: cornflowerblue;
+                text-align: center;
+            }
         }
     }
 </style>
