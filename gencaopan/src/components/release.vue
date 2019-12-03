@@ -102,7 +102,7 @@ export default {
                     }
                 }).then(res=>{
                     console.log(res.data)
-                    this.avatar = "/api"+ res.data.data.fileName;
+                    this.avatar = res.data.data.fileName;
                 })
             }
         },
