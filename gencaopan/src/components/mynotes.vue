@@ -2,7 +2,7 @@
   <div>
       <div class="heard" :style="bgImg">
           <img class="inner-avatar" src="../img/default_middle.png"/> 
-          <div class="inner-name">{{userName}}</div> 
+          <div class="inner-name">{{mynotes.userName}}</div> 
           <div class="top">计划你的交易，交易你的计划</div>
           <div class="middle">
               <div class="guanzhu" @click="guanZhu">
@@ -11,7 +11,7 @@
           </div>
           <div class="bottom">
               <div class="kuang" @click="wenZhang">
-                    <div class="info-num">{{articleCount}}</div> 
+                    <div class="info-num">{{mynotes.articleCount}}</div> 
                     <div class="info-title">文章</div>
               </div>
               <div class="kuang" @click="shiPan">
@@ -19,7 +19,7 @@
                     <div class="info-title">实盘</div> 
               </div>
               <div class="ka">
-                    <div class="info-num">{{fansCount}}</div> 
+                    <div class="info-num">{{mynotes.fansCount}}</div> 
                     <div class="info-title">粉丝</div>
               </div>
           </div>
@@ -33,7 +33,6 @@
                     <div class="left-time">{{item.createAt}}</div>
                 </div> 
             </div> 
-            <!-- <img src="../img/1568117337170.jpg" alt="" class="panel-img">  -->
             <img :src="'/api'+item.cover" alt="" class="panel-img"> 
         </div>  
       </div> 
@@ -87,12 +86,8 @@ export default {
             traderList:true,
             shipan:false,
             id:this.$route.query.id,
-            articleCount:0,
-            fansCount:0,
-            isFollow:false,
-            userName:"",
-            articleList: [],
-            firmList:[]
+            mynotes:{},
+            articleList:[]
         }
     }, 
     created(){
@@ -124,26 +119,16 @@ export default {
                 id:this.id
             };
             this.$axios.post('/article/person',params).then( res=>{
-                console.log(res)
-                this.userName=res.data.data.userName;
-                this.articleCount=res.data.data.articleCount;
-                this.isFollow=res.data.data.isFollow;
-                this.fansCount=res.data.data.fansCount;
+                this.mynotes = res.data.data;
                 this.articleList=res.data.data.articleList;
-                this.firmList=res.data.data.firmList;
+                console.log(res)
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
         　　});
         }
     },
-    // mounted(){
-    //     this.$axios.post('/article/person').then(function(res){
-    //        console.log(res.data)
-    //     },function(res){
-    //         alert("请求失败");
-    //     })
-    // }
+  
 }
 </script>
 
