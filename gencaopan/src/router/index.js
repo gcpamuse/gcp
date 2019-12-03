@@ -34,7 +34,7 @@ import inoutMoney from '@/components/inoutMoney'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
