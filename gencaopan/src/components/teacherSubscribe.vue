@@ -55,13 +55,11 @@ export default {
     },
     mounted(){
         let that =this;
-        // that.$http.get('/api/teacherSubscribe').then((res) => {
-        //     let data = res.data.data.data
-        //     this.teacherList = data;
-        //     if (this.teacherList.length == 0) this.anyOne = true
-        // });
         that.$axios.post('user/subscribes').then(res=>{
-           console.log(res.data)
+           
+           this.teacherList = res.data.data;
+           if (this.teacherList.length == 0) this.anyOne = true
+           console.log(res.data.data)
         })
         .catch(error=>{
             console.log("出错喽:"+error);
