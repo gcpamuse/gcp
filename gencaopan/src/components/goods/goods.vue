@@ -122,8 +122,10 @@ import { Button } from 'vant';
 				console.log(params)
 				this.$axios.post('/order/subscribe',params).then((res) => {
 					console.log(res)
-					if(res.data.code!==200) return
-					this.$router.push({name: 'zhifu'})
+					if(res){
+						this.$router.push({name: 'zhifu'})
+					}
+					
 				});
 			},
 			toDetails(){
