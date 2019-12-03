@@ -4,27 +4,18 @@
             <van-icon name="left" slot="left" style="font-size:16px;"/>
         </van-nav-bar>
         <van-cell-group>
-            <!-- <van-cell title="头像" class="cell_middle">
-                        <van-uploader :afterRead="avatarAfterRead">
-                            <div class="user_avatar_upload">
-                                <img :src="avatar" alt="你的头像" v-if="avatar">
-                                <van-icon name="upload-image" v-else></van-icon>
-                            </div>
-                        </van-uploader>
-                    </van-cell> -->
             <van-cell title="头像" class="cell_middle">
-            <div class="edit">
-                <div class="avatar">
-                <div class="img">
-                    <img :src="avatar" @click="setAvatar">
+                <div class="edit">
+                    <div class="avatar">
+                    <div class="img">
+                        <img :src="avatar" @click="setAvatar">
+                    </div>
+                    <input type="file" name="avatar" accept="image/gif,image/jpeg,image/jpg,image/png" style="display:none" @change="changeImage($event)" ref="avatarInput">
+                    </div>
+                    <div class="up_but">
+                        <div class="but" @click="edit">确认修改</div>
+                    </div>
                 </div>
-                <input type="file" name="avatar" accept="image/gif,image/jpeg,image/jpg,image/png" style="display:none" @change="changeImage($event)" ref="avatarInput">
-                </div>
-                <!-- <button type="button" @click="edit">确认修改</button> -->
-                <div class="up_but">
-                    <div class="but" @click="edit">确认修改</div>
-                </div>
-            </div>
             </van-cell>
             <van-cell title="昵称" @click="nameShow = true" :value="name" isLink />
             <van-cell title="退出登录" @click="Logout" isLink />
@@ -65,23 +56,6 @@ export default {
         goBack(){
             this.$router.go(-1)
         },
-        // avatarAfterRead(file) {
-        //     console.log(file)
-        //     this.avatar = file.content;
-        //     var params = { 
-        //         // avatar:file,
-        //         //  avatar:file.content,
-        //          file: file
-        //     };
-        //     // let params = new FormData();
-        //     // params.append("file", file);
-        //     this.$axios.post('/article/upload',params).then((res) => {
-        //         console.log(res)
-        //     })
-        //     .catch(error => {
-        //   　　　　console.log("出错喽："+error);
-        //   　});
-        // },
         nameBeforeClose(action, done) {
             if (action === 'confirm') {
                 setTimeout(done, 1000);
@@ -97,8 +71,7 @@ export default {
            
             
         },
-        edit() {
-        // 修改了头像
+        edit() {// 修改头像
             if (this.$refs.avatarInput.files.length !== 0) {
                 var image = new FormData()
                 image.append('file', this.$refs.avatarInput.files[0])
