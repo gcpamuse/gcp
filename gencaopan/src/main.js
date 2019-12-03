@@ -73,6 +73,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(res => {
   // 对响应数据做处理
   const code = res.data.code;
+  const msg =  res.data.message
   if (code === 401) {
     Toast('请登录');
     router.push('/login')
@@ -94,7 +95,7 @@ axios.interceptors.response.use(res => {
     return false;
   }
   if (code === 400){
-    Toast('请求错误');
+    Toast(msg);
     return false;
   }
   if (code === 404){
