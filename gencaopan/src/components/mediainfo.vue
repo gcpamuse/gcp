@@ -5,30 +5,30 @@
                 <div class="list">
                     <div class="imgs" @click="toLookNotes"><img src="../img/132.jpg" class="img"></div>
                     <div class="count" @click="toLookNotes">
-                        <p v-html="userName"></p>
-                        <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
+                        <p v-html="userList.userName"></p>
+                        <p class="count_c"><span>{{userList.articleSize}}</span>篇笔记&nbsp;被打赏<span>0元</span></p>
                     </div>
                     <div class="guanzhu">
-                        <div class="m-concern" @click="followBtn" :style="{borderColor:bg_color, color: ft_color,}">{{contet}}</div> 
+                        <div class="m-concern" @click="followBtn" :style="{borderColor:bg_color, color: ft_color,}">{{contets}}</div> 
                     </div>
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
                 <div class="note-content"> 
                     <div class="media-info-box"> 
-                        <div class="media-info-title" v-html="title"></div> 
-                        <div class="media-info-mt"><span class="f-r">{{createAt}}</span></div> 
+                        <div class="media-info-title" v-html="media.title"></div> 
+                        <div class="media-info-mt"><span class="f-r">{{media.createAt}}</span></div> 
                     </div>
                     <div class="media-info-content contentArea" style="font-size: 16px;line-height: 1.5;">      
-                       <p v-html="content"></p>
+                       <p v-html="media.content"></p>
                         <div class="imgs">
-                            <img :src="'/api'+cover" class="img">
+                            <img :src="'/api'+ media.cover" class="img">
                         </div>
                     </div>
-                    <div v-show="amount>0&&isPay" class="media-share j-share_click">
+                    <div v-show="media.amount>0&&media.isPay" class="media-share j-share_click">
                         <img src="../img/share2.png" alt="分享跟操盘" @click="share_show = true">
                     </div>
                     <div class="pay-content"> 
-                        <div v-show="amount>0&&isPay" class="pay-panel"> 
+                        <div v-show="media.amount>0&&media.isPay" class="pay-panel"> 
                             <div class="pay-box j-red_click praiseBtn" v-for="(item,index) in list" :key="item.id" :index="index" @click="toDaShang(item,index)">
                                 <img :src="item.img" alt="" class="pay-img"> 
                                 <div class="pay-num"> 
@@ -39,11 +39,11 @@
 
                             </div>
                         </div> 
-                        <div v-if="amount>0&&isPay">
+                        <div v-if="media.amount>0&&media.isPay">
                             <div class="pay-button" @click="rewardDaShang" money="6.66">立即打赏</div> 
                             <div class="pay_button" @click="toast_show = true">留言评论</div>
                         </div>
-                        <div v-else class="pay_button">支付{{amount}}</div>
+                        <div v-else class="pay_button">支付{{media.amount}}</div>
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
@@ -53,7 +53,7 @@
                         <span class="read-title-text">750人已阅</span> 
                     </div>
                 </div>
-                <div v-show="amount>0&&isPay" class="box"> 
+                <div v-show="media.amount>0&&media.isPay" class="box"> 
                     <div class="imgs"><img src="../img/900500.jpg" alt="" class="img"></div> 
                     <div class="xushu">
                         <p>hahaha</p>
@@ -126,7 +126,7 @@ export default {
             toast_control: false,
             toast_show:false,
             liked:false,
-            contet:'+关注',
+            contets:'+关注',
             bg_color:"#f42241",
             ft_color:"#f42241",
             hello:'6.66',
@@ -171,15 +171,8 @@ export default {
             img:'',
             money:6.66,
             tupian:'/static/img/icon-1.png',
-            title:"",
-            cover:"",
-            content:"",
-            amount:'',
-            userName:"",
-            articleSize:'',
-            createAt:"",
-            isPay:false,
-            usid:0,
+            media:{},
+            userList:{},
             id:this.$route.params.id
         }
     },
@@ -197,21 +190,10 @@ export default {
             this.toast_show=false;
         },
         followBtn(){
-            // this.liked=!this.liked;
-            // if(this.liked){
-            //     this.contet="已关注";
-            //     this.bg_color="#ccc";
-            //     this.ft_color="#ccc";
-            // }
-            // else{
-            //     this.contet="+关注";
-            //     this.bg_color="#f42241";
-            //     this.ft_color="#f42241";
-            // }
             if(!this.liked){
                 var params = { 
                     isFollow: true,
-                    followId: this.usid
+                    followId: this.media.id
                 };
                 console.log(params)
                 this.$axios.post('user/follow',params).then( res=>{
@@ -243,7 +225,7 @@ export default {
             this.toast_control = true;
         },
         toLookNotes(){
-            this.$router.push({name: 'looknotes',params: { id: this.usid}})
+            this.$router.push({name: 'looknotes',params: { id: this.media.id}})
         },
         initdata(){
             // var param = {
@@ -252,16 +234,8 @@ export default {
             console.log(this.id+"--------")
             this.$axios.post('/article/info', {id: this.id}).then(res=>{
                 console.log(res.data.data)
-                this.title = res.data.data.title;
-                this.cover = res.data.data.cover;
-                this.content = res.data.data.content;
-                this.amount = res.data.data.amount;
-                this.userName = res.data.data.user.userName;
-                this.articleSize = res.data.data.user.articleSize;
-                this.liked = res.data.data.user.isFollow;
-                this.createAt = res.data.data.createAt;
-                this.isPay = res.data.data.isPay;
-                this.usid = res.data.data.id;
+                this.media = res.data.data;
+                this.userList = res.data.data.user;    
             })
             .catch( error=>{
         　　　　console.log("出错喽："+error);
