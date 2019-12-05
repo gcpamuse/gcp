@@ -55,7 +55,7 @@ export default {
     methods:{
         weChatPayment(){
             if(!this.checkboxShape){
-                // alert('您未阅读并同意私募投资网协议')
+                // alert('您未阅读并同意私募投资网协议');
                 this.$toast('您未阅读并同意私募投资网协议');
             }else{
                 
