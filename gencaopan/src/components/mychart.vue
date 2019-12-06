@@ -15,7 +15,7 @@
                 </div>
                 <div class="quxian">
                     <a class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
-                    <a class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
+                    <a style="display:none;" class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
                 </div> 
             </div> 
             <!-- 20 -->
