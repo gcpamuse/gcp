@@ -2,7 +2,10 @@
  <div class="push-set"> 
     <h2>推送设置</h2> 
     <ul>    
-
+        <li>
+            <span class="title">接收【宁静致远】的下单的提醒</span> 
+            <div class="onoff"><van-switch v-model="checked" size="24px" /></div>
+        </li>
     </ul> 
 </div> 
 	
@@ -11,7 +14,11 @@
 <script>
 
 export default {
-
+    data() {
+        return {
+            checked: true
+        };
+    }
 }
 </script>
 
@@ -33,10 +40,19 @@ export default {
     padding:10px; 
 }
 
+.push-set ul li{
+    border-bottom: dashed 1px #ddd;
+    display: flex;
+    vertical-align: top;
+}
+
 .push-set ul li span{ 
-    display: block; 
-    width: 60%; 
+    // display: inline-block; 
+    width: 80%; 
     line-height: 48px; 
     font-size:14px; 
+}
+.onoff{
+    padding-top: 10px;
 }
 </style>

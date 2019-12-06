@@ -29,7 +29,7 @@ import './style.css'
 
 
 //Vant
-import {Button ,Tabbar,TabbarItem,Tab,Tabs,Cell,CellGroup,Icon,Field,SwitchCell,Uploader,Dialog,RadioGroup,Radio,Checkbox,Toast,Popup,NavBar,List,} from 'vant'
+import {Button ,Tabbar,TabbarItem,Tab,Tabs,Cell,CellGroup,Icon,Field,SwitchCell,Uploader,Dialog,RadioGroup,Radio,Checkbox,Toast,Popup,NavBar,List,Switch} from 'vant'
 Vue.use(Button);
 Vue.use(Tabbar).use(TabbarItem);
 Vue.use(Tab).use(Tabs);
@@ -46,6 +46,7 @@ Vue.use(Toast);
 Vue.use(Popup);
 Vue.use(NavBar);
 Vue.use(List);
+Vue.use(Switch);
 
 Vue.config.productionTip = false
 
