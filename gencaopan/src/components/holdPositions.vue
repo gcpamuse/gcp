@@ -4,21 +4,21 @@
         <thead> 
             <tr> 
                 <th>合约</th> 
-                <th>买持仓</th> 
-                <th>买入价</th>
-                <th>卖持仓</th> 
-                <th>卖出价</th> 
-                <th>成交时间</th>
+                <th>多空</th> 
+                <th>数量</th>
+                <th>均价</th> 
+                <th>盈亏</th> 
+                <th>日期</th>
             </tr> 
         </thead> 
         <tbody>
             <tr>
-                <td>合计</td>
-                <td>0</td>
-                <td>2300.00</td>
-                <td>0</td>
-                <td>0.00</td>
-                <td>2019-11-1</td>
+                <td>铜2005</td>
+                <td>空单</td>
+                <td>1</td>
+                <td>5840</td>
+                <td>60</td>
+                <td>2019-12-06</td>
             </tr>
         </tbody> 
     </table>

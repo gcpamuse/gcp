@@ -5,23 +5,21 @@
             <thead> 
                 <tr> 
                     <th>合约</th> 
-                    <th>买/卖</th> 
-                    <th>成交价</th>
-                    <th>成交额</th> 
-                    <th>开/平</th> 
-                    <th>平仓盈亏</th>  
-                    <th>成交时间</th>
+                    <th>时间</th> 
+                    <th>方向</th>
+                    <th>手数</th> 
+                    <th>价格</th> 
+                    <th>资金占比</th>  
                 </tr> 
             </thead> 
             <tbody>
                 <tr>
-                    <td>合计</td>
-                    <td>买</td>
-                    <td>2300.00</td>
-                    <td>30000.00</td>
-                    <td>开</td>
-                    <td>1200.00</td>
-                    <td>2019-11-1</td>
+                    <td>铜 2005</td>
+                    <td>11/06 14:50</td>
+                    <td>买平</td>
+                    <td>1</td>
+                    <td>5826</td>
+                    <td>--</td>
                 </tr>
             </tbody> 
         </table>
