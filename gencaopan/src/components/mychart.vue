@@ -15,36 +15,32 @@
                 </div>
                 <div class="quxian">
                     <a class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                    <a class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
                 </div> 
             </div> 
             <!-- 20 -->
-                <van-popup v-model="toast_control"> 
+            <van-popup v-model="toast_control"> 
                 <div class="toast-container"> 
-                    <!-- <div style="min-width:256px">  -->
-                        <div> 
-                            <div class="gao">账户:</div> 
-                            <!-- <input name="zhanghu" type="text" value="" placeholder="期货保证金监控中心账户">  -->
-                            <van-field
-                                v-model="username"
-                                placeholder="期货保证金监控中心账户"
-                                class="bor"
-                            />
-                        </div> 
-                        <div> 
-                            <div class="gao">密码:</div> 
-                            <!-- <input name="password" type="password" value="" placeholder="期货保证金监控中心密码">  -->
-                            <van-field
-                                v-model="password"
-                                type="password"
-                                placeholder="期货保证金监控中心密码"
-                                class="bor"
-                            />
-                        </div> 
-                        <!-- <a id="makeChart" href="javascript:;" class="user-defined-btn" data-role="button" data-ajax="false" role="button">提交</a>  -->
-                            <div class="toast-cancel" @click="submit">提交</div>
-                    <!-- </div>  -->
+                    <div> 
+                        <div class="gao">账户:</div> 
+                        <van-field
+                            v-model="username"
+                            placeholder="期货保证金监控中心账户"
+                            class="bor"
+                        />
+                    </div> 
+                    <div> 
+                        <div class="gao">密码:</div> 
+                        <van-field
+                            v-model="password"
+                            type="password"
+                            placeholder="期货保证金监控中心密码"
+                            class="bor"
+                        />
+                    </div> 
+                    <div class="toast-cancel" @click="submit">提交</div>
                 </div>
-                </van-popup>  
+            </van-popup>  
             <!-- 48 -->
             <ul class="superior-nav fix"> 
                 <li class="active" @click="toJiaoYi" :style="{color:zi_color}">交易概况</li> 
@@ -57,6 +53,37 @@
                 <netWorth v-if="xshi"></netWorth>
                 
             </div> 
+            <van-popup v-model="control"> 
+                <div class="toast-container"> 
+                    <div> 
+                        <div class="gao">期货公司:</div> 
+                        <div class="option">
+                        <select class="select"  v-model="selected">
+                            <option value="">请选择开户公司</option> 
+                            <option :value="item.statusId" v-for="(item,index) in statusArr" :key="item.id" :index="index">{{item.statusVal}}</option>
+                        </select>
+                        </div>
+                    </div> 
+                    <div> 
+                        <div class="gao">交易账户:</div> 
+                        <van-field
+                            v-model="username"
+                            placeholder="请输入交易账户"
+                            class="bor"
+                        />
+                    </div> 
+                    <div> 
+                        <div class="gao">交易密码:</div> 
+                        <van-field
+                            v-model="password"
+                            type="password"
+                            placeholder="请输入交易密码"
+                            class="bor"
+                        />
+                    </div> 
+                    <div class="toast-cancel" @click="submit">提交</div>
+                </div>
+            </van-popup>  
         </div> 
     </div>
     
@@ -91,7 +118,27 @@ export default {
             username:'',
             password:'',
             zi_color:"#f24848",
-            ziy_color:"#666"
+            ziy_color:"#666",
+            control: false,
+            statusArr:[
+                {
+                    statusId:'0',
+                    statusVal:'请选择'
+                },
+                {
+                    statusId:'1',
+                    statusVal:'未处理'
+                },
+                {
+                    statusId:'2',
+                    statusVal:'处理中'
+                },
+                {
+                    statusId:'3',
+                    statusVal:'处理完成'
+                },
+            ],
+            selected:''
         }
     },
     components:{
@@ -120,6 +167,8 @@ export default {
                 this.$toast('密码不能为空！');
                 return false;
             }
+            //此处放接口
+
         }
     }
 }
@@ -200,24 +249,13 @@ export default {
         background-color: #252525;
     }
     .toast-container {
-        position: relative;
+        // position: relative;
         //204
         .gao{
             line-height: 35px;
         }
         .bor{
             border: 1px solid #ccc;
-        }
-        input{
-            border: 1px solid #ccc;
-            width: 245px;
-            // padding:8px 5px;
-            border-radius: 8px;
-            box-shadow: 0 0 3px #b3b1b1 inset;
-        }
-        input:focus{
-            box-shadow: 0 0 0 #b3b1b1 inset;
-            box-shadow: 0 0 8px #38c;
         }
         .toast-cancel {
             background: #f24848;
@@ -229,12 +267,51 @@ export default {
             width: 245px;
             text-align: center;
         }
+        .option{
+            width: 255px;
+            height: 38px;
+            position: relative;
+        }
+        .option select{
+            // border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
+            text-align: center;
+            /*清除select聚焦时候的边框颜色*/
+            outline: none;
+            /*将select的宽高等于div的宽高*/
+            width: 100%;
+            height: 38px;
+            line-height: 38px;
+            /*隐藏select的下拉图标*/
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            /*通过padding-left的值让文字居中*/
+            padding-left: 20px;
+        }
+        /*使用伪类给select添加自己想用的图标*/
+        .option:after{
+            content: "";
+            width: 16px;
+            height: 16px;
+            background: url(../img/check_r.png) no-repeat center;
+            /*通过定位将图标放在合适的位置*/
+            position: absolute;
+            right: 20px;
+            top: 30%;
+            /*给自定义的图标实现点击下来功能*/
+            pointer-events: none;
+        }
+        .option select option{
+            text-align: center;
+        }
     }
     //233
     .van-cell {
         width: 100%;
         border-radius: 5px;
         padding: 6px 16px;
-        box-shadow: 0 0 3px #b3b1b1 inset;
+        // box-shadow: 0 0 3px #b3b1b1 inset;
     }
 </style>
