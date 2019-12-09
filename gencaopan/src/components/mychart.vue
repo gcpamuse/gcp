@@ -14,8 +14,8 @@
                     </div> 
                 </div>
                 <div class="quxian">
-                    <a class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
-                    <a style="display:none;" class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
+                    <a style="display:none;" class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                    <a class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
                 </div> 
             </div> 
             <!-- 20 -->
@@ -57,11 +57,18 @@
                 <div class="toast-container"> 
                     <div> 
                         <div class="gao">期货公司:</div> 
-                        <div class="option">
+                        <!-- <div class="option">
                         <select class="select"  v-model="selected">
                             <option value="">请选择开户公司</option> 
                             <option :value="item.statusId" v-for="(item,index) in statusArr" :key="item.id" :index="index">{{item.statusVal}}</option>
                         </select>
+                        </div> -->
+                        <div class="option1" @click="showPopup">
+                            <!-- <div> -->
+                                <span>{{selectName}}</span>
+                                <van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
+                            <!-- </div> -->
+                            <!-- <v-icon></v-icon> -->
                         </div>
                     </div> 
                     <div> 
@@ -82,6 +89,16 @@
                         />
                     </div> 
                     <div class="toast-cancel" @click="submit">提交</div>
+                </div>
+            </van-popup>
+            <van-popup v-model="show">
+                <!-- <van-radio-group v-model="radio" v-for="(item,index) in statusArr" :key="item.id" :index="index">
+                    <div>
+                    <van-radio name="item.statusId">{{item.statusVal}}</van-radio>
+                    </div>
+                </van-radio-group> -->
+                <div v-for="(item,index) in statusArr" :key="item.id" :index="index">
+                    <div :value="item.statusId" @click="opselect(item)">{{item.statusVal}}</div>
                 </div>
             </van-popup>  
         </div> 
@@ -122,23 +139,42 @@ export default {
             control: false,
             statusArr:[
                 {
-                    statusId:'0',
+                    statusId:0,
                     statusVal:'请选择'
                 },
                 {
-                    statusId:'1',
+                    statusId:1,
                     statusVal:'未处理'
                 },
                 {
-                    statusId:'2',
+                    statusId:2,
                     statusVal:'处理中'
                 },
                 {
-                    statusId:'3',
+                    statusId:3,
+                    statusVal:'处理完成'
+                },
+                {
+                    statusId:4,
+                    statusVal:'请选择'
+                },
+                {
+                    statusId:5,
+                    statusVal:'未处理'
+                },
+                {
+                    statusId:6,
+                    statusVal:'处理中'
+                },
+                {
+                    statusId:7,
                     statusVal:'处理完成'
                 },
             ],
-            selected:''
+            selected:'',
+            show: false,
+            radio: '1',
+            selectName:"请选择开户公司"
         }
     },
     components:{
@@ -169,6 +205,13 @@ export default {
             }
             //此处放接口
 
+        },
+        showPopup() {
+            this.show = true;
+        },
+        opselect(im){
+            this.selectName = im.statusVal;
+            this.show = false;
         }
     }
 }
@@ -266,6 +309,15 @@ export default {
             color: #fff;
             width: 245px;
             text-align: center;
+        }
+        .option1{
+            width: 255px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            background-color: #f2f2f2;
         }
         .option{
             width: 255px;
