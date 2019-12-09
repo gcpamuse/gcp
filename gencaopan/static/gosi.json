@@ -1,10 +1,6 @@
 {
 	"statusArr":[
         {
-            "statusId":0,
-            "statusVal":"请选择开户公司"
-        },
-        {
             "statusId":1,
             "statusVal":"[A]安信期货"
         },
