@@ -67,7 +67,7 @@
                     <div> 
                         <div class="gao">交易账户:</div> 
                         <van-field
-                            v-model="username"
+                            v-model="account"
                             placeholder="请输入交易账户"
                             class="bor"
                         />
@@ -75,7 +75,7 @@
                     <div> 
                         <div class="gao">交易密码:</div> 
                         <van-field
-                            v-model="password"
+                            v-model="tpassword"
                             type="password"
                             placeholder="请输入交易密码"
                             class="bor"
@@ -131,7 +131,9 @@ export default {
             show: false,
             radio: '1',
             selectName:"请选择开户公司",
-            generate:false
+            generate:false,
+            account:"",
+            tpassword:""
         }
     },
     components:{
