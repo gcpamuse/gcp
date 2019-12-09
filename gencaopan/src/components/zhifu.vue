@@ -15,6 +15,9 @@
             <div class="gender-set"><van-checkbox v-model="checkboxShape" shape="square">接受并同意《<em style="color:#38c;font-size: 12px;">跟操盘平台订阅用户服务协议</em>》</van-checkbox></div>
         </van-radio-group>
         <van-button size="large" class="wechatbtn" @click="weChatPayment">微信支付</van-button>
+        <van-button size="large" class="wechatbtn1" @click="toChatPayment">
+           去分享 当月每邀请5位好友注册可免费订阅一周
+        </van-button>
         <div class="newtequan"> 
             <div class="newtequan_t"><span>会员特权</span></div> 
             <div class="newtequan_b"> 
@@ -60,6 +63,9 @@ export default {
             }else{
                 
             }
+        },
+        toChatPayment(){
+            this.$router.push({name: 'prizes'})
         }
     }
 }
@@ -116,9 +122,19 @@ export default {
     width: 100%;
     height: 45px;
     line-height: 45px;
-    background-color:#f24848;;
+    background-color:#f24848;
     border-radius:5px;
     color: #fff;
+    margin-top: 20px;
+}
+.wechatbtn1{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color:rgb(64, 146, 64);
+    border-radius:5px;
+    color: #fff;
+    font-size: 14px;
     margin-top: 20px;
 }
 .newtequan{
