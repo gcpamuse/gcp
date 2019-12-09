@@ -147,3 +147,14 @@
 .van-icon-upload-image:before {
   content: "\e945";
 }
+.van-icon-checked:before {
+  content: "\e946";
+  color: #007fff;
+}
+.van-icon-check-1:before {
+  content: "\e948";
+}
+.van-icon-success1:before {
+  content: "\e93a";
+  color: #8a8a8a;
+}

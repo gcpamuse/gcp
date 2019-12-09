@@ -65,6 +65,7 @@
                         </div> -->
                         <div class="option1" @click="showPopup">
                             <!-- <div> -->
+                                <input type="hidden" v-model="selectName">
                                 <span>{{selectName}}</span>
                                 <van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
                             <!-- </div> -->
@@ -91,13 +92,13 @@
                     <div class="toast-cancel" @click="submit">提交</div>
                 </div>
             </van-popup>
-            <van-popup v-model="show">
+            <van-popup v-model="show" class="pop">
                 <!-- <van-radio-group v-model="radio" v-for="(item,index) in statusArr" :key="item.id" :index="index">
                     <div>
                     <van-radio name="item.statusId">{{item.statusVal}}</van-radio>
                     </div>
                 </van-radio-group> -->
-                <div v-for="(item,index) in statusArr" :key="item.id" :index="index">
+                <div class="option_list" v-for="(item,index) in statusArr" :key="item.id" :index="index">
                     <div :value="item.statusId" @click="opselect(item)">{{item.statusVal}}</div>
                 </div>
             </van-popup>  
@@ -137,40 +138,7 @@ export default {
             zi_color:"#f24848",
             ziy_color:"#666",
             control: false,
-            statusArr:[
-                {
-                    statusId:0,
-                    statusVal:'请选择'
-                },
-                {
-                    statusId:1,
-                    statusVal:'未处理'
-                },
-                {
-                    statusId:2,
-                    statusVal:'处理中'
-                },
-                {
-                    statusId:3,
-                    statusVal:'处理完成'
-                },
-                {
-                    statusId:4,
-                    statusVal:'请选择'
-                },
-                {
-                    statusId:5,
-                    statusVal:'未处理'
-                },
-                {
-                    statusId:6,
-                    statusVal:'处理中'
-                },
-                {
-                    statusId:7,
-                    statusVal:'处理完成'
-                },
-            ],
+            statusArr:[],
             selected:'',
             show: false,
             radio: '1',
@@ -181,7 +149,16 @@ export default {
         ary,
         netWorth
     },
+    created(){
+        this.initStatusArr()
+    },
     methods:{
+        initStatusArr(){
+            this.$http.get('/static/gosi.json').then((res) => {
+                console.log(res.data);
+                this.statusArr = res.data.statusArr;
+			});
+        },
         toJiaoYi(){
             this.xianshi=true;
             this.xshi=false;
@@ -365,5 +342,13 @@ export default {
         border-radius: 5px;
         padding: 6px 16px;
         // box-shadow: 0 0 3px #b3b1b1 inset;
+    }
+    .pop{
+        height: 300px;
+        width: 240px;
+        padding: 25px;
+        .option_list{
+            line-height: 30px;
+        }
     }
 </style>
