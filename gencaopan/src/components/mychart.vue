@@ -170,6 +170,7 @@ export default {
                 return false;
             }
             //此处放接口
+            this.toast_control = false;
             this.generate = true;
         },
         showPopup() {
