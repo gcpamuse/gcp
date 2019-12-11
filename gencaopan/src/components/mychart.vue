@@ -53,7 +53,7 @@
                 <netWorth v-if="xshi"></netWorth>
                 
             </div> 
-            <van-popup v-model="control"> 
+            <van-popup v-model="control" class="popu"> 
                 <div class="toast-container"> 
                     <div> 
                         <div class="gao">期货公司:</div> 
@@ -280,6 +280,7 @@ export default {
             text-align: center;
         }
         .option1{
+            position: relative;
             width: 255px;
             height: 35px;
             line-height: 35px;
@@ -287,6 +288,10 @@ export default {
             text-align: center;
             border: 1px solid #ccc;
             background-color: #ddd;
+            .van-icon {
+                position: absolute;
+                right: 15px;
+            }
         }
         //287
     }
@@ -301,6 +306,7 @@ export default {
         height: 300px;
         width: 240px;
         padding: 25px;
+        border-radius: 0;
         .option_list{
             line-height: 30px;
         }
