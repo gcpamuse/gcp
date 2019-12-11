@@ -146,7 +146,7 @@ export default {
     methods:{
         initStatusArr(){
             this.$http.get('/static/gosi.json').then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.statusArr = res.data.statusArr;
 			});
         },
