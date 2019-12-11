@@ -193,11 +193,11 @@ export default {
                 this.$toast('您还未选择开户公司！');
                 return false;
             }
-            if(this.username == ''){
+            if(this.account == ''){
                 this.$toast('账户不能为空！');
                 return false;
             }
-            if(this.password == ''){
+            if(this.tpassword == ''){
                 this.$toast('密码不能为空！');
                 return false;
             }
