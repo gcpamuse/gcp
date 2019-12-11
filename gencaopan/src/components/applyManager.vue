@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="less" scoped="scoped">
-  .m-invest-panel {
+.m-invest-panel {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -100,20 +100,20 @@ export default {
 	padding: 17px 13px;
 	border-bottom: 1px solid #d2d2d2;
 }
-  .m-invest-panel .u-invest-title {
+.m-invest-panel .u-invest-title {
 	width: 120px;
 }
-  .m-invest-panel .u-invest-input {
+.m-invest-panel .u-invest-input {
 	-webkit-box-flex: 1;
 	-webkit-flex: 1;
 	flex: 1;
 }
-  .m-invest-panel .u-invest-input input {
+.m-invest-panel .u-invest-input input {
 	width: 100%;
 	border: none;
 	overflow: hidden;
 }
-  .m-invest-panel .u-invest-input select {
+.m-invest-panel .u-invest-input select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -123,27 +123,27 @@ export default {
 	overflow: hidden;
 }
  
-  .m-invest-panel .u-invest-upload {
+.m-invest-panel .u-invest-upload {
 	position: relative;
 }
-  .m-invest-panel .u-invest-upload input {
+.m-invest-panel .u-invest-upload input {
 	width: 180px;
 }
-  .m-invest-panel .u-invest-upload .upload-qrcode {
+.m-invest-panel .u-invest-upload .upload-qrcode {
 	position: absolute;
 	width: 27px;
 	height: 27px;
 	right: 10px;;
 	top: -5px;
 }
-  .m-invest-panel:last-child {
+.m-invest-panel:last-child {
 	border: none;
 }
-  .m-invest-checkbox {
+.m-invest-checkbox {
 	display: inline-block;
 	padding-right: 10px;
 }
-  .m-invest-checkbox i {
+.m-invest-checkbox i {
 	width: 16px;
 	height: 16px;
 	display: inline-block;
@@ -152,7 +152,7 @@ export default {
 	background-size: 15px;
 }
 
-  .m-invest-checkbox span {
+.m-invest-checkbox span {
 	height: 16px;
 	display: inline-block;
 	vertical-align: middle;
@@ -160,27 +160,27 @@ export default {
 	line-height: 16px;
 	font-size: 15px;
 }
-  .release-btn{
-    font-size: 15px;
-    display: block;
-	margin: 20px auto 10px auto;
-    width:232px;
-    height: 45px;
-    line-height: 45px;
-    background-color:#e84d48;
-    border-radius: 5px;
-    color: #fff;
+.release-btn{
+  font-size: 15px;
+  display: block;
+  margin: 20px auto 10px auto;
+  width:232px;
+  height: 45px;
+  line-height: 45px;
+  background-color:#e84d48;
+  border-radius: 5px;
+  color: #fff;
 }
-  .m-invest-tipBox {
+.m-invest-tipBox {
 	font-size: 11px;
 	text-align: center;
 	padding-bottom: 20px;
 }
-  .m-invest-tipBox .u-invest-tipBox-p {
+.m-invest-tipBox .u-invest-tipBox-p {
     color: #a3a3a3;
     margin: 15px 0;
 }
-  .m-invest-tipBox .u-invest-p-red a{
+.m-invest-tipBox .u-invest-p-red a{
 	color: #0894ec;
 }
 .m-invest-tipBox .u-invest-p-red{
