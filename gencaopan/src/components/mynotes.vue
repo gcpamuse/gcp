@@ -197,10 +197,15 @@ export default {
                     line-height: 22px;
                     font-size: 10px;
                     color: #ccc;
+                    .left-time{
+                        padding-right: 10px;
+                        text-align: right;
+                    }
                 }
             }
             .panel-img{
                 width: 70px;
+                height: 56px;
             }
         }
     }
