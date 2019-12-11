@@ -81,13 +81,18 @@
                             class="bor"
                         />
                     </div> 
-                    <div class="toast-cancel" @click="submit">提交</div>
+                    <div class="toast-cancel" @click="submission">提交</div>
                 </div>
             </van-popup>
             <van-popup v-model="show" class="pop">
                 <!-- 88 -->
                 <div class="option_list" v-for="(item,index) in statusArr" :key="item.id" :index="index">
-                    <div :value="item.statusId" @click="opselect(item)">{{item.statusVal}}</div>
+                    <!-- <div :value="item.statusId" @click="opselect(item)">{{item.statusVal}}</div> -->
+                    <div :value="item.statusId" @click="opselect(item)">
+                        <van-radio-group v-model="radio">
+                            <van-radio :name="item.statusId">{{item.statusVal}}</van-radio>
+                        </van-radio-group>
+                    </div>
                 </div>
             </van-popup>  
         </div> 
@@ -133,7 +138,8 @@ export default {
             selectName:"请选择开户公司",
             generate:false,
             account:"",
-            tpassword:""
+            tpassword:"",
+            radio:0
         }
     },
     components:{
@@ -162,7 +168,7 @@ export default {
             this.zi_color="#666";
             this.ziy_color="#f24848";
         },
-        submit(){
+        submit(){   //提交生成曲线
             if(this.username == ''){
                 this.$toast('账户不能为空！');
                 return false;
@@ -181,6 +187,22 @@ export default {
         opselect(im){
             this.selectName = im.statusVal;
             this.show = false;
+        },
+        submission(){  //提交注册导师
+            if(this.selectName == "请选择开户公司"){
+                this.$toast('您还未选择开户公司！');
+                return false;
+            }
+            if(this.username == ''){
+                this.$toast('账户不能为空！');
+                return false;
+            }
+            if(this.password == ''){
+                this.$toast('密码不能为空！');
+                return false;
+            }
+            //接口
+            this.control = false;
         }
     }
 }
@@ -310,5 +332,8 @@ export default {
         .option_list{
             line-height: 30px;
         }
+    }
+    .van-radio {
+        padding: 8px 0;
     }
 </style>
