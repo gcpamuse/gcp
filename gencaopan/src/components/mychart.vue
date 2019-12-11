@@ -87,10 +87,7 @@
             <van-popup v-model="show" class="pop">
                 <!-- 88 -->
                 <div class="option_list" v-for="(item,index) in statusArr" :key="item.id" :index="index">
-                    <div :value="item.statusId" @click="opselect(item)">
-                        <van-icon name="success1" style="line-height: inherit;" size="18px"/>
-                        {{item.statusVal}}
-                    </div>
+                    <div :value="item.statusId" @click="opselect(item)">{{item.statusVal}}</div>
                 </div>
             </van-popup>  
         </div> 
