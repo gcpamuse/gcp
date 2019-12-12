@@ -21,7 +21,8 @@
                     <div class="media-info-content contentArea" style="font-size: 16px;line-height: 1.5;">      
                        <p v-html="media.content"></p>
                         <div class="imgs">
-                            <img :src="'/api'+ media.cover" class="img">
+                            <!-- <img :src="'/api'+ media.cover" class="img"> -->
+                            <img :src="media.cover" class="img">
                         </div>
                     </div>
                     <div v-show="media.amount>0&&media.isPay" class="media-share j-share_click">
