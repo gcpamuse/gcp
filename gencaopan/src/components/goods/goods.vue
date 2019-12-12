@@ -201,7 +201,9 @@ import { Button } from 'vant';
 			}
 			.yh_name{
 				display: -webkit-box;
+				/*! autoprefixer: off */
 				-webkit-box-orient: vertical;
+				/* autoprefixer: on */
 				-webkit-line-clamp: 1;
 				overflow: hidden;
 			}
@@ -219,7 +221,9 @@ import { Button } from 'vant';
 					font-weight: normal;
 					font-size: 12px;
 					display: -webkit-box;
-                    -webkit-box-orient: vertical;
+					/*! autoprefixer: off */
+					-webkit-box-orient: vertical;
+					/* autoprefixer: on */
                     -webkit-line-clamp: 1;
                     overflow: hidden;
 				}
