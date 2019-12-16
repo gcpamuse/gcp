@@ -105,6 +105,12 @@ axios.interceptors.response.use(res => {
     Toast('请求地址错误');
     return false;
   }
+  if (code === 403) {
+    Toast('登录过期，请重新登录');
+    router.push('/login')
+    localStorage.removeItem('token')
+    return false;
+  }
   return res;
 
 }, error => {
