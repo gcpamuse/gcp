@@ -111,6 +111,12 @@ axios.interceptors.response.use(res => {
     localStorage.removeItem('token')
     return false;
   }
+  if (code === 5002) {
+    Toast('token 已过期，请重新登录');
+    router.push('/login')
+    localStorage.removeItem('token')
+    return false;
+  }
   return res;
 
 }, error => {
