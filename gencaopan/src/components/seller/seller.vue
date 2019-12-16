@@ -18,7 +18,6 @@
 						<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 					</van-cell>	
 				<!-- </div> -->
-				
 				<van-cell icon="user_biji" title="我的笔记" @click="goLink">
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>
