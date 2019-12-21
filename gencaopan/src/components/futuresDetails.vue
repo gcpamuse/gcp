@@ -279,25 +279,25 @@ export default {
     }
     
     .tradingRecord-state{
+        text-align: center;
+        padding-top: 20px;
+        margin-bottom: 50px;
+        .dingyue{
+            display: inline-block;
+            border-radius: .5rem;
+            width: 6rem;
+            height: 2rem;
+            text-shadow: none;
+            line-height: 2rem;
             text-align: center;
-            padding-top: 20px;
-            margin-bottom: 50px;
-            .dingyue{
-                display: inline-block;
-                border-radius: .5rem;
-                width: 6rem;
-                height: 2rem;
-                text-shadow: none;
-                line-height: 2rem;
-                text-align: center;
-                background-color: #f24848;
-                color: #fff; 
-            }
-            .fl{
-                font-size: 12px;
-                color: #333;
-            }
+            background-color: #f24848;
+            color: #fff; 
         }
+        .fl{
+            font-size: 12px;
+            color: #333;
+        }
+    }
     //279
     .tabbar{
         position: fixed;
