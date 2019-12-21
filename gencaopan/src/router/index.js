@@ -185,9 +185,7 @@ const router = new Router({
     {
       path: '/futuresDetails',
       name: 'futuresDetails',
-      meta:{
-        requireAuth: true
-      },
+      
       component: futuresDetails
     },
     {

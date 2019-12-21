@@ -25,8 +25,12 @@
                             <ary></ary>
                             
                             <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
-                            <h5 class="numone">历史交易记录</h5>    
-                            <div class="tradingRecord-state"> 
+                            <h5 class="numone">历史交易记录</h5> 
+                            <div class="tradingRecord-state" v-if="islogin"> 
+                                <a class="dingyue" @click="login">登 录</a>
+                                <span class="fl">后订阅该导师可查看全部交易记录</span>
+                            </div>   
+                            <div class="tradingRecord-state" v-else> 
                                 <a class="dingyue" @click="toSubscribe">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
@@ -46,22 +50,22 @@
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
-                        <div class="tradingRecord-state" v-show="false"> 
-                            <a class="dingyue">登 录</a>
+                        <div class="tradingRecord-state" v-if="islogin"> 
+                            <a class="dingyue" @click="login">登 录</a>
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
-                        <div class="tradingRecord-state"> 
+                        <div class="tradingRecord-state" v-else> 
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
                         <holdPositions></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
-                        <div class="tradingRecord-state" v-show="false"> 
-                            <a class="dingyue">登 录</a>
+                        <div class="tradingRecord-state" v-if="islogin"> 
+                            <a class="dingyue" @click="login">登 录</a>
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
-                        <div class="tradingRecord-state"> 
+                        <div class="tradingRecord-state" v-else> 
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
@@ -101,8 +105,12 @@ export default {
             biji:false,
             inoutList:[],
             modePop:false,
-            id:this.$route.params.id
+            id:this.$route.params.id,
+            islogin:false
         }
+    },
+    created(){
+        this.todenglu();
     },
     methods:{
         toReward(){
@@ -132,6 +140,15 @@ export default {
         toSubscribe(){
             this.$router.push({name: 'zhifu'})
             // this.modePop=true;
+        },
+        todenglu(){
+            let token = localStorage.getItem('Authorization');
+            if(token === null || token === ''){
+                this.islogin = true
+            }
+        },
+        login(){
+            this.$router.push({name: 'login'})
         }
     },
     components:{
