@@ -72,7 +72,6 @@
                         <transaction></transaction>
                     </van-tab>
                 </van-tabs>
-                <!-- <promise v-show="modePop"></promise> -->
             </div>
             <div class="tabbar"> 
                 <div class="tab">
@@ -92,7 +91,6 @@ import netWorth from './netWorth'
 import transaction from './transaction'
 import holdPositions from './holdPositions'
 import inoutMoney from './inoutMoney'
-// import promise from './promise'
 export default {
     data(){
         return{
@@ -104,7 +102,6 @@ export default {
             guanzhu:true,
             biji:false,
             inoutList:[],
-            modePop:false,
             id:this.$route.params.id,
             islogin:false
         }
@@ -139,7 +136,6 @@ export default {
         },
         toSubscribe(){
             this.$router.push({name: 'zhifu'})
-            // this.modePop=true;
         },
         todenglu(){
             let token = localStorage.getItem('Authorization');
@@ -157,7 +153,6 @@ export default {
         transaction,
         holdPositions,
         inoutMoney,
-        // promise
     }
 }
 </script>
