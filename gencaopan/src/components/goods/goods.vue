@@ -14,33 +14,37 @@
 			</van-tab>
 		</van-tabs>
 		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
-			<div  @click="toDetails" style="width: 80%;">
+			<div  @click="toDetails(item.id)" style="width: 80%;">
 				<div class="left">
 					<span class="daoshi_shou" v-if="item.free == 1">收</span>
 					<span class="daoshi_shou" v-else>免</span>
 					<!-- <img src="../../img/132.jpg" class="img_top"> -->
-					<img :src="'http://tg.simutz.com/avatar/'+ item.uid + '_middle.jpg'" alt="" class="img_t">
-					<p class="yh_name">{{item.nickname}}</p>
+					<img :src="'/api'+item.portrait" alt="" class="img_t">
+					<p class="yh_name">{{item.userName}}</p>
 				</div>
 				<div class="middle">
-					<div class="middle_count">累计收益率:<span :style="{'color':(item.profit_rate >= 0 ? 'red':'green')}">{{item.profit_rate}}%</span></div>
+					<!-- <div class="middle_count">累计收益率:<span :style="{'color':(item.profit_rate >= 0 ? 'red':'green')}">{{item.profit_rate}}%</span></div>
 					<div class="middle_count">7日收益率：<span :style="{'color':(item.week_yield >= 0 ? 'red':'green')}">{{item.week_yield}}%</span></div>
 					<div class="middle_count">净利润：<span class="col">{{item.tn_profit}}元</span></div>
-					<div class="middle_count"><span class="co">{{item.mark}}</span></div>
+					<div class="middle_count"><span class="co">{{item.mark}}</span></div> -->
+					<div class="middle_count">累计收益率:<span>66.66%</span></div>
+					<div class="middle_count">7日收益率：<span>86.88%</span></div>
+					<div class="middle_count">净利润：<span class="col">1234567元</span></div>
+					<div class="middle_count"><span class="co">看不准能忍，看得准就很</span></div>
 				</div>
 			</div>
 			
 			<div class="right">
 				<div class="top">
-					<span>{{item.month_price}}</span>元/月
+					<span>600</span>元/月
 					<van-button class="but" size="mini" @click="subsByDate">包月</van-button>
 				</div>
 				<div class="zhong">
-					<span>{{item.quarter_price}}</span>元/季
+					<span>1500</span>元/季
 					<van-button class="but" size="mini" @click="subsByDate">包季</van-button>
 				</div>
 				<div class="xia">
-					<div class="dingyue">{{item.total_subscribe_person}}人已订阅</div>
+					<div class="dingyue">{{item.subscribeCount}}人已订阅</div>
 				</div>
 			</div>
 			<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine' confirm-button-color='#0BB20C'>
@@ -101,7 +105,7 @@ import { Button } from 'vant';
 				],
 				modePop:false,
 				list:[],
-				id:2
+				id:0
 			}
 		},
 		methods:{
@@ -128,8 +132,8 @@ import { Button } from 'vant';
 					
 				});
 			},
-			toDetails(){
-				this.$router.push({name: 'futuresDetails',params:{id:this.id}})
+			toDetails(id){
+				this.$router.push({name: 'futuresDetails',params:{id:id}})
 			},
 			scroller(){
 				var params = { 
@@ -137,19 +141,28 @@ import { Button } from 'vant';
 					pageSize: this.pageSize
             	};
 				this.$axios.post('/futures/index',params).then((res) => {
-					console.log(res)
+					console.log(res.data.data.rows)
+					this.list = res.data.data.rows;
 				});
 			}
 		},
 		mounted(){
 			
-			this.$http.get('/static/data.json').then((res) => {
-				console.log(res.data.teacherList.data.data)
+			// this.$http.get('/static/data.json').then((res) => {
+			// 	console.log(res.data.teacherList.data.data)
 			   
-				// let data = res.data.data.data;
-				   // this.list = data.data;
-				   this.list = res.data.teacherList.data.data;
-			});
+			// 	// let data = res.data.data.data;
+			// 	   // this.list = data.data;
+			// 	   this.list = res.data.teacherList.data.data;
+			// });
+			var params = { 
+					currentPage: this.page,
+					pageSize: this.pageSize
+            	};
+				this.$axios.post('/futures/index',params).then((res) => {
+					console.log(res.data.data.rows)
+					this.list = res.data.data.rows;
+				});
 		}
 	}
 </script>

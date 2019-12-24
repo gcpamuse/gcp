@@ -15,7 +15,7 @@
                 </div>
                 <div class="quxian">
                     <a v-if="generate" class="book-btn charge" @click="control = true" data-rel="popup" data-position-to="window" data-transition="fade">注册导师</a>
-                    <a v-else class="book-btn charge" @click="toast_control = true" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
+                    <a v-else class="book-btn charge" @click="toQuxia" data-rel="popup" data-position-to="window" data-transition="fade">生成曲线</a>
                 </div> 
             </div> 
             <!-- 20 -->
@@ -168,6 +168,12 @@ export default {
             this.zi_color="#666";
             this.ziy_color="#f24848";
         },
+        toQuxia(){
+            this.$axios.post('/user/generateCurve').then((res) => {
+                console.log(res)
+            });
+            // toast_control = true
+        },
         submit(){   //提交生成曲线
             if(this.username == ''){
                 this.$toast('账户不能为空！');
@@ -177,7 +183,13 @@ export default {
                 this.$toast('密码不能为空！');
                 return false;
             }
-            //此处放接口
+            var params = {
+                account_no:this.username,
+                password:this.password
+            }
+            this.$axios.post('/user/bindCfmmcAccount',params).then((res) => {
+                console.log(res)
+            });
             this.toast_control = false;
             this.generate = true;
         },
@@ -201,7 +213,14 @@ export default {
                 this.$toast('密码不能为空！');
                 return false;
             }
-            //接口
+            var params = {
+                broker_id:this.selectName,
+                username:this.account,
+                password:this.tpassword
+            }
+            this.$axios.post('/user/bindTqAccount',params).then((res) => {
+                console.log(res)
+            });
             this.control = false;
         }
     }

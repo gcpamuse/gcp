@@ -28,7 +28,27 @@
 
 <script>
 export default {
+    data(){
+       return{
 
+       } 
+    },
+    // mounted(){
+    //     this.drchengjiao();
+    // },
+    // methods:{
+    //     drchengjiao(){
+    //         var params = { 
+    //             id: id,
+    //         };
+    //         this.$axios.post('/futures/trade',params).then(res=>{
+    //             console.log(res)
+    //         })
+    //         .catch( error=>{
+    //     　　　　console.log(error);
+    //     　　});
+    //     },
+    // }
 }
 </script>
 

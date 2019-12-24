@@ -34,7 +34,7 @@
                                 <a class="dingyue" @click="toSubscribe">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
-                            <transaction></transaction>
+                            <transaction :id="id"></transaction>
                         </div> 
                     </van-tab>
                     <van-tab title="净值分析" name="b">
@@ -58,7 +58,7 @@
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
-                        <holdPositions></holdPositions>
+                        <holdPositions :sid="id"></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
                         <div class="tradingRecord-state" v-if="islogin"> 
@@ -69,7 +69,7 @@
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
-                        <transaction></transaction>
+                        <transaction :id="id"></transaction>
                     </van-tab>
                 </van-tabs>
             </div>
@@ -108,8 +108,22 @@ export default {
     },
     created(){
         this.todenglu();
+        this.initData();
+        this.chicang();
+        this.drchengjiao();
     },
     methods:{
+        initData(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/info',params).then(res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        },
         toReward(){
             this.$router.push({name: 'reward'})
         },
@@ -145,7 +159,29 @@ export default {
         },
         login(){
             this.$router.push({name: 'login'})
-        }
+        },
+        chicang(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/position',params).then(res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        },
+        drchengjiao(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/trade',params).then(res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        },
     },
     components:{
         ary,

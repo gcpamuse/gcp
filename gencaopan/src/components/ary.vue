@@ -43,6 +43,7 @@ export default {
     },
     mounted(){
         this.logdata();
+        this.initData();
     },
     methods:{
         logdata(){
@@ -56,7 +57,18 @@ export default {
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
         　　});
-        }
+        },
+        initData(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/info',params).then(res=>{
+                console.log(res)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        },
     }
 }
 </script>

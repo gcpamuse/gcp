@@ -27,7 +27,30 @@
 
 <script>
 export default {
+    data(){
+        return{
 
+        }
+    },
+    // props:["sid"],
+    // mounted(){
+    //     var id = this.props.sid;
+    //     this.chicang();
+    // },
+    // methods:{
+    //     chicang(){
+    //         var params = { 
+    //             id: id,
+    //         };
+    //         console.log("!!!!!!!"+sid);
+    //         this.$axios.post('/futures/position',params).then(res=>{
+    //             console.log(res)
+    //         })
+    //         .catch( error=>{
+    //     　　　　console.log(error);
+    //     　　});
+    //     },
+    // }
 }
 </script>
 
