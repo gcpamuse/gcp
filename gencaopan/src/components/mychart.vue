@@ -49,7 +49,7 @@
             <!-- 53 -->
             <div class="superior-content">
                 
-                <ary v-if="xianshi"></ary> 
+                <ary v-if="xianshi" :id="id"></ary> 
                 <netWorth v-if="xshi"></netWorth>
                 
             </div> 
@@ -139,7 +139,9 @@ export default {
             generate:false,
             account:"",
             tpassword:"",
-            radio:0
+            radio:0,
+            id:this.$route.query.id,
+            data:{}
         }
     },
     components:{
@@ -147,9 +149,25 @@ export default {
         netWorth
     },
     created(){
-        this.initStatusArr()
+        this.initStatusArr();
+        // this.initData();
     },
     methods:{
+        // initData(){
+        //     var params = { 
+        //         id: this.id,
+        //     };
+        //     console.log(params);
+        //     this.$axios.post('/futures/info',params).then(res=>{
+        //         console.log(res.data.data);
+        //         this.data = res.data.data;
+        //         console.log("%%%%------"+res.data)
+        //     })
+        //     .catch( error=>{
+        // 　　　　console.log(error);
+        // 　　});
+        // console.log("%%%%"+this.data)
+        // },
         initStatusArr(){
             this.$http.get('/static/gosi.json').then((res) => {
                 // console.log(res.data);
@@ -170,7 +188,15 @@ export default {
         },
         toQuxia(){
             this.$axios.post('/user/generateCurve').then((res) => {
-                console.log(res)
+                console.log(res.data.data);
+                if(res.data.data=="wait"){
+                    this.$toast('正在生成曲线');
+                    setTimeout(() => {
+                        this.generate = true;
+                    }, 3000);
+                }else{
+                    this.toast_control = true;
+                }
             });
             // toast_control = true
         },

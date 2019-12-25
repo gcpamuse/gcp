@@ -19,7 +19,7 @@
 					<span class="daoshi_shou" v-if="item.free == 1">收</span>
 					<span class="daoshi_shou" v-else>免</span>
 					<!-- <img src="../../img/132.jpg" class="img_top"> -->
-					<img :src="'/api'+item.portrait" alt="" class="img_t">
+					<img :src="item.portrait" alt="" class="img_t">
 					<p class="yh_name">{{item.userName}}</p>
 				</div>
 				<div class="middle">

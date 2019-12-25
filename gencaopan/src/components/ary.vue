@@ -38,26 +38,29 @@ export default {
         return{
             gaishu:[],
             tingli:[],
-            wendx:[]
+            wendx:[],
+            id:this.props.id
         }
     },
+    props:["id"],
     mounted(){
-        this.logdata();
+        // this.logdata();
         this.initData();
     },
     methods:{
-        logdata(){
-            // this.$http.get("/api/majorlist1").then(function(response){
-            this.$http.get("/static/gaikuang.json").then(function(response){
-                let data = response.data.data.stat;
-                this.gaishu = data.a;
-                this.tingli = data.b;
-                this.wendx = data.c;
-        　　})
-        　　.catch(function(error){
-        　　　　console.log("出错喽："+error);
-        　　});
-        },
+        // logdata(){
+        //     // this.$http.get("/api/majorlist1").then(function(response){
+        //     this.$http.get("/static/gaikuang.json").then(function(response){
+        //         let data = response.data.data.stat;
+        //         this.gaishu = data.a;
+        //         this.tingli = data.b;
+        //         this.wendx = data.c;
+        // 　　})
+        // 　　.catch(function(error){
+        // 　　　　console.log("出错喽："+error);
+        // 　　});
+        // console.log("++++++||||||||"+this.id)
+        // },
         initData(){
             var params = { 
                 id: this.id,
@@ -68,6 +71,7 @@ export default {
             .catch( error=>{
         　　　　console.log(error);
         　　});
+        console.log("++++++||||||||"+this.id)
         },
     }
 }

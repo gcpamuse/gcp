@@ -7,7 +7,7 @@
 		</div>
 		<div class="user_module">
 			<van-cell-group>	
-				<van-cell icon="user_quxian" title="我的曲线" :to="{ name: 'mychart'}" >
+				<van-cell icon="user_quxian" title="我的曲线" @click="tochar" >
 					<van-icon slot="right-icon" name="user_youjian" style="line-height: inherit;" size="12px"/>
 				</van-cell>
 				<!-- <div v-if="list.isTutor"> -->
@@ -68,6 +68,14 @@ export default {
 		goLink () {
 			this.$router.push({
 				path: '/mynotes',
+				query: {
+					id:this.id
+				}
+			})
+		},
+		tochar(){
+			this.$router.push({
+				path: '/mychart',
 				query: {
 					id:this.id
 				}
