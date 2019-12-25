@@ -10,23 +10,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-//vue配置请求本地json数据
-const express = require('express')
-const app = express()
-const appData = require('../static/data.json')//加载本地json文件
-//获取本地对应数据
+// //vue配置请求本地json数据
+// const express = require('express')
+// const app = express()
+// const appData = require('../static/data.json')//加载本地json文件
+// //获取本地对应数据
 
-const appData1 = require('../static/gaikuang.json')//加载本地json文件
-const majorlist = appData.data;//获取本地对应数据
-const teacherList = appData.teacherList;
-const inout = appData.inout;
-const teacherSubscribe = appData.teacherSubscribe;
-const mediaList = appData.mediaList;
-const followList = appData.followList;
-const profit = appData.profit;
-const majorlist1 = appData1.data;//获取本地对应数据
-const apiRoutes = express.Router()
-app.use('/api',apiRoutes)
+// const appData1 = require('../static/gaikuang.json')//加载本地json文件
+// const majorlist = appData.data;//获取本地对应数据
+// const teacherList = appData.teacherList;
+// const inout = appData.inout;
+// const teacherSubscribe = appData.teacherSubscribe;
+// const mediaList = appData.mediaList;
+// const followList = appData.followList;
+// const profit = appData.profit;
+// const majorlist1 = appData1.data;//获取本地对应数据
+// const apiRoutes = express.Router()
+// app.use('/api',apiRoutes)
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -61,57 +61,57 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
 
-    before (app) {
-        app.get('/api/majorlist', (req, res) => {
-            res.json({
-              errno: 0,
-              data: majorlist
-            })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
-        }),
-        app.get('/api/teacherList', (req, res) => {
-            res.json({
-              errno: 0,
-              data: teacherList
-            })
-        }),
+    // before (app) {
+    //     app.get('/api/majorlist', (req, res) => {
+    //         res.json({
+    //           errno: 0,
+    //           data: majorlist
+    //         })//接口返回json数据，上面配置的数据majorlist就赋值给data请求后调用
+    //     }),
+    //     app.get('/api/teacherList', (req, res) => {
+    //         res.json({
+    //           errno: 0,
+    //           data: teacherList
+    //         })
+    //     }),
        
-        app.get('/api/majorlist1', (req, res) => {
-          res.json({
-            errno: 0,
-            data: majorlist1
-          })
-        }),
-        app.get('/api/inout', (req, res) => {
-          res.json({
-            errno: 0,
-            data: inout
-          })
-        }),
-        app.get('/api/mediaList', (req, res) => {
-          res.json({
-            errno: 0,
-            data: mediaList
-          })
-        }),
-        app.get('/api/followList', (req, res) => {
-          res.json({
-            errno: 0,
-            data: followList
-          })
-        })
-        app.get('/api/teacherSubscribe', (req, res) => {
-          res.json({
-            errno: 0,
-            data: teacherSubscribe
-          })
-        }),
-        app.get('/api/profit', (req, res) => {
-          res.json({
-            errno: 0,
-            data: profit
-          })
-        })
-       }
+    //     app.get('/api/majorlist1', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: majorlist1
+    //       })
+    //     }),
+    //     app.get('/api/inout', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: inout
+    //       })
+    //     }),
+    //     app.get('/api/mediaList', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: mediaList
+    //       })
+    //     }),
+    //     app.get('/api/followList', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: followList
+    //       })
+    //     })
+    //     app.get('/api/teacherSubscribe', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: teacherSubscribe
+    //       })
+    //     }),
+    //     app.get('/api/profit', (req, res) => {
+    //       res.json({
+    //         errno: 0,
+    //         data: profit
+    //       })
+    //     })
+    //    }
       
   },
   plugins: [
