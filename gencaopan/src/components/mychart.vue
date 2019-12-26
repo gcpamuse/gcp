@@ -150,7 +150,7 @@ export default {
         netWorth
     },
     created(){
-        // this.initStatusArr();
+        this.initStatusArr();
         // this.initData();
     },
     methods:{
@@ -169,12 +169,12 @@ export default {
         // 　　});
         // console.log("%%%%"+this.data)
         // },
-        // initStatusArr(){
-        //     this.$http.get('/static/gosi.json').then((res) => {
-        //         // console.log(res.data);
-        //         this.statusArr = res.data.statusArr;
-		// 	});
-        // },
+        initStatusArr(){
+            this.$http.get('/static/gosi.json').then((res) => {
+                // console.log(res.data);
+                this.statusArr = res.data.statusArr;
+			});
+        },
         toJiaoYi(){
             this.xianshi=true;
             this.xshi=false;
