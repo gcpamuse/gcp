@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="jy_count" v-for="item in inoutList" :key="item.id"> 
-            <div>{{item.ocname}}</div> 
-            <div v-html="item.money"></div> 
-            <div>{{item.dateline}}</div> 
+        <div class="jy_count" v-for="item in goldDetails" :key="item.id"> 
+            <div>{{item.goldType}}</div> 
+            <div v-html="item.amount"></div> 
+            <div>{{item.tday}}</div> 
         </div> 
     </div>
 </template>
@@ -12,9 +12,11 @@
 export default {
     data(){
         return{
-            inoutList:[]
+            inoutList:[],
+            goldDetails:[]
         }
     },
+    props:["id"],
     mounted(){
         // this.$http.get('/api/inout').then((res) => {
 		// 	let data = res.data.data;
@@ -23,7 +25,25 @@ export default {
         this.$http.get('/static/data.json').then((res) => {
             console.log(res.data)
             this.inoutList = res.data.inout.data;
-		});
+        });
+        
+    },
+    methods:{
+        initData(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/info',params).then(res=>{
+                console.log(res.data.data)
+                let data = res.data.data;
+                this.goldDetails = data.goldDetails;
+                console.log(this.data.newDate+"...+...."+data.goldDetails)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        console.log("++++++||||||||"+this.id)
+        }
     }
 }
 </script>

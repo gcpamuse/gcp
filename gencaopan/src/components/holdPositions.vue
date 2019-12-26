@@ -8,17 +8,22 @@
                 <th>数量</th>
                 <th>均价</th> 
                 <th>盈亏</th> 
-                <th>日期</th>
+                <!-- <th>日期</th> -->
             </tr> 
         </thead> 
         <tbody>
-            <tr>
-                <td>铜2005</td>
+            <tr v-for="item in list" :key="item.id">
+                <!-- <td>铜2005</td>
                 <td>空单</td>
                 <td>1</td>
                 <td>5840</td>
                 <td>60</td>
-                <td>2019-12-06</td>
+                <td>2019-12-06</td> -->
+                <td>{{item.instrumentId}}</td>
+                <td>{{item.longShort}}</td>
+                <td>{{item.pos}}</td>
+                <td>{{item.positionPrice}}</td>
+                <td>{{item.positionProfit}}</td>
             </tr>
         </tbody> 
     </table>
@@ -29,28 +34,28 @@
 export default {
     data(){
         return{
-
+            list:[]
         }
     },
-    // props:["sid"],
-    // mounted(){
-    //     var id = this.props.sid;
-    //     this.chicang();
-    // },
-    // methods:{
-    //     chicang(){
-    //         var params = { 
-    //             id: id,
-    //         };
-    //         console.log("!!!!!!!"+sid);
-    //         this.$axios.post('/futures/position',params).then(res=>{
-    //             console.log(res)
-    //         })
-    //         .catch( error=>{
-    //     　　　　console.log(error);
-    //     　　});
-    //     },
-    // }
+    props:["id"],
+    mounted(){
+        this.chicang();
+    },
+    methods:{
+        chicang(){
+            var params = { 
+                id: this.id,
+            };
+            console.log("!!!!!!!"+this.id);
+            this.$axios.post('/futures/position',params).then(res=>{
+                console.log(res)
+                this.list = res.data.data;
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        },
+    }
 }
 </script>
 

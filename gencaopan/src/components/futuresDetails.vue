@@ -3,7 +3,7 @@
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
-                <div class="pic" @click="toReward"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
+                <div class="pic"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
                 <div class="superior-main"> 
                     <h2>naihaha</h2> 
                     <div class="mychart_d"> 
@@ -22,19 +22,26 @@
                 <van-tabs active="b" line-height='0' background='#f6f6f6'>
                     <van-tab title="交易概况" name="a">
                         <div class="superior-con">
-                            <ary></ary>
+                            <ary :id="id"></ary>
                             
                             <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
                             <h5 class="numone">历史交易记录</h5> 
                             <div class="tradingRecord-state" v-if="islogin"> 
                                 <a class="dingyue" @click="login">登 录</a>
                                 <span class="fl">后订阅该导师可查看全部交易记录</span>
-                            </div>   
+                            </div>  
+                            <div v-else-if="subscribeStatus" class="lishi" v-for="item in tradeRecords" :key="item.id">
+                                <div>{{item.contract}}</div>
+                                <div>{{item.tradeAt}}</div>
+                                <div>{{item.volume}}</div>
+                                <div>{{item.price}}</div>
+                            </div> 
                             <div class="tradingRecord-state" v-else> 
                                 <a class="dingyue" @click="toSubscribe">订 阅</a>
                                 <span class="fl">后可查看全部交易记录</span>
                             </div>
-                            <transaction :id="id"></transaction>
+                            
+                            <transaction v-if="subscribeStatus" :id="id"></transaction>
                         </div> 
                     </van-tab>
                     <van-tab title="净值分析" name="b">
@@ -46,7 +53,7 @@
                                 <div>金额</div> 
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
-                            <inoutMoney></inoutMoney>
+                            <inoutMoney :id="id"></inoutMoney>
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
@@ -58,7 +65,7 @@
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
-                        <holdPositions :sid="id"></holdPositions>
+                        <holdPositions :id="id"></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
                         <div class="tradingRecord-state" v-if="islogin"> 
@@ -103,10 +110,13 @@ export default {
             biji:false,
             inoutList:[],
             id:this.$route.params.id,
-            islogin:false
+            islogin:false,
+            data:{},
+            tradeRecords:[],
+            subscribeStatus:""
         }
     },
-    created(){
+    mounted(){
         this.todenglu();
         this.initData();
         this.chicang();
@@ -118,14 +128,16 @@ export default {
                 id: this.id,
             };
             this.$axios.post('/futures/info',params).then(res=>{
-                console.log(res)
+                console.log(res.data.data)
+                this.data = res.data.data;
+                this.tradeRecords = data.tradeRecords;
+                this.subscribeStatus = data.subscribeStatus;
+                console.log(this.data.newDate+".......")
             })
             .catch( error=>{
         　　　　console.log(error);
         　　});
-        },
-        toReward(){
-            this.$router.push({name: 'reward'})
+        console.log("++++++||||||||"+this.id)
         },
         guanZhu(){
             var params = { 
@@ -254,6 +266,12 @@ export default {
                 color: #3333;
                 border-bottom: 2px solid #eee;
                 font-size: 15px;
+            }
+            .lishi{
+                display: flex;
+                div{
+                    width: 25%;
+                }
             }
             .table-m1{
                 width: 100%;

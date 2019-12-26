@@ -183,7 +183,7 @@ const router = new Router({
       component: zhifu
     },
     {
-      path: '/futuresDetails',
+      path: '/futuresDetails/:id',
       name: 'futuresDetails',
       
       component: futuresDetails

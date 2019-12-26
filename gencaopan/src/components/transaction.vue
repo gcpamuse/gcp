@@ -9,17 +9,22 @@
                     <th>方向</th>
                     <th>手数</th> 
                     <th>价格</th> 
-                    <th>资金占比</th>  
+                    <!-- <th>资金占比</th>   -->
                 </tr> 
             </thead> 
             <tbody>
-                <tr>
-                    <td>铜 2005</td>
+                <tr v-for="item in list" :key="item.id">
+                    <!-- <td>铜 2005</td>
                     <td>11/06 14:50</td>
                     <td>买平</td>
                     <td>1</td>
                     <td>5826</td>
-                    <td>--</td>
+                    <td>--</td> -->
+                    <td>{{item.instrumentId}}</td>
+                    <td>{{item.tradeDateTime}}</td>
+                    <td>{{item.directionOffset}}</td>
+                    <td>{{item.volume}}</td>
+                    <td>{{item.price}}</td>
                 </tr>
             </tbody> 
         </table>
@@ -30,25 +35,28 @@
 export default {
     data(){
        return{
-
+           list:[]
        } 
     },
-    // mounted(){
-    //     this.drchengjiao();
-    // },
-    // methods:{
-    //     drchengjiao(){
-    //         var params = { 
-    //             id: id,
-    //         };
-    //         this.$axios.post('/futures/trade',params).then(res=>{
-    //             console.log(res)
-    //         })
-    //         .catch( error=>{
-    //     　　　　console.log(error);
-    //     　　});
-    //     },
-    // }
+    props:["id"],
+    mounted(){
+        this.drchengjiao();
+    },
+    methods:{
+        drchengjiao(){
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/trade',params).then(res=>{
+                console.log(res)
+                this.list = res.data.data;   
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        console.log("asdfgg"+this.id)
+        },
+    }
 }
 </script>
 

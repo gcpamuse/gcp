@@ -28,8 +28,11 @@ require('echarts/lib/component/title');
 require('echarts/lib/component/legend');
 export default {
     name:"netWorth",
+    props:["id"],
     data(){
         return{
+            accumulatedProfitLoss:[],
+            transactionStructure:[],
             data1:[],
             data2:[],
             data3:[],
@@ -364,6 +367,19 @@ export default {
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
+        　　});
+            var params = { 
+                id: this.id,
+            };
+            this.$axios.post('/futures/info',params).then(res=>{
+                console.log(res.data.data)
+                let data = res.data.data;
+                this.accumulatedProfitLoss = data.accumulatedProfitLoss;
+                this.transactionStructure = data.transactionStructure;
+                console.log(data.newDate+"......."+data.accumulatedProfitLoss[1])
+            })
+            .catch( error=>{
+        　　　　console.log(error);
         　　});
         }  
     }

@@ -50,7 +50,7 @@
             <div class="superior-content">
                 
                 <ary v-if="xianshi" :id="id"></ary> 
-                <netWorth v-if="xshi"></netWorth>
+                <netWorth v-if="xshi" :id="id"></netWorth>
                 
             </div> 
             <van-popup v-model="control" class="popu"> 
@@ -141,7 +141,8 @@ export default {
             tpassword:"",
             radio:0,
             id:this.$route.query.id,
-            data:{}
+            data:{},
+
         }
     },
     components:{
@@ -149,7 +150,7 @@ export default {
         netWorth
     },
     created(){
-        this.initStatusArr();
+        // this.initStatusArr();
         // this.initData();
     },
     methods:{
@@ -161,19 +162,19 @@ export default {
         //     this.$axios.post('/futures/info',params).then(res=>{
         //         console.log(res.data.data);
         //         this.data = res.data.data;
-        //         console.log("%%%%------"+res.data)
+        //         console.log("%%%%------"+this.data)
         //     })
         //     .catch( error=>{
         // 　　　　console.log(error);
         // 　　});
         // console.log("%%%%"+this.data)
         // },
-        initStatusArr(){
-            this.$http.get('/static/gosi.json').then((res) => {
-                // console.log(res.data);
-                this.statusArr = res.data.statusArr;
-			});
-        },
+        // initStatusArr(){
+        //     this.$http.get('/static/gosi.json').then((res) => {
+        //         // console.log(res.data);
+        //         this.statusArr = res.data.statusArr;
+		// 	});
+        // },
         toJiaoYi(){
             this.xianshi=true;
             this.xshi=false;
