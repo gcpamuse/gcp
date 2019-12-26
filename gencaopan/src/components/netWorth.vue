@@ -7,15 +7,14 @@
         <div id="chartmainlinetow" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">周盈亏</h5> 
         <div id="main" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
-        <h5 class="numone">月盈亏</h5> 
-        <div id="zhou" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div>
+        <!-- <h5 class="numone">月盈亏</h5> 
+        <div id="zhou" style="width: 100%;height:300px;border-bottom: 2px solid #eee;"></div> -->
         <!-- <h5 class="numone">品种盈亏</h5> 
         <div class="graph chartField"></div>  -->
         <h5 class="numone">成交结构</h5> 
         <div id="bingtu" style="width:100%;height: 300px;border-bottom: 2px solid #eee;padding-top: 10px;"></div>
-        <h5 class="numone">隔夜习惯</h5> 
-        <!-- <div class="graph chartField"></div>  -->
-        <div id="chartmain" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
+        <!-- <h5 class="numone">隔夜习惯</h5> 
+        <div id="chartmain" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div> -->
     </div> 
 </template>
 
@@ -33,6 +32,16 @@ export default {
         return{
             accumulatedProfitLoss:[],
             transactionStructure:[],
+            weekProfitLoss:{},
+            shu:[],
+            zhi:[],
+            shu1:[],
+            zhi2:[],
+            shu2:[],
+            shuzhi1:[],
+            shuzhi2:[],
+            shuzhi3:[],
+            zhi1:[],
             data1:[],
             data2:[],
             data3:[],
@@ -227,25 +236,25 @@ export default {
             let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
             let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
             let myChart = echarts.init(document.getElementById('main'));
-            let chart = echarts.init(document.getElementById('zhou'));
+            // let chart = echarts.init(document.getElementById('zhou'));
             let bingchart = echarts.init(document.getElementById('bingtu'));
-            let chartmain = this.$echarts.init(document.getElementById("chartmain"));
+            // let chartmain = this.$echarts.init(document.getElementById("chartmain"));
             //绘制图表
             // chartmainline.setOption(this.optionline);
             chartmainline.setOption(this.optionlinetow);
             chartmainlinetow.setOption(this.optionlinetow);
             myChart.setOption(this.option);
             // chart.setOption(this.zhouoption);
-            chart.setOption(this.option);
+            // chart.setOption(this.option);
             bingchart.setOption(this.bingoption);
-            chartmain.setOption(this.optionlinetow);
+            // chartmain.setOption(this.optionlinetow);
             window.onresize = function () {
                 chartmainline.resize();
                 chartmainlinetow.resize();
                 myChart.resize();
-                chart.resize();
+                // chart.resize();
                 bingchart.resize();
-                chartmain.resize();
+                // chartmain.resize();
             };
             // this.$http.get("/api/majorlist").then(function(response){
             this.$http.get("/static/data.json").then(function(response){
@@ -302,68 +311,68 @@ export default {
         　　　　     this.data4[i] = datad[i].data;
                     this.name1[i] = datad[i].name;
         　　　　 }
-                chartmain.setOption({
-                    title:{
-                        text: "每日仓位"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    legend:{
-                        data:this.name1
-                    },
-                    series: [
-                        { 
-                        name:this.name1[0],
-                        data:this.data4[0]
-                        },
-                        { 
-                        name:this.name1[1],
-                        data:this.data4[1]
-                        }
-                    ]
-                });
-                myChart.setOption({
-                    title:{
-                        text: "周盈亏"
-                    },
-                    yAxis: {
-                        data:response.data.data.f
-                    },
-                    dataZoom:[
-                        {
-                            end: 6
-                        }
-                    ],
-                    series: [
-                        {
-                            data:response.data.data.e
-                        }
-                    ]
-                });
-                chart.setOption({
-                    title:{
-                        text: "月盈亏"
-                    },
-                    yAxis: {
-                        data:response.data.data.h
-                    },
-                    series: [
-                        {
-                            data:response.data.data.g
-                        }
-                    ]
-                });
-                bingchart.setOption({
-                    legend: {
-                        data: response.data.data.n
-                    },
-                    series : [
-                        {
-                            data:response.data.data.k
-                        }
-                    ]
-                });
+                // chartmain.setOption({
+                //     title:{
+                //         text: "每日仓位"
+                //     },
+                //     xAxis: {
+                //         data: this.data2
+                //     }, 
+                //     legend:{
+                //         data:this.name1
+                //     },
+                //     series: [
+                //         { 
+                //         name:this.name1[0],
+                //         data:this.data4[0]
+                //         },
+                //         { 
+                //         name:this.name1[1],
+                //         data:this.data4[1]
+                //         }
+                //     ]
+                // });
+                // myChart.setOption({
+                //     title:{
+                //         text: "周盈亏"
+                //     },
+                //     yAxis: {
+                //         data:response.data.data.f
+                //     },
+                //     dataZoom:[
+                //         {
+                //             end: 6
+                //         }
+                //     ],
+                //     series: [
+                //         {
+                //             data:response.data.data.e
+                //         }
+                //     ]
+                // });
+                // chart.setOption({
+                //     title:{
+                //         text: "月盈亏"
+                //     },
+                //     yAxis: {
+                //         data:response.data.data.h
+                //     },
+                //     series: [
+                //         {
+                //             data:response.data.data.g
+                //         }
+                //     ]
+                // });
+                // bingchart.setOption({
+                //     legend: {
+                //         data: response.data.data.n
+                //     },
+                //     series : [
+                //         {
+                //             data:response.data.data.k
+                //         }
+                //     ]
+                // });
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
@@ -376,7 +385,64 @@ export default {
                 let data = res.data.data;
                 this.accumulatedProfitLoss = data.accumulatedProfitLoss;
                 this.transactionStructure = data.transactionStructure;
-                console.log(data.newDate+"......."+data.accumulatedProfitLoss[1])
+                this.weekProfitLoss = data.weekProfitLoss;
+                //成交结构
+                let shuzhi = [{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''}
+                ,{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''},{name:'',value:''}]
+                this.transactionStructure.forEach((item, index) => {
+                    this.shu.push(item.target);
+                    this.zhi.push(item.sumVolume);
+                    if(shuzhi[index]){
+                        shuzhi[index].name = item.target;
+                        shuzhi[index].value = item.sumVolume;
+                    }
+                })
+                bingchart.setOption({
+                    legend: {
+                        data: this.shu
+                    },
+                    series : [
+                        {
+                            data:shuzhi
+                        }
+                    ]
+                });
+                //周盈亏
+                for(let key in this.weekProfitLoss){
+                    this.shu1.push(key);
+                    this.zhi1.push(this.weekProfitLoss[key]);
+                }
+                myChart.setOption({
+                    title:{
+                        text: "周盈亏"
+                    },
+                    yAxis: {
+                        data:this.shu1
+                    },
+                    dataZoom:[
+                        {
+                            end: 60 //控制右侧滑块的长度
+                        }
+                    ],
+                    series: [
+                        {
+                            data:this.zhi1
+                        }
+                    ]
+                });
+                //累计盈亏
+                for(let key in this.accumulatedProfitLoss){
+                    this.shu2.push(key);
+                    this.zhi2.push(this.weekProfitLoss[key]);
+                }
+                for(let key in this.zhi2){
+                    this.shuzhi1.push(key);
+                    this.shuzhi2.push(this.zhi2[0]);
+                    this.shuzhi3.push(this.zhi2[9]);
+                }
+                 console.log("1111%%%"+this.shuzhi1+"$$$$$"+this.shuzhi2)
+                 console.log("1111"+this.shuzhi1+"$$$$$"+this.shuzhi2+"88888"+this.shuzhi3)
+                console.log(this.zhi2+"......."+this.shu2.length)
             })
             .catch( error=>{
         　　　　console.log(error);

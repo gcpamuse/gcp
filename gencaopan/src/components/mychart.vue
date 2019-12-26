@@ -3,9 +3,9 @@
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
-                <div class="pic"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
+                <div class="pic"><img class="avatar" :src="portrait"/></div> 
                 <div class="superior-main"> 
-                    <h2>naihaha</h2> 
+                    <h2>{{name}}</h2> 
                     <div class="mychart_d"> 
                         <p class="mychart_p"> 
                             <span class="mychart_span" style="padding-left:0;float:none;"> 计划你的交易，交易你的计划 </span> 
@@ -142,7 +142,9 @@ export default {
             radio:0,
             id:this.$route.query.id,
             data:{},
-
+            name:"",
+            portrait:"",
+            isFollow:false
         }
     },
     components:{
@@ -150,25 +152,28 @@ export default {
         netWorth
     },
     created(){
+        this.initData();
         this.initStatusArr();
-        // this.initData();
     },
     methods:{
-        // initData(){
-        //     var params = { 
-        //         id: this.id,
-        //     };
-        //     console.log(params);
-        //     this.$axios.post('/futures/info',params).then(res=>{
-        //         console.log(res.data.data);
-        //         this.data = res.data.data;
-        //         console.log("%%%%------"+this.data)
-        //     })
-        //     .catch( error=>{
-        // 　　　　console.log(error);
-        // 　　});
-        // console.log("%%%%"+this.data)
-        // },
+        initData(){
+            var params = { 
+                id: this.id,
+            };
+            console.log(params);
+            this.$axios.post('/futures/info',params).then(res=>{
+                console.log(res.data.data);
+                this.data = res.data.data;
+                this.name = data.user.name;
+                this.portrait = data.user.portrait;
+                this.isFollow = data.user.isFollow;
+                console.log("%%%%------"+this.data)
+            })
+            .catch( error=>{
+        　　　　console.log(error);
+        　　});
+        console.log("%%%%"+this.data)
+        },
         initStatusArr(){
             this.$http.get('/static/gosi.json').then((res) => {
                 // console.log(res.data);
