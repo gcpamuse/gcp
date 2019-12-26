@@ -311,68 +311,7 @@ export default {
         　　　　     this.data4[i] = datad[i].data;
                     this.name1[i] = datad[i].name;
         　　　　 }
-                // chartmain.setOption({
-                //     title:{
-                //         text: "每日仓位"
-                //     },
-                //     xAxis: {
-                //         data: this.data2
-                //     }, 
-                //     legend:{
-                //         data:this.name1
-                //     },
-                //     series: [
-                //         { 
-                //         name:this.name1[0],
-                //         data:this.data4[0]
-                //         },
-                //         { 
-                //         name:this.name1[1],
-                //         data:this.data4[1]
-                //         }
-                //     ]
-                // });
-                // myChart.setOption({
-                //     title:{
-                //         text: "周盈亏"
-                //     },
-                //     yAxis: {
-                //         data:response.data.data.f
-                //     },
-                //     dataZoom:[
-                //         {
-                //             end: 6
-                //         }
-                //     ],
-                //     series: [
-                //         {
-                //             data:response.data.data.e
-                //         }
-                //     ]
-                // });
-                // chart.setOption({
-                //     title:{
-                //         text: "月盈亏"
-                //     },
-                //     yAxis: {
-                //         data:response.data.data.h
-                //     },
-                //     series: [
-                //         {
-                //             data:response.data.data.g
-                //         }
-                //     ]
-                // });
-                // bingchart.setOption({
-                //     legend: {
-                //         data: response.data.data.n
-                //     },
-                //     series : [
-                //         {
-                //             data:response.data.data.k
-                //         }
-                //     ]
-                // });
+                
         　　})
         　　.catch(function(error){
         　　　　console.log("出错喽："+error);
