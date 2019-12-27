@@ -14,7 +14,7 @@
 			</van-tab>
 		</van-tabs>
 		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
-			<div  @click="toDetails(item.id)" style="width: 80%;">
+			<div  @click="toDetails(item.userId)" style="width: 80%;">
 				<div class="left">
 					<span class="daoshi_shou" v-if="item.free == 1">收</span>
 					<span class="daoshi_shou" v-else>免</span>
@@ -27,20 +27,20 @@
 					<div class="middle_count">7日收益率：<span :style="{'color':(item.week_yield >= 0 ? 'red':'green')}">{{item.week_yield}}%</span></div>
 					<div class="middle_count">净利润：<span class="col">{{item.tn_profit}}元</span></div>
 					<div class="middle_count"><span class="co">{{item.mark}}</span></div> -->
-					<div class="middle_count">累计收益率:<span>66.66%</span></div>
-					<div class="middle_count">7日收益率：<span>86.88%</span></div>
-					<div class="middle_count">净利润：<span class="col">1234567元</span></div>
+					<div class="middle_count">累计收益率:<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.accumulatedIncomeRate}}%</span></div>
+					<div class="middle_count">7日收益率：<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.sevenDayIncomeRate}}%</span></div>
+					<div class="middle_count">净利润：<span class="col">{{item.accumulatedNetProfit}}</span></div>
 					<div class="middle_count"><span class="co">看不准能忍，看得准就很</span></div>
 				</div>
 			</div>
 			
 			<div class="right">
 				<div class="top">
-					<span>600</span>元/月
+					<!-- <span>600</span>元/月 -->
 					<van-button class="but" size="mini" @click="subsByDate">包月</van-button>
 				</div>
 				<div class="zhong">
-					<span>1500</span>元/季
+					<!-- <span>1500</span>元/季 -->
 					<van-button class="but" size="mini" @click="subsByDate">包季</van-button>
 				</div>
 				<div class="xia">

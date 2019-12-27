@@ -194,7 +194,7 @@ export default {
             if(!Follow){
                 var params = { 
                     isFollow: true,
-                    followId: this.media.id
+                    followId: this.media.userId
                 };
                 console.log(params)
                 this.$axios.post('user/follow',params).then( res=>{
