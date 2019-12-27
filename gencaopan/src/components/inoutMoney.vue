@@ -2,7 +2,7 @@
     <div>
         <div class="jy_count" v-for="item in goldDetails" :key="item.id"> 
             <div>{{item.goldType}}</div> 
-            <div v-html="item.amount"></div> 
+            <div :style="{'color':(item.goldType == '入金' ? 'red':'green')}" v-html="item.amount"></div> 
             <div>{{item.tday}}</div> 
         </div> 
     </div>
@@ -22,11 +22,11 @@ export default {
 		// 	let data = res.data.data;
         //     this.inoutList = data.data;
         // });
-        this.$http.get('/static/data.json').then((res) => {
-            console.log(res.data)
-            this.inoutList = res.data.inout.data;
-        });
-        
+        // this.$http.get('/static/data.json').then((res) => {
+        //     console.log(res.data)
+        //     this.inoutList = res.data.inout.data;
+        // });
+        this.initData();
     },
     methods:{
         initData(){

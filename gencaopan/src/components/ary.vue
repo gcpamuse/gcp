@@ -10,20 +10,20 @@
             <div class="table_c"><div>最新日期</div><div>{{newDate}}</div></div>
             <div class="table_c"><div>累计收益</div><div>{{accumulatedIncome}}<span>元</span></div></div>
             <div class="table_c"><div>累计手续费</div><div>{{accumulatedFee}}<span>元</span></div></div>
-            <div class="table_c"><div>累计净利润</div><div>{{accumulatedNetProfit}}<span>元</span></div></div>
+            <div class="table_c"><div>累计净利润</div><div :style="{'color':(accumulatedNetProfit >= 0 ? 'red':'green')}">{{accumulatedNetProfit}}<span>元</span></div></div>
             <div class="table_c"><div>交易周期</div><div>{{tradingCycle}}<span>天</span></div></div>
             <div class="table_c"><div>交易笔数（开仓平仓）</div><div>{{tradeNumber}}</div></div>
             <div class="table_c"><div>盈利笔数（平仓）</div><div>{{profitNumber}}</div></div>
             <div class="table_c"><div>亏损笔数（平仓）</div><div>{{lossNumber}}</div></div>
-            <div class="table_c"><div>平均每笔盈利</div><div>{{averageProfit}}</div></div>
+            <div class="table_c"><div>平均每笔盈利</div><div :style="{'color':(averageProfit >= 0 ? 'red':'green')}">{{averageProfit}}</div></div>
             <div class="table_c"><div>平均每笔手续费</div><div>{{averageFee}}</div></div>
         </div>
 
         <h5 class="numone">盈利能力</h5> 
         <div class="table">
-            <div class="table_c"><div>累计收益率</div><div>{{accumulatedIncomeRate}}<span>%</span></div></div>
-            <div class="table_c"><div>七天收益率</div><div>{{sevenDayIncomeRate}}<span>%</span></div></div>
-            <div class="table_c"><div>今日收益率</div><div>{{dayIncomeRate}}<span>%</span></div></div>
+            <div class="table_c"><div>累计收益率</div><div :style="{'color':(accumulatedIncomeRate >= 0 ? 'red':'green')}">{{accumulatedIncomeRate}}<span>%</span></div></div>
+            <div class="table_c"><div>七天收益率</div><div :style="{'color':(sevenDayIncomeRate >= 0 ? 'red':'green')}">{{sevenDayIncomeRate}}<span>%</span></div></div>
+            <div class="table_c"><div>今日收益率</div><div :style="{'color':(dayIncomeRate >= 0 ? 'red':'green')}">{{dayIncomeRate}}<span>%</span></div></div>
             <div class="table_c"><div>胜率</div><div>{{winningRate}}<span>%</span></div></div>
             <div class="table_c"><div>盈亏比</div><div>{{profitLossRate}}</div></div>
             <div class="table_c"><div>连续盈利天数</div><div>{{consecutiveProfitDay}}<span>天</span></div></div>
@@ -32,8 +32,8 @@
         
         <h5 class="numone">稳定性</h5> 
         <div class="table1">
-            <div class="table_c"><div>日最大盈利金额</div><div>{{dayMaxProfit}}<span>元</span></div></div>
-            <div class="table_c"><div>日最大亏损</div><div>{{dayMaxLoss}}<span>元</span></div></div>
+            <div class="table_c"><div>日最大盈利金额</div><div :style="{'color':(dayMaxProfit >= 0 ? 'red':'green')}">{{dayMaxProfit}}<span>元</span></div></div>
+            <div class="table_c"><div>日最大亏损</div><div :style="{'color':(dayMaxLoss >= 0 ? 'red':'green')}">{{dayMaxLoss}}<span>元</span></div></div>
         </div>
         
     </div>

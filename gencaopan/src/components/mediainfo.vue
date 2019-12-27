@@ -9,7 +9,7 @@
                         <p class="count_c"><span>{{userList.articleSize}}</span>篇笔记&nbsp;被打赏<span>0元</span></p>
                     </div>
                     <div class="guanzhu">
-                        <div class="m-concern" @click="followBtn" :style="{borderColor:bg_color, color: ft_color,}">{{contets}}</div> 
+                        <div class="m-concern" @click="followBtn(userList.isFollow)" :style="{borderColor:bg_color, color: ft_color,}">{{contets}}</div> 
                     </div>
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
@@ -190,8 +190,8 @@ export default {
         quxiao(){
             this.toast_show=false;
         },
-        followBtn(){
-            if(!this.liked){
+        followBtn(Follow){
+            if(!Follow){
                 var params = { 
                     isFollow: true,
                     followId: this.media.id

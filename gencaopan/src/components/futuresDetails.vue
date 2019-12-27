@@ -46,7 +46,7 @@
                     </van-tab>
                     <van-tab title="净值分析" name="b">
                         <div class="superior-con">
-                            <netWorth></netWorth>
+                            <netWorth :id="id"></netWorth>
                             <h5 class="numone">出入金</h5> 
                             <div class="jy_crj"> 
                                 <div>出入金</div> 
@@ -61,22 +61,22 @@
                             <a class="dingyue" @click="login">登 录</a>
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
+                        <holdPositions v-else-if="subscribeStatus" :id="id"></holdPositions>
                         <div class="tradingRecord-state" v-else> 
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
-                        <holdPositions :id="id"></holdPositions>
                     </van-tab>
                     <van-tab title="当日成交" name="d">
                         <div class="tradingRecord-state" v-if="islogin"> 
                             <a class="dingyue" @click="login">登 录</a>
                             <span class="fl">后订阅该导师可查看全部交易记录</span>
                         </div>
+                        <transaction v-else-if="subscribeStatus" :id="id"></transaction>
                         <div class="tradingRecord-state" v-else> 
                             <a class="dingyue" @click="toSubscribe">订 阅</a>
                             <span class="fl">后可查看全部交易记录</span>
                         </div>
-                        <transaction :id="id"></transaction>
                     </van-tab>
                 </van-tabs>
             </div>
