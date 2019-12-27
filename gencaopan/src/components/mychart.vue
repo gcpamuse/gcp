@@ -247,7 +247,7 @@ export default {
             }
             var params = {
                 broker_id:this.selectName,
-                username:this.account,
+                account:this.account,
                 password:this.tpassword
             }
             this.$axios.post('/user/bindTqAccount',params).then((res) => {
