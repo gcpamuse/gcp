@@ -1,8 +1,8 @@
 <template>
     <!-- <div class="graph chartField"></div>  -->
     <div class="superior-con">
-        <h5 class="numone">累计净值</h5>        
-        <div id="chartmainline" style="width:100%;height:300px;border-bottom: 2px solid #eee;"></div>
+        <!-- <h5 class="numone">累计净值</h5>        
+        <div id="chartmainline" style="width:100%;height:300px;border-bottom: 2px solid #eee;"></div> -->
         <h5 class="numone">盈亏曲线图</h5> 
         <div id="chartmainlinetow" style="width:100%; height:300px;border-bottom: 2px solid #eee;"></div>
         <h5 class="numone">周盈亏</h5> 
@@ -36,21 +36,12 @@ export default {
             shu:[],
             zhi:[],
             shu1:[],
+            zhi1:[],
             zhi2:[],
             shu2:[],
             shuzhi1:[],
             shuzhi2:[],
             shuzhi3:[],
-            zhi1:[],
-            data1:[],
-            data2:[],
-            data3:[],
-            name:[],
-            data4:[],
-            name1:[],
-            text:[],
-            text1:[],
-            text2:[],
             optionlinetow:{
                 title:{
                     text:'',// text:'累计盈亏',
@@ -142,7 +133,11 @@ export default {
             option : {
                 title: {                   
                     text: '',// text: '周盈亏',
-                    x: 'center'
+                    x: 'center',
+                    textStyle:{
+                        fontSize:16,
+                        fontFamily: 'monospace',
+                    }
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -233,89 +228,18 @@ export default {
     methods:{
         drawLine: function(){
             //基于准本好的DOM，初始化echarts实例
-            let chartmainline = this.$echarts.init(document.getElementById("chartmainline"));
             let chartmainlinetow = this.$echarts.init(document.getElementById("chartmainlinetow"));
             let myChart = echarts.init(document.getElementById('main'));
-            // let chart = echarts.init(document.getElementById('zhou'));
-            let bingchart = echarts.init(document.getElementById('bingtu'));
-            // let chartmain = this.$echarts.init(document.getElementById("chartmain"));
-            //绘制图表
-            // chartmainline.setOption(this.optionline);
-            chartmainline.setOption(this.optionlinetow);
+            let bingchart = echarts.init(document.getElementById('bingtu')); 
+            //绘制图表 
             chartmainlinetow.setOption(this.optionlinetow);
             myChart.setOption(this.option);
-            // chart.setOption(this.zhouoption);
-            // chart.setOption(this.option);
-            bingchart.setOption(this.bingoption);
-            // chartmain.setOption(this.optionlinetow);
-            window.onresize = function () {
-                chartmainline.resize();
+            bingchart.setOption(this.bingoption); 
+            window.onresize = function () {   
                 chartmainlinetow.resize();
-                myChart.resize();
-                // chart.resize();
-                bingchart.resize();
-                // chartmain.resize();
+                myChart.resize();  
+                bingchart.resize();   
             };
-            // this.$http.get("/api/majorlist").then(function(response){
-            this.$http.get("/static/data.json").then(function(response){
-                // let ydata = response.data.data.y;
-                console.log(response.data.data)
-                let ydata = response.data.data.y;
-        　　　　for(let i = 0; i < ydata.length; i++){　　　
-        　　　　　　 this.data1 = ydata[i].data;
-        　　　　}
-                this.data2=response.data.data.x;
-                chartmainline.setOption({
-                    title:{
-                        text: "累计净值"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    series: [{ 
-                        data: this.data1
-                    }]
-                });
-                let datatow = response.data.data.c;
-        　　　　 for(let i = 0; i < datatow.length; i++){　　　
-        　　　　     this.data3[i] = datatow[i].data;
-                    this.name[i]=datatow[i].name;
-        　　　　 }
-                chartmainlinetow.setOption({
-                    title:{
-                        text: "累计盈亏"
-                    },
-                    xAxis: {
-                        data: this.data2
-                    }, 
-                    legend:{
-                        data:this.name
-                    },
-                    series: [
-                        { 
-                        name:this.name[0],
-                        data:this.data3[0]
-                        },
-                        { 
-                        name:this.name[1],
-                        data:this.data3[1]
-                        },
-                        { 
-                        name:this.name[2],
-                        data:this.data3[2]
-                        }
-                    ]
-                });
-                let datad = response.data.data.d;
-        　　　　 for(let i = 0; i < datad.length; i++){　　　
-        　　　　     this.data4[i] = datad[i].data;
-                    this.name1[i] = datad[i].name;
-        　　　　 }
-                
-        　　})
-        　　.catch(function(error){
-        　　　　console.log("出错喽："+error);
-        　　});
             var params = { 
                 id: this.id,
             };
@@ -372,16 +296,41 @@ export default {
                 //累计盈亏
                 for(let key in this.accumulatedProfitLoss){
                     this.shu2.push(key);
-                    this.zhi2.push(this.weekProfitLoss[key]);
+                    this.zhi2.push(this.accumulatedProfitLoss[key]);    
                 }
-                for(let key in this.zhi2){
-                    this.shuzhi1.push(key);
-                    this.shuzhi2.push(this.zhi2[0]);
-                    this.shuzhi3.push(this.zhi2[9]);
-                }
-                 console.log("1111%%%"+this.shuzhi1+"$$$$$"+this.shuzhi2)
-                 console.log("1111"+this.shuzhi1+"$$$$$"+this.shuzhi2+"88888"+this.shuzhi3)
-                console.log(this.zhi2+"......."+this.shu2.length)
+                this.zhi2.forEach((item, index) => {
+                    this.shuzhi1.push(item.sumProfit);
+                    this.shuzhi2.push(item.sumFee);
+                    this.shuzhi3.push(item.sumNetProfit);
+                })
+                chartmainlinetow.setOption({
+                    title:{
+                        text: "累计盈亏"
+                    },
+                    xAxis: {
+                        data: this.shu2
+                    }, 
+                    legend:{
+                        data:["累计毛利润","累计手续费","累计净利润"]
+                    },
+                    series: [
+                        { 
+                        name:"累计毛利润",
+                        data:this.shuzhi1
+                        },
+                        { 
+                        name:"累计手续费",
+                        data:this.shuzhi2
+                        },
+                        { 
+                        name:"累计净利润",
+                        data:this.shuzhi3
+                        }
+                    ]
+                });
+                console.log("1111%%%"+this.shuzhi1)
+                console.log("______"+this.shuzhi2)
+                console.log("++++++"+this.shuzhi3)
             })
             .catch( error=>{
         　　　　console.log(error);
