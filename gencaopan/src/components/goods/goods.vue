@@ -16,8 +16,9 @@
 		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
 			<div  @click="toDetails(item.userId)" style="width: 80%;">
 				<div class="left">
-					<span class="daoshi_shou" v-if="item.free == 1">收</span>
-					<span class="daoshi_shou" v-else>免</span>
+					<span class="daoshi_shou">收</span>
+					<!-- <span class="daoshi_shou" v-if="item.free == 1">收</span> -->
+					<!-- <span class="daoshi_shou" v-else>免</span> -->
 					<!-- <img src="../../img/132.jpg" class="img_top"> -->
 					<img :src="item.portrait" alt="" class="img_t">
 					<p class="yh_name">{{item.userName}}</p>
@@ -27,10 +28,10 @@
 					<div class="middle_count">7日收益率：<span :style="{'color':(item.week_yield >= 0 ? 'red':'green')}">{{item.week_yield}}%</span></div>
 					<div class="middle_count">净利润：<span class="col">{{item.tn_profit}}元</span></div>
 					<div class="middle_count"><span class="co">{{item.mark}}</span></div> -->
-					<div class="middle_count">累计收益率:<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.accumulatedIncomeRate}}%</span></div>
-					<div class="middle_count">7日收益率：<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.sevenDayIncomeRate}}%</span></div>
+					<div class="middle_count">累计收益率:<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.accumulatedIncomeRate | numFilter}}%</span></div>
+					<div class="middle_count">7日收益率：<span :style="{'color':(item.accumulatedIncomeRate >= 0 ? 'red':'green')}">{{item.sevenDayIncomeRate | numFilter}}%</span></div>
 					<div class="middle_count">净利润：<span class="col">{{item.accumulatedNetProfit}}</span></div>
-					<div class="middle_count"><span class="co">看不准能忍，看得准就很</span></div>
+					<div class="middle_count"><span class="co">{{item.name}}</span></div>
 				</div>
 			</div>
 			
@@ -163,6 +164,19 @@ import { Button } from 'vant';
 					console.log(res.data.data.rows)
 					this.list = res.data.data.rows;
 				});
+		},
+
+		filters: {
+			numFilter (value) {
+				let realVal = ''
+				if (value) {
+					// 截取当前数据到小数点后两位
+					realVal = parseFloat(value*100).toFixed(2)
+				} else {
+					realVal = '--'
+				}
+				return realVal
+			}
 		}
 	}
 </script>

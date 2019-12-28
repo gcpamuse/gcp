@@ -3,9 +3,9 @@
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
-                <div class="pic"><img class="avatar" src="../img/default_middle.png" alt="naihaha"/></div> 
+                <div class="pic"><img class="avatar" :src="user.portrait" alt=""/></div><!--../img/default_middle.png--> 
                 <div class="superior-main"> 
-                    <h2>naihaha</h2> 
+                    <h2>{{user.name}}</h2> 
                     <div class="mychart_d"> 
                         <p class="mychart_p"> 
                             <span class="mychart_span" style="padding-left:0;float:none;"> 坚持固定的体系是最难的，也是最简单的。 </span> 
@@ -113,7 +113,8 @@ export default {
             islogin:false,
             data:{},
             tradeRecords:[],
-            subscribeStatus:""
+            subscribeStatus:"",
+            user:{}
         }
     },
     mounted(){
@@ -132,6 +133,7 @@ export default {
                 this.data = res.data.data;
                 this.tradeRecords = data.tradeRecords;
                 this.subscribeStatus = data.subscribeStatus;
+                this.user = data.user;
                 console.log(this.data.newDate+".......")
             })
             .catch( error=>{

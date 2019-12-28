@@ -21,10 +21,10 @@
 
         <h5 class="numone">盈利能力</h5> 
         <div class="table">
-            <div class="table_c"><div>累计收益率</div><div :style="{'color':(accumulatedIncomeRate >= 0 ? 'red':'green')}">{{accumulatedIncomeRate}}<span>%</span></div></div>
-            <div class="table_c"><div>七天收益率</div><div :style="{'color':(sevenDayIncomeRate >= 0 ? 'red':'green')}">{{sevenDayIncomeRate}}<span>%</span></div></div>
-            <div class="table_c"><div>今日收益率</div><div :style="{'color':(dayIncomeRate >= 0 ? 'red':'green')}">{{dayIncomeRate}}<span>%</span></div></div>
-            <div class="table_c"><div>胜率</div><div>{{winningRate}}<span>%</span></div></div>
+            <div class="table_c"><div>累计收益率</div><div :style="{'color':(accumulatedIncomeRate >= 0 ? 'red':'green')}">{{accumulatedIncomeRate | numFilter}}<span>%</span></div></div>
+            <div class="table_c"><div>七天收益率</div><div :style="{'color':(sevenDayIncomeRate >= 0 ? 'red':'green')}">{{sevenDayIncomeRate | numFilter}}<span>%</span></div></div>
+            <div class="table_c"><div>今日收益率</div><div :style="{'color':(dayIncomeRate >= 0 ? 'red':'green')}">{{dayIncomeRate | numFilter}}<span>%</span></div></div>
+            <div class="table_c"><div>胜率</div><div>{{winningRate | numFilter}}<span>%</span></div></div>
             <div class="table_c"><div>盈亏比</div><div>{{profitLossRate}}</div></div>
             <div class="table_c"><div>连续盈利天数</div><div>{{consecutiveProfitDay}}<span>天</span></div></div>
             <div class="table_c"><div>连续亏损天数</div><div>{{consecutiveLossDay}}<span>天</span></div></div>
@@ -111,6 +111,18 @@ export default {
         　　});
         console.log("++++++||||||||"+this.id)
         },
+    },
+    filters: {
+        numFilter (value) {
+            let realVal = ''
+            if (value) {
+                // 截取当前数据到小数点后两位
+                realVal = parseFloat(value*100).toFixed(4)
+            } else {
+                realVal = '--'
+            }
+            return realVal
+        }
     }
 }
 </script>
