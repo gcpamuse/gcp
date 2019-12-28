@@ -42,7 +42,7 @@
 				</div>
 				<div class="zhong">
 					<!-- <span>1500</span>元/季 -->
-					<van-button class="but" size="mini" @click="subsByDate">包季</van-button>
+					<van-button class="but1" size="mini" @click="subsByDate">免费订阅</van-button>
 				</div>
 				<div class="xia">
 					<div class="dingyue">{{item.subscribeCount}}人已订阅</div>
@@ -106,7 +106,8 @@ import { Button } from 'vant';
 				],
 				modePop:false,
 				list:[],
-				id:0
+				id:0,
+				openid:''
 			}
 		},
 		methods:{
@@ -121,14 +122,28 @@ import { Button } from 'vant';
 				// });
 			},
 			determine(id){
-				let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
-				if (isWeiXin()) {
-					return true
-				} else {
-					// this.$toast('不是');
-					this.$router.push({name: 'wechatPay',params:{dd:1}})
-					return false
-				}
+				// let code = window.location.search.split('&')[0].split('=')[1];
+				// if (!code) { 
+					this.$router.push({name: 'wechatPay',params:{dd:1}}) 
+				// let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
+				// if (isWeiXin()) {
+				// 		var domine = window.location.href;
+				// 		this.$axios.get("/wechat/authorize?returnUrl=" + domine) 
+				// 		.then(res => {
+				// 			this.openid = res.data.openid;
+				// 		});
+				// 	}else {
+				// 		this.$axios.post("/user/data",{openid:openid})
+				// 			.then(res => {
+				// 			console.log(res.data);
+				// 		});
+				// 	}
+				// } else {
+				// 		this.$axios.post("/user/data",{openid:openid})
+				// 			.then(res => {
+				// 			console.log(res.data);
+				// 		});
+				// 	}
 				// var params = { 
 				// 	id: id,
 				// };
@@ -140,7 +155,7 @@ import { Button } from 'vant';
 				// 	}
 					
 				// });
-				this.$router.push({name: 'zhifu'})
+				// this.$router.push({name: 'zhifu'})
 			},
 			toDetails(id){
 				this.$router.push({name: 'futuresDetails',params:{id:id}})
@@ -154,7 +169,8 @@ import { Button } from 'vant';
 					console.log(res.data.data.rows)
 					this.list = res.data.data.rows;
 				});
-			}
+			},
+			
 		},
 		mounted(){
 			
@@ -284,6 +300,9 @@ import { Button } from 'vant';
 			}
 			.zhong{
 				margin-bottom: 3px;
+				.but1{
+					background-color: rgb(38, 143, 38);
+				}
 			}
 			.zhong>span{
 				margin-bottom: 4px;

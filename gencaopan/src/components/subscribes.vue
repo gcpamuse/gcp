@@ -5,7 +5,7 @@
         @confirm="toShouYe"
         >
             <p class="guanzhu">请先关注</p>
-            <p class="p_concent">请您关注本微信号，进而查看本软件信息和各项功能。长按二维码关注本微信号(跟操盘)</p>
+            <p class="p_concent">请您关注本微信号，进而查看本软件信息和各项功能。长按二维码关注本微信号(期学堂)</p>
             <p style="text-align:center;">
                 <img src="../img/qxt_gzh.jpg" alt="跟操盘" style="width:60%;" />
             </p>
