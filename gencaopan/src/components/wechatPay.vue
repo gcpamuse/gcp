@@ -2,7 +2,7 @@
   <div>
     <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div class="niu_right-msg"> 
-            <div class="ok" style="color:#FFFFFF;"> 您需要登陆后才能订阅！</div> 
+            <div class="ok" style="color:#FFFFFF;"> 你还未关注期学堂公众号，您需要关注后才能订阅！</div> 
             <div class="niu_right-msg-bottom">页面将在&nbsp;
                 <span style="color:#FF0000" id="remains">{{count}}</span>&nbsp;秒后自动跳转<br />
                 手动返回
