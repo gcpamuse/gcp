@@ -14,7 +14,7 @@
                     </div> 
                 </div>
                 <div class="quxian">
-                    <div class="book-btn" @click="guanZhu" v-show="guanzhu">+关注</div>
+                    <div class="book-btn" @click="followBtn(user.isFollow)" v-show="guanzhu">+关注</div>
                     <div class="book-btn" @click="lookBiJi" v-show="biji">看笔记</div>
                 </div> 
             </div> 
@@ -141,19 +141,42 @@ export default {
         　　});
         console.log("++++++||||||||"+this.id)
         },
-        guanZhu(){
-            var params = { 
-                isFollow: true,
-                followId: this.id
-            };
-            this.$axios.post('order/subscribe',params).then((res) => {
+        // guanZhu(){
+        //     var params = { 
+        //         isFollow: true,
+        //         followId: this.id
+        //     };
+        //     this.$axios.post('order/subscribe',params).then((res) => {
                 
-            });
-            this.guanzhu=false;
-            this.biji=true;
+        //     });
+        //     this.guanzhu=false;
+        //     this.biji=true;
+        // },
+        followBtn(Follow){
+            if(!Follow){
+                var params = { 
+                    isFollow: true,
+                    followId: this.id
+                };
+                console.log(params)
+                this.$axios.post('user/follow',params).then( res=>{
+                    console.log(res)
+                    if(res.data.code!==200) return
+                    this.guanzhu=false;
+                    this.biji=true;
+                })
+                .catch( error=>{
+            　　　　console.log("出错喽："+error);
+            　　});
+            }
         },
         lookBiJi(){
-            this.$router.push({name: 'looknotes'})
+            this.$router.push({
+				name: 'looknotes',
+				params: {
+					id:this.id
+				}
+			})
         },
         toRenZheng(){
             this.$router.push({name: 'applyInvestor'})
