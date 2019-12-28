@@ -37,7 +37,7 @@
 			
 			<div class="right">
 				<div class="top">
-					<!-- <span>600</span>元/月 -->
+					<span>{{item.monthAmount}}</span>元/月
 					<van-button class="but" size="mini" @click="subsByDate">包月</van-button>
 				</div>
 				<div class="zhong">
@@ -121,17 +121,26 @@ import { Button } from 'vant';
 				// });
 			},
 			determine(id){
-				var params = { 
-					id: id,
-				};
-				console.log(params)
-				this.$axios.post('/order/subscribe',params).then((res) => {
-					console.log(res)
-					if(res){
-						this.$router.push({name: 'zhifu'})
-					}
+				let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
+				if (isWeiXin()) {
+					return true
+				} else {
+					// this.$toast('不是');
+					this.$router.push({name: 'wechatPay',params:{dd:1}})
+					return false
+				}
+				// var params = { 
+				// 	id: id,
+				// };
+				// console.log(params)
+				// this.$axios.post('/order/subscribe',params).then((res) => {
+				// 	console.log(res)
+				// 	if(res){
+				// 		this.$router.push({name: 'zhifu'})
+				// 	}
 					
-				});
+				// });
+				this.$router.push({name: 'zhifu'})
 			},
 			toDetails(id){
 				this.$router.push({name: 'futuresDetails',params:{id:id}})

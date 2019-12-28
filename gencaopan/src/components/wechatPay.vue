@@ -18,7 +18,7 @@ export default {
     data(){
         return{
            count:"", 
-           id:0
+           dd:0
         }
     },
     created(){
@@ -27,7 +27,7 @@ export default {
     methods:{
         goGrdoupRecor(){
             const TIME_COUNT = 3;
-            this.id = this.$route.params.id;
+            this.dd = this.$route.params.dd;
             if(!this.timer){
                 this.count = TIME_COUNT;
                 this.show = false;
@@ -38,10 +38,10 @@ export default {
                         this.show = true;
                         clearInterval(this.timer);
                         this.timer = null;
-                        if(this.id==1){
+                        if(this.dd==1){
                             this.$router.push({
-                                // path: '/subscribes'
-                                 path: '/login'
+                                path: '/subscribes'
+                                //  path: '/login'
                             });
                         }
                     }
