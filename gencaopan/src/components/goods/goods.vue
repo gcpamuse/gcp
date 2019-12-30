@@ -135,7 +135,7 @@ import { Button } from 'vant';
 					// 　　　　 console.log(error);
 					// 　　});	
 						window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
-						var const_href = window.location.search;   // 拿到?后面的连接
+						var const_href = window.location.search;
 						this.openid = const_href.split('=')[1];  
 					}else {
 						this.$router.push({name: 'wechatPay',params:{dd:1}}) 
