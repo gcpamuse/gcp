@@ -27,6 +27,7 @@ import './common/css/style.css'
 import './common/css/reset.css'
 import './style.css'
 
+import QRCode from 'qrcodejs2'
 
 //Vant
 import {Button ,Tabbar,TabbarItem,Tab,Tabs,Cell,CellGroup,Icon,Field,SwitchCell,Uploader,Dialog,RadioGroup,Radio,Checkbox,Toast,Popup,NavBar,List,Switch,DropdownMenu, DropdownItem,Area} from 'vant'
