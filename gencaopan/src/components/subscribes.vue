@@ -6,25 +6,42 @@
         >
             <p class="guanzhu">请先关注</p>
             <p class="p_concent">请您关注本微信号，进而查看本软件信息和各项功能。长按二维码关注本微信号(期学堂)</p>
-            <p style="text-align:center;">
-                <img src="../img/qxt_gzh.jpg" alt="跟操盘" style="width:60%;" />
-            </p>
+            <div style="text-align:center;">
+                <!-- <img src="../img/qxt_gzh.jpg" alt="跟操盘" style="width:60%;" /> -->
+                <div class="qr" id="qrcode" ref="qrcode"></div>
+            </div>
         </van-dialog>
   </div>
 </template>
 
 <script>
+import QRCode from "qrcodejs2";
 export default {
     data(){
         return{
             show: true
         }
     },
+    components: {
+        QRCode
+    },
+    mounted(){
+        this.$nextTick(() => {
+            this.qrcode()
+        })
+    },
     methods:{
         toShouYe(){
             this.$router.push({
                 path: '/'
             });
+        },
+        qrcode () {
+            let qrcode = new QRCode('qrcode',{
+                width: 200, // 设置宽度，单位像素
+                height: 200, // 设置高度，单位像素
+                text: 'http://qxt.yuhaige.xyz/' // 设置二维码内容或跳转地址
+            })
         }
     }
 }
@@ -51,5 +68,11 @@ export default {
 }
 .van-dialog__header {
     padding-top: 10px;
+}
+.qr{
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    text-align: center;
 }
 </style>

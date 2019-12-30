@@ -128,7 +128,7 @@ import { Button } from 'vant';
 						let domine = 'http://qxt.yuhaige.xyz/';
 						this.$axios.get("/wechat/authorize?returnUrl=" + domine) 
 						.then(res => {
-							console.log(res);
+							console.log(res.data+"55555");
 							this.openid = res.data.openid;
 						});
 					}else {
