@@ -125,12 +125,16 @@ import { Button } from 'vant';
 				if(this.openid==""){
 					let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
 					if (isWeiXin()) {
-						let domine = 'http://qxt.yuhaige.xyz/';
-						this.$axios.get("/wechat/authorize?returnUrl=" + domine) 
-						.then(res => {
-							console.log(res.data+"55555");
-							this.openid = res.data.openid;
-						});
+					// 	var domine ="http://qxt.yuhaige.xyz/#/zhifu";
+					// 	this.$axios.get("/wechat/authorize?returnUrl="+domine) 
+					// 	.then(res => {
+					// 		console.log(res.data+"55555");
+					// 		this.openid = res.data.openid;
+					// 	})
+					// 	.catch( error=>{
+					// 　　　　 console.log(error);
+					// 　　});
+						window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
 					}else {
 						this.$router.push({name: 'wechatPay',params:{dd:1}}) 
 					}

@@ -38,8 +38,8 @@ export default {
         },
         qrcode () {
             let qrcode = new QRCode('qrcode',{
-                width: 200, // 设置宽度，单位像素
-                height: 200, // 设置高度，单位像素
+                width: 160, // 设置宽度，单位像素
+                height: 160, // 设置高度，单位像素
                 text: 'http://qxt.yuhaige.xyz/' // 设置二维码内容或跳转地址
             })
         }
@@ -70,9 +70,9 @@ export default {
     padding-top: 10px;
 }
 .qr{
-    width: 200px;
-    height: 200px;
-    margin: 10px auto;
+    width: 160px;
+    height: 160px;
+    margin: 15px auto;
     text-align: center;
 }
 </style>
