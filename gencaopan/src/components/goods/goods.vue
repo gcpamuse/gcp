@@ -122,28 +122,25 @@ import { Button } from 'vant';
 				// });
 			},
 			determine(id){
-				// let code = window.location.search.split('&')[0].split('=')[1];
-				// if (!code) { 
-					this.$router.push({name: 'wechatPay',params:{dd:1}}) 
-				// let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
-				// if (isWeiXin()) {
-				// 		var domine = window.location.href;
-				// 		this.$axios.get("/wechat/authorize?returnUrl=" + domine) 
-				// 		.then(res => {
-				// 			this.openid = res.data.openid;
-				// 		});
-				// 	}else {
-				// 		this.$axios.post("/user/data",{openid:openid})
-				// 			.then(res => {
-				// 			console.log(res.data);
-				// 		});
-				// 	}
-				// } else {
-				// 		this.$axios.post("/user/data",{openid:openid})
-				// 			.then(res => {
-				// 			console.log(res.data);
-				// 		});
-				// 	}
+				if(this.openid==""){
+					let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
+					if (isWeiXin()) {
+						let domine = 'http://qxt.yuhaige.xyz/';
+						this.$axios.get("/wechat/authorize?returnUrl=" + domine) 
+						.then(res => {
+							console.log(res);
+							this.openid = res.data.openid;
+						});
+					}else {
+						this.$router.push({name: 'wechatPay',params:{dd:1}}) 
+					}
+				}else{
+					this.$axios.post("/user/data",{openid:this.openid})
+					.then(res => {
+						console.log(res.data);
+					});
+					this.$router.push({name: 'zhifu'})
+				}
 				// var params = { 
 				// 	id: id,
 				// };
