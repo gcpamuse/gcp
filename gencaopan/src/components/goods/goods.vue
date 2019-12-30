@@ -348,4 +348,7 @@ import { Button } from 'vant';
 			padding-top: 12px;
 		}
 	}
+	button.but1.van-button.van-button--default.van-button--mini {
+		padding: 0 5px;
+	}
 </style>
