@@ -107,7 +107,7 @@ import { Button } from 'vant';
 				modePop:false,
 				list:[],
 				id:0,
-				openid:''
+				openid:""
 			}
 		},
 		methods:{
