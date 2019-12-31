@@ -178,7 +178,7 @@ export default {
             this.$router.push({
 				name: 'looknotes',
 				params: {
-					id:this.id
+					id:this.userId
 				}
 			})
         },
@@ -203,7 +203,7 @@ export default {
         },
         chicang(){
             var params = { 
-                id: this.id,
+                id: this.userId,
             };
             this.$axios.post('/futures/position',params).then(res=>{
                 console.log(res)
@@ -214,7 +214,7 @@ export default {
         },
         drchengjiao(){
             var params = { 
-                id: this.id,
+                id: this.userId,
             };
             this.$axios.post('/futures/trade',params).then(res=>{
                 console.log(res)
