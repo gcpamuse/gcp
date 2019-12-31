@@ -42,13 +42,13 @@
 				</div>
 				<div class="zhong">
 					<!-- <span>1500</span>元/季 -->
-					<van-button class="but1" size="mini" @click="subsByDate">免费订阅</van-button>
+					<!-- <van-button class="but1" size="mini" @click="subsByDate">免费订阅</van-button> -->
 				</div>
 				<div class="xia">
 					<div class="dingyue">{{item.subscribeCount}}人已订阅</div>
 				</div>
 			</div>
-			<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine(item.id)' confirm-button-color='#0BB20C'>
+			<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine(item.userId)' confirm-button-color='#0BB20C'>
 				<div class="content"> 
 					<p>1、仅作为自己学习之用，不违法违规使用和传播本软件的任何信息。</p>
 					<p>2、知晓投资风险，并且自行承担所有交易风险。</p>
@@ -91,23 +91,23 @@ import { Button, Toast } from 'vant';
 					name: "累计收益",
 					status: 1
 					},
-					{
-					name: "最大回撤",
-					status: 2
-					},
-					{
-					name: "资金量",
-					status: 3
-					},
-					{
-					name: "胜率",
-					status: 3
-					}
+					// {
+					// name: "最大回撤",
+					// status: 2
+					// },
+					// {
+					// name: "资金量",
+					// status: 3
+					// },
+					// {
+					// name: "胜率",
+					// status: 3
+					// }
 				],
 				modePop:false,
 				list:[],
 				id:0,
-				openid:this.$Request.openid
+				openid:""
 			}
 		},
 		methods:{
@@ -122,25 +122,37 @@ import { Button, Toast } from 'vant';
 				// });
 			},
 			determine(id){
-				if(this.openid==""){
-					let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
-					if (isWeiXin()) {
-					// 	var domine ="http://qxt.yuhaige.xyz/#/zhifu";
-						window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
-						// var const_href = window.location.search;
-						// this.openid = const_href.split('=')[1];
-						this.openid = this.$Request.openid;
-						this.$toast('lll'+this.openid);
-					}else {
-						this.$router.push({name: 'wechatPay',params:{dd:1}}) 
-					}
+				// 请求接口 判断是否有openid
+				let token = localStorage.getItem('Authorization');
+				if(token === null || token === ''){
+					this.$toast('您需要登录后才可以订阅');
+					return false;
 				}else{
-					this.$axios.post("/user/data",{openid:this.openid})
-					.then(res => {
-						console.log(res.data);
+					this.$axios.post('user').then(res=>{
+						// if(res.data.code!==200) return
+						this.openid = res.data.data.openid;	
+						console.log(this.openid+"hhh1111");
+						if(this.openid==""){
+							let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
+							if (isWeiXin()) {
+								window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
+							}else {
+								this.$router.push({name: 'wechatPay',params:{dd:1}}) 
+							}
+						}else{
+							this.$axios.post("/user/data",{openid:this.openid})
+							.then(res => {
+								console.log(res.data);
+							});
+							this.$router.push({name: 'zhifu',params:{id:id}})
+						}
 					});
-					this.$router.push({name: 'zhifu'})
+					
 				}
+				// 如果没有openid 判断是否微信浏览器 不是微信浏览器 提示关注 是微信浏览器的话 跳转获取openid
+
+				// 获取openid 成功 跳转到支付页面
+
 				// var params = { 
 				// 	id: id,
 				// };
@@ -167,10 +179,32 @@ import { Button, Toast } from 'vant';
 					this.list = res.data.data.rows;
 				});
 			},
-			
+			isopenid(){
+				if(this.openid!=""){
+					this.$axios.post("/user/data",{openid:this.openid})
+					.then(res => {
+						console.log(res.data);
+					});
+				}	
+				// this.$router.push({name: 'zhifu',params:{id:id}})
+			},
+			// isuser(){
+			// 	let token = localStorage.getItem('Authorization');
+			// 	if(token === null || token === ''){
+			// 		this.$toast('您需要登录后才可以订阅');
+			// 		return false;
+			// 	}else{
+			// 		this.$axios.post('user').then(res=>{
+			// 			// if(res.data.code!==200) return
+			// 			this.openid = res.data.data.openid;	
+			// 			console.log(this.openid+"hhh1111");
+			// 		});
+			// 	}
+			// }
 		},
 		mounted(){
-			
+			// this.isuser();
+			this.isopenid();
 			// this.$http.get('/static/data.json').then((res) => {
 			// 	console.log(res.data.teacherList.data.data)
 			   
@@ -178,14 +212,18 @@ import { Button, Toast } from 'vant';
 			// 	   // this.list = data.data;
 			// 	   this.list = res.data.teacherList.data.data;
 			// });
+
+			// 如果有openid 获取请求服务器 直接跳转到支付页面
+			
 			var params = { 
-					currentPage: this.page,
-					pageSize: this.pageSize
-            	};
-				this.$axios.post('/futures/index',params).then((res) => {
-					console.log(res.data.data.rows)
-					this.list = res.data.data.rows;
-				});
+				currentPage: this.page,
+				pageSize: this.pageSize
+			};
+			this.$axios.post('/futures/index',params).then((res) => {
+				console.log(res.data.data.rows)
+				this.list = res.data.data.rows;
+			});
+				// this.isuser();
 		},
 
 		filters: {
@@ -297,6 +335,7 @@ import { Button, Toast } from 'vant';
 			}
 			.zhong{
 				margin-bottom: 3px;
+				height: 15px;
 				.but1{
 					background-color: rgb(38, 143, 38);
 				}

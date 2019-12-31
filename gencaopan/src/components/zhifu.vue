@@ -5,10 +5,13 @@
         <h3 id="subTime">订阅期： 2019年09月27日-2020年09月26日</h3> 
         <h3>您可以通过订阅导师，看到导师实时持仓和实时交易，从而学习导师策略</h3> 
         <van-radio-group v-model="radio1" class="demo-radio-group">
-            <div class="gender-set"><van-radio name="400" value='400'><em>400</em>元/周</van-radio></div>
-            <div class="gender-set"><van-radio name="600" value='600'><em>1000</em>元/月</van-radio></div>
-            <div class="gender-set"><van-radio name="2800" value='2800'><em>2800</em>元/季</van-radio></div>
-            <div class="gender-set"><van-radio name="6666" value='6666'><em>6666</em>元/年</van-radio></div>
+            <div>
+                <!-- <div class="gender-set"><van-radio name="400" value='400'><em>400</em>元/周</van-radio></div>
+                <div class="gender-set"><van-radio name="600" value='600'><em>1000</em>元/月</van-radio></div>
+                <div class="gender-set"><van-radio name="2800" value='2800'><em>2800</em>元/季</van-radio></div>
+                <div class="gender-set"><van-radio name="6666" value='6666'><em>6666</em>元/年</van-radio></div> -->
+                <div class="gender-set"><van-radio :name="month" :value='month'><em>{{month}}</em>元/月</van-radio></div>
+            </div>
         </van-radio-group>
         <h3>您还应支付：<span><em id="totalPay">{{radio1}}</em>元</span></h3> 
         <van-radio-group class="demo-radio-group">
@@ -49,13 +52,24 @@
 export default {
     data(){
         return{
-            radio1: '400',
+            radio1: '200',
             checkboxShape: true,
             gender: '',
-            id:this.$route.params.id
+            id:this.$route.params.id,
+            month:0
         }
     },
+    mounted(){
+        this.initData();
+    },
     methods:{
+        initData(){
+            this.$axios.post("/futures/pay",{id:this.id})
+            .then(res => {
+                console.log(res.data);
+                this.month = res.data.data.month;
+            });
+        },
         weChatPayment(){
             if(!this.checkboxShape){
                 // alert('您未阅读并同意私募投资网协议');

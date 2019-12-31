@@ -174,7 +174,7 @@ const router = new Router({
       component: mychart
     },
     {
-      path: '/zhifu',
+      path: '/zhifu/:id',
       name: 'zhifu',
       meta:{
         tabbar: true,

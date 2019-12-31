@@ -70,7 +70,7 @@
                 </div>    
                 <div class="note-qrcode"> 
                     <div class="qrcode-text">所有笔记仅供学习</div> 
-                    <img src="../img/gencaopan.jpg" alt="跟操盘" class="qrcode-img">
+                    <img src="../img/qxt_gzh.jpg" alt="跟操盘" class="qrcode-img">
                 </div> 
                 <div class="toast"  v-show="toast_control"> 
                     <div class="toast-container"> 

@@ -37,7 +37,7 @@ export default {
                 console.log(res.data.data)
                 let data = res.data.data;
                 this.goldDetails = data.goldDetails;
-                console.log(this.data.newDate+"...+...."+data.goldDetails)
+                // console.log(this.data.newDate+"...+...."+data.goldDetails)
             })
             .catch( error=>{
         　　　　console.log(error);
