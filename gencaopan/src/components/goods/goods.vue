@@ -107,7 +107,7 @@ import { Button, Toast } from 'vant';
 				modePop:false,
 				list:[],
 				id:0,
-				openid:""
+				openid:this.$Request.openid
 			}
 		},
 		methods:{
