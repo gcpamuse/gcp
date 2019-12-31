@@ -12,7 +12,8 @@
                 </div> 
                 <div class="invite-code j-havecode">http://daoshi.simutz.com/share/83564</div> 
                 <div class="invite-ps">长按复制您的专属邀请链接，分享给您的朋友获得更多奖励</div> 
-                <div class="invite-spread" onClick="window.open('');">推广建议</div> 
+                <!-- <div class="invite-spread" onClick="window.open('');">推广建议</div>  -->
+                <div class="invite-spread">推广建议</div> 
                 <div class="item-content invite-mine"> 
                     <div class="item-inner"> 
                         <div class="item-title mine-left">我的账户:<span class="mine-money">{{banner.balance}}</span>元</div>

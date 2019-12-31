@@ -48,8 +48,9 @@ export default {
     data(){
         return{
             nameShow: false,
-            avatar:'http://tg.simutz.com/avatar/83564_middle.jpg',
-            name:'哈哈哈',
+            // avatar:'http://tg.simutz.com/avatar/83564_middle.jpg',
+            avatar:this.$route.query.portrait,
+            name:this.$route.query.username,
             user: {}
         }
     },

@@ -25,8 +25,12 @@
                             <img :src="media.cover" class="img">
                         </div>
                     </div>
-                    <div v-show="media.amount>0&&media.isPay" class="media-share j-share_click">
+                    <div v-if="media.amount>0&&media.isPay" class="media-share j-share_click">
                         <img src="../img/share2.png" alt="分享跟操盘" @click="share_show = true">
+                    </div>
+                    <div v-else >
+                        <p style="text-align: center;line-height: 20px;">阅读更多</p>
+                        <p style="text-align: center;line-height: 20px;">︾</p>
                     </div>
                     <div class="pay-content"> 
                         <div v-show="media.amount>0&&media.isPay" class="pay-panel"> 

@@ -54,7 +54,9 @@ export default {
 		return {
 			img:"http://tg.simutz.com/avatar/83564_middle.jpg",
 			list:{},
-			id:''
+			id:'',
+			username:'',
+			portrait:''
 		}
 	},
 	methods:{
@@ -63,7 +65,14 @@ export default {
 			
 		},
 		toSetUp(){
-			this.$router.push('/setUp')
+			this.$router.push({
+				path:'/setUp',
+				query:{
+					username:this.username,
+					portrait:this.portrait
+				}
+			})
+			
 		},
 		goLink () {
 			this.$router.push({
@@ -88,7 +97,8 @@ export default {
 		   	if(res.data.code!==200) return
 			this.list = res.data.data;
 			this.id = res.data.data.id;
-			
+			this.username = res.data.data.username;
+			this.portrait = res.data.data.portrait;
 		})
 		.catch( error=>{
 	　　　　console.log(error);
