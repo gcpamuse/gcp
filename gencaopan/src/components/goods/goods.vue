@@ -14,7 +14,7 @@
 			</van-tab>
 		</van-tabs>
 		<div class="conment" v-for="(item,index) in list" :key="item.id" :index="index">
-			<div  @click="toDetails(item.userId)" style="width: 80%;">
+			<div  @click="toDetails(item.userId,item.id)" style="width: 80%;">
 				<div class="left">
 					<span class="daoshi_shou">收</span>
 					<!-- <span class="daoshi_shou" v-if="item.free == 1">收</span> -->
@@ -48,7 +48,7 @@
 					<div class="dingyue">{{item.subscribeCount}}人已订阅</div>
 				</div>
 			</div>
-			<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine(item.userId)' confirm-button-color='#0BB20C'>
+			<van-dialog v-model="modePop" title="请阅者承诺" @confirm='determine(item.userId,item.id)' confirm-button-color='#0BB20C'>
 				<div class="content"> 
 					<p>1、仅作为自己学习之用，不违法违规使用和传播本软件的任何信息。</p>
 					<p>2、知晓投资风险，并且自行承担所有交易风险。</p>
@@ -121,7 +121,7 @@ import { Button, Toast } from 'vant';
                 //     console.log(res)
 				// });
 			},
-			determine(id){
+			determine(userId,id){
 				// 请求接口 判断是否有openid
 				let token = localStorage.getItem('Authorization');
 				if(token === null || token === ''){
@@ -144,7 +144,7 @@ import { Button, Toast } from 'vant';
 							.then(res => {
 								console.log(res.data);
 							});
-							this.$router.push({name: 'zhifu',params:{id:id}})
+							this.$router.push({name: 'zhifu',params:{userId:userId,id:id}})
 						}
 					});
 					
@@ -166,18 +166,33 @@ import { Button, Toast } from 'vant';
 				// });
 				// this.$router.push({name: 'zhifu'})
 			},
-			toDetails(id){
-				this.$router.push({name: 'futuresDetails',params:{id:id}})
+			toDetails(userId,id){
+				this.$router.push({name: 'futuresDetails',params:{userId:userId,id:id}})
 			},
-			scroller(){
-				var params = { 
-					currentPage: this.page,
-					pageSize: this.pageSize
-            	};
-				this.$axios.post('/futures/index',params).then((res) => {
-					console.log(res.data.data.rows)
-					this.list = res.data.data.rows;
-				});
+			scroller(index){
+				if(index==0){
+					var params = { 
+						currentPage: this.page,
+						pageSize: this.pageSize,
+						sort: "sort"
+					};
+					this.$axios.post('/futures/index',params).then((res) => {
+						console.log(res.data.data.rows)
+						this.list = res.data.data.rows;
+					});
+				}
+				if(index==1){
+					var params = { 
+						currentPage: this.page,
+						pageSize: this.pageSize,
+						sort: "accumulatedIncome"
+					};
+					this.$axios.post('/futures/index',params).then((res) => {
+						console.log(res.data.data.rows)
+						this.list = res.data.data.rows;
+					});
+				}
+				
 			},
 			isopenid(){
 				if(this.openid!=""&&this.openid!=null){
@@ -217,7 +232,8 @@ import { Button, Toast } from 'vant';
 			
 			var params = { 
 				currentPage: this.page,
-				pageSize: this.pageSize
+				pageSize: this.pageSize,
+				sort: "sort"
 			};
 			this.$axios.post('/futures/index',params).then((res) => {
 				console.log(res.data.data.rows)

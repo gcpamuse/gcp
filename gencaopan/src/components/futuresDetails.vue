@@ -22,7 +22,7 @@
                 <van-tabs active="b" line-height='0' background='#f6f6f6'>
                     <van-tab title="交易概况" name="a">
                         <div class="superior-con">
-                            <ary :id="id"></ary>
+                            <ary :id="userId"></ary>
                             
                             <p class="tip">订阅该导师后，即可查看该导师的交易记录</p> 
                             <h5 class="numone">历史交易记录</h5> 
@@ -46,14 +46,14 @@
                     </van-tab>
                     <van-tab title="净值分析" name="b">
                         <div class="superior-con">
-                            <netWorth :id="id"></netWorth>
+                            <netWorth :id="userId"></netWorth>
                             <h5 class="numone">出入金</h5> 
                             <div class="jy_crj"> 
                                 <div>出入金</div> 
                                 <div>金额</div> 
                                 <div>日期<font color="red">(*半年内)</font></div> 
                             </div> 
-                            <inoutMoney :id="id"></inoutMoney>
+                            <inoutMoney :id="userId"></inoutMoney>
                         </div>
                     </van-tab>
                     <van-tab title="实时持仓" name="c">
@@ -109,6 +109,7 @@ export default {
             guanzhu:true,
             biji:false,
             inoutList:[],
+            userId:this.$route.params.userId,
             id:this.$route.params.id,
             islogin:false,
             data:{},
@@ -126,7 +127,7 @@ export default {
     methods:{
         initData(){
             var params = { 
-                id: this.id,
+                id: this.userId,
             };
             this.$axios.post('/futures/info',params).then(res=>{
                 console.log(res.data.data)
@@ -139,7 +140,7 @@ export default {
             .catch( error=>{
         　　　　console.log(error);
         　　});
-        console.log("++++++||||||||"+this.id)
+        console.log("++++++||||||||"+this.userId)
         },
         // guanZhu(){
         //     var params = { 
@@ -219,6 +220,34 @@ export default {
         　　　　console.log(error);
         　　});
         },
+        toSubscribe(){
+            let token = localStorage.getItem('Authorization');
+            if(token === null || token === ''){
+                this.$toast('您需要登录后才可以订阅');
+                return false;
+            }else{
+                this.$axios.post('user').then(res=>{
+                    // if(res.data.code!==200) return
+                    this.openid = res.data.data.openid;	
+                    console.log(this.openid+"hhh1111");
+                    if(this.openid==""||this.openid==null){
+                        let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
+                        if (isWeiXin()) {
+                            window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
+                        }else {
+                            this.$router.push({name: 'wechatPay',params:{dd:1}}) 
+                        }
+                    }else{
+                        this.$axios.post("/user/data",{openid:this.openid})
+                        .then(res => {
+                            console.log(res.data);
+                        });
+                        this.$router.push({name: 'zhifu',params:{userId:this.userId,id:this.id}})
+                    }
+                });
+                
+            }
+        }
     },
     components:{
         ary,

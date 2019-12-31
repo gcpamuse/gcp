@@ -5,7 +5,7 @@
         <div class="imgs"><img :src="item.portrait" class="img"></div>
         <div class="count">
             <p>{{item.userName}}</p>
-            <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p>
+            <!-- <p class="count_c"><span>0</span>篇笔记&nbsp;被打赏<span>0元</span></p> -->
         </div>
     </div>
      

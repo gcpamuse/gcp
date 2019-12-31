@@ -24,6 +24,7 @@
         v-model="nameShow"
         show-cancel-button
         :before-close="nameBeforeClose"
+        @confirm="editname"
         >
             <van-field
                 v-model="name"
@@ -81,7 +82,13 @@ export default {
                     }
                 }).then(res=>{
                     console.log(res.data)
-                    this.avatar = "/api"+ res.data.data.fileName;
+                    this.avatar = res.data.data.fileName;
+                    this.$axios.post('user/data',{fileName : this.avatar}).then(ress => {
+                        console.log(ress)
+                    })
+                    .catch(error => {
+                    　　　　console.log("出错喽："+error);
+                    });
                 })
             }
         },
@@ -96,19 +103,30 @@ export default {
             reader.onload = function(e) {
                 that.avatar = this.result
             }
-        }
-    },
-    mounted(){
-        var params = {
+        },
+        editname(){
+            var params = {
                 username:this.name
             };
-        this.$axios.post('user/data',params).then(res => {
-                console.log(res)
-        })
-        .catch(error => {
-          　　　　console.log("出错喽："+error);
-        });
-    }
+            this.$axios.post('user/data',params).then(res => {
+                    console.log(res)
+            })
+            .catch(error => {
+            　　　　console.log("出错喽："+error);
+            });
+        }
+    },
+    // mounted(){
+    //     var params = {
+    //             username:this.name
+    //         };
+    //     this.$axios.post('user/data',params).then(res => {
+    //             console.log(res)
+    //     })
+    //     .catch(error => {
+    //       　　　　console.log("出错喽："+error);
+    //     });
+    // }
 }
 </script>
 

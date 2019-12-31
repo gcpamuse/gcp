@@ -48,12 +48,12 @@
                     </div>   
                 </div>
                 <div style="height:6px;background-color:#f2f2f2;"></div>
-                <div class="read-content"> 
+                <!-- <div class="read-content"> 
                     <div class="read-content-title"> 
                 
                         <span class="read-title-text">750人已阅</span> 
                     </div>
-                </div>
+                </div> -->
                 <div v-show="media.amount>0&&media.isPay" class="box"> 
                     <div class="imgs"><img src="../img/900500.jpg" alt="" class="img"></div> 
                     <div class="xushu">
@@ -194,7 +194,7 @@ export default {
             if(!Follow){
                 var params = { 
                     isFollow: true,
-                    followId: this.media.userId
+                    followId: this.id
                 };
                 console.log(params)
                 this.$axios.post('user/follow',params).then( res=>{
@@ -226,7 +226,7 @@ export default {
             this.toast_control = true;
         },
         toLookNotes(){
-            this.$router.push({name: 'looknotes',params: { id: this.media.id}})
+            this.$router.push({name: 'looknotes',params: { id: this.id}})
         },
         initdata(){
             // var param = {

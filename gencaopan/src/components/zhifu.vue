@@ -55,6 +55,7 @@ export default {
             radio1: '0',
             checkboxShape: true,
             gender: '',
+            userId:this.$route.params.userId,
             id:this.$route.params.id,
             month:0
         }
@@ -64,7 +65,7 @@ export default {
     },
     methods:{
         initData(){
-            this.$axios.post("/futures/pay",{id:this.id})
+            this.$axios.post("/futures/pay",{id:this.userId})
             .then(res => {
                 console.log(res.data);
                 this.month = res.data.data.month;
@@ -75,7 +76,13 @@ export default {
                 // alert('您未阅读并同意私募投资网协议');
                 this.$toast('您未阅读并同意私募投资网协议');
             }else{
-                
+                var params = { 
+					id: this.id
+				};
+				console.log(params)
+				this.$axios.post('/order/subscribe',params).then((res) => {
+					console.log(res)
+				}); 
             }
         },
         toChatPayment(){
