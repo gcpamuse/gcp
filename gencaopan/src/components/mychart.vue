@@ -51,6 +51,10 @@
                 
                 <ary v-if="xianshi" :id="id"></ary> 
                 <netWorth v-if="xshi" :id="id"></netWorth>
+                <!-- <div v-if="xshi">
+                    <netWorth v-if="bangding" :id="id"></netWorth>
+                    <netWorth v-else></netWorth>
+                </div> -->
                 
             </div> 
             <van-popup v-model="control" class="popu"> 
@@ -144,7 +148,8 @@ export default {
             data:{},
             name:"",
             portrait:"",
-            isFollow:false
+            isFollow:false,
+            bangding:false
         }
     },
     components:{
@@ -197,9 +202,10 @@ export default {
                 console.log(res.data.data);
                 if(res.data.data=="wait"){
                     this.$toast('正在生成曲线');
+                    // this.bangding = true;
                     setTimeout(() => {
                         this.generate = true;
-                    }, 3000);
+                    }, 500);
                 }else{
                     this.toast_control = true;
                 }
@@ -222,6 +228,7 @@ export default {
             this.$axios.post('/user/bindCfmmcAccount',params).then((res) => {
                 console.log(res)
             });
+            // this.bangding = true;
             this.toast_control = false;
             this.generate = true;
         },
