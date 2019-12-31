@@ -7,8 +7,8 @@
             <p class="guanzhu">请先关注</p>
             <p class="p_concent">请您关注本微信号，进而查看本软件信息和各项功能。长按二维码关注本微信号(期学堂)</p>
             <div style="text-align:center;">
-                <!-- <img src="../img/qxt_gzh.jpg" alt="跟操盘" style="width:60%;" /> -->
-                <div class="qr" id="qrcode" ref="qrcode"></div>
+                <img src="../img/qxt_gzh.jpg" alt="跟操盘" style="width:60%;" />
+                <!-- <div class="qr" id="qrcode" ref="qrcode"></div> -->
             </div>
         </van-dialog>
   </div>
@@ -26,9 +26,9 @@ export default {
         QRCode
     },
     mounted(){
-        this.$nextTick(() => {
-            this.qrcode()
-        })
+        // this.$nextTick(() => {
+        //     this.qrcode()
+        // })
     },
     methods:{
         toShouYe(){
@@ -36,13 +36,13 @@ export default {
                 path: '/'
             });
         },
-        qrcode () {
-            let qrcode = new QRCode('qrcode',{
-                width: 160, // 设置宽度，单位像素
-                height: 160, // 设置高度，单位像素
-                text: 'http://qxt.yuhaige.xyz/' // 设置二维码内容或跳转地址
-            })
-        }
+        // qrcode () {
+        //     let qrcode = new QRCode('qrcode',{
+        //         width: 160, // 设置宽度，单位像素
+        //         height: 160, // 设置高度，单位像素
+        //         text: 'http://qxt.yuhaige.xyz/' // 设置二维码内容或跳转地址
+        //     })
+        // }
     }
 }
 </script>

@@ -29,6 +29,10 @@ import './style.css'
 
 import QRCode from 'qrcodejs2'
 
+import {UrlSearch} from "./assets/fun"
+let Request = new UrlSearch()
+Vue.prototype.$Request = Request;
+
 //Vant
 import {Button ,Tabbar,TabbarItem,Tab,Tabs,Cell,CellGroup,Icon,Field,SwitchCell,Uploader,Dialog,RadioGroup,Radio,Checkbox,Toast,Popup,NavBar,List,Switch,DropdownMenu, DropdownItem,Area} from 'vant'
 Vue.use(Button);

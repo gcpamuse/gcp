@@ -127,9 +127,10 @@ import { Button, Toast } from 'vant';
 					if (isWeiXin()) {
 					// 	var domine ="http://qxt.yuhaige.xyz/#/zhifu";
 						window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
-						var const_href = window.location.search;
-						this.openid = const_href.split('=')[1];
-						alert('lll'+this.openid);
+						// var const_href = window.location.search;
+						// this.openid = const_href.split('=')[1];
+						this.openid = this.$Request.openid;
+						this.$toast('lll'+this.openid);
 					}else {
 						this.$router.push({name: 'wechatPay',params:{dd:1}}) 
 					}
