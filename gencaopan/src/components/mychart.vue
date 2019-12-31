@@ -168,7 +168,7 @@ export default {
             console.log(params);
             this.$axios.post('/futures/info',params).then(res=>{
                 console.log(res.data.data);
-                this.data = res.data.data;
+                let data = res.data.data;
                 this.name = data.user.name;
                 this.portrait = data.user.portrait;
                 this.isFollow = data.user.isFollow;

@@ -3,7 +3,7 @@
       <div data-role="page" data-dom-cache="true"  style="background-color:#fff;"> 
         <div data-role="main"> 
             <div class="superior-top fix" :style="bgImg"> 
-                <div class="pic"><img class="avatar" :src="user.portrait" alt=""/></div><!--../img/default_middle.png--> 
+                <div class="pic"><img class="avatar" :src="portrait" alt=""/></div><!--../img/default_middle.png--> 
                 <div class="superior-main"> 
                     <h2>{{user.name}}</h2> 
                     <div class="mychart_d"> 
@@ -115,7 +115,8 @@ export default {
             data:{},
             tradeRecords:[],
             subscribeStatus:"",
-            user:{}
+            user:{},
+            portrait:""
         }
     },
     mounted(){
@@ -131,15 +132,17 @@ export default {
             };
             this.$axios.post('/futures/info',params).then(res=>{
                 console.log(res.data.data)
-                this.data = res.data.data;
+                let data = res.data.data;
                 this.tradeRecords = data.tradeRecords;
                 this.subscribeStatus = data.subscribeStatus;
                 this.user = data.user;
-                console.log(this.data.newDate+".......")
+                this.portrait = data.user.portrait;
+                console.log(this.user.portrait+".......")
             })
             .catch( error=>{
         　　　　console.log(error);
         　　});
+        // console.log(this.portrait+".......")
         console.log("++++++||||||||"+this.userId)
         },
         // guanZhu(){
