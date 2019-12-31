@@ -50,11 +50,11 @@
             <div class="superior-content">
                 
                 <ary v-if="xianshi" :id="id"></ary> 
-                <netWorth v-if="xshi" :id="id"></netWorth>
-                <!-- <div v-if="xshi">
+                <!-- <netWorth v-if="xshi" :id="id"></netWorth> -->
+                <div v-if="xshi">
                     <netWorth v-if="bangding" :id="id"></netWorth>
                     <netWorth v-else></netWorth>
-                </div> -->
+                </div>
                 
             </div> 
             <van-popup v-model="control" class="popu"> 
@@ -149,7 +149,9 @@ export default {
             name:"",
             portrait:"",
             isFollow:false,
-            bangding:false
+            bangding:false,
+            isBindCfmmc: false,
+            isBindTq: false
         }
     },
     components:{
@@ -172,6 +174,8 @@ export default {
                 this.name = data.user.name;
                 this.portrait = data.user.portrait;
                 this.isFollow = data.user.isFollow;
+                // this.isBindCfmmc = data.user.isBindCfmmc;
+                // this.isBindTq = data.user.isBindTq;
                 console.log("%%%%------"+this.data)
             })
             .catch( error=>{
@@ -201,11 +205,13 @@ export default {
             this.$axios.post('/user/generateCurve').then((res) => {
                 console.log(res.data.data);
                 if(res.data.data=="wait"){
-                    this.$toast('正在生成曲线');
+                    // this.$toast('正在生成曲线');
                     // this.bangding = true;
-                    setTimeout(() => {
+                    // setTimeout(() => {
                         this.generate = true;
-                    }, 500);
+                    // }, 500);
+                }else if(res.data.data=="empty"){
+                    this.generate = true;
                 }else{
                     this.toast_control = true;
                 }
