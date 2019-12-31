@@ -132,7 +132,7 @@ import { Button, Toast } from 'vant';
 						// if(res.data.code!==200) return
 						this.openid = res.data.data.openid;	
 						console.log(this.openid+"hhh1111");
-						if(this.openid==""){
+						if(this.openid==""||this.openid==null){
 							let isWeiXin = () => { return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1 }
 							if (isWeiXin()) {
 								window.location.href="http://qxt.yuhaige.xyz/api/wechat/authorize?returnUrl=http%3a%2f%2fqxt.yuhaige.xyz%2f%23%2f";
@@ -180,7 +180,7 @@ import { Button, Toast } from 'vant';
 				});
 			},
 			isopenid(){
-				if(this.openid!=""){
+				if(this.openid!=""&&this.openid!=null){
 					this.$axios.post("/user/data",{openid:this.openid})
 					.then(res => {
 						console.log(res.data);

@@ -52,7 +52,7 @@
 export default {
     data(){
         return{
-            radio1: '200',
+            radio1: '0',
             checkboxShape: true,
             gender: '',
             id:this.$route.params.id,
